@@ -1,0 +1,21 @@
+package model;
+
+import provided.utils.dispatcher.IDispatcher;
+
+/**
+ * A command to pass to the ball from the dispatcher.
+ * 
+ * @author Kyle Derbabian
+ */
+@FunctionalInterface
+public interface IBallCmd {
+
+	/**
+	 * Something to do to the ball.
+	 *
+	 * @param context a Ball object
+	 * @param disp a dispatcher
+	 */
+	public abstract void apply(IBall context, IDispatcher<IBallCmd> disp);
+
+}
