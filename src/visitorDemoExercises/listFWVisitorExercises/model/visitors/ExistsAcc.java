@@ -3,10 +3,9 @@ package visitorDemoExercises.listFWVisitorExercises.model.visitors;
 import provided.listFW.visitors.AAccumulator;
 
 /**
- * TODO
+ * An accumulator that checks if a value exists.
  * 
  * @author Phoebe Scaccia
- *
  */
 public class ExistsAcc extends AAccumulator {
 
