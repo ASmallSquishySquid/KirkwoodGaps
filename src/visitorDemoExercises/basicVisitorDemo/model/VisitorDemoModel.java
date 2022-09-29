@@ -87,7 +87,7 @@ public class VisitorDemoModel {
 	 * @param visitorClassname The name of the visitor class, without the leading "visitors.impl."
 	 * @return  The results of the visitor execution on the given host.
 	 */
-	public Object run(IHost host, String visitorClassname) {
+	public Object run(IHost host, String visitorClassname, String param) {
 		return  host.execute(loadVisitor(visitorClassname), new Consumer<Consumer<Graphics>>() {
 
 			@Override
@@ -96,7 +96,7 @@ public class VisitorDemoModel {
 				view.repaint();
 			}
 			
-		});
+		}, param);
 	}
 
 

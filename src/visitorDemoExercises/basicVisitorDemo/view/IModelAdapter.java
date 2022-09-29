@@ -22,7 +22,7 @@ public interface IModelAdapter<CBoxItem> {
 	 * @param visitorClassname  The name of the visitor to use, though the leading "visitors.impl." part is missing.
 	 * @return  The results of this particular algorithm.
 	 */
-	String run(CBoxItem host, String visitorClassname);
+	String run(CBoxItem host, String visitorClassname, String param);
 	
 	/**
 	 * Ask the model to paint something on this Graphics object.

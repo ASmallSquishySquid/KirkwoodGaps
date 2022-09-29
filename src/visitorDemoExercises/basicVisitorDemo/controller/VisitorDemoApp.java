@@ -47,8 +47,8 @@ public class VisitorDemoApp {
 			}
 
 			@Override
-			public String run(IHost host, String visitorClassname) {
-				return (String) model.run(host, visitorClassname);
+			public String run(IHost host, String visitorClassname, String param) {
+				return (String) model.run(host, visitorClassname, param);
 			}
 
 			@Override

@@ -62,6 +62,7 @@ public class DemoFrame<CBoxItem> extends javax.swing.JFrame {
 	 * Adapter to the model
 	 */
 	private IModelAdapter<CBoxItem> model;
+	private final JTextField paramTF = new JTextField();
 
 
 
@@ -72,6 +73,9 @@ public class DemoFrame<CBoxItem> extends javax.swing.JFrame {
 	 */
 	public DemoFrame(int closeAction, IModelAdapter<CBoxItem> model) {
 		super();
+		paramTF.setText("comp310");
+		paramTF.setToolTipText("Type in something forr an input parameter to be passed to the TxtFieldVisitor1/2 when they are executed.");
+		paramTF.setColumns(10);
 		this.model = model;
 		setDefaultCloseOperation(closeAction);
 		initGUI();
@@ -114,7 +118,7 @@ public class DemoFrame<CBoxItem> extends javax.swing.JFrame {
 			executeBtn.setText("Execute!");
 			executeBtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					String result = model.run(hostCBx.getItemAt(hostCBx.getSelectedIndex()), visitorTF.getText());
+					String result = model.run(hostCBx.getItemAt(hostCBx.getSelectedIndex()), visitorTF.getText(), paramTF.getText());
 					outputTA.append("RESULT = "+result+"\n");
 				}
 			});
@@ -123,6 +127,8 @@ public class DemoFrame<CBoxItem> extends javax.swing.JFrame {
 			visitorTF.setColumns(10);
 			controlPnl.add(visitorTF);
 			visitorTF.setText("Visitor1");
+			
+			controlPnl.add(paramTF);
 
 			pack();
 			this.setSize(632, 337);
