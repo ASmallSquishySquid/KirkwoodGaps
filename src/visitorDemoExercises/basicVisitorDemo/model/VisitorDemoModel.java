@@ -85,6 +85,7 @@ public class VisitorDemoModel {
 	 * to this model object is given as the visitor's input parameter.
 	 * @param host  An IHost object
 	 * @param visitorClassname The name of the visitor class, without the leading "visitors.impl."
+	 * @param param a String representing the user's input
 	 * @return  The results of the visitor execution on the given host.
 	 */
 	public Object run(IHost host, String visitorClassname, String param) {

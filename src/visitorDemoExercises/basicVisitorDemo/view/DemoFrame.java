@@ -62,6 +62,10 @@ public class DemoFrame<CBoxItem> extends javax.swing.JFrame {
 	 * Adapter to the model
 	 */
 	private IModelAdapter<CBoxItem> model;
+	
+	/**
+	 * A JTextField for inputting the parameter.
+	 */
 	private final JTextField paramTF = new JTextField();
 
 

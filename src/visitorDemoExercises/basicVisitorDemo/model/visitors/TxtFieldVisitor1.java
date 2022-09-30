@@ -5,6 +5,12 @@ import provided.basicVisitorFW.HostB;
 import provided.basicVisitorFW.HostC;
 import provided.basicVisitorFW.IVisitor;
 
+/**
+ * A visitor class that gives host and input dependent output. 
+ * Assuming the input is a verb, each host's output will print that the host can perform that verb.
+ * @author Annita Chang
+ *
+ */
 public class TxtFieldVisitor1 implements IVisitor {
 
 	@Override

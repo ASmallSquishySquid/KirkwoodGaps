@@ -5,6 +5,11 @@ import provided.basicVisitorFW.HostB;
 import provided.basicVisitorFW.HostC;
 import provided.basicVisitorFW.IVisitor;
 
+/**
+ * A simple visitor class that has different outputs for different host.
+ * @author Annita Chang
+ *
+ */
 public class BasicVisitor1 implements IVisitor {
 
 	@Override

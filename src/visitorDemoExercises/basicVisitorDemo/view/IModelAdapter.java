@@ -20,6 +20,7 @@ public interface IModelAdapter<CBoxItem> {
 	 * Ask the model to process the given host object with the given a visitor
 	 * @param host  A host item
 	 * @param visitorClassname  The name of the visitor to use, though the leading "visitors.impl." part is missing.
+	 * @param param a string representing the input parameter
 	 * @return  The results of this particular algorithm.
 	 */
 	String run(CBoxItem host, String visitorClassname, String param);
