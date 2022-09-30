@@ -1,6 +1,3 @@
-/**
- * 
- */
 package visitorDemoExercises.listFWVisitorExercises.model.visitors;
 
 import provided.listFW.visitors.AAccumulator;
@@ -9,7 +6,6 @@ import provided.listFW.visitors.AAccumulator;
  * Sums everything starting at the given index.
  * 
  * @author Phoebe Scaccia
- *
  */
 public class SumRightAcc extends AAccumulator {
 
@@ -27,9 +23,9 @@ public class SumRightAcc extends AAccumulator {
 	 * 
 	 * @param value the starting index
 	 */
-	public SumRightAcc(Object value) {
+	public SumRightAcc(String value) {
 		super(0);
-		this.startIndex = Integer.parseInt((String) value);
+		this.startIndex = Integer.parseInt(value);
 		this.curIndex = 0;
 	}
 

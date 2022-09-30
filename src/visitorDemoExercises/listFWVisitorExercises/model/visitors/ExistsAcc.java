@@ -19,9 +19,9 @@ public class ExistsAcc extends AAccumulator {
 	 * 
 	 * @param value a String containing the value to search for
 	 */
-	public ExistsAcc(Object value) {
+	public ExistsAcc(String value) {
 		super(false);
-		this.search = Integer.parseInt((String) value);
+		this.search = Integer.parseInt(value);
 	}
 
 	@Override

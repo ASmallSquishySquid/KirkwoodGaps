@@ -9,7 +9,6 @@ import provided.listFW.NEList;
  * Removes the smallest value from the list.
  * 
  * @author Phoebe Scaccia
- *
  */
 public class RemoveSmallestAlgo implements IListAlgo {
 

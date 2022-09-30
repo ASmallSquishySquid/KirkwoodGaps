@@ -9,7 +9,6 @@ import model.BallModel;
 import model.adapters.IViewControlAdapter;
 import model.adapters.IViewUpdateAdapter;
 import model.visitors.algos.AConfigBallAlgo;
-import model.visitors.algos.IBallAlgo;
 import provided.utils.displayModel.IATImage;
 import view.BallGUI;
 import view.IModelControlAdapter;
