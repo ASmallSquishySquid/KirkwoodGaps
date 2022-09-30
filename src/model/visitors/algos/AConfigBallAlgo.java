@@ -1,10 +1,14 @@
-package model;
+package model.visitors.algos;
 
 import java.awt.Graphics;
 
+import model.IBall;
+import model.IBallAlgo2ModelAdapter;
 import model.strategies.interact.IInteractStrategy;
 import model.strategies.paint.IPaintStrategy;
 import model.strategies.update.IUpdateStrategy;
+import model.visitors.cmds.ABallAlgoCmd;
+import model.visitors.cmds.IBallCmd;
 import provided.logger.ILogger;
 import provided.logger.ILoggerControl;
 import provided.utils.dispatcher.IDispatcher;

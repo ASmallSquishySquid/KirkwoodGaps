@@ -4,12 +4,12 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 import model.ABall;
-import model.ABallAlgoCmd;
-import model.BallAlgo;
 import model.DefaultBall;
 import model.IBall;
-import model.IBallCmd;
 import model.strategies.update.PoppingStrategy;
+import model.visitors.algos.BallAlgo;
+import model.visitors.cmds.ABallAlgoCmd;
+import model.visitors.cmds.IBallCmd;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.logger.LogLevel;
 import provided.utils.dispatcher.IDispatcher;

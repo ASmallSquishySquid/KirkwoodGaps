@@ -4,7 +4,7 @@
 package model.strategies.update;
 
 import model.IBall;
-import model.IBallCmd;
+import model.visitors.cmds.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
 
 /**

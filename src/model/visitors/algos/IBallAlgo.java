@@ -1,5 +1,6 @@
-package model;
+package model.visitors.algos;
 
+import model.IBall;
 import provided.ballworld.extVisitors.IBallHostAlgo;
 
 /**

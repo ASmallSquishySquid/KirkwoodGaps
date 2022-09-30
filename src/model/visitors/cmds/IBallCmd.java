@@ -1,5 +1,6 @@
-package model;
+package model.visitors.cmds;
 
+import model.IBall;
 import provided.utils.dispatcher.IDispatcher;
 
 /**

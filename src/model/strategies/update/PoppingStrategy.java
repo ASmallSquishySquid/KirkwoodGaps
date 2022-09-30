@@ -2,7 +2,7 @@ package model.strategies.update;
 
 import model.ABall;
 import model.IBall;
-import model.IBallCmd;
+import model.visitors.cmds.IBallCmd;
 import provided.logger.LogLevel;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.valueGenerator.impl.Randomizer;

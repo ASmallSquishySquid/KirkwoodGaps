@@ -3,9 +3,9 @@ package model.strategies.update;
 import java.awt.Graphics;
 import model.ABall;
 import model.IBall;
-import model.IBallCmd;
 import model.strategies.criteria.ICriteriaStrategy;
 import model.strategies.paint.IPaintStrategy;
+import model.visitors.cmds.IBallCmd;
 import provided.logger.LogLevel;
 import provided.utils.dispatcher.IDispatcher;
 

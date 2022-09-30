@@ -12,6 +12,8 @@ import model.strategies.interact.IInteractStrategy;
 import model.strategies.paint.IPaintStrategy;
 import model.strategies.update.IUpdateStrategy;
 import model.strategies.update.StraightStrategy;
+import model.visitors.algos.IBallAlgo;
+import model.visitors.cmds.IBallCmd;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.ballworld.extVisitors.impl.ABallHost;
 import provided.logger.ILogger;

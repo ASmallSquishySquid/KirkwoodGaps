@@ -4,7 +4,7 @@ import java.awt.Point;
 import java.awt.geom.Point2D;
 
 import model.IBall;
-import model.IBallCmd;
+import model.visitors.cmds.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
 
 /**

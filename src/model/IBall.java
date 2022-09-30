@@ -10,6 +10,7 @@ import model.strategies.criteria.ICriteriaStrategy;
 import model.strategies.interact.IInteractStrategy;
 import model.strategies.paint.IPaintStrategy;
 import model.strategies.update.IUpdateStrategy;
+import model.visitors.cmds.IBallCmd;
 import provided.ballworld.extVisitors.IBallHost;
 import provided.logger.ILogger;
 import provided.utils.dispatcher.IDispatcher;

@@ -16,7 +16,7 @@ public interface IInteractStrategy<IBallCmd> {
 	/**
 	 * Null strategy with no-op behavior.
 	 */
-	public static final IInteractStrategy<model.IBallCmd> NULL_STRATEGY = new IInteractStrategy<model.IBallCmd>() {
+	public static final IInteractStrategy<model.visitors.cmds.IBallCmd> NULL_STRATEGY = new IInteractStrategy<model.visitors.cmds.IBallCmd>() {
 
 		@Override
 		/**
@@ -25,7 +25,7 @@ public interface IInteractStrategy<IBallCmd> {
 		public void init(IBall context) {}
 
 		@Override
-		public model.IBallCmd interact(IBall context, IBall target, IDispatcher<model.IBallCmd> dispatcher) {
+		public model.visitors.cmds.IBallCmd interact(IBall context, IBall target, IDispatcher<model.visitors.cmds.IBallCmd> dispatcher) {
 			return null;
 		}
 		
