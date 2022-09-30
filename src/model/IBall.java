@@ -10,8 +10,10 @@ import model.strategies.criteria.ICriteriaStrategy;
 import model.strategies.interact.IInteractStrategy;
 import model.strategies.paint.IPaintStrategy;
 import model.strategies.update.IUpdateStrategy;
+import provided.ballworld.extVisitors.IBallHost;
 import provided.logger.ILogger;
 import provided.utils.dispatcher.IDispatcher;
+import provided.utils.dispatcher.IObserver;
 import provided.utils.displayModel.IATImage;
 
 /**
@@ -19,7 +21,7 @@ import provided.utils.displayModel.IATImage;
  *
  * @author Phoebe Scaccia
  */
-public interface IBall {
+public interface IBall extends IObserver<IBallCmd>, IBallHost<IBall> {
 
 	/**
 	 * Updates the Ball's status.
@@ -62,13 +64,6 @@ public interface IBall {
 	 * @param dispatcher the dispatcher.
 	 */
 	public void interact(IDispatcher<IBallCmd> dispatcher);
-
-	/**
-	 * Execute the given algorithm
-	 *
-	 * @param algo The algorithm to execute
-	 */
-	public void execute(IBallAlgo algo);
 
 	/**
 	 * @return the Ball's location.
