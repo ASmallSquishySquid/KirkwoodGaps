@@ -1,4 +1,4 @@
-package model;
+package model.adapters;
 
 /**
  * Interface that goes from the model to the view that enables the model to talk to the view.

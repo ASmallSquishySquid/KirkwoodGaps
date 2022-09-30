@@ -8,6 +8,11 @@ import java.awt.Rectangle;
 
 import javax.swing.Timer;
 
+import model.adapters.IModel2BallAdapter;
+import model.adapters.IViewControlAdapter;
+import model.adapters.IViewUpdateAdapter;
+import model.balls.DefaultBall;
+import model.balls.IBall;
 import model.strategies.criteria.CompositeCriteriaStrategy;
 import model.strategies.criteria.ErrorCriteriaStrategy;
 import model.strategies.criteria.ICriteriaStrategy;

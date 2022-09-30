@@ -3,7 +3,7 @@ package model.strategies.paint;
 import java.awt.Graphics;
 import java.awt.geom.AffineTransform;
 
-import model.IBall;
+import model.balls.IBall;
 
 /**
  * A strategy that combines multiple paint strategies.

@@ -1,6 +1,6 @@
 package model.strategies.interact;
 
-import model.IBall;
+import model.balls.IBall;
 import model.strategies.update.ErrorUpdateStrategy;
 import model.visitors.cmds.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;

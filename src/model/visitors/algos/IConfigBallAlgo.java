@@ -1,6 +1,6 @@
 package model.visitors.algos;
 
-import model.IBallAlgo2ModelAdapter;
+import model.adapters.IBallAlgo2ModelAdapter;
 import model.visitors.cmds.ABallAlgoCmd;
 import provided.logger.ILoggerControl;
 

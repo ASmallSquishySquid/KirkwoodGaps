@@ -2,7 +2,7 @@ package model.strategies.paint;
 
 import java.awt.Graphics;
 
-import model.IBall;
+import model.balls.IBall;
 
 /**
  * An interface for the possible paint strategies.

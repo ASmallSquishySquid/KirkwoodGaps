@@ -3,8 +3,8 @@ package model.strategies.update;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import model.DefaultBall;
-import model.IBall;
+import model.balls.DefaultBall;
+import model.balls.IBall;
 import model.visitors.algos.BallAlgo;
 import model.visitors.cmds.ABallAlgoCmd;
 import model.visitors.cmds.IBallCmd;

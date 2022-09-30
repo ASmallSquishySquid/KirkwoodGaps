@@ -1,8 +1,9 @@
 package model.strategies.update;
 
 import java.awt.Graphics;
-import model.ABall;
-import model.IBall;
+
+import model.balls.ABall;
+import model.balls.IBall;
 import model.strategies.criteria.ICriteriaStrategy;
 import model.strategies.paint.IPaintStrategy;
 import model.visitors.cmds.IBallCmd;

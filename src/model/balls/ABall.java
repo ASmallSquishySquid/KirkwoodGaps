@@ -1,4 +1,4 @@
-package model;
+package model.balls;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.geom.Point2D;
 
+import model.adapters.IModel2BallAdapter;
 import model.strategies.criteria.ICriteriaStrategy;
 import model.strategies.interact.IInteractStrategy;
 import model.strategies.paint.IPaintStrategy;

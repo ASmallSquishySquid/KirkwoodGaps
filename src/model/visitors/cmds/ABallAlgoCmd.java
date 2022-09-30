@@ -1,6 +1,6 @@
 package model.visitors.cmds;
 
-import model.IBall;
+import model.balls.IBall;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.ballworld.extVisitors.impl.ABallHostAlgoCmd;
 import provided.logger.ILoggerControl;

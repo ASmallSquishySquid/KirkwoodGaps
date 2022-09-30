@@ -1,6 +1,6 @@
 package model.visitors.algos;
 
-import model.IBall;
+import model.balls.IBall;
 import model.visitors.cmds.ABallAlgoCmd;
 import provided.ballworld.extVisitors.impl.ABallHostAlgo;
 

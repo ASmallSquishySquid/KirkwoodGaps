@@ -7,7 +7,7 @@ import java.awt.Graphics;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 
-import model.IBall;
+import model.balls.IBall;
 
 /**
  * A strategy that paints a shape that is always upright.

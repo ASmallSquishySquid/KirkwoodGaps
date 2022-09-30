@@ -4,7 +4,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.geom.Point2D;
 
-import model.IBall;
+import model.balls.IBall;
 import model.visitors.cmds.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.valueGenerator.impl.Randomizer;

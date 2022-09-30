@@ -6,8 +6,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import model.BallModel;
-import model.IViewControlAdapter;
-import model.IViewUpdateAdapter;
+import model.adapters.IViewControlAdapter;
+import model.adapters.IViewUpdateAdapter;
 import model.visitors.algos.IBallAlgo;
 import provided.utils.displayModel.IATImage;
 import view.BallGUI;

@@ -1,6 +1,6 @@
 package model.strategies.criteria;
 
-import model.IBall;
+import model.balls.IBall;
 import model.strategies.update.ErrorUpdateStrategy;
 
 /**

@@ -1,4 +1,4 @@
-package model;
+package model.adapters;
 
 /**
  * The adapter from the ball algos to the model

@@ -3,9 +3,9 @@ package model.strategies.interact;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import model.ABall;
-import model.DefaultBall;
-import model.IBall;
+import model.balls.ABall;
+import model.balls.DefaultBall;
+import model.balls.IBall;
 import model.strategies.update.PoppingStrategy;
 import model.visitors.algos.BallAlgo;
 import model.visitors.cmds.ABallAlgoCmd;

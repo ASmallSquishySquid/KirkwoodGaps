@@ -1,6 +1,6 @@
 package model.strategies.paint;
 
-import model.IBall;
+import model.balls.IBall;
 import provided.logger.LogLevel;
 
 /**

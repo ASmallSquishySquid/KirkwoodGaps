@@ -2,7 +2,7 @@ package model.strategies.paint;
 
 import java.awt.Graphics;
 
-import model.IBall;
+import model.balls.IBall;
 
 /**
  * A strategy that paints the DVD image symbol.

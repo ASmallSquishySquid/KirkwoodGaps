@@ -5,7 +5,7 @@ package model.strategies.paint;
 
 import java.awt.Graphics;
 
-import model.IBall;
+import model.balls.IBall;
 import model.strategies.update.ErrorUpdateStrategy;
 
 /**

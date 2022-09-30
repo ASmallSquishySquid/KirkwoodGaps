@@ -1,7 +1,7 @@
 package model.strategies.update;
 
-import model.ABall;
-import model.IBall;
+import model.balls.ABall;
+import model.balls.IBall;
 import model.visitors.cmds.IBallCmd;
 import provided.logger.LogLevel;
 import provided.utils.dispatcher.IDispatcher;

@@ -3,7 +3,7 @@ package model.strategies.paint;
 import java.awt.Graphics;
 import java.awt.geom.Point2D;
 
-import model.IBall;
+import model.balls.IBall;
 
 /**
  * A paint strategy that paints a circular ball.

@@ -1,4 +1,4 @@
-package model;
+package model.adapters;
 
 import java.awt.Component;
 import java.awt.Image;

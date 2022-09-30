@@ -2,7 +2,7 @@ package model.strategies.criteria;
 
 import java.awt.Color;
 
-import model.IBall;
+import model.balls.IBall;
 
 /**
  * A strategy where the criteria is similar colors.

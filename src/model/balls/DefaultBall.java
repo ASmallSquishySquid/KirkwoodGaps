@@ -1,9 +1,10 @@
-package model;
+package model.balls;
 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Point;
 
+import model.adapters.IModel2BallAdapter;
 import model.visitors.algos.IBallAlgo;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.ballworld.extVisitors.impl.BallHostIDFactory;

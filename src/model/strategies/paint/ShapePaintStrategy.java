@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 
-import model.IBall;
+import model.balls.IBall;
 
 /**
  * A strategy that paints a shape.

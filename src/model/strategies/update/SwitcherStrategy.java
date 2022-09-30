@@ -1,6 +1,6 @@
 package model.strategies.update;
 
-import model.IBall;
+import model.balls.IBall;
 import model.visitors.cmds.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
 

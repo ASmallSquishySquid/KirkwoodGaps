@@ -3,8 +3,8 @@ package model.strategies.interact;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
-import model.ABall;
-import model.IBall;
+import model.balls.ABall;
+import model.balls.IBall;
 import model.visitors.cmds.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
 
