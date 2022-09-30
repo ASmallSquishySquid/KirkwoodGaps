@@ -6,6 +6,6 @@
  * @author swong
  *
  */
-module f22_hw06_comp310_f22_hw06_03 {
+module hw06 {
 	requires java.desktop;
 }

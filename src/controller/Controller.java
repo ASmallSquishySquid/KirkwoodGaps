@@ -31,7 +31,7 @@ public class Controller {
 	/**
 	 * The frame where everything is displayed (the view).
 	 */
-	private BallGUI<IBallAlgo> view;
+	private BallGUI<IBallAlgo<Void, Void>> view;
 
 	/**
 	 * Constructor for a new Controller.
@@ -58,26 +58,26 @@ public class Controller {
 
 		});
 
-		this.view = new BallGUI<>(new IModelControlAdapter<IBallAlgo>() {
+		this.view = new BallGUI<>(new IModelControlAdapter<IBallAlgo<Void, Void>>() {
 
 			@Override
-			public IBallAlgo addPaintStrategy(String classname) {
+			public IBallAlgo<Void, Void> addPaintStrategy(String classname) {
 				return model.makePaintStrategyAlgo(classname);
 			}
 
 			@Override
-			public IBallAlgo addUpdateStrategy(String classname) {
+			public IBallAlgo<Void, Void> addUpdateStrategy(String classname) {
 				return model.makeUpdateStrategyAlgo(classname);
 			}
 			
 
 			@Override
-			public IBallAlgo addCriteriaStrategy(String classname) {
+			public IBallAlgo<Void, Void> addCriteriaStrategy(String classname) {
 				return model.makeCriteriaStrategyAlgo(classname);
 			}
 			
 			@Override
-			public IBallAlgo addInteractStrategy(String classname) {
+			public IBallAlgo<Void, Void> addInteractStrategy(String classname) {
 				return model.makeInteractStrategyAlgo(classname);
 			}
 
@@ -92,17 +92,17 @@ public class Controller {
 			}
 
 			@Override
-			public void makeBall(IBallAlgo selectedItem) {
+			public void makeBall(IBallAlgo<Void, Void> selectedItem) {
 				model.loadBall(selectedItem);
 			}
 
 			@Override
-			public IBallAlgo combineStrategies(IBallAlgo selectedItem1, IBallAlgo selectedItem2) {
+			public IBallAlgo<Void, Void> combineStrategies(IBallAlgo<Void, Void> selectedItem1, IBallAlgo<Void, Void> selectedItem2) {
 				return model.combineStrategyAlgos(selectedItem1, selectedItem2);
 			}
 
 			@Override
-			public void switchStrategy(IBallAlgo selectedItem) {
+			public void switchStrategy(IBallAlgo<Void, Void> selectedItem) {
 				model.switchStrategy(selectedItem);
 			}
 

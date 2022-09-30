@@ -4,11 +4,13 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 import model.ABall;
+import model.ABallAlgoCmd;
+import model.BallAlgo;
 import model.DefaultBall;
 import model.IBall;
-import model.IBallAlgo;
 import model.IBallCmd;
 import model.strategies.update.PoppingStrategy;
+import provided.ballworld.extVisitors.IBallHostID;
 import provided.logger.LogLevel;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.valueGenerator.impl.Randomizer;
@@ -51,14 +53,19 @@ public class ExplosionStrategy implements IInteractStrategy<IBallCmd> {
 								.randomVel(new Rectangle((int) Math.round(target.getVelocity().x * 2), (int) Math.round(target.getVelocity().y * 2)));
 
 						dispatcher.addObserver(new DefaultBall(new Point(location), explodedRadius, newVelocity,
-								target.getColor(), target.getContainer(), new IBallAlgo() {
+								target.getColor(), target.getContainer(), new BallAlgo<Void, Void>(new ABallAlgoCmd<Void, Void>() {
+									/**
+									 * For serialization.
+									 */
+									private static final long serialVersionUID = 1L;
 
 									@Override
-									public void caseDefault(IBall newContext) {
+									public Void apply(IBallHostID index, IBall newContext, Void... params) {
 										newContext.setUpdateStrategy(new PoppingStrategy());
 										newContext.setPaintStrategy(target.getPaintStrategy());
+										return null;
 									}
-								}, target.getAdapter()));
+								}), target.getAdapter()));
 					}
 				}
 			}

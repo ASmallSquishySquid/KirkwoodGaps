@@ -35,7 +35,7 @@ public class DefaultBall extends ABall {
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	public DefaultBall(Point p, int r, Point v, Color c, Component container, IBallAlgo installAlgo,
+	public DefaultBall(Point p, int r, Point v, Color c, Component container, IBallAlgo<Void, Void> installAlgo,
 			IModel2BallAdapter modelAdapter) {
 		super(id, p, r, v, c, container, installAlgo, modelAdapter);
 	}

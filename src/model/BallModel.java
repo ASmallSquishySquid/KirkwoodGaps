@@ -22,6 +22,7 @@ import model.strategies.update.CompositeUpdateStrategy;
 import model.strategies.update.ErrorUpdateStrategy;
 import model.strategies.update.IUpdateStrategy;
 import model.strategies.update.StraightStrategy;
+import provided.ballworld.extVisitors.IBallHostID;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.dispatcher.IObserver;
 import provided.utils.dispatcher.impl.SequentialDispatcher;
@@ -55,9 +56,14 @@ public class BallModel {
 	/**
 	 * A strategy that clears the current strategy.
 	 */
-	private IBallAlgo clearStrategy = new IBallAlgo() {
+	private BallAlgo<Void, Void> clearStrategy = new BallAlgo<>(new ABallAlgoCmd<Void, Void>() {
+		/**
+		 * For serialization.
+		 */
+		private static final long serialVersionUID = -2452545543095265330L;
+
 		@Override
-		public void caseDefault(IBall context) {
+		public Void apply(IBallHostID index, IBall context, Void... params) {
 			context.setPaintStrategy(new IPaintStrategy() {
 
 				@Override
@@ -98,18 +104,26 @@ public class BallModel {
 					return;
 				}
 			});
+			
+			return null;
 		}
-	};
+	});
 	/**
 	 * The dummy switcher ball that hold all the strategies.
 	 */
-	private IBall switcherBall = new DefaultBall(new Point(), 0, new Point(), null, null, new IBallAlgo() {
+	private DefaultBall switcherBall = new DefaultBall(new Point(), 0, new Point(), null, null, new BallAlgo<>(new ABallAlgoCmd<Void, Void>() {
+		/**
+		 * For serialization.
+		 */
+		private static final long serialVersionUID = -8185269178029656500L;
+
 		@Override
-		public void caseDefault(IBall context) {
+		public Void apply(IBallHostID index, IBall context, Void... params) {
 			context.execute(clearStrategy);
 			context.setPaintStrategy(new BallStrategy());
+			return null;
 		}
-	}, new IModel2BallAdapter() {
+	}), new IModel2BallAdapter() {
 		@Override
 		public IATImage getImageWrapper(Image image) {
 			return viewCtrlAdpt.getIATImage(image);
@@ -180,15 +194,21 @@ public class BallModel {
 	/**
 	 * The algorithm to build a new switcher ball.
 	 */
-	private IBallAlgo switcherInstallAlgo = new IBallAlgo() {
+	private BallAlgo<Void, Void> switcherInstallAlgo = new BallAlgo<>(new ABallAlgoCmd<Void, Void>() {
+		/**
+		 * For serialization.
+		 */
+		private static final long serialVersionUID = 3997292467495661508L;
+
 		@Override
-		public void caseDefault(IBall context) {
+		public Void apply(IBallHostID index, IBall context, Void... params) {
 			context.setUpdateStrategy(switcherUpdateStrategy);
 			context.setPaintStrategy(switcherPaintStrategy);
 			context.setCriteriaStrategy(switcherCriteriaStrategy);
 			context.setInteractStrategy(switcherInteractStrategy);
-		}
-	};
+			return null;
+		}	
+	});
 	/**
 	 * The IObjectLoader object which loads in paint strategies.
 	 */
@@ -256,14 +276,20 @@ public class BallModel {
 	 * Loads a ABall with a strategy from the given strategy factory.
 	 * @param ballAlgo an algorithm to configure the ball
 	 */
-	public void loadBall(IBallAlgo ballAlgo) {
+	public void loadBall(IBallAlgo<Void, Void> ballAlgo) {
 		if (ballAlgo == null) {
-			ballAlgo = new IBallAlgo() {
+			ballAlgo = new BallAlgo<>(new ABallAlgoCmd<Void, Void>() {
+				/**
+				 * For serialization.
+				 */
+				private static final long serialVersionUID = 621278619163413741L;
+
 				@Override
-				public void caseDefault(IBall context) {
+				public Void apply(IBallHostID index, IBall context, Void... params) {
 					context.setUpdateStrategy(new ErrorUpdateStrategy());
+					return null;
 				}
-			};
+			});
 		}
 		
 		// Generate a new ball with random parameters.
@@ -315,23 +341,20 @@ public class BallModel {
 	 * @param classname Shortened name of desired strategy
 	 * @return An algorithm to install the specified strategy
 	 */
-	public IBallAlgo makeUpdateStrategyAlgo(final String classname) {
-		return new IBallAlgo() {
+	public IBallAlgo<Void, Void> makeUpdateStrategyAlgo(final String classname) {
+		return new BallAlgo<>(classname, new ABallAlgoCmd<Void, Void>() {
+			/**
+			 * For serialization.
+			 */
+			private static final long serialVersionUID = 6696640655546320160L;
 
 			@Override
-			public void caseDefault(IBall context) {
+			public Void apply(IBallHostID index, IBall context, Void... params) {
 				context.setUpdateStrategy(new CompositeUpdateStrategy(context.getUpdateStrategy(),
 						loadUpdateStrategy(fixUpdateName(classname))));
+				return null;
 			}
-
-			/**
-			 * Return the given class name string
-			 */
-			@Override
-			public String toString() {
-				return classname;
-			}
-		};
+		});
 	}
 
 	/**
@@ -345,23 +368,20 @@ public class BallModel {
 	 * @param classname Shortened name of desired strategy
 	 * @return An algorithm to install the specified strategy
 	 */
-	public IBallAlgo makePaintStrategyAlgo(final String classname) {
-		return new IBallAlgo() {
+	public IBallAlgo<Void, Void> makePaintStrategyAlgo(final String classname) {
+		return new BallAlgo<>(classname, new ABallAlgoCmd<Void, Void>() {
+			/**
+			 * For serialization.
+			 */
+			private static final long serialVersionUID = 6696640655546320160L;
 
 			@Override
-			public void caseDefault(IBall context) {
+			public Void apply(IBallHostID index, IBall context, Void... params) {
 				context.setPaintStrategy(new CompositePaintStrategy(context.getPaintStrategy(),
 						loadPaintStrategy(fixPaintName(classname))));
+				return null;
 			}
-
-			/**
-			 * Return the given class name string
-			 */
-			@Override
-			public String toString() {
-				return classname;
-			}
-		};
+		});
 	}
 	
 	/**
@@ -375,23 +395,20 @@ public class BallModel {
 	 * @param classname Shortened name of desired strategy
 	 * @return An algorithm to install the specified strategy
 	 */
-	public IBallAlgo makeCriteriaStrategyAlgo(final String classname) {
-		return new IBallAlgo() {
+	public IBallAlgo<Void, Void> makeCriteriaStrategyAlgo(final String classname) {
+		return new BallAlgo<>(classname, new ABallAlgoCmd<Void, Void>() {
+			/**
+			 * For serialization.
+			 */
+			private static final long serialVersionUID = 4090602791233660336L;
 
 			@Override
-			public void caseDefault(IBall context) {
+			public Void apply(IBallHostID index, IBall context, Void... params) {
 				context.setCriteriaStrategy(new CompositeCriteriaStrategy(context.getCriteriaStrategy(),
 						loadCriteriaStrategy(fixCriteriaName(classname))));
+				return null;
 			}
-
-			/**
-			 * Return the given class name string
-			 */
-			@Override
-			public String toString() {
-				return classname;
-			}
-		};
+		});
 	}
 	
 	/**
@@ -405,23 +422,20 @@ public class BallModel {
 	 * @param classname Shortened name of desired strategy
 	 * @return An algorithm to install the specified strategy
 	 */
-	public IBallAlgo makeInteractStrategyAlgo(final String classname) {
-		return new IBallAlgo() {
+	public IBallAlgo<Void, Void> makeInteractStrategyAlgo(final String classname) {
+		return new BallAlgo<>(classname, new ABallAlgoCmd<Void, Void>() {
+			/**
+			 * For serialization.
+			 */
+			private static final long serialVersionUID = -7629858473454208289L;
 
 			@Override
-			public void caseDefault(IBall context) {
+			public Void apply(IBallHostID index, IBall context, Void... params) {
 				context.setInteractStrategy(new CompositeInteractStrategy(context.getInteractStrategy(),
 						loadInteractStrategy(fixInteractName(classname))));
+				return null;
 			}
-
-			/**
-			 * Return the given class name string
-			 */
-			@Override
-			public String toString() {
-				return classname;
-			}
-		};
+		});
 	}
 
 	/**
@@ -435,30 +449,30 @@ public class BallModel {
 	 * @param ballAlgo2 Another ball processing algorithm
 	 * @return An IBallAlgo that is a composition of the two algorithms
 	 */
-	public IBallAlgo combineStrategyAlgos(final IBallAlgo ballAlgo1, final IBallAlgo ballAlgo2) {
+	public IBallAlgo<Void, Void> combineStrategyAlgos(final IBallAlgo<Void, Void> ballAlgo1, final IBallAlgo<Void, Void> ballAlgo2) {
 		if (ballAlgo1 == null || ballAlgo2 == null) {
 			return this.makeUpdateStrategyAlgo("Error");
 		} else {
-			return new IBallAlgo() {
+			return new BallAlgo<>(ballAlgo1.toString() + "-" + ballAlgo2.toString(), new ABallAlgoCmd<Void, Void>() {
+				/**
+				 * For serialization.
+				 */
+				private static final long serialVersionUID = -7539908168085002601L;
 
 				@Override
-				public void caseDefault(IBall context) {
+				public Void apply(IBallHostID index, IBall context, Void... params) {
 					context.execute(ballAlgo1);
 					context.execute(ballAlgo2);
+					return null;
 				}
-
-				@Override
-				public String toString() {
-					return ballAlgo1.toString() + "-" + ballAlgo2.toString();
-				}
-			};
+			});
 		}
 	}
 
 	/**
 	 * @return the switcherInstallAlgo
 	 */
-	public IBallAlgo getSwitcherInstallAlgo() {
+	public IBallAlgo<Void, Void> getSwitcherInstallAlgo() {
 		return switcherInstallAlgo;
 	}
 
@@ -467,7 +481,7 @@ public class BallModel {
 	 *
 	 * @param newAlgo a new set of strategies to use
 	 */
-	public void switchStrategy(IBallAlgo newAlgo) {
+	public void switchStrategy(IBallAlgo<Void, Void> newAlgo) {
 		this.switcherBall.execute(clearStrategy);
 		this.switcherBall.execute(newAlgo);
 	}
@@ -476,7 +490,7 @@ public class BallModel {
 	 * @return the default ball strategy.
 	 */
 	public String getDefaultPaintStrategy() {
-		return "ABall";
+		return "Ball";
 	}
 
 	/**

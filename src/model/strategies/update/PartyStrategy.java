@@ -4,10 +4,12 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.Rectangle;
 import model.ABall;
+import model.ABallAlgoCmd;
+import model.BallAlgo;
 import model.DefaultBall;
 import model.IBall;
-import model.IBallAlgo;
 import model.IBallCmd;
+import provided.ballworld.extVisitors.IBallHostID;
 import provided.logger.LogLevel;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.valueGenerator.impl.Randomizer;
@@ -61,14 +63,19 @@ public class PartyStrategy implements IUpdateStrategy {
 							.randomVel(new Rectangle((int) Math.round(context.getVelocity().x * 2), (int) Math.round(context.getVelocity().y * 2)));
 
 					dispatcher.addObserver(new DefaultBall(new Point(location), context.getRadius() / 2, newVelocity,
-							this.originalColor, context.getContainer(), new IBallAlgo() {
+							this.originalColor, context.getContainer(), new BallAlgo<Void, Void>(new ABallAlgoCmd<Void, Void>() {
+								/**
+								 * For serialization.
+								 */
+								private static final long serialVersionUID = 1763700560347592493L;
 
 								@Override
-								public void caseDefault(IBall newContext) {
+								public Void apply(IBallHostID index, IBall newContext, Void... params) {
 									newContext.setUpdateStrategy(new PoppingStrategy());
 									newContext.setPaintStrategy(context.getPaintStrategy());
+									return null;
 								}
-							}, context.getAdapter()));
+							}), context.getAdapter()));
 				}
 			}
 		} else if (this.bounces == 0) {

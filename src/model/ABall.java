@@ -130,7 +130,7 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	protected ABall(IBallHostID id, Point p, int r, Point v, Color c, Component container, IBallAlgo installAlgo,
+	protected ABall(IBallHostID id, Point p, int r, Point v, Color c, Component container, IBallAlgo<Void, Void> installAlgo,
 			IModel2BallAdapter modelAdapter) {
 		super(id);
 		this.pos = new Point2D.Double(p.x, p.y);
