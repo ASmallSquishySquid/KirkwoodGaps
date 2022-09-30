@@ -1,17 +1,19 @@
 package model.visitors.algos;
 
-import java.awt.Graphics;
-
 import model.adapters.IBallAlgo2ModelAdapter;
 import model.balls.IBall;
+import model.strategies.criteria.CompositeCriteriaStrategy;
+import model.strategies.criteria.ICriteriaStrategy;
+import model.strategies.interact.CompositeInteractStrategy;
 import model.strategies.interact.IInteractStrategy;
+import model.strategies.paint.CompositePaintStrategy;
 import model.strategies.paint.IPaintStrategy;
+import model.strategies.update.CompositeUpdateStrategy;
 import model.strategies.update.IUpdateStrategy;
 import model.visitors.cmds.ABallAlgoCmd;
 import model.visitors.cmds.IBallCmd;
 import provided.logger.ILogger;
 import provided.logger.ILoggerControl;
-import provided.utils.dispatcher.IDispatcher;
 
 /**
  * Abstract implementation of a ball configuration algorithm.
@@ -34,7 +36,7 @@ public abstract class AConfigBallAlgo extends BallAlgo<Void, Void> implements IC
 	 * The logger in use
 	 */
 	protected ILogger logger = ILoggerControl.getSharedLogger();
-
+	
 	/**
 	 * Constructs a configuration algorithm with a no-op default case and the given adapter to the model.
 	 * Use this constructor when the default case command needs to reference instance fields and methods of 
@@ -101,22 +103,7 @@ public abstract class AConfigBallAlgo extends BallAlgo<Void, Void> implements IC
 	 */
 	protected void installUpdateStrategy(IBall host, IUpdateStrategy newStrat) {
 		// Make composite with existing strategy
-		host.setUpdateStrategy(new IUpdateStrategy() {
-			IUpdateStrategy strat1 = host.getUpdateStrategy();
-			IUpdateStrategy strat2 = newStrat;
-			
-			@Override
-			public void updateState(IBall context, IDispatcher<IBallCmd> disp, boolean bounced) {
-				strat1.updateState(context, disp, bounced);
-				strat2.updateState(context, disp, bounced);
-			}
-	
-			@Override
-			public void init(IBall host) {
-				strat1.init(host);
-				strat2.init(host);
-			}	
-		});
+		host.setUpdateStrategy(new CompositeUpdateStrategy(host.getUpdateStrategy(), newStrat));
 	}
 
 	/**
@@ -126,22 +113,17 @@ public abstract class AConfigBallAlgo extends BallAlgo<Void, Void> implements IC
 	 */
 	protected void installPaintStrategy(IBall host, IPaintStrategy newStrat) {
 		// Make composite with existing strategy
-		host.setPaintStrategy(new IPaintStrategy() {
-			IPaintStrategy strat1 = host.getPaintStrategy();
-			IPaintStrategy strat2 = newStrat;
-			
-			@Override
-			public void paint(Graphics g, IBall host) {
-				strat1.paint(g, host);
-				strat2.paint(g, host);
-			}
+		host.setPaintStrategy(new CompositePaintStrategy(host.getPaintStrategy(), newStrat));
+	}
 	
-			@Override
-			public void init(IBall host) {
-				strat1.init(host);
-				strat2.init(host);
-			}
-		});
+	/**
+	 * Convenience method to install a paint strategy into the given host ball.
+	 * @param host  The host ball to install the given paint strategy into
+	 * @param newStrat The paint strategy to install into the host ball
+	 */
+	protected void installCriteriaStrategy(IBall host, ICriteriaStrategy newStrat) {
+		// Make composite with existing strategy
+		host.setCriteriaStrategy(new CompositeCriteriaStrategy(host.getCriteriaStrategy(), newStrat));
 	}	
 	
 	/**
@@ -151,28 +133,6 @@ public abstract class AConfigBallAlgo extends BallAlgo<Void, Void> implements IC
 	 */
 	protected void installInteractStrategy(IBall host, IInteractStrategy<IBallCmd> newStrat) {
 		// Make composite with existing strategy
-		host.setInteractStrategy(new IInteractStrategy<IBallCmd>() {
-			IInteractStrategy<IBallCmd> strat1 = host.getInteractStrategy();
-			IInteractStrategy<IBallCmd> strat2 = newStrat;
-			
-			@Override
-			public IBallCmd interact(IBall host, IBall other, IDispatcher<IBallCmd> disp) {
-				IBallCmd cmd1 = strat1.interact(host, other, disp);
-				IBallCmd cmd2 = strat2.interact(host, other, disp);
-				return new IBallCmd() {
-					@Override
-					public void apply(IBall host, IDispatcher<IBallCmd> disp) {
-						cmd1.apply(host, disp);
-						cmd2.apply(host, disp);
-					}
-				};		
-			}
-	
-			@Override
-			public void init(IBall host) {
-				strat1.init(host);
-				strat2.init(host);
-			}		
-		});
+		host.setInteractStrategy(new CompositeInteractStrategy(host.getInteractStrategy(), newStrat));
 	}
 }

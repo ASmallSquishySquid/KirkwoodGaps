@@ -8,6 +8,7 @@ import java.awt.Image;
 import model.BallModel;
 import model.adapters.IViewControlAdapter;
 import model.adapters.IViewUpdateAdapter;
+import model.visitors.algos.AConfigBallAlgo;
 import model.visitors.algos.IBallAlgo;
 import provided.utils.displayModel.IATImage;
 import view.BallGUI;
@@ -31,7 +32,7 @@ public class Controller {
 	/**
 	 * The frame where everything is displayed (the view).
 	 */
-	private BallGUI<IBallAlgo<Void, Void>> view;
+	private BallGUI<AConfigBallAlgo> view;
 
 	/**
 	 * Constructor for a new Controller.
@@ -58,26 +59,26 @@ public class Controller {
 
 		});
 
-		this.view = new BallGUI<>(new IModelControlAdapter<IBallAlgo<Void, Void>>() {
+		this.view = new BallGUI<>(new IModelControlAdapter<AConfigBallAlgo>() {
 
 			@Override
-			public IBallAlgo<Void, Void> addPaintStrategy(String classname) {
+			public AConfigBallAlgo addPaintStrategy(String classname) {
 				return model.makePaintStrategyAlgo(classname);
 			}
 
 			@Override
-			public IBallAlgo<Void, Void> addUpdateStrategy(String classname) {
+			public AConfigBallAlgo addUpdateStrategy(String classname) {
 				return model.makeUpdateStrategyAlgo(classname);
 			}
 			
 
 			@Override
-			public IBallAlgo<Void, Void> addCriteriaStrategy(String classname) {
+			public AConfigBallAlgo addCriteriaStrategy(String classname) {
 				return model.makeCriteriaStrategyAlgo(classname);
 			}
 			
 			@Override
-			public IBallAlgo<Void, Void> addInteractStrategy(String classname) {
+			public AConfigBallAlgo addInteractStrategy(String classname) {
 				return model.makeInteractStrategyAlgo(classname);
 			}
 
@@ -92,17 +93,17 @@ public class Controller {
 			}
 
 			@Override
-			public void makeBall(IBallAlgo<Void, Void> selectedItem) {
+			public void makeBall(AConfigBallAlgo selectedItem) {
 				model.loadBall(selectedItem);
 			}
 
 			@Override
-			public IBallAlgo<Void, Void> combineStrategies(IBallAlgo<Void, Void> selectedItem1, IBallAlgo<Void, Void> selectedItem2) {
+			public AConfigBallAlgo combineStrategies(AConfigBallAlgo selectedItem1, AConfigBallAlgo selectedItem2) {
 				return model.combineStrategyAlgos(selectedItem1, selectedItem2);
 			}
 
 			@Override
-			public void switchStrategy(IBallAlgo<Void, Void> selectedItem) {
+			public void switchStrategy(AConfigBallAlgo selectedItem) {
 				model.switchStrategy(selectedItem);
 			}
 

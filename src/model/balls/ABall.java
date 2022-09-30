@@ -13,7 +13,7 @@ import model.strategies.interact.IInteractStrategy;
 import model.strategies.paint.IPaintStrategy;
 import model.strategies.update.IUpdateStrategy;
 import model.strategies.update.StraightStrategy;
-import model.visitors.algos.IBallAlgo;
+import model.visitors.algos.AConfigBallAlgo;
 import model.visitors.cmds.IBallCmd;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.ballworld.extVisitors.impl.ABallHost;
@@ -133,7 +133,7 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	protected ABall(IBallHostID id, Point p, int r, Point v, Color c, Component container, IBallAlgo<Void, Void> installAlgo,
+	protected ABall(IBallHostID id, Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
 			IModel2BallAdapter modelAdapter) {
 		super(id);
 		this.pos = new Point2D.Double(p.x, p.y);

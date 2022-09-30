@@ -7,10 +7,10 @@ import model.balls.ABall;
 import model.balls.DefaultBall;
 import model.balls.IBall;
 import model.strategies.update.PoppingStrategy;
-import model.visitors.algos.BallAlgo;
-import model.visitors.cmds.ABallAlgoCmd;
+import model.visitors.algos.CompositeConfigBallAlgo;
+import model.visitors.algos.ConfigPaintBallAlgo;
+import model.visitors.algos.ConfigUpdateBallAlgo;
 import model.visitors.cmds.IBallCmd;
-import provided.ballworld.extVisitors.IBallHostID;
 import provided.logger.LogLevel;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.valueGenerator.impl.Randomizer;
@@ -53,19 +53,9 @@ public class ExplosionStrategy implements IInteractStrategy<IBallCmd> {
 								.randomVel(new Rectangle((int) Math.round(target.getVelocity().x * 2), (int) Math.round(target.getVelocity().y * 2)));
 
 						dispatcher.addObserver(new DefaultBall(new Point(location), explodedRadius, newVelocity,
-								target.getColor(), target.getContainer(), new BallAlgo<Void, Void>(new ABallAlgoCmd<Void, Void>() {
-									/**
-									 * For serialization.
-									 */
-									private static final long serialVersionUID = 1L;
-
-									@Override
-									public Void apply(IBallHostID index, IBall newContext, Void... params) {
-										newContext.setUpdateStrategy(new PoppingStrategy());
-										newContext.setPaintStrategy(target.getPaintStrategy());
-										return null;
-									}
-								}), target.getAdapter()));
+								target.getColor(), target.getContainer(), new CompositeConfigBallAlgo(
+										new ConfigUpdateBallAlgo(null, new PoppingStrategy()), 
+										new ConfigPaintBallAlgo(null, target.getPaintStrategy())), target.getAdapter()));
 					}
 				}
 			}

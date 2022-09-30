@@ -7,10 +7,10 @@ import java.awt.Rectangle;
 import model.balls.ABall;
 import model.balls.DefaultBall;
 import model.balls.IBall;
-import model.visitors.algos.BallAlgo;
-import model.visitors.cmds.ABallAlgoCmd;
+import model.visitors.algos.CompositeConfigBallAlgo;
+import model.visitors.algos.ConfigPaintBallAlgo;
+import model.visitors.algos.ConfigUpdateBallAlgo;
 import model.visitors.cmds.IBallCmd;
-import provided.ballworld.extVisitors.IBallHostID;
 import provided.logger.LogLevel;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.valueGenerator.impl.Randomizer;
@@ -64,19 +64,10 @@ public class PartyStrategy implements IUpdateStrategy {
 							.randomVel(new Rectangle((int) Math.round(context.getVelocity().x * 2), (int) Math.round(context.getVelocity().y * 2)));
 
 					dispatcher.addObserver(new DefaultBall(new Point(location), context.getRadius() / 2, newVelocity,
-							this.originalColor, context.getContainer(), new BallAlgo<Void, Void>(new ABallAlgoCmd<Void, Void>() {
-								/**
-								 * For serialization.
-								 */
-								private static final long serialVersionUID = 1763700560347592493L;
-
-								@Override
-								public Void apply(IBallHostID index, IBall newContext, Void... params) {
-									newContext.setUpdateStrategy(new PoppingStrategy());
-									newContext.setPaintStrategy(context.getPaintStrategy());
-									return null;
-								}
-							}), context.getAdapter()));
+							this.originalColor, context.getContainer(), new CompositeConfigBallAlgo(
+									new ConfigUpdateBallAlgo(null, new PoppingStrategy()), 
+									new ConfigPaintBallAlgo(null, context.getPaintStrategy())), 
+							context.getAdapter()));
 				}
 			}
 		} else if (this.bounces == 0) {
