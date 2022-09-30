@@ -17,7 +17,6 @@ import provided.ballworld.extVisitors.impl.ABallHost;
 import provided.logger.ILogger;
 import provided.logger.ILoggerControl;
 import provided.utils.dispatcher.IDispatcher;
-import provided.utils.dispatcher.IObserver;
 import provided.utils.displayModel.IATImage;
 
 /**
