@@ -61,11 +61,11 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 */
 	private final JButton btnClear = new JButton("Clear All");
 	/**
-	 * The button to make a Switcher ABall appear.
+	 * The button to make a Switcher Ball appear.
 	 */
 	private final JButton btnMakeSwitcher = new JButton("Make Switcher");
 	/**
-	 * Determines the type of the ABall created from pressing btnMakeBall, and the strategy of the Switcher Balls when btnSwitcher is pressed.
+	 * Determines the type of the Ball created from pressing btnMakeBall, and the strategy of the Switcher Balls when btnSwitcher is pressed.
 	 */
 	private final JComboBox<TDropListItem> boxType1 = new JComboBox<TDropListItem>();
 	/**
@@ -83,7 +83,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 	/**
 	 * Makes a ABall with the strategy of boxType1.
 	 */
-	private final JButton btnMakeBall = new JButton("Make Selected ABall");
+	private final JButton btnMakeBall = new JButton("Make Selected Ball");
 	/**
 	 * When btnAdd is pressed, add txtInput as an option in boxType1 and boxType2.
 	 */
