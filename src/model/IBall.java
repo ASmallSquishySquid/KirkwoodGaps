@@ -24,10 +24,10 @@ import provided.utils.displayModel.IATImage;
 public interface IBall extends IObserver<IBallCmd>, IBallHost<IBall> {
 
 	/**
-	 * Updates the Ball's status.
+	 * Updates the ABall's status.
 	 * 
-	 * @param disp the IDispatcher of the Ball.
-	 * @param cmd a command to apply to the Ball
+	 * @param disp the IDispatcher of the ABall.
+	 * @param cmd a command to apply to the ABall
 	 */
 	void update(IDispatcher<IBallCmd> disp, IBallCmd cmd);
 
@@ -52,96 +52,96 @@ public interface IBall extends IObserver<IBallCmd>, IBallHost<IBall> {
 	public void updateState(IDispatcher<IBallCmd> dispatcher, boolean didBounce);
 
 	/**
-	 * Paints the Ball.
+	 * Paints the ABall.
 	 *
 	 * @param g the Graphics object to paint on.
 	 */
 	public void paint(Graphics g);
 	
 	/**
-	 * Has the Ball interact with other balls.
+	 * Has the ABall interact with other balls.
 	 *
 	 * @param dispatcher the dispatcher.
 	 */
 	public void interact(IDispatcher<IBallCmd> dispatcher);
 
 	/**
-	 * @return the Ball's location.
+	 * @return the ABall's location.
 	 */
 	Point2D.Double getLocation();
 
 	/**
-	 * @param pos : the Ball's new location.
+	 * @param pos : the ABall's new location.
 	 */
 	void setLocation(Point2D.Double pos);
 
 	/**
-	 * @return the Ball's radius.
+	 * @return the ABall's radius.
 	 */
 	int getRadius();
 
 	/**
-	 * @param radius : the Ball's new radius.
+	 * @param radius : the ABall's new radius.
 	 */
 	void setRadius(int radius);
 
 	/**
-	 * @return the Ball's velocity.
+	 * @return the ABall's velocity.
 	 */
 	Point2D.Double getVelocity();
 
 	/**
-	 * @param velocity : the Ball's new velocity.
+	 * @param velocity : the ABall's new velocity.
 	 */
 	void setVelocity(Point2D.Double velocity);
 
 	/**
-	 * @return the Ball's color.
+	 * @return the ABall's color.
 	 */
 	Color getColor();
 
 	/**
-	 * @param color : the Ball's new color.
+	 * @param color : the ABall's new color.
 	 */
 	void setColor(Color color);
 
 	/**
-	 * @return the Ball's paint strategy.
+	 * @return the ABall's paint strategy.
 	 */
 	IPaintStrategy getPaintStrategy();
 
 	/**
-	 * @param strategy : the Ball's new paint strategy.
+	 * @param strategy : the ABall's new paint strategy.
 	 */
 	void setPaintStrategy(IPaintStrategy strategy);
 
 	/**
-	 * @return the Ball's update strategy.
+	 * @return the ABall's update strategy.
 	 */
 	IUpdateStrategy getUpdateStrategy();
 
 	/**
-	 * @param strategy : the Ball's new update strategy.
+	 * @param strategy : the ABall's new update strategy.
 	 */
 	void setUpdateStrategy(IUpdateStrategy strategy);
 	
 	/**
-	 * @return the Ball's criteria strategy.
+	 * @return the ABall's criteria strategy.
 	 */
 	ICriteriaStrategy getCriteriaStrategy();
 
 	/**
-	 * @param strategy : the Ball's new criteria strategy.
+	 * @param strategy : the ABall's new criteria strategy.
 	 */
 	void setCriteriaStrategy(ICriteriaStrategy strategy);
 	
 	/**
-	 * @return the Ball's strategy.
+	 * @return the ABall's strategy.
 	 */
 	IInteractStrategy<IBallCmd> getInteractStrategy();
 
 	/**
-	 * @param strategy : the Ball's new strategy.
+	 * @param strategy : the ABall's new strategy.
 	 */
 	void setInteractStrategy(IInteractStrategy<IBallCmd> strategy);
 

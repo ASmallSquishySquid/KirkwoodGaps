@@ -14,7 +14,7 @@ public interface IPaintStrategy {
 	/**
 	 * Sets up the paint strategy.
 	 * 
-	 * @param context a Ball object
+	 * @param context a ABall object
 	 */
 	public void init(IBall context);
 
@@ -22,7 +22,7 @@ public interface IPaintStrategy {
 	 * Paints according to the strategy.
 	 *
 	 * @param g a Graphics object
-	 * @param context a Ball object
+	 * @param context a ABall object
 	 */
 	public void paint(Graphics g, IBall context);
 

@@ -3,7 +3,8 @@ package model.strategies.interact;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import model.Ball;
+import model.ABall;
+import model.DefaultBall;
 import model.IBall;
 import model.IBallAlgo;
 import model.IBallCmd;
@@ -31,7 +32,7 @@ public class ExplosionStrategy implements IInteractStrategy<IBallCmd> {
 			@Override
 			public void apply(IBall context, IDispatcher<IBallCmd> disp) {
 				target.getLogger().log(LogLevel.INFO, "BOOM!");
-				dispatcher.removeObserver((Ball) target);
+				dispatcher.removeObserver((ABall) target);
 				
 				Point location = new Point((int) Math.round(target.getLocation().x), (int) Math.round(target.getLocation().y));
 				int explodedRadius = target.getRadius() / 2;
@@ -49,7 +50,7 @@ public class ExplosionStrategy implements IInteractStrategy<IBallCmd> {
 						Point newVelocity = Randomizer.Singleton
 								.randomVel(new Rectangle((int) Math.round(target.getVelocity().x * 2), (int) Math.round(target.getVelocity().y * 2)));
 
-						dispatcher.addObserver(new Ball(new Point(location), explodedRadius, newVelocity,
+						dispatcher.addObserver(new DefaultBall(new Point(location), explodedRadius, newVelocity,
 								target.getColor(), target.getContainer(), new IBallAlgo() {
 
 									@Override

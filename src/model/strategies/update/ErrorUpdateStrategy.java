@@ -1,7 +1,7 @@
 package model.strategies.update;
 
 import java.awt.Graphics;
-import model.Ball;
+import model.ABall;
 import model.IBall;
 import model.IBallCmd;
 import model.strategies.criteria.ICriteriaStrategy;
@@ -72,7 +72,7 @@ public class ErrorUpdateStrategy implements IUpdateStrategy {
 		}
 		if (this.messages == 0) {
 			context.getLogger().log(LogLevel.INFO, "ErrorBall removed.");
-			dispatcher.removeObserver((Ball) context);
+			dispatcher.removeObserver((ABall) context);
 		}
 	}	
 

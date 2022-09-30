@@ -1,6 +1,6 @@
 package model.strategies.update;
 
-import model.Ball;
+import model.ABall;
 import model.IBall;
 import model.IBallCmd;
 import provided.logger.LogLevel;
@@ -33,7 +33,7 @@ public class PoppingStrategy implements IUpdateStrategy {
 			this.bounces--;
 			if (this.bounces < 0) {
 				context.getLogger().log(LogLevel.INFO, "POP!");
-				dispatcher.removeObserver((Ball) context);
+				dispatcher.removeObserver((ABall) context);
 			}
 		}
 	}

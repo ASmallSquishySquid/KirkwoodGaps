@@ -8,7 +8,7 @@ import model.IBall;
 import provided.utils.displayModel.IATImage;
 
 /**
- * Paint strategy that paints an image from a file, scaled to the host Ball's radius.
+ * Paint strategy that paints an image from a file, scaled to the host ABall's radius.
  * 
  * @author Phoebe Scaccia
  *

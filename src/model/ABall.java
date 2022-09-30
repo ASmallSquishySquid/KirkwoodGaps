@@ -12,6 +12,8 @@ import model.strategies.interact.IInteractStrategy;
 import model.strategies.paint.IPaintStrategy;
 import model.strategies.update.IUpdateStrategy;
 import model.strategies.update.StraightStrategy;
+import provided.ballworld.extVisitors.IBallHostID;
+import provided.ballworld.extVisitors.impl.ABallHost;
 import provided.logger.ILogger;
 import provided.logger.ILoggerControl;
 import provided.utils.dispatcher.IDispatcher;
@@ -19,35 +21,39 @@ import provided.utils.dispatcher.IObserver;
 import provided.utils.displayModel.IATImage;
 
 /**
- * Class for a Ball object.
+ * Class for a ABall object.
  *
  * @author Tim Louie
  * @author Phoebe Scaccia
  */
-public class Ball implements IObserver<IBallCmd>, IBall {
+public abstract class ABall extends ABallHost<IBall> implements IBall {
 
 	/**
-	 * The Ball's position.
+	 * For serialization.
+	 */
+	private static final long serialVersionUID = 8621380154015377436L;
+	/**
+	 * The ABall's position.
 	 */
 	private Point2D.Double pos;
 	/**
-	 * The Ball's radius.
+	 * The ABall's radius.
 	 */
 	private int radius;
 	/**
-	 * The Ball's velocity.
+	 * The ABall's velocity.
 	 */
 	private Point2D.Double vel;
 	/**
-	 * The Ball's color.
+	 * The ABall's color.
 	 */
 	private Color color;
 	/**
-	 * The Component the Ball is in.
+	 * The Component the ABall is in.
 	 */
 	private Component container;
 	/**
-	 * The Ball's paint strategy.
+	 * The ABall's paint strategy.
 	 */
 	private IPaintStrategy paintStrategy = new IPaintStrategy() {
 
@@ -62,7 +68,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 		}
 	};
 	/**
-	 * The Ball's update strategy.
+	 * The ABall's update strategy.
 	 */
 	private IUpdateStrategy updateStrategy = new StraightStrategy();
 	
@@ -83,7 +89,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	};
 	
 	/**
-	 * The Ball's interact strategy.
+	 * The ABall's interact strategy.
 	 */
 	private IInteractStrategy<IBallCmd> interactStrategy = new IInteractStrategy<IBallCmd>() {
 		
@@ -114,18 +120,20 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	private IModel2BallAdapter modelAdapter;
 
 	/**
-	 * Constructor for a Ball.
-	 *
-	 * @param p the Ball's position.
-	 * @param r the Ball's radius.
-	 * @param v the Ball's velocity.
-	 * @param c the Ball's color.
-	 * @param container the Ball's container.
+	 * Constructor for an ABall.
+	 * 
+	 * @param id the subclass ID
+	 * @param p the ABall's position.
+	 * @param r the ABall's radius.
+	 * @param v the ABall's velocity.
+	 * @param c the ABall's color.
+	 * @param container the ABall's container.
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	public Ball(Point p, int r, Point v, Color c, Component container, IBallAlgo installAlgo,
+	protected ABall(IBallHostID id, Point p, int r, Point v, Color c, Component container, IBallAlgo installAlgo,
 			IModel2BallAdapter modelAdapter) {
+		super(id);
 		this.pos = new Point2D.Double(p.x, p.y);
 		this.radius = r;
 		this.vel = new Point2D.Double(v.x, v.y);
@@ -141,7 +149,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * @return the Ball's location.
+	 * @return the ABall's location.
 	 */
 	@Override
 	public Point2D.Double getLocation() {
@@ -149,7 +157,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * @param pos : the Ball's new location.
+	 * @param pos : the ABall's new location.
 	 */
 	@Override
 	public void setLocation(Point2D.Double pos) {
@@ -157,7 +165,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * @return the Ball's radius.
+	 * @return the ABall's radius.
 	 */
 	@Override
 	public int getRadius() {
@@ -165,7 +173,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * @param radius : the Ball's new radius.
+	 * @param radius : the ABall's new radius.
 	 */
 	@Override
 	public void setRadius(int radius) {
@@ -173,7 +181,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * @return the Ball's velocity.
+	 * @return the ABall's velocity.
 	 */
 	@Override
 	public Point2D.Double getVelocity() {
@@ -181,7 +189,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * @param velocity : the Ball's new velocity.
+	 * @param velocity : the ABall's new velocity.
 	 */
 	@Override
 	public void setVelocity(Point2D.Double velocity) {
@@ -189,7 +197,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * @return the Ball's color.
+	 * @return the ABall's color.
 	 */
 	@Override
 	public Color getColor() {
@@ -197,7 +205,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * @param color : the Ball's new color.
+	 * @param color : the ABall's new color.
 	 */
 	@Override
 	public void setColor(Color color) {
@@ -222,7 +230,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * @return the Ball's strategy.
+	 * @return the ABall's strategy.
 	 */
 	@Override
 	public IUpdateStrategy getUpdateStrategy() {
@@ -230,7 +238,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * @param strategy : the Ball's new strategy.
+	 * @param strategy : the ABall's new strategy.
 	 */
 	@Override
 	public void setUpdateStrategy(IUpdateStrategy strategy) {
@@ -354,16 +362,6 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 				}
 			}
 		});
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * <br>
-	 * Runs the default case of the algorithm.
-	 */
-	@Override
-	public void execute(IBallAlgo algo) {
-		algo.caseDefault(this);
 	}
 
 	@Override

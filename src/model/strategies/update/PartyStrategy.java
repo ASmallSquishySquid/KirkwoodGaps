@@ -3,7 +3,8 @@ package model.strategies.update;
 import java.awt.Color;
 import java.awt.Point;
 import java.awt.Rectangle;
-import model.Ball;
+import model.ABall;
+import model.DefaultBall;
 import model.IBall;
 import model.IBallAlgo;
 import model.IBallCmd;
@@ -49,7 +50,7 @@ public class PartyStrategy implements IUpdateStrategy {
 
 			if (this.bounces < 0) {
 				context.getLogger().log(LogLevel.INFO, "Time to party!");
-				dispatcher.removeObserver((Ball) context);
+				dispatcher.removeObserver((ABall) context);
 				Point location = new Point((int) Math.round(context.getLocation().x), (int) Math.round(context.getLocation().y));
 				// Generate a proportional number of popping balls.
 				for (int i = 0; i < context.getRadius() / 3; i++) {
@@ -59,7 +60,7 @@ public class PartyStrategy implements IUpdateStrategy {
 					Point newVelocity = r
 							.randomVel(new Rectangle((int) Math.round(context.getVelocity().x * 2), (int) Math.round(context.getVelocity().y * 2)));
 
-					dispatcher.addObserver(new Ball(new Point(location), context.getRadius() / 2, newVelocity,
+					dispatcher.addObserver(new DefaultBall(new Point(location), context.getRadius() / 2, newVelocity,
 							this.originalColor, context.getContainer(), new IBallAlgo() {
 
 								@Override

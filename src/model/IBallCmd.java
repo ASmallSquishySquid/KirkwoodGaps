@@ -13,7 +13,7 @@ public interface IBallCmd {
 	/**
 	 * Something to do to the ball.
 	 *
-	 * @param context a Ball object
+	 * @param context a ABall object
 	 * @param disp a dispatcher
 	 */
 	public abstract void apply(IBall context, IDispatcher<IBallCmd> disp);

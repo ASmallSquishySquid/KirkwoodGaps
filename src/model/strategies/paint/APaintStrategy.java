@@ -46,7 +46,7 @@ public abstract class APaintStrategy implements IPaintStrategy {
 	 * Paints and transforms the ball.
 	 *
 	 * @param g a Graphics object
-	 * @param context a Ball
+	 * @param context a ABall
 	 * @param at an AffineTransform object
 	 */
 	public abstract void paintTransform(Graphics g, IBall context, AffineTransform at);
@@ -55,7 +55,7 @@ public abstract class APaintStrategy implements IPaintStrategy {
 	 * Configures the painting of the object.
 	 *
 	 * @param g a Graphics object
-	 * @param context a Ball
+	 * @param context a ABall
 	 */
 	protected void paintCfg(Graphics g, IBall context) {
 		return;

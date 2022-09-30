@@ -69,7 +69,7 @@ public interface IModelControlAdapter<TDropListItem> {
 	public void clearBalls();
 
 	/**
-	 * Tells the model to make a Ball with strategy selectedItem.
+	 * Tells the model to make a ABall with strategy selectedItem.
 	 * @param selectedItem : an object from the top drop list.
 	 */
 	public void makeBall(TDropListItem selectedItem);

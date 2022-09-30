@@ -27,8 +27,8 @@ public class ElasticStrategy implements IInteractStrategy<IBallCmd> {
 	/**
 	 * Handles the interactions between the context and target
 	 * 
-	 * @param context a Ball object
-	 * @param target a Ball object that is not the context
+	 * @param context a ABall object
+	 * @param target a ABall object that is not the context
 	 * @param dispatcher the dispatcher
 	 */
 	@Override

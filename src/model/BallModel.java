@@ -37,15 +37,15 @@ import provided.utils.valueGenerator.impl.Randomizer;
 public class BallModel {
 
 	/**
-	 * The maximum radius of a Ball allowed.
+	 * The maximum radius of a ABall allowed.
 	 */
 	private int maxRadius = 30;
 	/**
-	 * THe minimum radius of a Ball allowed.
+	 * THe minimum radius of a ABall allowed.
 	 */
 	private int minRadius = 5;
 	/**
-	 * The maximum speed allowed for a Ball.
+	 * The maximum speed allowed for a ABall.
 	 */
 	private int maxSpeed = 10;
 	/**
@@ -103,7 +103,7 @@ public class BallModel {
 	/**
 	 * The dummy switcher ball that hold all the strategies.
 	 */
-	private IBall switcherBall = new Ball(new Point(), 0, new Point(), null, null, new IBallAlgo() {
+	private IBall switcherBall = new DefaultBall(new Point(), 0, new Point(), null, null, new IBallAlgo() {
 		@Override
 		public void caseDefault(IBall context) {
 			context.execute(clearStrategy);
@@ -253,7 +253,7 @@ public class BallModel {
 	}
 
 	/**
-	 * Loads a Ball with a strategy from the given strategy factory.
+	 * Loads a ABall with a strategy from the given strategy factory.
 	 * @param ballAlgo an algorithm to configure the ball
 	 */
 	public void loadBall(IBallAlgo ballAlgo) {
@@ -275,7 +275,7 @@ public class BallModel {
 		Point velocity = r.randomVel(new Rectangle(maxSpeed, maxSpeed));
 		Color color = r.randomColor();
 
-		IObserver<IBallCmd> ball = new Ball(position, radius, velocity, color, viewCtrlAdpt.getCanvas(), ballAlgo,
+		IObserver<IBallCmd> ball = new DefaultBall(position, radius, velocity, color, viewCtrlAdpt.getCanvas(), ballAlgo,
 				new IModel2BallAdapter() {
 					@Override
 					public IATImage getImageWrapper(Image image) {
@@ -476,7 +476,7 @@ public class BallModel {
 	 * @return the default ball strategy.
 	 */
 	public String getDefaultPaintStrategy() {
-		return "Ball";
+		return "ABall";
 	}
 
 	/**

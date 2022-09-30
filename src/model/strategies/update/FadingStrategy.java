@@ -2,7 +2,7 @@ package model.strategies.update;
 
 import java.awt.Color;
 
-import model.Ball;
+import model.ABall;
 import model.IBall;
 import model.IBallCmd;
 import provided.logger.LogLevel;
@@ -31,7 +31,7 @@ public class FadingStrategy implements IUpdateStrategy {
 			this.updateTransparency(context, fade);
 			if (context.getColor().getAlpha() == 0) {
 				context.getLogger().log(LogLevel.INFO, "It faded away :(");
-				dispatcher.removeObserver((Ball) context);
+				dispatcher.removeObserver((ABall) context);
 			}
 		}
 	}

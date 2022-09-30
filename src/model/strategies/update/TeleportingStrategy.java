@@ -34,7 +34,7 @@ public class TeleportingStrategy implements IUpdateStrategy {
 	/**
 	 * Generates a valid location for the ball within its bounds.
 	 *
-	 * @param context a Ball object
+	 * @param context a ABall object
 	 * @return a Point object
 	 */
 	private Point2D.Double generateValidLocation(IBall context) {

@@ -12,7 +12,7 @@ public interface IStrategyFac {
 
 	/**
 	 * Instantiates a specific IUpdateStrategy.
-	 * @return IUpdateStrategy for the Ball.
+	 * @return IUpdateStrategy for the ABall.
 	 */
 	public IUpdateStrategy make();
 

@@ -34,15 +34,15 @@ public interface IInteractStrategy<IBallCmd> {
 	/**
 	 * Sets up the interact strategy.
 	 * 
-	 * @param context a Ball object
+	 * @param context a ABall object
 	 */
 	public void init(IBall context);
 	
 	/**
 	 * Handles the interactions between the context and target
 	 * 
-	 * @param context a Ball object
-	 * @param target a Ball object that is not the context
+	 * @param context a ABall object
+	 * @param target a ABall object that is not the context
 	 * @param dispatcher the dispatcher
 	 * 
 	 * @return an IBallCmd

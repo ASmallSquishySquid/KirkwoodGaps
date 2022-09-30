@@ -3,7 +3,7 @@ package model.strategies.interact;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
-import model.Ball;
+import model.ABall;
 import model.IBall;
 import model.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
@@ -49,12 +49,12 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 					// Check which ball needs to be removed.
 					
 					if (contextBall.getRadius() > target.getRadius()) {
-						disp.removeObserver((Ball) target);
+						disp.removeObserver((ABall) target);
 						contextBall.setRadius(combinedRadius);
 						contextBall.setVelocity(combinedVelocity);
 						contextBall.setColor(combinedColor);
 					} else {
-						disp.removeObserver((Ball) contextBall);
+						disp.removeObserver((ABall) contextBall);
 						target.setRadius(combinedRadius);
 						target.setVelocity(combinedVelocity);
 						target.setColor(combinedColor);

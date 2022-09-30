@@ -61,11 +61,11 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 */
 	private final JButton btnClear = new JButton("Clear All");
 	/**
-	 * The button to make a Switcher Ball appear.
+	 * The button to make a Switcher ABall appear.
 	 */
 	private final JButton btnMakeSwitcher = new JButton("Make Switcher");
 	/**
-	 * Determines the type of the Ball created from pressing btnMakeBall, and the strategy of the Switcher Balls when btnSwitcher is pressed.
+	 * Determines the type of the ABall created from pressing btnMakeBall, and the strategy of the Switcher Balls when btnSwitcher is pressed.
 	 */
 	private final JComboBox<TDropListItem> boxType1 = new JComboBox<TDropListItem>();
 	/**
@@ -81,9 +81,9 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 */
 	private final JButton btnCombine = new JButton("Combine!");
 	/**
-	 * Makes a Ball with the strategy of boxType1.
+	 * Makes a ABall with the strategy of boxType1.
 	 */
-	private final JButton btnMakeBall = new JButton("Make Selected Ball");
+	private final JButton btnMakeBall = new JButton("Make Selected ABall");
 	/**
 	 * When btnAdd is pressed, add txtInput as an option in boxType1 and boxType2.
 	 */
@@ -346,10 +346,10 @@ public class BallGUI<TDropListItem> extends JFrame {
 				modelCtrlAdpt.makeBall(boxType1.getItemAt(boxType1.getSelectedIndex()));
 			}
 		});
-		btnMakeBall.setToolTipText("Makes the Ball in boxType1.");
+		btnMakeBall.setToolTipText("Makes the ABall in boxType1.");
 		panelDropdowns.add(btnMakeBall);
 		
-		boxType1.setToolTipText("The type of Ball to spawn or have Switchers change to.");
+		boxType1.setToolTipText("The type of ABall to spawn or have Switchers change to.");
 		panelDropdowns.add(boxType1);
 		boxType2.setToolTipText(
 				"When btnCombine is pressed, this type is combined with boxType1 to create a new strategy.");
@@ -390,7 +390,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 				modelCtrlAdpt.makeSwitcherBall();
 			}
 		});
-		btnMakeSwitcher.setToolTipText("Makes a Switcher Ball.");
+		btnMakeSwitcher.setToolTipText("Makes a Switcher ABall.");
 		panelSwitcher.add(btnMakeSwitcher);
 		
 		btnSwitcher.setBackground(Color.CYAN);

@@ -3,7 +3,7 @@ package model.strategies.update;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import model.Ball;
+import model.DefaultBall;
 import model.IBall;
 import model.IBallAlgo;
 import model.IBallCmd;
@@ -35,7 +35,7 @@ public class SpawnStrategy implements IUpdateStrategy {
 			Point newVelocity = Randomizer.Singleton
 					.randomVel(new Rectangle((int) Math.round(context.getVelocity().x * 2), (int) Math.round(context.getVelocity().y * 2)));
 
-			dispatcher.addObserver(new Ball(new Point((int) Math.round(context.getLocation().x), (int) Math.round(context.getLocation().y)), context.getRadius() / 2, newVelocity,
+			dispatcher.addObserver(new DefaultBall(new Point((int) Math.round(context.getLocation().x), (int) Math.round(context.getLocation().y)), context.getRadius() / 2, newVelocity,
 					context.getColor(), context.getContainer(), new IBallAlgo() {
 
 						@Override
