@@ -25,6 +25,17 @@ Go to Controller.Launch and click the green run button.
 The Ball Type section sets the type of ball that the next created ball will be. The text box in the Paint Strategy section takes in the short name of the type of paint strategy you'd like to see, which is added to the list using the button below it. The next text box takes in the short name of the type of update strategy you'd like to see, which is added to the list using the button below it. The next text box takes in the short name of the type of criteria strategy you'd like to see, which is added to the list using the button below it. The next text box takes in the short name of the type of interact strategy you'd like to see, which is added to the list using the button below it. The last text box takes in the short name of a configuration algorithm that sets up the whole ball, which is added to the list using the button below it.
 The top selector is the primary strategy selector, and the bottom selector provides the second strategy to use for combination. There is also a pair of switcher buttons to the right of the selectors. The top switcher button creates balls that share the same switcher strategy, and the bottom button sets the switcher strategy to the strategy indicated in the top selector. Above the switcher buttons is a label that gives the current strategy that the switcher balls are using. Lastly, on the far left is a button to clear all the balls.
 
+### Ball types:
+There are four different ball types, as described below.
+#### Default ball
+The default ball that is loaded in when a ball type is not provided. Try it out with the physics config strategy!
+#### Predator ball
+A ball that represents a predator. Try it out with the HuntPredator interact strategy and Collision criteria strategy!
+#### Prey ball
+A ball that represents prey. Try it out in a field of other balls with the KillPrey interact strategy and Collision criteria strategy!
+#### Scavenger ball
+A ball that represents a scavenger. Try it out with the color update strategy.
+
 ### Type dependent behaviors:
 There are five different type-dependent behaviors, as described below.
 #### Hunt Predator Interact Strategy:
