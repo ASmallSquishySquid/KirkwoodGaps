@@ -11,6 +11,7 @@ import javax.swing.JComponent;
 import model.BallModel;
 import model.adapters.IViewControlAdapter;
 import model.adapters.IViewUpdateAdapter;
+import model.balls.IBallFactory;
 import model.visitors.algos.AConfigBallAlgo;
 import provided.utils.displayModel.IATImage;
 import view.BallGUI;
@@ -34,7 +35,7 @@ public class Controller {
 	/**
 	 * The frame where everything is displayed (the view).
 	 */
-	private BallGUI<AConfigBallAlgo> view;
+	private BallGUI<AConfigBallAlgo, IBallFactory> view;
 
 	/**
 	 * Constructor for a new Controller.
@@ -68,7 +69,7 @@ public class Controller {
 
 		});
 
-		this.view = new BallGUI<>(new IModelControlAdapter<AConfigBallAlgo>() {
+		this.view = new BallGUI<AConfigBallAlgo, IBallFactory>(new IModelControlAdapter<AConfigBallAlgo, IBallFactory>() {
 
 			@Override
 			public AConfigBallAlgo addPaintStrategy(String classname) {
@@ -92,13 +93,13 @@ public class Controller {
 			}
 			
 			@Override
-			public AConfigBallAlgo addBallType(String classname) {
-				return model.makeBallTypeAlgo(classname);
+			public IBallFactory addBallType(String classname) {
+				return model.makeBallFactory(classname);
 			}
 
 			@Override
-			public void makeSwitcherBall() {
-				model.loadBall(model.getSwitcherInstallAlgo());
+			public void makeSwitcherBall(IBallFactory selectedItem) {
+				model.loadSwitcherBall(selectedItem);
 			}
 
 			@Override
@@ -107,8 +108,8 @@ public class Controller {
 			}
 
 			@Override
-			public void makeBall(AConfigBallAlgo selectedItem) {
-				model.loadBall(selectedItem);
+			public void makeBall(IBallFactory selectedItem1, AConfigBallAlgo selectedItem2) {
+				model.loadBall(selectedItem1, selectedItem2);
 			}
 
 			@Override

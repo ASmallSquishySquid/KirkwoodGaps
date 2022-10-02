@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
@@ -17,6 +18,7 @@ import model.adapters.IViewUpdateAdapter;
 import model.balls.DefaultBall;
 import model.balls.ErrorBall;
 import model.balls.IBall;
+import model.balls.IBallFactory;
 import model.strategies.criteria.ErrorCriteriaStrategy;
 import model.strategies.criteria.ICriteriaStrategy;
 import model.strategies.interact.ErrorInteractStrategy;
@@ -29,7 +31,6 @@ import model.strategies.update.IUpdateStrategy;
 import model.strategies.update.StraightStrategy;
 import model.visitors.algos.AConfigBallAlgo;
 import model.visitors.algos.CompositeConfigBallAlgo;
-import model.visitors.algos.ConfigBallTypeAlgo;
 import model.visitors.algos.ConfigCriteriaBallAlgo;
 import model.visitors.algos.ConfigInteractBallAlgo;
 import model.visitors.algos.ConfigPaintBallAlgo;
@@ -261,7 +262,7 @@ public class BallModel {
 	 * The IObjectLoader object which loads in ball types.
 	 */
 	private IObjectLoader<IBall> ballTypeLoader = new ObjectLoader<IBall>(
-			(attempt, args) -> new ErrorBall(null, null, 0, null, null, null, clearStrategy, null));
+			(attempt, args) -> new ErrorBall(null, 0, null, null, null, null, null));
 	
 	/**
 	 * The IDispatcher whose IObservers are ABall objects.
@@ -306,11 +307,17 @@ public class BallModel {
 
 	/**
 	 * Loads a ABall with a strategy from the given strategy factory.
+	 * 
+	 * @param ballFactory a ball factory
 	 * @param ballAlgo an algorithm to configure the ball
 	 */
-	public void loadBall(AConfigBallAlgo ballAlgo) {
+	public void loadBall(IBallFactory ballFactory, AConfigBallAlgo ballAlgo) {
 		if (ballAlgo == null) {
 			ballAlgo = new ConfigUpdateBallAlgo(null, new ErrorUpdateStrategy());
+		}
+		
+		if (ballFactory == null) {
+			ballFactory = IBallFactory.defaultBallFactory;
 		}
 		
 		// Generate a new ball with random parameters.
@@ -322,14 +329,26 @@ public class BallModel {
 		Point velocity = r.randomVel(new Rectangle(maxSpeed, maxSpeed));
 		Color color = r.randomColor();
 
-		IObserver<IBallCmd> ball = new DefaultBall(position, radius, velocity, color, viewCtrlAdpt.getCanvas(), ballAlgo,
+		IObserver<IBallCmd> ball = ballFactory.make(position, radius, velocity, color, viewCtrlAdpt.getCanvas(), ballAlgo,
 				new IModel2BallAdapter() {
-					@Override
-					public IATImage getImageWrapper(Image image) {
-						return viewCtrlAdpt.getIATImage(image);
-					}
-				});
+			@Override
+			public IATImage getImageWrapper(Image image) {
+				return viewCtrlAdpt.getIATImage(image);
+			}
+		});
 		ballDispatcher.addObserver(ball);
+	}
+	
+	/**
+	 * Loads a new switcher ball.
+	 * 
+	 * @param ballFactory a ball factory
+	 */
+	public void loadSwitcherBall(IBallFactory ballFactory) {
+		if (ballFactory == null) {
+			ballFactory = IBallFactory.defaultBallFactory;
+		}
+		loadBall(ballFactory, switcherInstallAlgo);
 	}
 
 	/**
@@ -427,7 +446,7 @@ public class BallModel {
 	}
 
 	/**
-	 * Returns an AConfigBallAlgo specified by
+	 * Returns an IBall factory specified by
 	 * <code>classname</code> and install it into the host ball by composing it with any
 	 * existing interact strategy in the ball.
 	 * Installs an error strategy if <code>classname</code> is null or other error occurs
@@ -435,10 +454,23 @@ public class BallModel {
 	 * The toString() of the returned algorithm is the given <code>classname</code>.
 	 *
 	 * @param classname Shortened name of desired AConfigBallAlgo
-	 * @return An AConfigBallAlgo
+	 * @return An IBallFactory
 	 */
-	public AConfigBallAlgo makeBallTypeAlgo(final String classname) {
-		return new ConfigBallTypeAlgo(classname, loadBallType(fixBallTypeName(classname)));
+	public IBallFactory makeBallFactory(final String classname) {
+		return new IBallFactory() {
+			
+			@Override
+			public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
+					IModel2BallAdapter modelAdapter) {
+				System.out.println("LOADING");
+				return loadBallType(fixBallTypeName(classname), p, r, v, c, container, installAlgo, modelAdapter);
+			}
+			
+			@Override
+			public String toString() {
+				return classname;
+			}
+		};
 	}
 	
 	/**
@@ -609,10 +641,11 @@ public class BallModel {
 	 * A helper function that loads a new ball type.
 	 *
 	 * @param name the fully-qualified name of the ball type to load
+	 * @param args the constructor arguments for the ball
 	 * @return an IBall
 	 */
-	private IBall loadBallType(String name) {
-		return this.ballTypeLoader.loadInstance(name);
+	private IBall loadBallType(String name, Object... args) {
+		return this.ballTypeLoader.loadInstance(name, args);
 	}
 	
 	/**

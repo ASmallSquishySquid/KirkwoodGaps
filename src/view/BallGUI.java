@@ -21,9 +21,10 @@ import javax.swing.border.EmptyBorder;
 
 /**
  * The GUI hosting BallWorld.
- * @param <TDropListItem> : the type of the drop-down options.
+ * @param <TDropListItem1> : the type of the drop-down options.
+ * @param <TDropListItem2> the second type of the drop-down options
  */
-public class BallGUI<TDropListItem> extends JFrame {
+public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 
 	/**
 	 * The serial version ID for BallGUI.
@@ -68,11 +69,11 @@ public class BallGUI<TDropListItem> extends JFrame {
 	/**
 	 * Determines the type of the Ball created from pressing btnMakeBall, and the strategy of the Switcher Balls when btnSwitcher is pressed.
 	 */
-	private final JComboBox<TDropListItem> boxType1 = new JComboBox<TDropListItem>();
+	private final JComboBox<TDropListItem1> boxType1 = new JComboBox<TDropListItem1>();
 	/**
 	 * When btnCombine is pressed, combine boxType1 and boxType2 to make a new strategy.
 	 */
-	private final JComboBox<TDropListItem> boxType2 = new JComboBox<TDropListItem>();
+	private final JComboBox<TDropListItem1> boxType2 = new JComboBox<TDropListItem1>();
 	/**
 	 * Switches the Switcher Balls' strategy to boxType1.
 	 */
@@ -96,7 +97,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 	/**
 	 * The view to model control adapter.
 	 */
-	private IModelControlAdapter<TDropListItem> modelCtrlAdpt = IModelControlAdapter.MAKE_NULL();
+	private IModelControlAdapter<TDropListItem1, TDropListItem2> modelCtrlAdpt = IModelControlAdapter.MAKE_NULL();
 	/**
 	 * The view to model update adapter.
 	 */
@@ -192,7 +193,10 @@ public class BallGUI<TDropListItem> extends JFrame {
 	/**
 	 * A droplist containing added ball types.
 	 */
-	private final JComboBox<TDropListItem> boxBallType = new JComboBox<TDropListItem>();
+	private final JComboBox<TDropListItem2> boxBallType = new JComboBox<TDropListItem2>();
+	/**
+	 * TODO remove
+	 */
 	private final JButton btnTest = new JButton("New button");
 
 	/**
@@ -200,7 +204,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 * @param modelCtrlAdpt : the initialized control adapter.
 	 * @param modelUpdtAdpt : the initialized update adapter.
 	 */
-	public BallGUI(IModelControlAdapter<TDropListItem> modelCtrlAdpt, IModelUpdateAdapter modelUpdtAdpt) {
+	public BallGUI(IModelControlAdapter<TDropListItem1, TDropListItem2> modelCtrlAdpt, IModelUpdateAdapter modelUpdtAdpt) {
 		this.modelCtrlAdpt = modelCtrlAdpt;
 		this.modelUpdtAdpt = modelUpdtAdpt;
 		initGUI();
@@ -223,6 +227,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 		canvasPnl.setToolTipText("This is where the balls will be shown.");
 		contentPane.add(canvasPnl, BorderLayout.CENTER);
 		
+		// TODO remove
 		canvasPnl.add(btnTest);
 		btnTest.addActionListener(new java.awt.event.ActionListener() {
             @Override
@@ -248,7 +253,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!txtBallType.getText().isBlank()) {
-					TDropListItem type = modelCtrlAdpt.addBallType(txtBallType.getText());
+					TDropListItem2 type = modelCtrlAdpt.addBallType(txtBallType.getText());
 					if (type != null) {
 						boxBallType.addItem(type);
 					}
@@ -278,7 +283,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!txtPaintStrat.getText().isBlank()) {
-					TDropListItem strat = modelCtrlAdpt.addPaintStrategy(txtPaintStrat.getText());
+					TDropListItem1 strat = modelCtrlAdpt.addPaintStrategy(txtPaintStrat.getText());
 					if (strat != null) {
 						boxType1.addItem(strat);
 						boxType1.setSelectedIndex(boxType1.getItemCount() - 1);
@@ -311,7 +316,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!txtUpdateStrat.getText().isBlank()) {
-					TDropListItem strat = modelCtrlAdpt.addUpdateStrategy(txtUpdateStrat.getText());
+					TDropListItem1 strat = modelCtrlAdpt.addUpdateStrategy(txtUpdateStrat.getText());
 					if (strat != null) {
 						boxType1.addItem(strat);
 						boxType1.setSelectedIndex(boxType1.getItemCount() - 1);
@@ -341,7 +346,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 		btnAddCriteria.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!txtCriteriaStrat.getText().isBlank()) {
-					TDropListItem strat = modelCtrlAdpt.addCriteriaStrategy(txtCriteriaStrat.getText());
+					TDropListItem1 strat = modelCtrlAdpt.addCriteriaStrategy(txtCriteriaStrat.getText());
 					if (strat != null) {
 						boxType1.addItem(strat);
 						boxType1.setSelectedIndex(boxType1.getItemCount() - 1);
@@ -374,7 +379,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!txtInteractStrat.getText().isBlank()) {
-					TDropListItem strat = modelCtrlAdpt.addInteractStrategy(txtInteractStrat.getText());
+					TDropListItem1 strat = modelCtrlAdpt.addInteractStrategy(txtInteractStrat.getText());
 					if (strat != null) {
 						boxType1.addItem(strat);
 						boxType1.setSelectedIndex(boxType1.getItemCount() - 1);
@@ -396,7 +401,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 		btnMakeBall.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				modelCtrlAdpt.makeBall(boxType1.getItemAt(boxType1.getSelectedIndex()));
+				modelCtrlAdpt.makeBall(boxBallType.getItemAt(boxBallType.getSelectedIndex()), boxType1.getItemAt(boxType1.getSelectedIndex()));
 			}
 		});
 		btnMakeBall.setToolTipText("Makes the ABall in boxType1.");
@@ -412,7 +417,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 		btnCombine.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TDropListItem strat = modelCtrlAdpt.combineStrategies(boxType1.getItemAt(boxType1.getSelectedIndex()),
+				TDropListItem1 strat = modelCtrlAdpt.combineStrategies(boxType1.getItemAt(boxType1.getSelectedIndex()),
 						boxType2.getItemAt(boxType2.getSelectedIndex()));
 				boxType1.addItem(strat);
 				boxType1.setSelectedIndex(boxType1.getItemCount() - 1);
@@ -440,7 +445,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 		btnMakeSwitcher.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				modelCtrlAdpt.makeSwitcherBall();
+				modelCtrlAdpt.makeSwitcherBall(boxBallType.getItemAt(boxBallType.getSelectedIndex()));
 			}
 		});
 		btnMakeSwitcher.setToolTipText("Makes a Switcher ABall.");
