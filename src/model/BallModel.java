@@ -5,7 +5,9 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.function.Supplier;
 
+import javax.swing.JComponent;
 import javax.swing.Timer;
 
 import model.adapters.IBallAlgo2ModelAdapter;
@@ -30,6 +32,7 @@ import model.visitors.algos.ConfigCriteriaBallAlgo;
 import model.visitors.algos.ConfigInteractBallAlgo;
 import model.visitors.algos.ConfigPaintBallAlgo;
 import model.visitors.algos.ConfigUpdateBallAlgo;
+import model.visitors.algos.ErrorConfigBallAlgo;
 import model.visitors.cmds.ABallAlgoCmd;
 import model.visitors.cmds.IBallCmd;
 import provided.ballworld.extVisitors.IBallHostID;
@@ -235,7 +238,7 @@ public class BallModel {
 			(attempt, args) -> new ErrorUpdateStrategy());
 	
 	/**
-	 * The IObjectLoader object which loads in update strategies.
+	 * The IObjectLoader object which loads in criteria strategies.
 	 */
 	private IObjectLoader<ICriteriaStrategy> criteriaStrategyLoader = new ObjectLoader<ICriteriaStrategy>(
 			(attempt, args) -> new ErrorCriteriaStrategy());
@@ -245,6 +248,12 @@ public class BallModel {
 	 */
 	private IObjectLoader<IInteractStrategy<IBallCmd>> interactStrategyLoader = new ObjectLoader<IInteractStrategy<IBallCmd>>(
 			(attempt, args) -> new ErrorInteractStrategy());
+	
+	/**
+	 * The IObjectLoader object which loads in criteria strategies.
+	 */
+	private IObjectLoader<AConfigBallAlgo> configAlgoLoader = new ObjectLoader<AConfigBallAlgo>(
+			(attempt, args) -> new ErrorConfigBallAlgo());
 	/**
 	 * The IDispatcher whose IObservers are ABall objects.
 	 */
@@ -480,8 +489,8 @@ public class BallModel {
 	/**
 	 * A helper function that adds the criteria package name as a prefix to a class name.
 	 *
-	 * @param classname : the abbreviated form of an update strategy.
-	 * @return the fully-qualified name of the update strategy.
+	 * @param classname : the abbreviated form of a criteria strategy.
+	 * @return the fully-qualified name of the criteria strategy.
 	 */
 	private String fixCriteriaName(Object classname) {
 		return "model.strategies.criteria." + classname + "Strategy";
@@ -490,11 +499,21 @@ public class BallModel {
 	/**
 	 * A helper function that adds the interact package name as a prefix to a class name.
 	 *
-	 * @param classname : the abbreviated form of an update strategy.
-	 * @return the fully-qualified name of the update strategy.
+	 * @param classname : the abbreviated form of an interact strategy.
+	 * @return the fully-qualified name of the interact strategy.
 	 */
 	private String fixInteractName(Object classname) {
 		return "model.strategies.interact." + classname + "Strategy";
+	}
+	
+	/**
+	 * A helper function that adds the algo package name as a prefix to a class name.
+	 *
+	 * @param classname : the abbreviated form of a config algo strategy.
+	 * @return the fully-qualified name of the config algo strategy.
+	 */
+	private String fixConfigAlgoName(Object classname) {
+		return "model.visitors.algos.Config" + classname + "BallAlgo";
 	}
 
 	/**
@@ -510,7 +529,7 @@ public class BallModel {
 	/**
 	 * A helper function that loads a new update strategy in.
 	 *
-	 * @param name the fully-qualified name of the paint strategy to load
+	 * @param name the fully-qualified name of the update strategy to load
 	 * @return an update strategy
 	 */
 	private IUpdateStrategy loadUpdateStrategy(String name) {
@@ -520,8 +539,8 @@ public class BallModel {
 	/**
 	 * A helper function that loads a new criteria strategy in.
 	 *
-	 * @param name the fully-qualified name of the paint strategy to load
-	 * @return an update strategy
+	 * @param name the fully-qualified name of the criteria strategy to load
+	 * @return a criteria strategy
 	 */
 	private ICriteriaStrategy loadCriteriaStrategy(String name) {
 		return this.criteriaStrategyLoader.loadInstance(name);
@@ -530,10 +549,26 @@ public class BallModel {
 	/**
 	 * A helper function that loads a new interact strategy in.
 	 *
-	 * @param name the fully-qualified name of the paint strategy to load
-	 * @return an update strategy
+	 * @param name the fully-qualified name of the interact strategy to load
+	 * @return an interact strategy
 	 */
 	private IInteractStrategy<IBallCmd> loadInteractStrategy(String name) {
 		return this.interactStrategyLoader.loadInstance(name);
+	}
+	
+	/**
+	 * A helper function that loads a new config algo in.
+	 *
+	 * @param name the fully-qualified name of the config algo to load
+	 * @return a config algo
+	 */
+	private AConfigBallAlgo loadConfigAlgo(String name) {
+		return this.configAlgoLoader.loadInstance(name, ILoggerControl.getSharedLogger(), new IBallAlgo2ModelAdapter() {
+			
+			@Override
+			public void addConfigComponent(String label, Supplier<JComponent> compFac) {
+				viewCtrlAdpt.addConfigComponent(label, compFac);
+			}
+		});
 	}
 }
