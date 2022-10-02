@@ -241,13 +241,21 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		controlPnl.setToolTipText("The panel with the controls.");
 		controlPnl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		contentPane.add(controlPnl, BorderLayout.NORTH);
+		
 		panelBallType.setBackground(Color.LIGHT_GRAY);
+		panelBallType.setLayout(new GridLayout(4, 1, 0, 5));
+		panelBallType.setToolTipText("The basic controls for ball types strategies");
+		
 		panelBallType.add(lblBallType);
+		lblBallType.setToolTipText("Ball type section");
 		lblBallType.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBallType.setVerticalAlignment(SwingConstants.BOTTOM);
+		
 		panelBallType.add(txtBallType);
-		txtBallType.setText("Default");
+		txtBallType.setText(modelCtrlAdpt.getDefaultBallType());
 		txtBallType.setColumns(10);
+		txtBallType.setToolTipText("Please input a ball type");
+		
 		panelBallType.add(btnBallType);
 		btnBallType.addActionListener(new ActionListener() {
 			@Override
@@ -260,9 +268,11 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 				}
 			}
 		});
+		btnBallType.setToolTipText("Add the ball type to the dropdown");
+		
+		boxBallType.setToolTipText("Select a ball type");
 		panelBallType.add(boxBallType);
 		controlPnl.add(panelBallType);
-		panelBallType.setLayout(new GridLayout(4, 1, 0, 5));
 		
 		panelPaintStrat.setToolTipText("The basic controls for paint strategies");
 		panelPaintStrat.setBackground(Color.LIGHT_GRAY);
