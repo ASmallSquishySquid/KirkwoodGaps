@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/f22-hw06-comp310-f22-hw06-03/src/visitorDemoExercises/listFWVisitorExercises/controller/ListDemoApp.java"/>
+        <listEntry value="/f22-hw06-comp310-f22-hw06-03/src/controller/Controller.java"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="1"/>
@@ -10,7 +10,7 @@
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
-    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="visitorDemoExercises.listFWVisitorExercises.controller.ListDemoApp"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="controller.Controller"/>
     <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="f22_hw06_comp310_f22_hw06_03"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="f22-hw06-comp310-f22-hw06-03"/>
     <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:f22-hw06-comp310-f22-hw06-03}/bin"/>
