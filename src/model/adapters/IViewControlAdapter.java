@@ -2,6 +2,9 @@ package model.adapters;
 
 import java.awt.Component;
 import java.awt.Image;
+import java.util.function.Supplier;
+
+import javax.swing.JComponent;
 
 import provided.utils.displayModel.IATImage;
 
@@ -23,6 +26,14 @@ public interface IViewControlAdapter {
 	 * @return An IATImage instance
 	 */
 	public IATImage getIATImage(Image image);
+	
+	/**
+	 * Adds a configuration component to the view.
+	 *
+	 * @param label the name of the component
+	 * @param compFac the compnent factory
+	 */
+	public void addConfigComponent(String label, Supplier<JComponent> compFac);
 
 	/**
 	 * Default null object for the adapter.
@@ -35,6 +46,11 @@ public interface IViewControlAdapter {
 
 		public IATImage getIATImage(Image image) {
 			return null;
+		}
+
+		@Override
+		public void addConfigComponent(String label, Supplier<JComponent> compFac) {
+			return;
 		}
 
 	};
