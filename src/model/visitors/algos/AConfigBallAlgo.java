@@ -45,7 +45,7 @@ public abstract class AConfigBallAlgo extends BallAlgo<Void, Void> implements IC
 	 * @param logger The logger to use
 	 * @param algo2ModelAdpt The adapter to the model.
 	 */
-	public AConfigBallAlgo(ILogger logger, IBallAlgo2ModelAdapter algo2ModelAdpt ) {
+	public AConfigBallAlgo(ILogger logger, IBallAlgo2ModelAdapter algo2ModelAdpt) {
 		this(logger, algo2ModelAdpt , ABallAlgoCmd.MakeNull());
 	}
 	

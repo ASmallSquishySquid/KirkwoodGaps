@@ -4,6 +4,9 @@ import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.function.Supplier;
+
+import javax.swing.JComponent;
 
 import model.BallModel;
 import model.adapters.IViewControlAdapter;
@@ -47,6 +50,12 @@ public class Controller {
 			@Override
 			public IATImage getIATImage(Image image) {
 				return IATImage.FACTORY.apply(image, view.getCanvas());
+			}
+
+			@Override
+			public void addConfigComponent(String label, Supplier<JComponent> compFac) {
+				// TODO Auto-generated method stub
+				
 			}
 
 		}, new IViewUpdateAdapter() {
