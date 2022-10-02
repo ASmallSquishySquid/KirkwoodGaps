@@ -172,6 +172,26 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 * The text field to input a new criteria strategy in,
 	 */
 	private final JTextField txtCriteriaStrat = new JTextField();
+	/**
+	 * The panel containing the ball type controls.
+	 */
+	private final JPanel panelBallType = new JPanel();
+	/**
+	 * A label for the ball type section.
+	 */
+	private final JLabel lblBallType = new JLabel("Ball Type");
+	/**
+	 * The text field to input a new ball type.
+	 */
+	private final JTextField txtBallType = new JTextField();
+	/**
+	 * The button to click to add a new ball type.
+	 */
+	private final JButton btnBallType = new JButton("Add New Type");
+	/**
+	 * A droplist containing added ball types.
+	 */
+	private final JComboBox<TDropListItem> boxBallType = new JComboBox<TDropListItem>();
 
 	/**
 	 * Create the GUI.
@@ -190,7 +210,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 	private void initGUI() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 470);
+		setBounds(100, 100, 1200, 500);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -205,6 +225,28 @@ public class BallGUI<TDropListItem> extends JFrame {
 		controlPnl.setToolTipText("The panel with the controls.");
 		controlPnl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		contentPane.add(controlPnl, BorderLayout.NORTH);
+		panelBallType.setBackground(Color.LIGHT_GRAY);
+		panelBallType.add(lblBallType);
+		lblBallType.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBallType.setVerticalAlignment(SwingConstants.BOTTOM);
+		panelBallType.add(txtBallType);
+		txtBallType.setText("Default");
+		txtBallType.setColumns(10);
+		panelBallType.add(btnBallType);
+//		btnBallType.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				if (!txtBallType.getText().isBlank()) {
+//					TDropListItem type = modelCtrlAdpt.addBallType(txtBallType.getText());
+//					if (type != null) {
+//						boxBallType.addItem(type);
+//					}
+//				}
+//			}
+//		});
+		panelBallType.add(boxBallType);
+		controlPnl.add(panelBallType);
+		panelBallType.setLayout(new GridLayout(4, 1, 0, 5));
 		
 		panelPaintStrat.setToolTipText("The basic controls for paint strategies");
 		panelPaintStrat.setBackground(Color.LIGHT_GRAY);

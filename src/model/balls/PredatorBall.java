@@ -23,7 +23,7 @@ public class PredatorBall extends ABall {
 	/**
 	 * The identifying host ID for this class.
 	 */
-	private static final IBallHostID id = BallHostIDFactory.Singleton.makeID(PredatorBall.class.getName());
+	public static final IBallHostID id = BallHostIDFactory.Singleton.makeID(PredatorBall.class.getName());
 	
 	/**
 	 * Constructor for a new PredatorBall.
