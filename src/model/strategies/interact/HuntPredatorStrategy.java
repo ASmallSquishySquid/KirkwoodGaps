@@ -48,15 +48,15 @@ public class HuntPredatorStrategy extends AInteractStrategy {
 						// Add generated serialVersionUID
 						@Override
 						public Void apply(IBallHostID index, IBall host, Void... params) {
-							if (target.getRadius() < 50) {
-								int change = (int) ((double) target.getRadius() * 0.1);
+							if (target.getRadius() < 75) {
+								int change = (int) ((double) target.getRadius() * 0.05);
 								target.setRadius(target.getRadius() + change);
 								context.setRadius(Math.max(0, context.getRadius() - change));
 								if (context.getRadius() == 0) {
 									disp.removeObserver(context);
 								}
 							}
-							ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Predator gained mass!");
+							//ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Predator gained mass!");
 							return null;
 						}
 						
