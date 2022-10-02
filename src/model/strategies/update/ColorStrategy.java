@@ -19,14 +19,18 @@ import provided.utils.dispatcher.IDispatcher;
  *
  */
 public class ColorStrategy implements IUpdateStrategy {
-
+	int count = 0;
+	boolean colorSaved = false;
+	Color ballColor;
+	
 	@Override
 	public void init(IBall context) {
 
 	}
-
+	
 	@Override
 	public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher, boolean didBounce) {
+		
 		context.execute(new BallAlgo<Void, Void>(new ABallAlgoCmd<>() {
 			// Add generated serialVersionUID
 			private static final long serialVersionUID = -7896815473719026153L;
@@ -52,8 +56,18 @@ public class ColorStrategy implements IUpdateStrategy {
 					// Add generated serialVersionUID
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
-						context.setColor(Color.red);
-						ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Prey balls to red.");
+						if (!colorSaved) {
+							ballColor = context.getColor();	
+							colorSaved = true;
+						}
+						count += 1;
+						if (count == 15) {
+							context.setColor(Color.red);
+							count = 0;
+						} else { 
+							context.setColor(ballColor);
+						}
+						//ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Prey balls to red.");
 						return null;
 					}
 				});
@@ -69,8 +83,18 @@ public class ColorStrategy implements IUpdateStrategy {
 
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
-						context.setColor(Color.blue);
-						ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Predator balls to blue.");
+						if (!colorSaved) {
+							ballColor = context.getColor();	
+							colorSaved = true;
+						}
+						count += 1;
+						if (count == 15) {
+							context.setColor(Color.blue);
+							count = 0;
+						} else { 
+							context.setColor(ballColor);
+						}
+						//ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Predator balls to blue.");
 						return null;
 					}
 				});
@@ -81,8 +105,18 @@ public class ColorStrategy implements IUpdateStrategy {
 
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
-						context.setColor(Color.green);
-						ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Scavenger balls to green.");
+						if (!colorSaved) {
+							ballColor = context.getColor();	
+							colorSaved = true;
+						}
+						count += 1;
+						if (count == 15) {
+							context.setColor(Color.green);
+							count = 0;
+						} else { 
+							context.setColor(ballColor);
+						}
+						//ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Scavenger balls to green.");
 						return null;					}
 				});
 				
