@@ -56,6 +56,7 @@ public class Controller {
 			public void addConfigComponent(String label, Supplier<JComponent> compFac) {
 				// TODO Auto-generated method stub
 				
+				
 			}
 
 		}, new IViewUpdateAdapter() {

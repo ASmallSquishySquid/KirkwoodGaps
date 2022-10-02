@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -192,6 +193,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 * A droplist containing added ball types.
 	 */
 	private final JComboBox<TDropListItem> boxBallType = new JComboBox<TDropListItem>();
+	private final JButton btnTest = new JButton("New button");
 
 	/**
 	 * Create the GUI.
@@ -220,6 +222,15 @@ public class BallGUI<TDropListItem> extends JFrame {
 		canvasPnl.setBackground(Color.CYAN);
 		canvasPnl.setToolTipText("This is where the balls will be shown.");
 		contentPane.add(canvasPnl, BorderLayout.CENTER);
+		
+		canvasPnl.add(btnTest);
+		btnTest.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String name = JOptionPane.showInputDialog(canvasPnl,
+                        "Insert String", null);
+            }
+        });
 		
 		controlPnl.setBackground(Color.LIGHT_GRAY);
 		controlPnl.setToolTipText("The panel with the controls.");
