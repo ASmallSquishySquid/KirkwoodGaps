@@ -1,6 +1,7 @@
 package model.strategies.update;
 
 import java.awt.Color;
+import java.util.Random;
 
 import model.balls.IBall;
 import model.balls.PredatorBall;
@@ -10,18 +11,22 @@ import model.visitors.algos.BallAlgo;
 import model.visitors.cmds.ABallAlgoCmd;
 import model.visitors.cmds.IBallCmd;
 import provided.ballworld.extVisitors.IBallHostID;
-import provided.logger.ILoggerControl;
-import provided.logger.LogLevel;
 import provided.utils.dispatcher.IDispatcher;
 
 /**
+ * Flashes different shades of colors every 15 frame counts, based on ball type: orange for prey, purple for predator, and green for scavenger.
  * @author Annita Chang
  *
  */
 public class ColorStrategy implements IUpdateStrategy {
+	/**
+	 * An integer keeping track of the frame update counts.
+	 */
 	int count = 0;
-	boolean colorSaved = false;
-	Color ballColor;
+	/**
+	 * A Random object used to generate random color.
+	 */
+	Random rand = new Random();
 	
 	@Override
 	public void init(IBall context) {
@@ -56,17 +61,11 @@ public class ColorStrategy implements IUpdateStrategy {
 					// Add generated serialVersionUID
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
-						if (!colorSaved) {
-							ballColor = context.getColor();	
-							colorSaved = true;
-						}
 						count += 1;
 						if (count == 15) {
-							context.setColor(Color.red);
+							context.setColor(new Color(255, rand.nextInt(100)+100, rand.nextInt(100)));
 							count = 0;
-						} else { 
-							context.setColor(ballColor);
-						}
+						} 
 						//ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Prey balls to red.");
 						return null;
 					}
@@ -83,17 +82,11 @@ public class ColorStrategy implements IUpdateStrategy {
 
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
-						if (!colorSaved) {
-							ballColor = context.getColor();	
-							colorSaved = true;
-						}
 						count += 1;
 						if (count == 15) {
-							context.setColor(Color.blue);
+							context.setColor(new Color(rand.nextInt(100)+100, rand.nextInt(100), 255));
 							count = 0;
-						} else { 
-							context.setColor(ballColor);
-						}
+						} 
 						//ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Predator balls to blue.");
 						return null;
 					}
@@ -105,17 +98,11 @@ public class ColorStrategy implements IUpdateStrategy {
 
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
-						if (!colorSaved) {
-							ballColor = context.getColor();	
-							colorSaved = true;
-						}
 						count += 1;
 						if (count == 15) {
-							context.setColor(Color.green);
+							context.setColor(new Color(rand.nextInt(100)+100, 255, rand.nextInt(100)));
 							count = 0;
-						} else { 
-							context.setColor(ballColor);
-						}
+						} 
 						//ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Scavenger balls to green.");
 						return null;					}
 				});
