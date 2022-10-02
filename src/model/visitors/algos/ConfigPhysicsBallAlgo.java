@@ -3,7 +3,9 @@ package model.visitors.algos;
 import model.adapters.IBallAlgo2ModelAdapter;
 import model.balls.DefaultBall;
 import model.balls.IBall;
+import model.strategies.criteria.CollisionStrategy;
 import model.strategies.criteria.EverywhereStrategy;
+import model.strategies.interact.ElasticStrategy;
 import model.strategies.interact.GravitationStrategy;
 import model.strategies.paint.BallStrategy;
 import model.strategies.paint.PlanetStrategy;
@@ -43,6 +45,8 @@ public class ConfigPhysicsBallAlgo extends AConfigBallAlgo {
 			public Void apply(IBallHostID index, IBall context, Void... params) {
 				installPaintStrategy(context, new BallStrategy());
 				installUpdateStrategy(context, new GravityStrategy());
+				installCriteriaStrategy(context, new CollisionStrategy());
+				installInteractStrategy(context, new ElasticStrategy());
 				return null;
 			}
 		});
