@@ -15,12 +15,10 @@ import provided.ballworld.extVisitors.impl.BallHostIDFactory;
  * @author Phoebe Scaccia
  */
 public class ScavengerBall extends ABall {
-
 	/**
 	 * For serialization.
 	 */
-	private static final long serialVersionUID = -913030233251500787L;
-	
+	private static final long serialVersionUID = 7221106886392605605L;
 	/**
 	 * The identifying host ID for this class.
 	 */

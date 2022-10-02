@@ -15,12 +15,10 @@ import provided.ballworld.extVisitors.impl.BallHostIDFactory;
  * @author Phoebe Scaccia
  */
 public class DefaultBall extends ABall {
-
 	/**
 	 * For serialization.
 	 */
-	private static final long serialVersionUID = -4845345229951036636L;
-	
+	private static final long serialVersionUID = -3530099411880227402L;
 	/**
 	 * The identifying host ID for this class.
 	 */

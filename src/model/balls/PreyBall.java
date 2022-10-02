@@ -19,8 +19,7 @@ public class PreyBall extends ABall {
 	/**
 	 * For serialization.
 	 */
-	private static final long serialVersionUID = 1048678437196698827L;
-
+	private static final long serialVersionUID = 5241021156778856276L;
 	/**
 	 *  The identifying host ID for this class.
 	 */

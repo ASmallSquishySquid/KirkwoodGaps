@@ -15,11 +15,11 @@ import provided.ballworld.extVisitors.impl.BallHostIDFactory;
  * @author Phoebe Scaccia
  */
 public class PredatorBall extends ABall {
+	
 	/**
 	 * For serialization.
 	 */
-	private static final long serialVersionUID = -584823189720744220L;
-	
+	private static final long serialVersionUID = 6598028933626593084L;
 	/**
 	 * The identifying host ID for this class.
 	 */

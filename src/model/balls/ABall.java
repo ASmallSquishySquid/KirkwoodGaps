@@ -29,11 +29,10 @@ import provided.utils.displayModel.IATImage;
  * @author Phoebe Scaccia
  */
 public abstract class ABall extends ABallHost<IBall> implements IBall {
-
 	/**
 	 * For serialization.
 	 */
-	private static final long serialVersionUID = 8621380154015377436L;
+	private static final long serialVersionUID = -5595019792800389696L;
 	/**
 	 * The ABall's position.
 	 */
