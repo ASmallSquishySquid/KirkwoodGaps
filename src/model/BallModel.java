@@ -401,6 +401,21 @@ public class BallModel {
 	public AConfigBallAlgo makeInteractStrategyAlgo(final String classname) {
 		return new ConfigInteractBallAlgo(classname, loadInteractStrategy(fixInteractName(classname)));
 	}
+	
+	/**
+	 * Returns an AConfigBallAlgo specified by
+	 * <code>classname</code> and install it into the host ball by composing it with any
+	 * existing interact strategy in the ball.
+	 * Installs an error strategy if <code>classname</code> is null or other error occurs
+	 * during the loading process.
+	 * The toString() of the returned algorithm is the given <code>classname</code>.
+	 *
+	 * @param classname Shortened name of desired AConfigBallAlgo
+	 * @return An AConfigBallAlgo
+	 */
+	public AConfigBallAlgo makeConfigBallAlgo(final String classname) {
+		return loadConfigAlgo(classname);
+	}
 
 	/**
 	 *  Returns a composite IBallAlgo that can instantiate a composition with the two
@@ -563,7 +578,7 @@ public class BallModel {
 	 * @return a config algo
 	 */
 	private AConfigBallAlgo loadConfigAlgo(String name) {
-		return this.configAlgoLoader.loadInstance(name, ILoggerControl.getSharedLogger(), new IBallAlgo2ModelAdapter() {
+		return this.configAlgoLoader.loadInstance(fixConfigAlgoName(name), name, ILoggerControl.getSharedLogger(), new IBallAlgo2ModelAdapter() {
 			
 			@Override
 			public void addConfigComponent(String label, Supplier<JComponent> compFac) {

@@ -30,11 +30,12 @@ public class ConfigPhysicsBallAlgo extends AConfigBallAlgo {
 	/**
 	 * Constructor for a new ConfigPhysicsBallAlgo.
 	 * 
+	 * @param name the name returned by <code>toString()</code>
 	 * @param logger The logger to use
 	 * @param algo2ModelAdpt the adapter to the model
 	 */
-	public ConfigPhysicsBallAlgo(ILogger logger, IBallAlgo2ModelAdapter algo2ModelAdpt) {
-		super(logger, algo2ModelAdpt);
+	public ConfigPhysicsBallAlgo(String name, ILogger logger, IBallAlgo2ModelAdapter algo2ModelAdpt) {
+		super(logger, name, algo2ModelAdpt);
 		
 		setDefaultCmd(new ABallAlgoCmd<Void, Void>() {
 			/**
@@ -64,11 +65,6 @@ public class ConfigPhysicsBallAlgo extends AConfigBallAlgo {
 				return null;
 			}
 		});
-	}
-	
-	@Override
-	public String toString() {
-		return "Physics";
 	}
 
 }

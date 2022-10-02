@@ -26,11 +26,12 @@ public class ConfigSameTypeBallAlgo extends AConfigBallAlgo {
 	/**
 	 * Constructor for a new ConfigSameTypeBallAlgo.
 	 * 
+	 * @param name the name returned by <code>toString()</code>
 	 * @param logger the logger to use
 	 * @param algo2ModelAdpt the adapter to the model
 	 */
-	public ConfigSameTypeBallAlgo(ILogger logger, IBallAlgo2ModelAdapter algo2ModelAdpt) {
-		super(logger, algo2ModelAdpt);
+	public ConfigSameTypeBallAlgo(String name, ILogger logger, IBallAlgo2ModelAdapter algo2ModelAdpt) {
+		super(logger, name, algo2ModelAdpt);
 		
 		this.setDefaultCmd(new ABallAlgoCmd<>() {
 			
@@ -57,9 +58,5 @@ public class ConfigSameTypeBallAlgo extends AConfigBallAlgo {
 			return pnlValues;  // Return the control panel to be displayed
 		});
 	}
-
-	@Override
-	public String toString() {
-		return "SameType";
-	}
+	
 }
