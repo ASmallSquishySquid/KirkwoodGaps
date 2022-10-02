@@ -10,7 +10,7 @@ import provided.ballworld.extVisitors.IBallHostID;
 import provided.ballworld.extVisitors.impl.BallHostIDFactory;
 
 /**
- * A scavenger ball.
+ * The scavenger ball object.
  * 
  * @author Phoebe Scaccia
  */
@@ -18,26 +18,28 @@ public class ScavengerBall extends ABall {
 	/**
 	 * For serialization.
 	 */
-	private static final long serialVersionUID = 7221106886392605605L;
+	private static final long serialVersionUID = 3361009939141177185L;
+
 	/**
 	 * The identifying host ID for this class.
 	 */
 	public static final IBallHostID id = BallHostIDFactory.Singleton.makeID(ScavengerBall.class.getName());
-	
+
 	/**
-	 * Constructor for a new ScavengerBall.
+	 * Constructor for a new DefaultBall.
 	 * 
-	 * @param p the position.
-	 * @param r the radius.
-	 * @param v the velocity.
-	 * @param c the color.
-	 * @param container the container.
+	 * @param p the ABall's position.
+	 * @param r the ABall's radius.
+	 * @param v the ABall's velocity.
+	 * @param c the ABall's color.
+	 * @param container the ABall's container.
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	protected ScavengerBall(Point p, int r, Point v, Color c, Component container,
-			AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+	public ScavengerBall(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
+			IModel2BallAdapter modelAdapter) {
 		super(id, p, r, v, c, container, installAlgo, modelAdapter);
 	}
+	
 
 }
