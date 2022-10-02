@@ -15,6 +15,7 @@ import model.adapters.IModel2BallAdapter;
 import model.adapters.IViewControlAdapter;
 import model.adapters.IViewUpdateAdapter;
 import model.balls.DefaultBall;
+import model.balls.ErrorBall;
 import model.balls.IBall;
 import model.strategies.criteria.ErrorCriteriaStrategy;
 import model.strategies.criteria.ICriteriaStrategy;
@@ -28,6 +29,7 @@ import model.strategies.update.IUpdateStrategy;
 import model.strategies.update.StraightStrategy;
 import model.visitors.algos.AConfigBallAlgo;
 import model.visitors.algos.CompositeConfigBallAlgo;
+import model.visitors.algos.ConfigBallTypeAlgo;
 import model.visitors.algos.ConfigCriteriaBallAlgo;
 import model.visitors.algos.ConfigInteractBallAlgo;
 import model.visitors.algos.ConfigPaintBallAlgo;
@@ -254,6 +256,13 @@ public class BallModel {
 	 */
 	private IObjectLoader<AConfigBallAlgo> configAlgoLoader = new ObjectLoader<AConfigBallAlgo>(
 			(attempt, args) -> new ErrorConfigBallAlgo());
+	
+	/**
+	 * The IObjectLoader object which loads in ball types.
+	 */
+	private IObjectLoader<IBall> ballTypeLoader = new ObjectLoader<IBall>(
+			(attempt, args) -> new ErrorBall(null, null, 0, null, null, null, clearStrategy, null));
+	
 	/**
 	 * The IDispatcher whose IObservers are ABall objects.
 	 */
@@ -418,6 +427,21 @@ public class BallModel {
 	}
 
 	/**
+	 * Returns an AConfigBallAlgo specified by
+	 * <code>classname</code> and install it into the host ball by composing it with any
+	 * existing interact strategy in the ball.
+	 * Installs an error strategy if <code>classname</code> is null or other error occurs
+	 * during the loading process.
+	 * The toString() of the returned algorithm is the given <code>classname</code>.
+	 *
+	 * @param classname Shortened name of desired AConfigBallAlgo
+	 * @return An AConfigBallAlgo
+	 */
+	public AConfigBallAlgo makeBallTypeAlgo(final String classname) {
+		return new ConfigBallTypeAlgo(classname, loadBallType(fixBallTypeName(classname)));
+	}
+	
+	/**
 	 *  Returns a composite IBallAlgo that can instantiate a composition with the two
 	 * strategies made by the two given IUpdateStrategyFac objects. Returns null if
 	 * either supplied factory is null. The <code>toString()</code> of the returned factory
@@ -530,6 +554,16 @@ public class BallModel {
 	private String fixConfigAlgoName(Object classname) {
 		return "model.visitors.algos.Config" + classname + "BallAlgo";
 	}
+	
+	/**
+	 * A helper function that adds the balls package name as a prefix to a class name.
+	 *
+	 * @param classname : the abbreviated form of a ball type.
+	 * @return the fully-qualified name of a ball type.
+	 */
+	private String fixBallTypeName(Object classname) {
+		return "model.balls." + classname + "Ball";
+	}
 
 	/**
 	 * A helper function that loads a new paint strategy in.
@@ -569,6 +603,16 @@ public class BallModel {
 	 */
 	private IInteractStrategy<IBallCmd> loadInteractStrategy(String name) {
 		return this.interactStrategyLoader.loadInstance(name);
+	}
+	
+	/**
+	 * A helper function that loads a new ball type.
+	 *
+	 * @param name the fully-qualified name of the ball type to load
+	 * @return an IBall
+	 */
+	private IBall loadBallType(String name) {
+		return this.ballTypeLoader.loadInstance(name);
 	}
 	
 	/**

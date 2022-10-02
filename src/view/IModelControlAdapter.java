@@ -57,6 +57,14 @@ public interface IModelControlAdapter<TDropListItem> {
 	 * @return an object to add to the drop lists
 	 */
 	public TDropListItem addInteractStrategy(String classname);
+	
+	/**
+	 * Adds a ball type to the drop lists.
+	 *
+	 * @param typename the name of the ball type
+	 * @return an object to add to the drop lists
+	 */
+	public TDropListItem addBallType(String typename);
 
 	/**
 	 * Adds a switcher ball to the screen.
@@ -155,7 +163,13 @@ public interface IModelControlAdapter<TDropListItem> {
 			public TDropListItem addCriteriaStrategy(String classname) {
 				return null;
 			}
+
+			@Override
+			public TDropListItem addBallType(String typename) {
+				return null;
+			}
 		};
 	}
+
 
 }

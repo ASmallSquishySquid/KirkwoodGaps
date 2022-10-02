@@ -89,6 +89,11 @@ public class Controller {
 			public AConfigBallAlgo addInteractStrategy(String classname) {
 				return model.makeInteractStrategyAlgo(classname);
 			}
+			
+			@Override
+			public AConfigBallAlgo addBallType(String classname) {
+				return model.makeBallTypeAlgo(classname);
+			}
 
 			@Override
 			public void makeSwitcherBall() {

@@ -233,17 +233,17 @@ public class BallGUI<TDropListItem> extends JFrame {
 		txtBallType.setText("Default");
 		txtBallType.setColumns(10);
 		panelBallType.add(btnBallType);
-//		btnBallType.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				if (!txtBallType.getText().isBlank()) {
-//					TDropListItem type = modelCtrlAdpt.addBallType(txtBallType.getText());
-//					if (type != null) {
-//						boxBallType.addItem(type);
-//					}
-//				}
-//			}
-//		});
+		btnBallType.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (!txtBallType.getText().isBlank()) {
+					TDropListItem type = modelCtrlAdpt.addBallType(txtBallType.getText());
+					if (type != null) {
+						boxBallType.addItem(type);
+					}
+				}
+			}
+		});
 		panelBallType.add(boxBallType);
 		controlPnl.add(panelBallType);
 		panelBallType.setLayout(new GridLayout(4, 1, 0, 5));
