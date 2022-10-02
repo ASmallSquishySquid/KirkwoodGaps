@@ -542,6 +542,13 @@ public class BallModel {
 	public String getDefaultInteractStrategy() {
 		return "Elastic";
 	}
+	
+	/**
+	 * @return the default configuration algorithm.
+	 */
+	public String getDefaultConfigAlgo() {
+		return "Physics";
+	}
 
 	/**
 	 * A helper function that adds the paint package name as a prefix to a class name.

@@ -53,7 +53,7 @@ public class ConfigSameTypeBallAlgo extends AConfigBallAlgo {
 			pnlValues.addTextInput("Criteria", "Collision", (newVal)->{
 				criteriaType = newVal; // No validation being done here.
 				return criteriaType;  // Return the current value
-			});			
+			});
 			
 			return pnlValues;  // Return the control panel to be displayed
 		});

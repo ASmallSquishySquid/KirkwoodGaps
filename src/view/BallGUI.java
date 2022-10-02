@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
@@ -11,6 +12,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -194,6 +196,23 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 * A droplist containing added ball types.
 	 */
 	private final JComboBox<TDropListItem2> boxBallType = new JComboBox<TDropListItem2>();
+	/**
+	 * The panel containing the ConfigAlgo controls.
+	 */
+	private final JPanel panelConfigAlgo = new JPanel();
+	/**
+	 * The text field to input a new ConfigAlgo in.
+	 */
+	private final JTextField txtConfigAlgo = new JTextField();
+	/**
+	 * The button to click to add a ConfigAlgo.
+	 */
+	private final JButton btnAddConfigAlgo = new JButton("Add to lists");
+	/**
+	 * A label for the ConfigAlgo section.
+	 */
+	private final JLabel lblConfigAlgo = new JLabel("Configuration Algorithm");
+	/**
 	/**
 	 * TODO remove
 	 */
@@ -398,9 +417,41 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 				}
 			}
 		});
-		btnAddInteract.setToolTipText("Adds the inputted paint strategy to the list");
+		btnAddInteract.setToolTipText("Adds the inputted interact strategy to the list");
 		btnAddInteract.setBackground(Color.YELLOW);
 		panelInteractStrat.add(btnAddInteract);
+		
+		panelConfigAlgo.setToolTipText("The basic controls for configuration algorithms");
+		panelConfigAlgo.setBackground(Color.LIGHT_GRAY);
+		panelConfigAlgo.setLayout(new GridLayout(3, 1, 0, 5));
+		controlPnl.add(panelConfigAlgo);
+		
+		lblConfigAlgo.setToolTipText("Config algo section");
+		lblConfigAlgo.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblConfigAlgo.setHorizontalAlignment(SwingConstants.CENTER);
+		panelConfigAlgo.add(lblConfigAlgo);
+		
+		txtConfigAlgo.setToolTipText("Input a config algo");
+		txtConfigAlgo.setText(modelCtrlAdpt.getDefaultConfigAlgo());
+		txtConfigAlgo.setColumns(10);
+		panelConfigAlgo.add(txtConfigAlgo);
+		
+		btnAddConfigAlgo.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (!txtConfigAlgo.getText().isBlank()) {
+					TDropListItem1 strat = modelCtrlAdpt.addConfigAlgo(txtConfigAlgo.getText());
+					if (strat != null) {
+						boxType1.addItem(strat);
+						boxType1.setSelectedIndex(boxType1.getItemCount() - 1);
+						boxType2.addItem(strat);
+					}
+				}
+			}
+		});
+		btnAddConfigAlgo.setToolTipText("Adds the inputted config algo to the list");
+		btnAddConfigAlgo.setBackground(Color.YELLOW);
+		panelConfigAlgo.add(btnAddConfigAlgo);
 		
 		panelDropdowns.setToolTipText("The strategy choices");
 		panelDropdowns.setBackground(Color.LIGHT_GRAY);
@@ -504,5 +555,16 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 */
 	public void start() {
 		setVisible(true);
+	}
+	
+	/**
+	 * Adds a component to the GUI.
+	 * 
+	 * @param label the String label
+	 * @param component a Component
+	 */
+	public void addComponent(String label, JComponent component) {
+		component.setToolTipText(label);
+		this.contentPane.add(component);
 	}
 }

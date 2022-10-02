@@ -31,6 +31,11 @@ public interface IModelControlAdapter<TDropListItem1, TDropListItem2> {
 	 * @return the default update strategy
 	 */
 	public String getDefaultInteractStrategy();
+	
+	/**
+	 * @return the default config algo
+	 */
+	public String getDefaultConfigAlgo();
 
 	/**
 	 * Adds a paint strategy to the drop lists.
@@ -63,6 +68,14 @@ public interface IModelControlAdapter<TDropListItem1, TDropListItem2> {
 	 * @return an object to add to the drop lists
 	 */
 	public TDropListItem1 addInteractStrategy(String classname);
+	
+	/**
+	 * Adds a config algo to the drop lists.
+	 *
+	 * @param classname the class name of the config algo
+	 * @return an object to add to the drop lists
+	 */
+	public TDropListItem1 addConfigAlgo(String classname);
 	
 	/**
 	 * Adds a ball type to the drop lists.
@@ -181,6 +194,16 @@ public interface IModelControlAdapter<TDropListItem1, TDropListItem2> {
 
 			@Override
 			public String getDefaultBallType() {
+				return null;
+			}
+
+			@Override
+			public String getDefaultConfigAlgo() {
+				return null;
+			}
+
+			@Override
+			public TDropListItem1 addConfigAlgo(String classname) {
 				return null;
 			}
 		};

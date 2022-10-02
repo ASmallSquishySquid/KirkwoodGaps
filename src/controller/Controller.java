@@ -55,9 +55,7 @@ public class Controller {
 
 			@Override
 			public void addConfigComponent(String label, Supplier<JComponent> compFac) {
-				// TODO Auto-generated method stub
-				
-				
+				view.addComponent(label, compFac.get());
 			}
 
 		}, new IViewUpdateAdapter() {
@@ -90,6 +88,11 @@ public class Controller {
 			@Override
 			public AConfigBallAlgo addInteractStrategy(String classname) {
 				return model.makeInteractStrategyAlgo(classname);
+			}
+			
+			@Override
+			public AConfigBallAlgo addConfigAlgo(String classname) {
+				return model.makeConfigBallAlgo(classname);
 			}
 			
 			@Override
@@ -145,6 +148,11 @@ public class Controller {
 			@Override
 			public String getDefaultBallType() {
 				return model.getDefaultBallType();
+			}
+
+			@Override
+			public String getDefaultConfigAlgo() {
+				return model.getDefaultConfigAlgo();
 			}
 		}, new IModelUpdateAdapter() {
 
