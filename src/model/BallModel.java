@@ -509,6 +509,13 @@ public class BallModel {
 	}
 
 	/**
+	 * @return the default ball type.
+	 */
+	public String getDefaultBallType() {
+		return "Default";
+	}
+	
+	/**
 	 * @return the default ball strategy.
 	 */
 	public String getDefaultPaintStrategy() {

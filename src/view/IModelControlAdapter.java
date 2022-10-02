@@ -8,6 +8,11 @@ package view;
 public interface IModelControlAdapter<TDropListItem1, TDropListItem2> {
 
 	/**
+	 * @return the default ball type
+	 */
+	public String getDefaultBallType();
+	
+	/**
 	 * @return the default paint strategy
 	 */
 	public String getDefaultPaintStrategy();
@@ -171,6 +176,11 @@ public interface IModelControlAdapter<TDropListItem1, TDropListItem2> {
 
 			@Override
 			public TDropListItem2 addBallType(String typename) {
+				return null;
+			}
+
+			@Override
+			public String getDefaultBallType() {
 				return null;
 			}
 		};

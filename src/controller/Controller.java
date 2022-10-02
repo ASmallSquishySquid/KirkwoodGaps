@@ -141,6 +141,11 @@ public class Controller {
 			public String getDefaultInteractStrategy() {
 				return model.getDefaultInteractStrategy();
 			}
+
+			@Override
+			public String getDefaultBallType() {
+				return model.getDefaultBallType();
+			}
 		}, new IModelUpdateAdapter() {
 
 			@Override
