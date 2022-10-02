@@ -1,4 +1,4 @@
-package model.strategies.typeDependent;
+package model.strategies.update;
 
 import java.awt.Color;
 
@@ -6,7 +6,6 @@ import model.balls.IBall;
 import model.balls.PredatorBall;
 import model.balls.PreyBall;
 import model.balls.ScavengerBall;
-import model.strategies.update.IUpdateStrategy;
 import model.visitors.algos.BallAlgo;
 import model.visitors.cmds.ABallAlgoCmd;
 import model.visitors.cmds.IBallCmd;
@@ -19,7 +18,7 @@ import provided.utils.dispatcher.IDispatcher;
  * @author Annita Chang
  *
  */
-public class ColorUpdateStrategy implements IUpdateStrategy {
+public class ColorStrategy implements IUpdateStrategy {
 
 	@Override
 	public void init(IBall context) {
