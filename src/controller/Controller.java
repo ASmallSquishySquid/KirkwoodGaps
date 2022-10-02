@@ -108,7 +108,7 @@ public class Controller {
 			}
 
 			@Override
-			public void makeBall(IBallFactory selectedItem1, AConfigBallAlgo selectedItem2) {
+			public void makeBall(IBallFactory selectedItem1, AConfigBallAlgo selectedItem2) {				
 				model.loadBall(selectedItem1, selectedItem2);
 			}
 
