@@ -262,7 +262,7 @@ public class BallModel {
 	 * The IObjectLoader object which loads in ball types.
 	 */
 	private IObjectLoader<IBall> ballTypeLoader = new ObjectLoader<IBall>(
-			(attempt, args) -> new ErrorBall(null, 0, null, null, null, null, null));
+			(attempt, args) -> new ErrorBall(new Point(0, 0), 0, new Point(0, 0), null, null, null, null));
 	
 	/**
 	 * The IDispatcher whose IObservers are ABall objects.
@@ -462,7 +462,6 @@ public class BallModel {
 			@Override
 			public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
 					IModel2BallAdapter modelAdapter) {
-				System.out.println("LOADING");
 				return loadBallType(fixBallTypeName(classname), p, r, v, c, container, installAlgo, modelAdapter);
 			}
 			
