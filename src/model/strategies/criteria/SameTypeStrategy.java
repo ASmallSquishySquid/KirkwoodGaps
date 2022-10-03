@@ -27,6 +27,14 @@ public class SameTypeStrategy implements ICriteriaStrategy {
 	
 	/**
 	 * Constructor for a new SameTypeStrategy.
+	 */
+	public SameTypeStrategy() {
+		super();
+		this.criteriaName = () -> "Collision";
+	}
+	
+	/**
+	 * Constructor for a new SameTypeStrategy.
 	 * 
 	 * @param criteriaName a Supplier for the type of interaction criteria
 	 */
