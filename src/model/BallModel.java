@@ -73,75 +73,76 @@ public class BallModel {
 	/**
 	 * A strategy that clears the current strategy.
 	 */
-	private AConfigBallAlgo clearStrategy = new AConfigBallAlgo(ILoggerControl.getSharedLogger(), IBallAlgo2ModelAdapter.NULL, new ABallAlgoCmd<Void, Void>() {
-		/**
-		 * For serialization.
-		 */
-		private static final long serialVersionUID = -2452545543095265330L;
-
-		@Override
-		public Void apply(IBallHostID index, IBall context, Void... params) {
-			context.setPaintStrategy(new IPaintStrategy() {
+	private AConfigBallAlgo clearStrategy = new AConfigBallAlgo(ILoggerControl.getSharedLogger(),
+			IBallAlgo2ModelAdapter.NULL, new ABallAlgoCmd<Void, Void>() {
+				/**
+				 * For serialization.
+				 */
+				private static final long serialVersionUID = -2452545543095265330L;
 
 				@Override
-				public void paint(Graphics g, IBall context) {
-					return;
-				}
+				public Void apply(IBallHostID index, IBall context, Void... params) {
+					context.setPaintStrategy(new IPaintStrategy() {
 
-				@Override
-				public void init(IBall context) {
-					return;
-				}
-			});
-			
-			context.setUpdateStrategy(new StraightStrategy());
-			
-			context.setCriteriaStrategy(new ICriteriaStrategy() {
-				
-				@Override
-				public boolean satisfied(IBall context, IBall target) {
-					return false;
-				}
-				
-				@Override
-				public void init(IBall context) {
-					return;
-				}
-			});
-			
-			context.setInteractStrategy(new IInteractStrategy<IBallCmd>() {
-				
-				@Override
-				public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> dispatcher) {
+						@Override
+						public void paint(Graphics g, IBall context) {
+							return;
+						}
+
+						@Override
+						public void init(IBall context) {
+							return;
+						}
+					});
+
+					context.setUpdateStrategy(new StraightStrategy());
+
+					context.setCriteriaStrategy(new ICriteriaStrategy() {
+
+						@Override
+						public boolean satisfied(IBall context, IBall target) {
+							return false;
+						}
+
+						@Override
+						public void init(IBall context) {
+							return;
+						}
+					});
+
+					context.setInteractStrategy(new IInteractStrategy<IBallCmd>() {
+
+						@Override
+						public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> dispatcher) {
+							return null;
+						}
+
+						@Override
+						public void init(IBall context) {
+							return;
+						}
+					});
+
 					return null;
 				}
-				
-				@Override
-				public void init(IBall context) {
-					return;
-				}
-			});
-			
-			return null;
-		}
-	}) {
+			}) {
 
 		/**
 		 * For serialization.
 		 */
 		private static final long serialVersionUID = 1L;
-		
+
 	};
 	/**
 	 * The dummy switcher ball that hold all the strategies.
 	 */
-	private DefaultBall switcherBall = new DefaultBall(new Point(), 0, new Point(), null, null, 
-			new AConfigBallAlgo(ILoggerControl.getSharedLogger(), IBallAlgo2ModelAdapter.NULL, new ABallAlgoCmd<Void, Void>() {
+	private DefaultBall switcherBall = new DefaultBall(new Point(), 0, new Point(), null, null, new AConfigBallAlgo(
+			ILoggerControl.getSharedLogger(), IBallAlgo2ModelAdapter.NULL, new ABallAlgoCmd<Void, Void>() {
 				/**
 				 * For serialization.
 				 */
 				private static final long serialVersionUID = -8185269178029656500L;
-		
+
 				@Override
 				public Void apply(IBallHostID index, IBall context, Void... params) {
 					context.execute(clearStrategy);
@@ -149,26 +150,26 @@ public class BallModel {
 					return null;
 				}
 			}) {
-			/**
-			 * For serialization.
-			 */
-			private static final long serialVersionUID = -1340622403010369255L;
-		}, new IModel2BallAdapter() {
-			@Override
-			public IATImage getImageWrapper(Image image) {
-				return viewCtrlAdpt.getIATImage(image);
-			}
-		});
+		/**
+		 * For serialization.
+		 */
+		private static final long serialVersionUID = -1340622403010369255L;
+	}, new IModel2BallAdapter() {
+		@Override
+		public IATImage getImageWrapper(Image image) {
+			return viewCtrlAdpt.getIATImage(image);
+		}
+	});
 	/**
 	 * The one switcher update strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
 	 */
 	private IUpdateStrategy switcherUpdateStrategy = new IUpdateStrategy() {
-		
+
 		@Override
 		public void init(IBall context) {
 			switcherBall.getUpdateStrategy().init(context);
 		}
-		
+
 		@Override
 		public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher, boolean didBounce) {
 			// delegate to the strategy in the dummy ball
@@ -195,12 +196,12 @@ public class BallModel {
 	 * The one switcher paint strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
 	 */
 	private ICriteriaStrategy switcherCriteriaStrategy = new ICriteriaStrategy() {
-		
+
 		@Override
 		public boolean satisfied(IBall context, IBall target) {
 			return switcherBall.getCriteriaStrategy().satisfied(context, target);
 		}
-		
+
 		@Override
 		public void init(IBall context) {
 			switcherBall.getCriteriaStrategy().init(context);
@@ -210,24 +211,24 @@ public class BallModel {
 	 * The one switcher interact strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
 	 */
 	private IInteractStrategy<IBallCmd> switcherInteractStrategy = new IInteractStrategy<IBallCmd>() {
-		
+
 		@Override
 		public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> dispatcher) {
 			return switcherBall.getInteractStrategy().interact(context, target, dispatcher);
 		}
-		
+
 		@Override
 		public void init(IBall context) {
-			switcherBall.getInteractStrategy().init(context);			
+			switcherBall.getInteractStrategy().init(context);
 		}
 	};
 	/**
 	 * The algorithm to build a new switcher ball.
 	 */
-	private AConfigBallAlgo switcherInstallAlgo = new CompositeConfigBallAlgo( 
-			new ConfigUpdateBallAlgo(null, switcherUpdateStrategy), 
+	private AConfigBallAlgo switcherInstallAlgo = new CompositeConfigBallAlgo(
+			new ConfigUpdateBallAlgo(null, switcherUpdateStrategy),
 			new ConfigPaintBallAlgo(null, switcherPaintStrategy),
-			new ConfigInteractBallAlgo(null, switcherInteractStrategy), 
+			new ConfigInteractBallAlgo(null, switcherInteractStrategy),
 			new ConfigCriteriaBallAlgo(null, switcherCriteriaStrategy));
 	/**
 	 * The IObjectLoader object which loads in paint strategies.
@@ -239,31 +240,31 @@ public class BallModel {
 	 */
 	private IObjectLoader<IUpdateStrategy> updateStrategyLoader = new ObjectLoader<IUpdateStrategy>(
 			(attempt, args) -> new ErrorUpdateStrategy());
-	
+
 	/**
 	 * The IObjectLoader object which loads in criteria strategies.
 	 */
 	private IObjectLoader<ICriteriaStrategy> criteriaStrategyLoader = new ObjectLoader<ICriteriaStrategy>(
 			(attempt, args) -> new ErrorCriteriaStrategy());
-	
+
 	/**
 	 * The IObjectLoader object which loads in interact strategies.
 	 */
 	private IObjectLoader<IInteractStrategy<IBallCmd>> interactStrategyLoader = new ObjectLoader<IInteractStrategy<IBallCmd>>(
 			(attempt, args) -> new ErrorInteractStrategy());
-	
+
 	/**
 	 * The IObjectLoader object which loads in criteria strategies.
 	 */
 	private IObjectLoader<AConfigBallAlgo> configAlgoLoader = new ObjectLoader<AConfigBallAlgo>(
 			(attempt, args) -> new ErrorConfigBallAlgo());
-	
+
 	/**
 	 * The IObjectLoader object which loads in ball types.
 	 */
 	private IObjectLoader<IBall> ballTypeLoader = new ObjectLoader<IBall>(
 			(attempt, args) -> new ErrorBall(new Point(0, 0), 0, new Point(0, 0), null, null, null, null));
-	
+
 	/**
 	 * The IDispatcher whose IObservers are ABall objects.
 	 */
@@ -315,11 +316,11 @@ public class BallModel {
 		if (ballAlgo == null) {
 			ballAlgo = new ConfigUpdateBallAlgo(null, new ErrorUpdateStrategy());
 		}
-		
+
 		if (ballFactory == null) {
 			ballFactory = IBallFactory.defaultBallFactory;
 		}
-		
+
 		// Generate a new ball with random parameters.
 
 		IRandomizer r = Randomizer.Singleton;
@@ -329,16 +330,16 @@ public class BallModel {
 		Point velocity = r.randomVel(new Rectangle(maxSpeed, maxSpeed));
 		Color color = r.randomColor();
 
-		IObserver<IBallCmd> ball = ballFactory.make(position, radius, velocity, color, viewCtrlAdpt.getCanvas(), ballAlgo,
-				new IModel2BallAdapter() {
-			@Override
-			public IATImage getImageWrapper(Image image) {
-				return viewCtrlAdpt.getIATImage(image);
-			}
-		});
+		IObserver<IBallCmd> ball = ballFactory.make(position, radius, velocity, color, viewCtrlAdpt.getCanvas(),
+				ballAlgo, new IModel2BallAdapter() {
+					@Override
+					public IATImage getImageWrapper(Image image) {
+						return viewCtrlAdpt.getIATImage(image);
+					}
+				});
 		ballDispatcher.addObserver(ball);
 	}
-	
+
 	/**
 	 * Loads a new switcher ball.
 	 * 
@@ -399,7 +400,7 @@ public class BallModel {
 	public AConfigBallAlgo makePaintStrategyAlgo(final String classname) {
 		return new ConfigPaintBallAlgo(classname, loadPaintStrategy(fixPaintName(classname)));
 	}
-	
+
 	/**
 	 * Returns an IBallAlgo that can instantiate the strategy specified by
 	 * <code>classname</code> and install it into the host ball by composing it with any
@@ -414,7 +415,7 @@ public class BallModel {
 	public AConfigBallAlgo makeCriteriaStrategyAlgo(final String classname) {
 		return new ConfigCriteriaBallAlgo(classname, loadCriteriaStrategy(fixCriteriaName(classname)));
 	}
-	
+
 	/**
 	 * Returns an IBallAlgo that can instantiate the strategy specified by
 	 * <code>classname</code> and install it into the host ball by composing it with any
@@ -429,7 +430,7 @@ public class BallModel {
 	public AConfigBallAlgo makeInteractStrategyAlgo(final String classname) {
 		return new ConfigInteractBallAlgo(classname, loadInteractStrategy(fixInteractName(classname)));
 	}
-	
+
 	/**
 	 * Returns an AConfigBallAlgo specified by
 	 * <code>classname</code> and install it into the host ball by composing it with any
@@ -458,20 +459,20 @@ public class BallModel {
 	 */
 	public IBallFactory makeBallFactory(final String classname) {
 		return new IBallFactory() {
-			
+
 			@Override
 			public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
 					IModel2BallAdapter modelAdapter) {
 				return loadBallType(fixBallTypeName(classname), p, r, v, c, container, installAlgo, modelAdapter);
 			}
-			
+
 			@Override
 			public String toString() {
 				return classname;
 			}
 		};
 	}
-	
+
 	/**
 	 *  Returns a composite IBallAlgo that can instantiate a composition with the two
 	 * strategies made by the two given IUpdateStrategyFac objects. Returns null if
@@ -514,7 +515,7 @@ public class BallModel {
 	public String getDefaultBallType() {
 		return "Default";
 	}
-	
+
 	/**
 	 * @return the default ball strategy.
 	 */
@@ -528,21 +529,21 @@ public class BallModel {
 	public String getDefaultUpdateStrategy() {
 		return "Straight";
 	}
-	
+
 	/**
 	 * @return the default criteria strategy.
 	 */
 	public String getDefaultCriteriaStrategy() {
 		return "Collision";
 	}
-	
+
 	/**
 	 * @return the default interact strategy.
 	 */
 	public String getDefaultInteractStrategy() {
 		return "Elastic";
 	}
-	
+
 	/**
 	 * @return the default configuration algorithm.
 	 */
@@ -569,7 +570,7 @@ public class BallModel {
 	private String fixUpdateName(Object classname) {
 		return "model.strategies.update." + classname + "Strategy";
 	}
-	
+
 	/**
 	 * A helper function that adds the criteria package name as a prefix to a class name.
 	 *
@@ -579,7 +580,7 @@ public class BallModel {
 	private String fixCriteriaName(Object classname) {
 		return "model.strategies.criteria." + classname + "Strategy";
 	}
-	
+
 	/**
 	 * A helper function that adds the interact package name as a prefix to a class name.
 	 *
@@ -589,7 +590,7 @@ public class BallModel {
 	private String fixInteractName(Object classname) {
 		return "model.strategies.interact." + classname + "Strategy";
 	}
-	
+
 	/**
 	 * A helper function that adds the algo package name as a prefix to a class name.
 	 *
@@ -599,7 +600,7 @@ public class BallModel {
 	private String fixConfigAlgoName(Object classname) {
 		return "model.visitors.algos.Config" + classname + "BallAlgo";
 	}
-	
+
 	/**
 	 * A helper function that adds the balls package name as a prefix to a class name.
 	 *
@@ -629,7 +630,7 @@ public class BallModel {
 	private IUpdateStrategy loadUpdateStrategy(String name) {
 		return this.updateStrategyLoader.loadInstance(name);
 	}
-	
+
 	/**
 	 * A helper function that loads a new criteria strategy in.
 	 *
@@ -639,7 +640,7 @@ public class BallModel {
 	private ICriteriaStrategy loadCriteriaStrategy(String name) {
 		return this.criteriaStrategyLoader.loadInstance(name);
 	}
-	
+
 	/**
 	 * A helper function that loads a new interact strategy in.
 	 *
@@ -649,7 +650,7 @@ public class BallModel {
 	private IInteractStrategy<IBallCmd> loadInteractStrategy(String name) {
 		return this.interactStrategyLoader.loadInstance(name);
 	}
-	
+
 	/**
 	 * A helper function that loads a new ball type.
 	 *
@@ -660,7 +661,7 @@ public class BallModel {
 	private IBall loadBallType(String name, Object... args) {
 		return this.ballTypeLoader.loadInstance(name, args);
 	}
-	
+
 	/**
 	 * A helper function that loads a new config algo in.
 	 *
@@ -668,12 +669,13 @@ public class BallModel {
 	 * @return a config algo
 	 */
 	private AConfigBallAlgo loadConfigAlgo(String name) {
-		return this.configAlgoLoader.loadInstance(fixConfigAlgoName(name), name, ILoggerControl.getSharedLogger(), new IBallAlgo2ModelAdapter() {
-			
-			@Override
-			public void addConfigComponent(String label, Supplier<JComponent> compFac) {
-				viewCtrlAdpt.addConfigComponent(label, compFac);
-			}
-		});
+		return this.configAlgoLoader.loadInstance(fixConfigAlgoName(name), name, ILoggerControl.getSharedLogger(),
+				new IBallAlgo2ModelAdapter() {
+
+					@Override
+					public void addConfigComponent(String label, Supplier<JComponent> compFac) {
+						viewCtrlAdpt.addConfigComponent(label, compFac);
+					}
+				});
 	}
 }

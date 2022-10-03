@@ -67,100 +67,101 @@ public class Controller {
 
 		});
 
-		this.view = new BallGUI<AConfigBallAlgo, IBallFactory>(new IModelControlAdapter<AConfigBallAlgo, IBallFactory>() {
+		this.view = new BallGUI<AConfigBallAlgo, IBallFactory>(
+				new IModelControlAdapter<AConfigBallAlgo, IBallFactory>() {
 
-			@Override
-			public AConfigBallAlgo addPaintStrategy(String classname) {
-				return model.makePaintStrategyAlgo(classname);
-			}
+					@Override
+					public AConfigBallAlgo addPaintStrategy(String classname) {
+						return model.makePaintStrategyAlgo(classname);
+					}
 
-			@Override
-			public AConfigBallAlgo addUpdateStrategy(String classname) {
-				return model.makeUpdateStrategyAlgo(classname);
-			}
-			
+					@Override
+					public AConfigBallAlgo addUpdateStrategy(String classname) {
+						return model.makeUpdateStrategyAlgo(classname);
+					}
 
-			@Override
-			public AConfigBallAlgo addCriteriaStrategy(String classname) {
-				return model.makeCriteriaStrategyAlgo(classname);
-			}
-			
-			@Override
-			public AConfigBallAlgo addInteractStrategy(String classname) {
-				return model.makeInteractStrategyAlgo(classname);
-			}
-			
-			@Override
-			public AConfigBallAlgo addConfigAlgo(String classname) {
-				return model.makeConfigBallAlgo(classname);
-			}
-			
-			@Override
-			public IBallFactory addBallType(String classname) {
-				return model.makeBallFactory(classname);
-			}
+					@Override
+					public AConfigBallAlgo addCriteriaStrategy(String classname) {
+						return model.makeCriteriaStrategyAlgo(classname);
+					}
 
-			@Override
-			public void makeSwitcherBall(IBallFactory selectedItem) {
-				model.loadSwitcherBall(selectedItem);
-			}
+					@Override
+					public AConfigBallAlgo addInteractStrategy(String classname) {
+						return model.makeInteractStrategyAlgo(classname);
+					}
 
-			@Override
-			public void clearBalls() {
-				model.clearBalls();
-			}
+					@Override
+					public AConfigBallAlgo addConfigAlgo(String classname) {
+						return model.makeConfigBallAlgo(classname);
+					}
 
-			@Override
-			public void makeBall(IBallFactory selectedItem1, AConfigBallAlgo selectedItem2) {				
-				model.loadBall(selectedItem1, selectedItem2);
-			}
+					@Override
+					public IBallFactory addBallType(String classname) {
+						return model.makeBallFactory(classname);
+					}
 
-			@Override
-			public AConfigBallAlgo combineStrategies(AConfigBallAlgo selectedItem1, AConfigBallAlgo selectedItem2) {
-				return model.combineStrategyAlgos(selectedItem1, selectedItem2);
-			}
+					@Override
+					public void makeSwitcherBall(IBallFactory selectedItem) {
+						model.loadSwitcherBall(selectedItem);
+					}
 
-			@Override
-			public void switchStrategy(AConfigBallAlgo selectedItem) {
-				model.switchStrategy(selectedItem);
-			}
+					@Override
+					public void clearBalls() {
+						model.clearBalls();
+					}
 
-			@Override
-			public String getDefaultPaintStrategy() {
-				return model.getDefaultPaintStrategy();
-			}
+					@Override
+					public void makeBall(IBallFactory selectedItem1, AConfigBallAlgo selectedItem2) {
+						model.loadBall(selectedItem1, selectedItem2);
+					}
 
-			@Override
-			public String getDefaultUpdateStrategy() {
-				return model.getDefaultUpdateStrategy();
-			}
-			
-			@Override
-			public String getDefaultCriteriaStrategy() {
-				return model.getDefaultCriteriaStrategy();
-			}
+					@Override
+					public AConfigBallAlgo combineStrategies(AConfigBallAlgo selectedItem1,
+							AConfigBallAlgo selectedItem2) {
+						return model.combineStrategyAlgos(selectedItem1, selectedItem2);
+					}
 
-			@Override
-			public String getDefaultInteractStrategy() {
-				return model.getDefaultInteractStrategy();
-			}
+					@Override
+					public void switchStrategy(AConfigBallAlgo selectedItem) {
+						model.switchStrategy(selectedItem);
+					}
 
-			@Override
-			public String getDefaultBallType() {
-				return model.getDefaultBallType();
-			}
+					@Override
+					public String getDefaultPaintStrategy() {
+						return model.getDefaultPaintStrategy();
+					}
 
-			@Override
-			public String getDefaultConfigAlgo() {
-				return model.getDefaultConfigAlgo();
-			}
-		}, new IModelUpdateAdapter() {
+					@Override
+					public String getDefaultUpdateStrategy() {
+						return model.getDefaultUpdateStrategy();
+					}
 
-			@Override
-			public void update(Graphics g) {
-				model.update(g);
-			}
-		});
+					@Override
+					public String getDefaultCriteriaStrategy() {
+						return model.getDefaultCriteriaStrategy();
+					}
+
+					@Override
+					public String getDefaultInteractStrategy() {
+						return model.getDefaultInteractStrategy();
+					}
+
+					@Override
+					public String getDefaultBallType() {
+						return model.getDefaultBallType();
+					}
+
+					@Override
+					public String getDefaultConfigAlgo() {
+						return model.getDefaultConfigAlgo();
+					}
+				}, new IModelUpdateAdapter() {
+
+					@Override
+					public void update(Graphics g) {
+						model.update(g);
+					}
+				});
 	}
 
 	/**

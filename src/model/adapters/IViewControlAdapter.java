@@ -26,7 +26,7 @@ public interface IViewControlAdapter {
 	 * @return An IATImage instance
 	 */
 	public IATImage getIATImage(Image image);
-	
+
 	/**
 	 * Adds a configuration component to the view.
 	 *

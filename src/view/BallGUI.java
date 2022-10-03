@@ -213,18 +213,19 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 * A label for the ConfigAlgo section.
 	 */
 	private final JLabel lblConfigAlgo = new JLabel("Configuration Algorithm");
-	
+
 	/**
 	 * The frame that hold all the configuration tabs.
 	 */
 	private TabbedFrame configFrame = new TabbedFrame("Config Frame");
-	
+
 	/**
 	 * Create the GUI.
 	 * @param modelCtrlAdpt : the initialized control adapter.
 	 * @param modelUpdtAdpt : the initialized update adapter.
 	 */
-	public BallGUI(IModelControlAdapter<TDropListItem1, TDropListItem2> modelCtrlAdpt, IModelUpdateAdapter modelUpdtAdpt) {
+	public BallGUI(IModelControlAdapter<TDropListItem1, TDropListItem2> modelCtrlAdpt,
+			IModelUpdateAdapter modelUpdtAdpt) {
 		this.modelCtrlAdpt = modelCtrlAdpt;
 		this.modelUpdtAdpt = modelUpdtAdpt;
 		initGUI();
@@ -236,35 +237,35 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	private void initGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 500);
-		
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
+
 		canvasPnl.setBackground(Color.CYAN);
 		canvasPnl.setToolTipText("This is where the balls will be shown.");
 		contentPane.add(canvasPnl, BorderLayout.CENTER);
-		
+
 		controlPnl.setBackground(Color.LIGHT_GRAY);
 		controlPnl.setToolTipText("The panel with the controls.");
 		controlPnl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		contentPane.add(controlPnl, BorderLayout.NORTH);
-		
+
 		panelBallType.setBackground(Color.LIGHT_GRAY);
 		panelBallType.setLayout(new GridLayout(4, 1, 0, 5));
 		panelBallType.setToolTipText("The basic controls for ball types strategies");
-		
+
 		panelBallType.add(lblBallType);
 		lblBallType.setToolTipText("Ball type section");
 		lblBallType.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBallType.setVerticalAlignment(SwingConstants.BOTTOM);
-		
+
 		panelBallType.add(txtBallType);
 		txtBallType.setText(modelCtrlAdpt.getDefaultBallType());
 		txtBallType.setColumns(10);
 		txtBallType.setToolTipText("Please input a ball type");
-		
+
 		panelBallType.add(btnBallType);
 		btnBallType.addActionListener(new ActionListener() {
 			@Override
@@ -279,16 +280,16 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 			}
 		});
 		btnBallType.setToolTipText("Add the ball type to the dropdown");
-		
+
 		boxBallType.setToolTipText("Select a ball type");
 		panelBallType.add(boxBallType);
 		controlPnl.add(panelBallType);
-		
+
 		panelPaintStrat.setToolTipText("The basic controls for paint strategies");
 		panelPaintStrat.setBackground(Color.LIGHT_GRAY);
 		panelPaintStrat.setLayout(new GridLayout(3, 1, 0, 5));
 		controlPnl.add(panelPaintStrat);
-		
+
 		lblPaint.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblPaint.setToolTipText("Paint strategy section");
 		lblPaint.setHorizontalAlignment(SwingConstants.CENTER);
@@ -298,7 +299,7 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		txtPaintStrat.setText(modelCtrlAdpt.getDefaultPaintStrategy());
 		txtPaintStrat.setColumns(10);
 		panelPaintStrat.add(txtPaintStrat);
-		
+
 		btnAddPaint.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -315,22 +316,22 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		btnAddPaint.setToolTipText("Adds the inputted paint strategy to the list");
 		btnAddPaint.setBackground(Color.YELLOW);
 		panelPaintStrat.add(btnAddPaint);
-		
+
 		panelUpdateStrat.setToolTipText("The basic controls for update strategies");
 		panelUpdateStrat.setBackground(Color.LIGHT_GRAY);
 		panelUpdateStrat.setLayout(new GridLayout(3, 0, 0, 5));
 		controlPnl.add(panelUpdateStrat);
-		
+
 		lblUpdate.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblUpdate.setToolTipText("Update strategy section");
 		lblUpdate.setHorizontalAlignment(SwingConstants.CENTER);
 		panelUpdateStrat.add(lblUpdate);
-		
+
 		txtUpdateStrat.setToolTipText("Input an update strategy");
 		txtUpdateStrat.setText(modelCtrlAdpt.getDefaultUpdateStrategy());
 		txtUpdateStrat.setColumns(10);
 		panelUpdateStrat.add(txtUpdateStrat);
-		
+
 		btnAddUpdate.setBackground(Color.YELLOW);
 		btnAddUpdate.addActionListener(new ActionListener() {
 			@Override
@@ -349,20 +350,20 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		panelUpdateStrat.add(btnAddUpdate);
 		panelCriteriaStrat.setToolTipText("The basic controls for criteria strategies");
 		panelCriteriaStrat.setBackground(Color.LIGHT_GRAY);
-		
+
 		controlPnl.add(panelCriteriaStrat);
 		panelCriteriaStrat.setLayout(new GridLayout(0, 1, 0, 5));
 		lblCriteria.setToolTipText("Criteria strategy section");
 		lblCriteria.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblCriteria.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		panelCriteriaStrat.add(lblCriteria);
-		
+
 		txtCriteriaStrat.setText(modelCtrlAdpt.getDefaultCriteriaStrategy());
 		txtCriteriaStrat.setToolTipText("Input a criteria strategy");
 		txtCriteriaStrat.setColumns(10);
 		panelCriteriaStrat.add(txtCriteriaStrat);
-		
+
 		btnAddCriteria.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!txtCriteriaStrat.getText().isBlank()) {
@@ -377,24 +378,24 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		});
 		btnAddCriteria.setToolTipText("Adds the inputted criteria strategy to the list");
 		btnAddCriteria.setBackground(Color.YELLOW);
-		
+
 		panelCriteriaStrat.add(btnAddCriteria);
-		
+
 		panelInteractStrat.setToolTipText("The basic controls for interact strategies");
 		panelInteractStrat.setBackground(Color.LIGHT_GRAY);
 		panelInteractStrat.setLayout(new GridLayout(3, 1, 0, 5));
 		controlPnl.add(panelInteractStrat);
-		
+
 		lblInteract.setToolTipText("Interact strategy section");
 		lblInteract.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblInteract.setHorizontalAlignment(SwingConstants.CENTER);
 		panelInteractStrat.add(lblInteract);
-		
+
 		txtInteractStrat.setToolTipText("Input an interact strategy");
 		txtInteractStrat.setText(modelCtrlAdpt.getDefaultInteractStrategy());
 		txtInteractStrat.setColumns(10);
 		panelInteractStrat.add(txtInteractStrat);
-		
+
 		btnAddInteract.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -411,22 +412,22 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		btnAddInteract.setToolTipText("Adds the inputted interact strategy to the list");
 		btnAddInteract.setBackground(Color.YELLOW);
 		panelInteractStrat.add(btnAddInteract);
-		
+
 		panelConfigAlgo.setToolTipText("The basic controls for configuration algorithms");
 		panelConfigAlgo.setBackground(Color.LIGHT_GRAY);
 		panelConfigAlgo.setLayout(new GridLayout(3, 1, 0, 5));
 		controlPnl.add(panelConfigAlgo);
-		
+
 		lblConfigAlgo.setToolTipText("Config algo section");
 		lblConfigAlgo.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblConfigAlgo.setHorizontalAlignment(SwingConstants.CENTER);
 		panelConfigAlgo.add(lblConfigAlgo);
-		
+
 		txtConfigAlgo.setToolTipText("Input a config algo");
 		txtConfigAlgo.setText(modelCtrlAdpt.getDefaultConfigAlgo());
 		txtConfigAlgo.setColumns(10);
 		panelConfigAlgo.add(txtConfigAlgo);
-		
+
 		btnAddConfigAlgo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -443,22 +444,23 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		btnAddConfigAlgo.setToolTipText("Adds the inputted config algo to the list");
 		btnAddConfigAlgo.setBackground(Color.YELLOW);
 		panelConfigAlgo.add(btnAddConfigAlgo);
-		
+
 		panelDropdowns.setToolTipText("The strategy choices");
 		panelDropdowns.setBackground(Color.LIGHT_GRAY);
 		panelDropdowns.setLayout(new GridLayout(4, 0, 0, 5));
 		controlPnl.add(panelDropdowns);
-		
+
 		btnMakeBall.setBackground(Color.GREEN);
 		btnMakeBall.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				modelCtrlAdpt.makeBall(boxBallType.getItemAt(boxBallType.getSelectedIndex()), boxType1.getItemAt(boxType1.getSelectedIndex()));
+				modelCtrlAdpt.makeBall(boxBallType.getItemAt(boxBallType.getSelectedIndex()),
+						boxType1.getItemAt(boxType1.getSelectedIndex()));
 			}
 		});
 		btnMakeBall.setToolTipText("Makes the ABall in boxType1.");
 		panelDropdowns.add(btnMakeBall);
-		
+
 		boxType1.setToolTipText("The type of ABall to spawn or have Switchers change to.");
 		panelDropdowns.add(boxType1);
 		boxType2.setToolTipText(
@@ -478,21 +480,21 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		});
 		btnCombine.setToolTipText("Combines the strategies in boxType1 and boxType2.");
 		panelDropdowns.add(btnCombine);
-		
+
 		panelSwitcher.setToolTipText("The switcher controls");
 		panelSwitcher.setBackground(Color.LIGHT_GRAY);
 		panelSwitcher.setLayout(new GridLayout(4, 0, 0, 5));
-		
+
 		lblSwitcherInfo.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblSwitcherInfo.setToolTipText("Current switcher strategy::");
 		lblSwitcherInfo.setHorizontalAlignment(SwingConstants.CENTER);
 		panelSwitcher.add(lblSwitcherInfo);
-		
+
 		lblSwitcherStrat.setVerticalAlignment(SwingConstants.TOP);
 		lblSwitcherStrat.setToolTipText("The current switcher strategy");
 		lblSwitcherStrat.setHorizontalAlignment(SwingConstants.CENTER);
 		panelSwitcher.add(lblSwitcherStrat);
-		
+
 		btnMakeSwitcher.setBackground(Color.CYAN);
 		btnMakeSwitcher.addActionListener(new ActionListener() {
 			@Override
@@ -502,7 +504,7 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		});
 		btnMakeSwitcher.setToolTipText("Makes a Switcher ABall.");
 		panelSwitcher.add(btnMakeSwitcher);
-		
+
 		btnSwitcher.setBackground(Color.CYAN);
 		btnSwitcher.addActionListener(new ActionListener() {
 			@Override
@@ -513,9 +515,9 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		});
 		btnSwitcher.setToolTipText("Makes all Switcher Balls change strategy to whatever is in boxType1.");
 		panelSwitcher.add(btnSwitcher);
-		
+
 		controlPnl.add(panelSwitcher);
-		
+
 		btnClear.setBackground(Color.RED);
 		btnClear.addActionListener(new ActionListener() {
 			@Override
@@ -547,7 +549,7 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	public void start() {
 		setVisible(true);
 	}
-	
+
 	/**
 	 * Adds a component to the GUI.
 	 * 
