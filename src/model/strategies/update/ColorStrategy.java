@@ -27,12 +27,12 @@ public class ColorStrategy implements IUpdateStrategy {
 	 * A Random object used to generate random color.
 	 */
 	Random rand = new Random();
-	
+
 	/**
 	 * The accessor for whether this strategy is enabled or not.
 	 */
 	private Supplier<Boolean> isEnabled;
-	
+
 	/**
 	 * Constructor for a new ColorStrategy.
 	 */
@@ -40,7 +40,7 @@ public class ColorStrategy implements IUpdateStrategy {
 		super();
 		this.isEnabled = () -> true;
 	}
-	
+
 	/**
 	 * Constructor for a new ColorStrategy that can be disabled.
 	 * 
@@ -50,15 +50,15 @@ public class ColorStrategy implements IUpdateStrategy {
 		super();
 		this.isEnabled = isEnabled;
 	}
-	
+
 	@Override
 	public void init(IBall context) {
 		return;
 	}
-	
+
 	@Override
 	public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher, boolean didBounce) {
-		
+
 		context.execute(new BallAlgo<Void, Void>(new ABallAlgoCmd<>() {
 			// Add generated serialVersionUID
 			private static final long serialVersionUID = -7896815473719026153L;
@@ -68,7 +68,7 @@ public class ColorStrategy implements IUpdateStrategy {
 				// no-op by default
 				return null;
 			}
-			
+
 		}) {
 
 			/**
@@ -88,14 +88,14 @@ public class ColorStrategy implements IUpdateStrategy {
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
 						if (isEnabled.get()) {
-							context.setColor(new Color(255, rand.nextInt(100)+100, rand.nextInt(100)));
+							context.setColor(new Color(255, rand.nextInt(100) + 100, rand.nextInt(100)));
 						}
 						return null;
 					}
 				});
-			
+
 			}
-			
+
 			{
 				// Add different behavior for PredatorBalls
 
@@ -106,7 +106,7 @@ public class ColorStrategy implements IUpdateStrategy {
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
 						if (isEnabled.get()) {
-							context.setColor(new Color(rand.nextInt(100)+100, rand.nextInt(100), 255));
+							context.setColor(new Color(rand.nextInt(100) + 100, rand.nextInt(100), 255));
 						}
 						return null;
 					}
@@ -121,13 +121,13 @@ public class ColorStrategy implements IUpdateStrategy {
 						if (isEnabled.get()) {
 							context.setColor(Randomizer.Singleton.randomColor());
 						}
-						return null;		
+						return null;
 					}
 				});
-				
+
 				// etc.
 			}
-	});
+		});
 	}
 
 }

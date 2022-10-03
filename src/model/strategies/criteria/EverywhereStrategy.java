@@ -17,8 +17,8 @@ public class EverywhereStrategy implements ICriteriaStrategy {
 
 	@Override
 	public boolean satisfied(IBall context, IBall target) {
-		if (context != target && !(target.getUpdateStrategy() instanceof ErrorUpdateStrategy) && 
-				!(context.getUpdateStrategy() instanceof ErrorUpdateStrategy)) {
+		if (context != target && !(target.getUpdateStrategy() instanceof ErrorUpdateStrategy)
+				&& !(context.getUpdateStrategy() instanceof ErrorUpdateStrategy)) {
 			return true;
 		} else {
 			return false;

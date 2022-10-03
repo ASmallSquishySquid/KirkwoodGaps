@@ -13,7 +13,7 @@ import provided.logger.ILoggerControl;
  * @author Phoebe Scaccia
  */
 public class ConfigPaintBallAlgo extends AConfigBallAlgo {
-	
+
 	/**
 	 * For serialization.
 	 */

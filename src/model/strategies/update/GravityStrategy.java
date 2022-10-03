@@ -20,7 +20,7 @@ public class GravityStrategy implements IUpdateStrategy {
 	public void init(IBall context) {
 		return;
 	}
-	
+
 	/**
 	 * Applies the acceleration of gravity to the ball.
 	 */

@@ -22,7 +22,7 @@ public class ConfigColorBallAlgo extends AConfigBallAlgo {
 	 * Whether the strategy is enabled.
 	 */
 	private boolean isEnabled = true;
-	
+
 	/**
 	 * Constructor for a new ConfigColorBallAlgo.
 	 * 
@@ -44,16 +44,16 @@ public class ConfigColorBallAlgo extends AConfigBallAlgo {
 				return null;
 			}
 		});
-		
-		algo2ModelAdpt.addConfigComponent("Same Type Interaction", ()->{
+
+		algo2ModelAdpt.addConfigComponent("Same Type Interaction", () -> {
 			// Panel is instantiated INSIDE of the factory to ensure that is created on the GUI thread!
-			ValuesPanel pnlValues =  new ValuesPanel("Toggle the color strategy on/off.", logger);
+			ValuesPanel pnlValues = new ValuesPanel("Toggle the color strategy on/off.", logger);
 			pnlValues.addBooleanInput("Enable color strategy", "Enable/disable", true, (newVal) -> {
 				isEnabled = newVal; // No validation being done here.
-				return isEnabled;  // Return the current value
+				return isEnabled; // Return the current value
 			});
-			
-			return pnlValues;  // Return the control panel to be displayed
+
+			return pnlValues; // Return the control panel to be displayed
 		});
 	}
 

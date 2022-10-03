@@ -72,32 +72,32 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * The ABall's update strategy.
 	 */
 	private IUpdateStrategy updateStrategy = new StraightStrategy();
-	
+
 	/**
 	 * The ball's criteria strategy.
 	 */
 	private ICriteriaStrategy criteriaStrategy = new ICriteriaStrategy() {
-		
+
 		@Override
 		public boolean satisfied(IBall context, IBall target) {
 			return false;
 		}
-		
+
 		@Override
 		public void init(IBall context) {
 			return;
 		}
 	};
-	
+
 	/**
 	 * The ABall's interact strategy.
 	 */
 	private IInteractStrategy<IBallCmd> interactStrategy = new IInteractStrategy<IBallCmd>() {
-		
+
 		@Override
 		public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> disp) {
 			return new IBallCmd() {
-				
+
 				@Override
 				public void apply(IBall context, IDispatcher<IBallCmd> disp) {
 					return;
@@ -246,7 +246,6 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 		this.updateStrategy = strategy;
 		this.updateStrategy.init(this);
 	}
-	
 
 	@Override
 	public ICriteriaStrategy getCriteriaStrategy() {
@@ -333,27 +332,27 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	public void paint(Graphics g) {
 		this.paintStrategy.paint(g, this);
 	}
-	
+
 	public void interact(IDispatcher<IBallCmd> dispatcher) {
 		IBall context = this;
-		
+
 		dispatcher.updateAll(new IBallCmd() {
 			@Override
-			public void apply(IBall other, IDispatcher<IBallCmd> disp) {				
+			public void apply(IBall other, IDispatcher<IBallCmd> disp) {
 				IBallCmd contextPostInteractCmd = null;
 				IBallCmd otherPostInteractCmd = null;
-				
+
 				if (context.getCriteriaStrategy().satisfied(context, other)) {
 					// Have the balls interact based on their interact strategies
-				
+
 					contextPostInteractCmd = context.interactWith(other, disp);
 				}
-				
+
 				if (other.getCriteriaStrategy().satisfied(other, context)) {
 					// Have the balls interact based on their interact strategies
 					otherPostInteractCmd = other.interactWith(context, disp);
 				}
-				
+
 				// Apply the interactions
 				if (contextPostInteractCmd != null) {
 					context.update(dispatcher, contextPostInteractCmd);
@@ -369,7 +368,7 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	public IATImage getIatImage(Image image) {
 		return modelAdapter.getImageWrapper(image);
 	}
-	
+
 	@Override
 	public IBallCmd interactWith(IBall target, IDispatcher<IBallCmd> disp) {
 		return this.getInteractStrategy().interact(this, target, disp);
@@ -410,5 +409,5 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	private boolean isTouchingRightEdge() {
 		return this.pos.x + this.getRadius() >= this.getContainer().getWidth();
 	}
-	
+
 }

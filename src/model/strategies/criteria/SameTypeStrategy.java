@@ -13,18 +13,18 @@ import provided.utils.loader.impl.ObjectLoader;
  * @author Phoebe Scaccia
  */
 public class SameTypeStrategy implements ICriteriaStrategy {
-	
+
 	/**
 	 * The accessor for the criteria name.
 	 */
 	private Supplier<String> criteriaName;
-	
+
 	/**
 	 * The IObjectLoader object which loads in criteria strategies.
 	 */
 	private IObjectLoader<ICriteriaStrategy> criteriaStrategyLoader = new ObjectLoader<ICriteriaStrategy>(
 			(attempt, args) -> new ErrorCriteriaStrategy());
-	
+
 	/**
 	 * Constructor for a new SameTypeStrategy.
 	 */
@@ -32,7 +32,7 @@ public class SameTypeStrategy implements ICriteriaStrategy {
 		super();
 		this.criteriaName = () -> "Collision";
 	}
-	
+
 	/**
 	 * Constructor for a new SameTypeStrategy.
 	 * 
@@ -42,7 +42,7 @@ public class SameTypeStrategy implements ICriteriaStrategy {
 		super();
 		this.criteriaName = criteriaName;
 	}
-	
+
 	@Override
 	public void init(IBall context) {
 		return;
@@ -50,10 +50,12 @@ public class SameTypeStrategy implements ICriteriaStrategy {
 
 	@Override
 	public boolean satisfied(IBall context, IBall target) {
-		ICriteriaStrategy providedCriteriaStrategy = criteriaStrategyLoader.loadInstance(this.fixCriteriaName(criteriaName.get()));
-		return providedCriteriaStrategy.satisfied(context, target) && context.execute(CheckSameTypeBallAlgo.Singleton, target);
+		ICriteriaStrategy providedCriteriaStrategy = criteriaStrategyLoader
+				.loadInstance(this.fixCriteriaName(criteriaName.get()));
+		return providedCriteriaStrategy.satisfied(context, target)
+				&& context.execute(CheckSameTypeBallAlgo.Singleton, target);
 	}
-	
+
 	/**
 	 * A helper function that adds the criteria package name as a prefix to a class name.
 	 *

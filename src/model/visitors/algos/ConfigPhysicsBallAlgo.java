@@ -21,7 +21,7 @@ import provided.logger.ILogger;
  * @author Phoebe Scaccia
  */
 public class ConfigPhysicsBallAlgo extends AConfigBallAlgo {
-	
+
 	/**
 	 * For serialization.
 	 */
@@ -36,7 +36,7 @@ public class ConfigPhysicsBallAlgo extends AConfigBallAlgo {
 	 */
 	public ConfigPhysicsBallAlgo(String name, ILogger logger, IBallAlgo2ModelAdapter algo2ModelAdpt) {
 		super(logger, name, algo2ModelAdpt);
-		
+
 		setDefaultCmd(new ABallAlgoCmd<Void, Void>() {
 			/**
 			 * For serialization.
@@ -51,7 +51,7 @@ public class ConfigPhysicsBallAlgo extends AConfigBallAlgo {
 				return null;
 			}
 		});
-		
+
 		setCmd(DefaultBall.id, new ABallAlgoCmd<Void, Void>() {
 			/**
 			 * For serialization.

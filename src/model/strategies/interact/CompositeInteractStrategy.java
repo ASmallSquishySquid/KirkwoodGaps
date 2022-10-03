@@ -21,18 +21,16 @@ public class CompositeInteractStrategy implements IInteractStrategy<IBallCmd> {
 	 * The second IInteractStrategy
 	 */
 	IInteractStrategy<IBallCmd> interactStrat2;
-	
+
 	/**
 	 * @param strat1 an IInteractStrategy
 	 * @param strat2 an IInteractStrategy
 	 */
-	public CompositeInteractStrategy(IInteractStrategy<IBallCmd> strat1,
-			IInteractStrategy<IBallCmd> strat2) {
+	public CompositeInteractStrategy(IInteractStrategy<IBallCmd> strat1, IInteractStrategy<IBallCmd> strat2) {
 		this.interactStrat1 = strat1;
 		this.interactStrat2 = strat2;
 	}
-	
-	
+
 	@Override
 	public void init(IBall context) {
 		interactStrat1.init(context);
@@ -41,14 +39,14 @@ public class CompositeInteractStrategy implements IInteractStrategy<IBallCmd> {
 
 	@Override
 	public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> disp) {
-		
+
 		// Get strategy commands.
-		
+
 		IBallCmd interactStrat1Cmd = interactStrat1.interact(context, target, disp);
 		IBallCmd interactStrat2Cmd = interactStrat2.interact(context, target, disp);
-		
+
 		return new IBallCmd() {
-			
+
 			@Override
 			public void apply(IBall context, IDispatcher<IBallCmd> disp) {
 				if (interactStrat1Cmd != null) {

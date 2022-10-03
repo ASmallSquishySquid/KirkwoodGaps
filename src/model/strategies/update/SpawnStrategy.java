@@ -24,7 +24,7 @@ public class SpawnStrategy implements IUpdateStrategy {
 	public void init(IBall context) {
 		return;
 	}
-	
+
 	/**
 	 * Spawns a new ball with the same strategies (plus popping) on a bounce.
 	 */
@@ -34,13 +34,18 @@ public class SpawnStrategy implements IUpdateStrategy {
 
 			// Spawn a new ball.
 
-			Point newVelocity = Randomizer.Singleton
-					.randomVel(new Rectangle((int) Math.round(context.getVelocity().x * 2), (int) Math.round(context.getVelocity().y * 2)));
+			Point newVelocity = Randomizer.Singleton.randomVel(new Rectangle(
+					(int) Math.round(context.getVelocity().x * 2), (int) Math.round(context.getVelocity().y * 2)));
 
-			dispatcher.addObserver(new DefaultBall(new Point((int) Math.round(context.getLocation().x), (int) Math.round(context.getLocation().y)), context.getRadius() / 2, newVelocity,
-					context.getColor(), context.getContainer(), new CompositeConfigBallAlgo(
-							new ConfigUpdateBallAlgo(null, new PoppingStrategy()), 
-							new ConfigPaintBallAlgo(null, context.getPaintStrategy())), context.getAdapter()));
+			dispatcher
+					.addObserver(
+							new DefaultBall(
+									new Point((int) Math.round(context.getLocation().x),
+											(int) Math.round(context.getLocation().y)),
+									context.getRadius() / 2, newVelocity, context.getColor(), context.getContainer(),
+									new CompositeConfigBallAlgo(new ConfigUpdateBallAlgo(null, new PoppingStrategy()),
+											new ConfigPaintBallAlgo(null, context.getPaintStrategy())),
+									context.getAdapter()));
 
 			context.getLogger().log(LogLevel.INFO, "Another one!");
 		}

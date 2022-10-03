@@ -17,12 +17,12 @@ import provided.utils.valueGenerator.impl.Randomizer;
  * @author Phoebe Scaccia
  */
 public class TeleportStrategy implements IInteractStrategy<IBallCmd> {
-	
+
 	/**
 	 * The randomizer.
 	 */
 	private Randomizer r = Randomizer.Singleton;
-	
+
 	public void init(IBall context) {
 		return;
 	}
@@ -35,8 +35,8 @@ public class TeleportStrategy implements IInteractStrategy<IBallCmd> {
 				target.update(dispatcher, new IBallCmd() {
 					@Override
 					public void apply(IBall context, IDispatcher<IBallCmd> disp) {
-//						Point newLocation = r.randomLoc(target.getContainer().getSize());
-//						target.setLocation(new Point2D.Double(newLocation.x, newLocation.y));
+						//						Point newLocation = r.randomLoc(target.getContainer().getSize());
+						//						target.setLocation(new Point2D.Double(newLocation.x, newLocation.y));
 						Point newVel = r.randomVel(new Rectangle(10, 10));
 						Point2D.Double newVelocity = new Point2D.Double(newVel.x, newVel.y);
 						target.setVelocity(newVelocity);
@@ -44,11 +44,10 @@ public class TeleportStrategy implements IInteractStrategy<IBallCmd> {
 						target.setColor(newColor);
 						int newRadius = r.randomInt(5, 20);
 						target.setRadius(newRadius);
-								
-								
+
 					}
 				});
 			}
-		};		
+		};
 	}
 }

@@ -16,7 +16,7 @@ public interface IConfigBallAlgo extends IBallAlgo<Void, Void> {
 	 */
 	public static IConfigBallAlgo MakeDefaultNULL() {
 		return new AConfigBallAlgo(ILoggerControl.getSharedLogger(), IBallAlgo2ModelAdapter.NULL) {
-		
+
 			/**
 			 * For serialization.
 			 */
@@ -26,31 +26,31 @@ public interface IConfigBallAlgo extends IBallAlgo<Void, Void> {
 			public String toString() {
 				return "IConfigBallAlgo.NULL";
 			}
-		
+
 		};
-		
-	}; 
+
+	}
 
 	/**
 	 * Return a configuration algorithm that defaults to an error command and where additional commands can be added later/
 	 * @return A configuration algo defaulting to error.
 	 */
-	public static IConfigBallAlgo MakeDefaultERROR() { 
+	public static IConfigBallAlgo MakeDefaultERROR() {
 		return new AConfigBallAlgo(ILoggerControl.getSharedLogger(), IBallAlgo2ModelAdapter.NULL) {
 
 			/**
 			 * For serialization.
 			 */
 			private static final long serialVersionUID = -9126885024661987013L;
-	
+
 			{
 				setDefaultCmd(ABallAlgoCmd.MakeError(null));
 			}
-			
+
 			@Override
 			public String toString() {
 				return "IConfigBallAlgo.ERROR";
 			}
-		}; 
+		};
 	}
 }

@@ -38,7 +38,7 @@ public class CompositeConfigBallAlgo extends AConfigBallAlgo {
 			}
 		});
 	}
-	
+
 	/**
 	 * Constructor for a new ConfigPaintBallAlgo.
 	 * 

@@ -59,7 +59,7 @@ public interface IBall extends IObserver<IBallCmd>, IBallHost<IBall> {
 	 * @param g the Graphics object to paint on.
 	 */
 	public void paint(Graphics g);
-	
+
 	/**
 	 * Has the ABall interact with other balls.
 	 *
@@ -126,7 +126,7 @@ public interface IBall extends IObserver<IBallCmd>, IBallHost<IBall> {
 	 * @param strategy : the ABall's new update strategy.
 	 */
 	void setUpdateStrategy(IUpdateStrategy strategy);
-	
+
 	/**
 	 * @return the ABall's criteria strategy.
 	 */
@@ -136,7 +136,7 @@ public interface IBall extends IObserver<IBallCmd>, IBallHost<IBall> {
 	 * @param strategy : the ABall's new criteria strategy.
 	 */
 	void setCriteriaStrategy(ICriteriaStrategy strategy);
-	
+
 	/**
 	 * @return the ABall's strategy.
 	 */

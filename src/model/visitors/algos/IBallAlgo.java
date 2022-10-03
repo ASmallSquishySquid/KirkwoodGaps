@@ -11,6 +11,6 @@ import provided.ballworld.extVisitors.IBallHostAlgo;
  * @param <R> The return type of the algorithm
  * @param <P> The input type of the algorithm
  */
-public interface IBallAlgo<R, P> extends IBallHostAlgo<R, P, IBall>{
+public interface IBallAlgo<R, P> extends IBallHostAlgo<R, P, IBall> {
 
 }

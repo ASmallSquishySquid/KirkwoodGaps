@@ -15,7 +15,7 @@ public class StraightStrategy implements IUpdateStrategy {
 	public void init(IBall context) {
 		return;
 	}
-	
+
 	/**
 	 * Does nothing.
 	 */

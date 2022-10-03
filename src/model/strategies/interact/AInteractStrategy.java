@@ -12,13 +12,12 @@ import provided.utils.dispatcher.IDispatcher;
 public abstract class AInteractStrategy implements IInteractStrategy<IBallCmd> {
 
 	@Override
-	public void init(IBall context) {		
+	public void init(IBall context) {
 	}
 
 	@Override
-	public  IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> dispatcher) {
+	public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> dispatcher) {
 		return null;
 	}
-
 
 }

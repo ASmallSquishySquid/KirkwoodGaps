@@ -24,14 +24,15 @@ public class ColorMatch implements ICriteriaStrategy {
 		if (context != target) {
 			Color contextColor = context.getColor();
 			Color targetColor = target.getColor();
-			double colorDist = Math.abs(contextColor.getRed() - targetColor.getRed()) + 
-					Math.abs(contextColor.getGreen() - targetColor.getGreen()) + Math.abs(contextColor.getBlue() - targetColor.getBlue());
+			double colorDist = Math.abs(contextColor.getRed() - targetColor.getRed())
+					+ Math.abs(contextColor.getGreen() - targetColor.getGreen())
+					+ Math.abs(contextColor.getBlue() - targetColor.getBlue());
 			// Calculate the distance between the balls
 			double dist = context.getLocation().distance(target.getLocation());
 			// Calculate the minimum proximity distance
 			double minProximityDistance = (context.getRadius() + target.getRadius()) * 2;
-			
-			if((colorDist < 150) & (dist <= minProximityDistance)) {
+
+			if ((colorDist < 150) & (dist <= minProximityDistance)) {
 				return true;
 			}
 		}

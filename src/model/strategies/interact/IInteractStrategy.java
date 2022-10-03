@@ -1,6 +1,5 @@
 package model.strategies.interact;
 
-
 import model.balls.IBall;
 import provided.utils.dispatcher.IDispatcher;
 
@@ -12,7 +11,7 @@ import provided.utils.dispatcher.IDispatcher;
  * @param <IBallCmd> An IBallCmd
  */
 public interface IInteractStrategy<IBallCmd> {
-	
+
 	/**
 	 * Null strategy with no-op behavior.
 	 */
@@ -22,13 +21,15 @@ public interface IInteractStrategy<IBallCmd> {
 		/**
 		 * Null init method
 		 */
-		public void init(IBall context) {}
+		public void init(IBall context) {
+		}
 
 		@Override
-		public model.visitors.cmds.IBallCmd interact(IBall context, IBall target, IDispatcher<model.visitors.cmds.IBallCmd> dispatcher) {
+		public model.visitors.cmds.IBallCmd interact(IBall context, IBall target,
+				IDispatcher<model.visitors.cmds.IBallCmd> dispatcher) {
 			return null;
 		}
-		
+
 	};
 
 	/**
@@ -37,7 +38,7 @@ public interface IInteractStrategy<IBallCmd> {
 	 * @param context a ABall object
 	 */
 	public void init(IBall context);
-	
+
 	/**
 	 * Handles the interactions between the context and target
 	 * 
@@ -48,5 +49,5 @@ public interface IInteractStrategy<IBallCmd> {
 	 * @return an IBallCmd
 	 */
 	public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> dispatcher);
-	
+
 }

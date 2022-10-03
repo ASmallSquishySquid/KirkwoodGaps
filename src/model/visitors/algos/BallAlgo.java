@@ -22,7 +22,7 @@ public class BallAlgo<R, P> extends ABallHostAlgo<R, P, IBall> implements IBallA
 	 * A name for toString() to display.  
 	 */
 	private String name = super.toString();
-	
+
 	/**
 	 * Constructor for a new BallAlgo.
 	 * 
@@ -41,17 +41,17 @@ public class BallAlgo<R, P> extends ABallHostAlgo<R, P, IBall> implements IBallA
 		super(defaultCmd);
 		this.name = name;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 * <br/>
 	 * Displays given friendly name string or inherited toString() if name not given.
 	 */
-	@Override 
+	@Override
 	public String toString() {
 		return this.name;
 	}
-	
+
 	/**
 	 * Accessor for the friendly name
 	 * @return The friendly name
@@ -59,13 +59,13 @@ public class BallAlgo<R, P> extends ABallHostAlgo<R, P, IBall> implements IBallA
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
 	 * Accessor for the friendly name
 	 * @param name The friendly name to use
 	 */
 	public void setName(String name) {
 		this.name = name;
-	}    
+	}
 
 }

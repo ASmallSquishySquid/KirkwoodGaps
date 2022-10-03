@@ -14,7 +14,7 @@ public interface ICriteriaStrategy {
 	 * @param context an IBall object
 	 */
 	public void init(IBall context);
-	
+
 	/**
 	 * Checks if the two balls satisfy the criteria
 	 *
@@ -23,5 +23,5 @@ public interface ICriteriaStrategy {
 	 * @return <code>true</code> if the balls meet the criteria, <code>false</code> otherwise
 	 */
 	public boolean satisfied(IBall context, IBall target);
-	
+
 }

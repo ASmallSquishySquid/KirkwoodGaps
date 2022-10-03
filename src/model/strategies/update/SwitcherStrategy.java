@@ -27,7 +27,7 @@ public class SwitcherStrategy implements IUpdateStrategy {
 	public void init(IBall context) {
 		return;
 	}
-	
+
 	@Override
 	public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher, boolean didBounce) {
 		this.currStrategy.updateState(context, dispatcher, didBounce);

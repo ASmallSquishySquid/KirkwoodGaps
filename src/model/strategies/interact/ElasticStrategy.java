@@ -14,7 +14,7 @@ import provided.utils.dispatcher.IDispatcher;
  * Concrete class for the elastic strategy.
  */
 public class ElasticStrategy implements IInteractStrategy<IBallCmd> {
-	
+
 	@Override
 	/**
 	 * No initialization is needed
@@ -54,7 +54,7 @@ public class ElasticStrategy implements IInteractStrategy<IBallCmd> {
 		nudgeLocation.y += nudgeVector.y;
 		// Get the new velocity of the ball from the impulse
 		Point2D.Double newVelocity = updateVelocity(context, contextMass, impulseVector);
-		
+
 		return new IBallCmd() {
 			@Override
 			public void apply(IBall contextBall, IDispatcher<IBallCmd> disp) {
@@ -63,8 +63,7 @@ public class ElasticStrategy implements IInteractStrategy<IBallCmd> {
 			}
 		};
 	}
-		
-	
+
 	/**
 	 * Returns the reduced mass of the two balls (m1*m2)/(m1+m2) Gives correct
 	 * result if one of the balls has infinite mass.
@@ -83,7 +82,7 @@ public class ElasticStrategy implements IInteractStrategy<IBallCmd> {
 		else
 			return (mSource * mTarget) / (mSource + mTarget);
 	}
-	
+
 	/**
 	 * Calculate the unit vector (normalized vector) from the location of the source ball to the location of the target ball.
 	 * @param lSource Location of the source ball
@@ -94,11 +93,11 @@ public class ElasticStrategy implements IInteractStrategy<IBallCmd> {
 	Point2D.Double calcUnitVec(Point2D.Double lSource, Point2D.Double lTarget, double distance) {
 		// Calculate the normalized vector, from source to target
 		double nx = ((double) (lTarget.x - lSource.x)) / distance;
-		double ny = ((double) (lTarget.y - lSource.y)) / distance;	
-		
+		double ny = ((double) (lTarget.y - lSource.y)) / distance;
+
 		return new Point2D.Double(nx, ny);
 	}
-	
+
 	/**
 	 * Calculates the impulse (change in momentum) of the collision in the
 	 * direction from the source to the target This method calculates the
@@ -127,28 +126,27 @@ public class ElasticStrategy implements IInteractStrategy<IBallCmd> {
 	 *            Reduced mass of the two balls
 	 * @return The value of the collision's impulse
 	 */
-	protected Point2D.Double impulse(Point2D.Double normalVec, Point2D.Double vSource, Point2D.Double vTarget, double reducedMass) {
+	protected Point2D.Double impulse(Point2D.Double normalVec, Point2D.Double vSource, Point2D.Double vTarget,
+			double reducedMass) {
 		// Get the coordinates of the unit vector from source to target
 		double nx = normalVec.getX(); //((double) (lTarget.x - lSource.x)) / distance;
-		double ny = normalVec.getY();  //((double) (lTarget.y - lSource.y)) / distance;
+		double ny = normalVec.getY(); //((double) (lTarget.y - lSource.y)) / distance;
 
 		// delta velocity (speed, actually) in normal direction (perpendicular to the plane of interaction, 
 		// i.e. in the direction from the source location to the target location
-		double dvn = (vTarget.x - vSource.x) * nx + (vTarget.y - vSource.y)* ny;
+		double dvn = (vTarget.x - vSource.x) * nx + (vTarget.y - vSource.y) * ny;
 
 		// Impulse is the change in speed times twice the reduced mass in the normal direction
-		return new Point2D.Double(2.0 * reducedMass * dvn * nx, 2.0
-				* reducedMass * dvn * ny);
+		return new Point2D.Double(2.0 * reducedMass * dvn * nx, 2.0 * reducedMass * dvn * ny);
 
 	}
 
-	
 	/**
 	 * The multiplicative factor to increase the separation distance to insure that the two balls
 	 * are beyond collision distance
 	 */
 	private static final double NudgeFactor = 1.1;
-	
+
 	/**
 	 * Calculate the vector to add to the source ball's location to "nudge" it out of the way of the target ball.
 	 * @param normalVec  The unit vector (normalized vector) from the location of the source ball to the location of the target ball.
@@ -159,7 +157,7 @@ public class ElasticStrategy implements IInteractStrategy<IBallCmd> {
 	Point calcNudgeVec(Point2D.Double normalVec, double minSeparation, double distance) {
 		// The minimum allowed separation(sum of the ball radii) minus the actual separation(distance between ball centers). Should be a
 		// positive value.  This is the amount of overlap of the balls as measured along the line between their centers.
-		double deltaR =  minSeparation - distance;
+		double deltaR = minSeparation - distance;
 		// Calc the amount to move the source ball beyond collision range of the target ball, along
 		// the normal direction.
 		return new Point((int) Math.ceil(-normalVec.getX() * deltaR * NudgeFactor),

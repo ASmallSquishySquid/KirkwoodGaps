@@ -28,35 +28,36 @@ public class KillPreyStrategy extends AInteractStrategy {
 	@Override
 	public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> disp) {
 		target.execute(new BallAlgo<Void, Void>(new ABallAlgoCmd<>() {
-				// Add generated serialVersionUID
-				private static final long serialVersionUID = -8207136148708694148L;
-				
-				@Override
-				public Void apply(IBallHostID index, IBall host, Void... params) {
-					// no-op by default, i.e. non-PreyBalls will not have any interaction due to this strategy.
-					return null;
-				}
-				
-			}) {
+			// Add generated serialVersionUID
+			private static final long serialVersionUID = -8207136148708694148L;
 
-				// Add generated serialVersionUID
-				private static final long serialVersionUID = 1L;
+			@Override
+			public Void apply(IBallHostID index, IBall host, Void... params) {
+				// no-op by default, i.e. non-PreyBalls will not have any interaction due to this strategy.
+				return null;
+			}
 
-				// Add additional commands in the "initializer block" of the ball algo's anonymous inner class
-				{
-					// Add different behavior for PreyBalls
-					setCmd(PreyBall.id, new ABallAlgoCmd<Void, Void>() {
-						// Add generated serialVersionUID
-						private static final long serialVersionUID = -2000633596351150890L;
-						@Override
-						public Void apply(IBallHostID index, IBall host, Void... params) {
-							disp.removeObserver(target); // "Kill" them!
-							ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Prey ball killed!");
-							return null;
-						}
-					});
-				
-				}
+		}) {
+
+			// Add generated serialVersionUID
+			private static final long serialVersionUID = 1L;
+
+			// Add additional commands in the "initializer block" of the ball algo's anonymous inner class
+			{
+				// Add different behavior for PreyBalls
+				setCmd(PreyBall.id, new ABallAlgoCmd<Void, Void>() {
+					// Add generated serialVersionUID
+					private static final long serialVersionUID = -2000633596351150890L;
+
+					@Override
+					public Void apply(IBallHostID index, IBall host, Void... params) {
+						disp.removeObserver(target); // "Kill" them!
+						ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Prey ball killed!");
+						return null;
+					}
+				});
+
+			}
 		});
 		return null;
 	}

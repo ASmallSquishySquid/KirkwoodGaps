@@ -22,7 +22,7 @@ public class ConfigSameTypeBallAlgo extends AConfigBallAlgo {
 	 * The current collision status of all instances of the installed interact strategy.
 	 */
 	private String criteriaType = "Collision";
-	
+
 	/**
 	 * Constructor for a new ConfigSameTypeBallAlgo.
 	 * 
@@ -32,9 +32,9 @@ public class ConfigSameTypeBallAlgo extends AConfigBallAlgo {
 	 */
 	public ConfigSameTypeBallAlgo(String name, ILogger logger, IBallAlgo2ModelAdapter algo2ModelAdpt) {
 		super(logger, name, algo2ModelAdpt);
-		
+
 		this.setDefaultCmd(new ABallAlgoCmd<>() {
-			
+
 			/**
 			 * For serialization.
 			 */
@@ -43,24 +43,26 @@ public class ConfigSameTypeBallAlgo extends AConfigBallAlgo {
 			@Override
 			public Void apply(IBallHostID index, IBall host, Void... params) {
 				// Inherited AConfigBallAlgo.installInteractStrategy() creates the composite with the existing strategy.           
-				installCriteriaStrategy(host, new SameTypeStrategy(()->criteriaType));
+				installCriteriaStrategy(host, new SameTypeStrategy(() -> criteriaType));
 				return null;
-			}});
-		
-		algo2ModelAdpt.addConfigComponent("Same Type Interaction", ()->{
-			// Panel is instantiated INSIDE of the factory to ensure that is created on the GUI thread!
-			ValuesPanel pnlValues =  new ValuesPanel("Input the criteria strategy.", logger);
-			pnlValues.addTextInput("Criteria", "Collision", (newVal)->{
-				criteriaType = newVal; // No validation being done here.
-				return criteriaType;  // Return the current value
-			});
-			return pnlValues;  // Return the control panel to be displayed
+			}
 		});
-		
+
+		algo2ModelAdpt.addConfigComponent("Same Type Interaction", () -> {
+			// Panel is instantiated INSIDE of the factory to ensure that is created on the GUI thread!
+			ValuesPanel pnlValues = new ValuesPanel("Input the criteria strategy.", logger);
+			pnlValues.addTextInput("Criteria", "Collision", (newVal) -> {
+				criteriaType = newVal; // No validation being done here.
+				return criteriaType; // Return the current value
+			});
+			return pnlValues; // Return the control panel to be displayed
+		});
+
 	}
+
 	@Override
 	public String toString() {
 		return "SameType";
 	}
-	
+
 }

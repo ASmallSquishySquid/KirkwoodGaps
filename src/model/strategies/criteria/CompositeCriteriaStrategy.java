@@ -17,7 +17,7 @@ public class CompositeCriteriaStrategy implements ICriteriaStrategy {
 	 * The second criteria strategy.
 	 */
 	private ICriteriaStrategy strat2;
-	
+
 	/**
 	 * Constructor for a new CompositeCriteriaStrategy.
 	 * 
@@ -28,7 +28,7 @@ public class CompositeCriteriaStrategy implements ICriteriaStrategy {
 		this.strat1 = strat1;
 		this.strat2 = strat2;
 	}
-	
+
 	@Override
 	public void init(IBall context) {
 		this.strat1.init(context);

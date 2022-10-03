@@ -35,7 +35,7 @@ public class ErrorConfigBallAlgo extends AConfigBallAlgo {
 				installUpdateStrategy(host, new ErrorUpdateStrategy());
 				return null;
 			}
-			
+
 		});
 	}
 

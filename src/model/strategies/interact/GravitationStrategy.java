@@ -19,7 +19,7 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 	 * The gravitational constant G.
 	 */
 	private double gravitationalConstant = 4;
-	
+
 	@Override
 	public void init(IBall context) {
 		return;
@@ -36,18 +36,18 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 			public void apply(IBall contextBall, IDispatcher<IBallCmd> disp) {
 
 				// Combine balls that collide (as gravity tends to do).
-				
+
 				if (dist < contextBall.getRadius() + target.getRadius()) {
-					
+
 					// Calculate the necessary combinations.
-					
+
 					double targetMass = Math.PI * (target.getRadius() * target.getRadius());
 					int combinedRadius = (int) Math.round(Math.sqrt((contextMass + targetMass) / Math.PI));
 					Point2D.Double combinedVelocity = calcCombinedVelocity(contextBall, target);
 					Color combinedColor = calcCombinedColor(contextBall, target);
-					
+
 					// Check which ball needs to be removed.
-					
+
 					if (contextBall.getRadius() > target.getRadius()) {
 						disp.removeObserver((ABall) target);
 						contextBall.setRadius(combinedRadius);
@@ -60,26 +60,26 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 						target.setColor(combinedColor);
 					}
 				} else {
-					
+
 					// Get the direction of the force
-					
+
 					Point2D.Double unitVector = calcUnitVec(target.getLocation(), context.getLocation(), dist);
-					
+
 					// Get the target's change in velocity.
-					
+
 					Point2D.Double dV = calcdV(contextMass, unitVector, dist);
 					Point2D.Double newVelocity = target.getVelocity();
 					newVelocity.x += dV.x;
 					newVelocity.y += dV.y;
-					
+
 					// Apply the acceleration.
-					
+
 					target.setVelocity(newVelocity);
 				}
 			}
 		};
 	}
-	
+
 	/**
 	 * Calculate the unit vector (normalized vector) from the location of the source ball to the location of the target ball.
 	 * 
@@ -91,11 +91,11 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 	private Point2D.Double calcUnitVec(Point2D.Double lSource, Point2D.Double lTarget, double distance) {
 		// Calculate the normalized vector, from source to target
 		double nx = (lTarget.x - lSource.x) / distance;
-		double ny = (lTarget.y - lSource.y) / distance;	
-		
+		double ny = (lTarget.y - lSource.y) / distance;
+
 		return new Point2D.Double(nx, ny);
 	}
-	
+
 	/**
 	 * Calculates the change in velocity as a result of the acceleration due to gravity.
 	 *
@@ -111,8 +111,7 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 		dV.y *= acceleration;
 		return dV;
 	}
-	
-	
+
 	/**
 	 * Calculates the combined velocity of two balls.
 	 *
@@ -123,9 +122,13 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 	private Point2D.Double calcCombinedVelocity(IBall context, IBall target) {
 		double contextMass = Math.PI * (context.getRadius() * context.getRadius());
 		double targetMass = Math.PI * (target.getRadius() * target.getRadius());
-		return new Point2D.Double((contextMass * context.getVelocity().x + targetMass * target.getVelocity().x) / (contextMass + targetMass), (contextMass * context.getVelocity().y + targetMass * target.getVelocity().y) / (contextMass + targetMass));
+		return new Point2D.Double(
+				(contextMass * context.getVelocity().x + targetMass * target.getVelocity().x)
+						/ (contextMass + targetMass),
+				(contextMass * context.getVelocity().y + targetMass * target.getVelocity().y)
+						/ (contextMass + targetMass));
 	}
-	
+
 	/**
 	 * Calculates the combined colors of the balls.
 	 *
@@ -138,13 +141,18 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 		double targetMass = Math.PI * (target.getRadius() * target.getRadius());
 		Color contextColor = context.getColor();
 		Color targetColor = target.getColor();
-		
+
 		// Calculate the weighted colors.
-		
-		int red = (int) Math.round((contextMass * contextColor.getRed() + targetMass * targetColor.getRed()) / (contextMass + targetMass));
-		int green = (int) Math.round((contextMass * contextColor.getGreen() + targetMass * targetColor.getGreen()) / (contextMass + targetMass));
-		int blue = (int) Math.round((contextMass * contextColor.getBlue() + targetMass * targetColor.getBlue()) / (contextMass + targetMass));
-		int alpha = Math.min((int) Math.round(2 * (contextMass * contextColor.getAlpha() + targetMass * targetColor.getAlpha()) / (contextMass + targetMass)), 255);
+
+		int red = (int) Math.round(
+				(contextMass * contextColor.getRed() + targetMass * targetColor.getRed()) / (contextMass + targetMass));
+		int green = (int) Math.round((contextMass * contextColor.getGreen() + targetMass * targetColor.getGreen())
+				/ (contextMass + targetMass));
+		int blue = (int) Math.round((contextMass * contextColor.getBlue() + targetMass * targetColor.getBlue())
+				/ (contextMass + targetMass));
+		int alpha = Math
+				.min((int) Math.round(2 * (contextMass * contextColor.getAlpha() + targetMass * targetColor.getAlpha())
+						/ (contextMass + targetMass)), 255);
 		return new Color(red, green, blue, alpha);
 	}
 

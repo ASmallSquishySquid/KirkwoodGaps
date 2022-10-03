@@ -26,7 +26,7 @@ public abstract class ABallAlgoCmd<R, P> extends ABallHostAlgoCmd<R, P, IBall> {
 	 * @param <TParam> The input parameter type of the null cmd
 	 * @return Always returns null
 	 */
-	public static final <TReturn, TParam> ABallAlgoCmd<TReturn, TParam> MakeNull(){
+	public static final <TReturn, TParam> ABallAlgoCmd<TReturn, TParam> MakeNull() {
 		return new ABallAlgoCmd<>() {
 			/**
 			 * For serialization
@@ -38,10 +38,10 @@ public abstract class ABallAlgoCmd<R, P> extends ABallHostAlgoCmd<R, P, IBall> {
 				ILoggerControl.getSharedLogger().log(LogLevel.DEBUG, "ABallAlgoCmd.NULL invoked.  Returned null.");
 				return null;
 			}
-			
+
 		};
 	}
-	
+
 	/**
 	 * Static factory to create a error cmd that matches the generic typing of the target variable.
 	 * @param <TReturn> The return type of the null cmd
@@ -49,7 +49,7 @@ public abstract class ABallAlgoCmd<R, P> extends ABallHostAlgoCmd<R, P, IBall> {
 	 * @param errMsg An error message to display when the error algo is executed, e.g. the erroneous classname that lead to the error. 
 	 * @return Always returns null
 	 */
-	public static final <TReturn, TParam> ABallAlgoCmd<TReturn, TParam> MakeError(String errMsg){
+	public static final <TReturn, TParam> ABallAlgoCmd<TReturn, TParam> MakeError(String errMsg) {
 		return new ABallAlgoCmd<>() {
 			/**
 			 * For serialization
@@ -58,7 +58,8 @@ public abstract class ABallAlgoCmd<R, P> extends ABallHostAlgoCmd<R, P, IBall> {
 
 			@Override
 			public TReturn apply(IBallHostID index, IBall host, @SuppressWarnings("unchecked") TParam... params) {
-				ILoggerControl.getSharedLogger().log(LogLevel.ERROR, "ABallAlgoCmd.ERROR invoked.  Returned null. Error msg: "+errMsg);
+				ILoggerControl.getSharedLogger().log(LogLevel.ERROR,
+						"ABallAlgoCmd.ERROR invoked.  Returned null. Error msg: " + errMsg);
 				return null;
 			}
 		};

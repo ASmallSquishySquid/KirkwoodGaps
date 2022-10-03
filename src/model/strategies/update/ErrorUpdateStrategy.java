@@ -33,34 +33,34 @@ public class ErrorUpdateStrategy implements IUpdateStrategy {
 	@Override
 	public void init(IBall context) {
 		context.setRadius(0);
-		
+
 		context.setCriteriaStrategy(new ICriteriaStrategy() {
-			
+
 			@Override
 			public boolean satisfied(IBall context, IBall target) {
 				return false;
 			}
-			
+
 			@Override
 			public void init(IBall context) {
 				return;
 			}
 		});
-		
+
 		context.setPaintStrategy(new IPaintStrategy() {
-			
+
 			@Override
 			public void paint(Graphics g, IBall context) {
 				return;
 			}
-			
+
 			@Override
 			public void init(IBall context) {
 				return;
 			}
 		});
 	}
-	
+
 	@Override
 	public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher, boolean didBounce) {
 		if (updates == 0) {
@@ -75,6 +75,6 @@ public class ErrorUpdateStrategy implements IUpdateStrategy {
 			context.getLogger().log(LogLevel.INFO, "ErrorBall removed.");
 			dispatcher.removeObserver((ABall) context);
 		}
-	}	
+	}
 
 }

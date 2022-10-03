@@ -8,7 +8,6 @@ import model.visitors.cmds.IBallCmd;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.utils.dispatcher.IDispatcher;
 
-
 /**
  * An type-dependent interaction strategy that the target ball gains mass when it is of type Predator.
  * @author Annita Chang
@@ -28,13 +27,13 @@ public class HuntPredatorStrategy extends AInteractStrategy {
 			 * For serialization.
 			 */
 			private static final long serialVersionUID = 8205255234000414526L;
-			
+
 			@Override
 			public Void apply(IBallHostID index, IBall host, Void... params) {
 				// no-op by default, i.e. non-PreyBalls will not have any interaction due to this strategy.
 				return null;
 			}
-				
+
 		}) {
 			/**
 			 * For serialization.
@@ -62,7 +61,7 @@ public class HuntPredatorStrategy extends AInteractStrategy {
 						}
 						return null;
 					}
-					
+
 				});
 			}
 		});

@@ -39,6 +39,5 @@ public class DefaultBall extends ABall {
 			IModel2BallAdapter modelAdapter) {
 		super(id, p, r, v, c, container, installAlgo, modelAdapter);
 	}
-	
 
 }

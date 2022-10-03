@@ -23,7 +23,7 @@ public class PoppingStrategy implements IUpdateStrategy {
 	public void init(IBall context) {
 		return;
 	}
-	
+
 	/**
 	 * Counts down the number of bounces.
 	 */

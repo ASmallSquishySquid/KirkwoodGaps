@@ -40,6 +40,5 @@ public class PreyBall extends ABall {
 			IModel2BallAdapter modelAdapter) {
 		super(id, p, r, v, c, container, installAlgo, modelAdapter);
 	}
-	
 
 }

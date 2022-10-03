@@ -18,7 +18,7 @@ public interface IUpdateStrategy {
 	 * @param context a ABall object
 	 */
 	public void init(IBall context);
-	
+
 	/**
 	 * Updates the state of the ABall.
 	 *

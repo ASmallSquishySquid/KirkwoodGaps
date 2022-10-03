@@ -20,7 +20,7 @@ public class FadingStrategy implements IUpdateStrategy {
 	public void init(IBall context) {
 		return;
 	}
-	
+
 	/**
 	 * Updates the transparency of the ball and reflects the ball off the wall.
 	 */

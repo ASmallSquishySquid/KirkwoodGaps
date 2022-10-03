@@ -15,12 +15,12 @@ import provided.utils.valueGenerator.impl.Randomizer;
  *  Strategy that causes balls to randomly change velocity, color, and size when they collide
  */
 public class RandomizerStrategy implements IInteractStrategy<IBallCmd> {
-	
+
 	/**
 	 * The randomizer.
 	 */
 	private Randomizer r = Randomizer.Singleton;
-	
+
 	public void init(IBall context) {
 		return;
 	}
@@ -43,6 +43,6 @@ public class RandomizerStrategy implements IInteractStrategy<IBallCmd> {
 					}
 				});
 			}
-		};		
+		};
 	}
 }

@@ -42,6 +42,5 @@ public class DiscoBall extends ABall {
 		super(id, p, r, v, c, container, installAlgo, modelAdapter);
 		ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Let's get this party started!");
 	}
-	
 
 }

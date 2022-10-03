@@ -20,7 +20,7 @@ public class CheckSameTypeBallAlgo extends BallAlgo<Boolean, IBall> {
 	 * Singleton instance.
 	 */
 	public static final CheckSameTypeBallAlgo Singleton = new CheckSameTypeBallAlgo();
-	
+
 	/**
 	 * Constructor for a new CheckSameTypeBallAlgo.
 	 */
@@ -35,10 +35,10 @@ public class CheckSameTypeBallAlgo extends BallAlgo<Boolean, IBall> {
 
 			@Override
 			public Boolean apply(IBallHostID hostID, IBall host, IBall... otherBalls) {
-            
+
 				// Delegate to the other ball to see if its type matches the host.
 				// Return whatever the result of the delegation is.
-				return otherBalls[0].execute(new BallAlgo<Boolean, Void> (new ABallAlgoCmd<>() {
+				return otherBalls[0].execute(new BallAlgo<Boolean, Void>(new ABallAlgoCmd<>() {
 
 					/**
 					 * For serialization.
@@ -51,7 +51,7 @@ public class CheckSameTypeBallAlgo extends BallAlgo<Boolean, IBall> {
 						return false;
 					}
 				}) {
-                    
+
 					/**
 					 * For serialization.
 					 */

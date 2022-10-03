@@ -20,7 +20,7 @@ public class TeleportingStrategy implements IUpdateStrategy {
 	public void init(IBall context) {
 		return;
 	}
-	
+
 	/**
 	 * Teleports the ball to a new location when it bounces.
 	 */

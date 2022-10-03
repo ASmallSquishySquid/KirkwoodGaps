@@ -21,12 +21,12 @@ public class ErrorBall extends ABall {
 	 * For serialization.
 	 */
 	private static final long serialVersionUID = -8935415963329780965L;
-	
+
 	/**
 	 *  The identifying host ID for this class.
 	 */
 	public static final IBallHostID id = BallHostIDFactory.Singleton.makeID(ErrorBall.class.getName());
-	
+
 	/**
 	 * Constructor for a new ErrorBall.
 	 * 
@@ -38,8 +38,8 @@ public class ErrorBall extends ABall {
 	 * @param installAlgo the algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	public ErrorBall(Point p, int r, Point v, Color c, Component container, 
-			AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+	public ErrorBall(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
+			IModel2BallAdapter modelAdapter) {
 		super(id, p, r, v, c, container, new ErrorConfigBallAlgo(), modelAdapter);
 	}
 

@@ -40,7 +40,7 @@ public class PartyStrategy implements IUpdateStrategy {
 	public void init(IBall context) {
 		this.originalColor = context.getColor();
 	}
-	
+
 	/**
 	 * Counts down the number of bounces.
 	 */
@@ -54,20 +54,22 @@ public class PartyStrategy implements IUpdateStrategy {
 			if (this.bounces < 0) {
 				context.getLogger().log(LogLevel.INFO, "Time to party!");
 				dispatcher.removeObserver((ABall) context);
-				Point location = new Point((int) Math.round(context.getLocation().x), (int) Math.round(context.getLocation().y));
+				Point location = new Point((int) Math.round(context.getLocation().x),
+						(int) Math.round(context.getLocation().y));
 				// Generate a proportional number of popping balls.
 				for (int i = 0; i < context.getRadius() / 3; i++) {
 
 					// Get a random velocity up to two times greater than <code>context</code>'s in the x and y directions.
 
-					Point newVelocity = r
-							.randomVel(new Rectangle((int) Math.round(context.getVelocity().x * 2), (int) Math.round(context.getVelocity().y * 2)));
+					Point newVelocity = r.randomVel(new Rectangle((int) Math.round(context.getVelocity().x * 2),
+							(int) Math.round(context.getVelocity().y * 2)));
 
-					dispatcher.addObserver(new DefaultBall(new Point(location), context.getRadius() / 2, newVelocity,
-							this.originalColor, context.getContainer(), new CompositeConfigBallAlgo(
-									new ConfigUpdateBallAlgo(null, new PoppingStrategy()), 
-									new ConfigPaintBallAlgo(null, context.getPaintStrategy())), 
-							context.getAdapter()));
+					dispatcher
+							.addObserver(new DefaultBall(new Point(location), context.getRadius() / 2, newVelocity,
+									this.originalColor, context.getContainer(),
+									new CompositeConfigBallAlgo(new ConfigUpdateBallAlgo(null, new PoppingStrategy()),
+											new ConfigPaintBallAlgo(null, context.getPaintStrategy())),
+									context.getAdapter()));
 				}
 			}
 		} else if (this.bounces == 0) {
