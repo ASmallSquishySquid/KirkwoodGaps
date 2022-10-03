@@ -15,7 +15,6 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -214,14 +213,10 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 * A label for the ConfigAlgo section.
 	 */
 	private final JLabel lblConfigAlgo = new JLabel("Configuration Algorithm");
-	/**
-	 */
-//	/**
-//	 * TODO remove
-//	 */
-//	private final JButton btnTest = new JButton("New button");
-
 	
+	/**
+	 * The frame that hold all the configuration tabs.
+	 */
 	private TabbedFrame configFrame = new TabbedFrame("Config Frame");
 	
 	/**
@@ -250,16 +245,6 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		canvasPnl.setBackground(Color.CYAN);
 		canvasPnl.setToolTipText("This is where the balls will be shown.");
 		contentPane.add(canvasPnl, BorderLayout.CENTER);
-		
-		// TODO remove
-//		canvasPnl.add(btnTest);
-//		btnTest.addActionListener(new java.awt.event.ActionListener() {
-//            @Override
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                String name = JOptionPane.showInputDialog(canvasPnl,
-//                        "Insert String", null);
-//            }
-//        });
 		
 		controlPnl.setBackground(Color.LIGHT_GRAY);
 		controlPnl.setToolTipText("The panel with the controls.");

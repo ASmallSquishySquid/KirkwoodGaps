@@ -8,6 +8,8 @@ import model.adapters.IModel2BallAdapter;
 import model.visitors.algos.AConfigBallAlgo;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.ballworld.extVisitors.impl.BallHostIDFactory;
+import provided.logger.ILoggerControl;
+import provided.logger.LogLevel;
 
 /**
  * The scavenger ball object.
@@ -38,6 +40,7 @@ public class PartyBall extends ABall {
 	public PartyBall(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
 			IModel2BallAdapter modelAdapter) {
 		super(id, p, r, v, c, container, installAlgo, modelAdapter);
+		ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Let's get this party started!");
 	}
 	
 
