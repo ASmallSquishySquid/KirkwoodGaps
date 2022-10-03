@@ -1816,12 +1816,12 @@ Configures everything else into a bouncing ball.&#xD;
 	 * @param logger the logger to use&#xD;
 	 * @param algo2ModelAdpt the adapter to the model</body>
               </ownedComment>
+              <ownedParameter xmi:id="_UocPzULPEe2Cia9SaTQ4zA" type="_UfuYoELPEe2Cia9SaTQ4zA" direction="return"/>
               <ownedParameter xmi:id="_UocPyELPEe2Cia9SaTQ4zA" name="name">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
               </ownedParameter>
               <ownedParameter xmi:id="_UocPyULPEe2Cia9SaTQ4zA" name="logger" type="_Umo480LPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UocPykLPEe2Cia9SaTQ4zA" name="algo2ModelAdpt" type="_Uer20ELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UocPzULPEe2Cia9SaTQ4zA" type="_UfuYoELPEe2Cia9SaTQ4zA" direction="return"/>
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfvmwELPEe2Cia9SaTQ4zA" name="ConfigUpdateBallAlgo">
@@ -2405,8 +2405,8 @@ Configures everything else into a bouncing ball.&#xD;
 	 * &#xD;
 	 * @param criteriaName a Supplier for the type of interaction criteria</body>
               </ownedComment>
-              <ownedParameter xmi:id="_UoDOMULPEe2Cia9SaTQ4zA" name="criteriaName" type="_UmfH8ULPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UoDONELPEe2Cia9SaTQ4zA" type="_UfB1EELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UoDOMULPEe2Cia9SaTQ4zA" name="criteriaName" type="_UmfH8ULPEe2Cia9SaTQ4zA"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UoDONkLPEe2Cia9SaTQ4zA" name="fixCriteriaName" visibility="private" method="_UpW140LPEe2Cia9SaTQ4zA">
               <ownedComment xmi:id="_f2sQ40LPEe2Cia9SaTQ4zA">
