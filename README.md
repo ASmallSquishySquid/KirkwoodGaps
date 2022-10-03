@@ -33,7 +33,7 @@ The default ball that is loaded in when a ball type is not provided. Try it out 
 A ball that represents a predator. Try it out with the HuntPredator interact strategy and Collision criteria strategy!
 #### Prey ball
 A ball that represents prey. Try it out in a field of other balls with the KillPrey interact strategy and Collision criteria strategy!
-#### Party ball
+#### Disco ball
 A ball that is ready to party. Try it out with the color update strategy!
 
 ### Type dependent behaviors:

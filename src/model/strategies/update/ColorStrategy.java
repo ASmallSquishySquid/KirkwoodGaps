@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 import model.balls.IBall;
 import model.balls.PredatorBall;
 import model.balls.PreyBall;
-import model.balls.PartyBall;
+import model.balls.DiscoBall;
 import model.visitors.algos.BallAlgo;
 import model.visitors.cmds.ABallAlgoCmd;
 import model.visitors.cmds.IBallCmd;
@@ -112,7 +112,7 @@ public class ColorStrategy implements IUpdateStrategy {
 					}
 				});
 				// Add different behavior for ScavengerBalls
-				setCmd(PartyBall.id, new ABallAlgoCmd<Void, Void>() {
+				setCmd(DiscoBall.id, new ABallAlgoCmd<Void, Void>() {
 
 					private static final long serialVersionUID = 6992176773986147329L;
 

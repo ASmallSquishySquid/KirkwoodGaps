@@ -12,19 +12,19 @@ import provided.logger.ILoggerControl;
 import provided.logger.LogLevel;
 
 /**
- * The scavenger ball object.
+ * The disco ball object.
  * 
  * @author Phoebe Scaccia
  */
-public class PartyBall extends ABall {
+public class DiscoBall extends ABall {
 	/**
 	 * For serialization.
 	 */
-	private static final long serialVersionUID = -2268928751231958979L;
+	private static final long serialVersionUID = -8573895544701572367L;
 	/**
 	 * The identifying host ID for this class.
 	 */
-	public static final IBallHostID id = BallHostIDFactory.Singleton.makeID(PartyBall.class.getName());
+	public static final IBallHostID id = BallHostIDFactory.Singleton.makeID(DiscoBall.class.getName());
 
 	/**
 	 * Constructor for a new DefaultBall.
@@ -37,7 +37,7 @@ public class PartyBall extends ABall {
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	public PartyBall(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
+	public DiscoBall(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
 			IModel2BallAdapter modelAdapter) {
 		super(id, p, r, v, c, container, installAlgo, modelAdapter);
 		ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Let's get this party started!");
