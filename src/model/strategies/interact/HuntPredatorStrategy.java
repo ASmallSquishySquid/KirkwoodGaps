@@ -6,8 +6,6 @@ import model.visitors.algos.BallAlgo;
 import model.visitors.cmds.ABallAlgoCmd;
 import model.visitors.cmds.IBallCmd;
 import provided.ballworld.extVisitors.IBallHostID;
-import provided.logger.ILoggerControl;
-import provided.logger.LogLevel;
 import provided.utils.dispatcher.IDispatcher;
 
 

@@ -43,7 +43,7 @@ This interaction strategy causes PredatorBalls to steal mass when it interacts w
 #### Kill Prey Interact Strategy:
 This interaction strategy causes the ball to kill all prey that it interacts with.
 #### Color Update Strategy:
-This update strategy flashes the color of prey balls pruple, predators purple, scavengers green, and leaves everything else the same. It can be toggled on or off.
+This update strategy flashes the color of prey balls orange, predators purple, scavengers green, and leaves everything else the same. It can be toggled on or off.
 #### Physics Config Algo:
 This config algo sets up DefaultBalls to be planets with a gravitation pull, and everything else to be elastically bouncing balls.
 #### Same Type Config Algo:
