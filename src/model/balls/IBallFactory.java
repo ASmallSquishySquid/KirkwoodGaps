@@ -56,7 +56,6 @@ public interface IBallFactory {
 		@Override
 		public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
 				IModel2BallAdapter modelAdapter) {
-			// TODO Auto-generated method stub
 			return new DefaultBall(p, r, v, c, container, installAlgo, modelAdapter);
 		}
 		
