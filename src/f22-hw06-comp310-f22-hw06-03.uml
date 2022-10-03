@@ -164,7 +164,7 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_UdKz6ULPEe2Cia9SaTQ4zA" name="balls">
         <packagedElement xmi:type="uml:Class" xmi:id="_UetsBELPEe2Cia9SaTQ4zA" name="ABall" isAbstract="true">
-          <ownedComment xmi:id="_UpjDD0LPEe2Cia9SaTQ4zA">
+          <ownedComment xmi:id="_f2uGIELPEe2Cia9SaTQ4zA">
             <body>Class for a ABall object.&#xD;
  *&#xD;
 @author Tim Louie&#xD;
@@ -189,10 +189,10 @@
             <defaultValue xmi:type="uml:LiteralString" xmi:id="_Uo0qQ0LPEe2Cia9SaTQ4zA" value="new StraightStrategy()"/>
           </ownedAttribute>
           <ownedAttribute xmi:id="_Uo1RUkLPEe2Cia9SaTQ4zA" name="criteriaStrategy" type="_UfAm8ULPEe2Cia9SaTQ4zA" association="_Up4aN0LPEe2Cia9SaTQ4zA">
-            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Uo1RVELPEe2Cia9SaTQ4zA" value="new ICriteriaStrategy() {&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public boolean satisfied(IBall context, IBall target) {&#xD;&#xA;&#x9;&#x9;&#x9;return false;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public void init(IBall context) {&#xD;&#xA;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Uo1RVELPEe2Cia9SaTQ4zA" value="new ICriteriaStrategy() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public boolean satisfied(IBall context, IBall target) {&#xD;&#xA;&#x9;&#x9;&#x9;return false;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public void init(IBall context) {&#xD;&#xA;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
           </ownedAttribute>
           <ownedAttribute xmi:id="_Uo14YkLPEe2Cia9SaTQ4zA" name="interactStrategy" type="_UfLmEELPEe2Cia9SaTQ4zA" association="_Up5BQULPEe2Cia9SaTQ4zA">
-            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Uo14ZULPEe2Cia9SaTQ4zA" value="new IInteractStrategy&lt;IBallCmd>() {&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public IBallCmd interact(IBall context, IBall target, IDispatcher&lt;IBallCmd> disp) {&#xD;&#xA;&#x9;&#x9;&#x9;return new IBallCmd() {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;public void apply(IBall context, IDispatcher&lt;IBallCmd> disp) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;};&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public void init(IBall context) {&#xD;&#xA;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Uo14ZULPEe2Cia9SaTQ4zA" value="new IInteractStrategy&lt;IBallCmd>() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public IBallCmd interact(IBall context, IBall target, IDispatcher&lt;IBallCmd> disp) {&#xD;&#xA;&#x9;&#x9;&#x9;return new IBallCmd() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;public void apply(IBall context, IDispatcher&lt;IBallCmd> disp) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;};&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public void init(IBall context) {&#xD;&#xA;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
           </ownedAttribute>
           <ownedAttribute xmi:id="_Uo2fd0LPEe2Cia9SaTQ4zA" name="logger" type="_Umo480LPEe2Cia9SaTQ4zA" isReadOnly="true" association="_Up5BRELPEe2Cia9SaTQ4zA">
             <defaultValue xmi:type="uml:LiteralString" xmi:id="_Uo3GgULPEe2Cia9SaTQ4zA" value="ILoggerControl.getSharedLogger()"/>
@@ -210,7 +210,9 @@
             <ownedParameter xmi:id="_UpUZiULPEe2Cia9SaTQ4zA" name="container" type="_Umd50ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpUZikLPEe2Cia9SaTQ4zA" name="installAlgo" type="_UfnD4ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpUZi0LPEe2Cia9SaTQ4zA" name="modelAdapter" type="_Uesd4kLPEe2Cia9SaTQ4zA"/>
-            <ownedParameter xmi:id="_UpUZjELPEe2Cia9SaTQ4zA" type="_UetsBELPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpUZjELPEe2Cia9SaTQ4zA" type="_UetsBELPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>super(id);&#xD;
 		this.pos = new Point2D.Double(p.x, p.y);&#xD;
@@ -230,7 +232,9 @@
 	</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpUZkELPEe2Cia9SaTQ4zA" name="getLocation" specification="_Ueu6IELPEe2Cia9SaTQ4zA">
-            <ownedParameter xmi:id="_UpUZkULPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpUZkULPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>return new Point2D.Double(this.pos.x, this.pos.y);&#xD;
 	</body>
@@ -242,7 +246,9 @@
 	</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpUZlELPEe2Cia9SaTQ4zA" name="getVelocity" specification="_UevhMkLPEe2Cia9SaTQ4zA">
-            <ownedParameter xmi:id="_UpUZlULPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpUZlULPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>return new Point2D.Double(this.vel.x, this.vel.y);&#xD;
 	</body>
@@ -254,7 +260,9 @@
 	</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpUZmELPEe2Cia9SaTQ4zA" name="getAdapter" specification="_UevhNkLPEe2Cia9SaTQ4zA">
-            <ownedParameter xmi:id="_UpUZmULPEe2Cia9SaTQ4zA" type="_Uesd4kLPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpUZmULPEe2Cia9SaTQ4zA" type="_Uesd4kLPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>return this.modelAdapter;&#xD;
 	</body>
@@ -267,6 +275,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpVAkELPEe2Cia9SaTQ4zA" name="bounce" specification="_UevhO0LPEe2Cia9SaTQ4zA">
             <ownedParameter xmi:id="_UpVAkULPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
             </ownedParameter>
             <language>java</language>
@@ -310,24 +319,24 @@
             <ownedParameter xmi:id="_UpVAmELPEe2Cia9SaTQ4zA" name="dispatcher" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
             <language>java</language>
             <body>IBall context = this;&#xD;
-		&#xD;
+&#xD;
 		dispatcher.updateAll(new IBallCmd() {&#xD;
 			@Override&#xD;
-			public void apply(IBall other, IDispatcher&lt;IBallCmd> disp) {				&#xD;
+			public void apply(IBall other, IDispatcher&lt;IBallCmd> disp) {&#xD;
 				IBallCmd contextPostInteractCmd = null;&#xD;
 				IBallCmd otherPostInteractCmd = null;&#xD;
-				&#xD;
+&#xD;
 				if (context.getCriteriaStrategy().satisfied(context, other)) {&#xD;
 					// Have the balls interact based on their interact strategies&#xD;
-				&#xD;
+&#xD;
 					contextPostInteractCmd = context.interactWith(other, disp);&#xD;
 				}&#xD;
-				&#xD;
+&#xD;
 				if (other.getCriteriaStrategy().satisfied(other, context)) {&#xD;
 					// Have the balls interact based on their interact strategies&#xD;
 					otherPostInteractCmd = other.interactWith(context, disp);&#xD;
 				}&#xD;
-				&#xD;
+&#xD;
 				// Apply the interactions&#xD;
 				if (contextPostInteractCmd != null) {&#xD;
 					context.update(dispatcher, contextPostInteractCmd);&#xD;
@@ -341,7 +350,9 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpVAmULPEe2Cia9SaTQ4zA" name="getIatImage" specification="_Un75dkLPEe2Cia9SaTQ4zA">
             <ownedParameter xmi:id="_UpVAmkLPEe2Cia9SaTQ4zA" name="image" type="_Umeg5ULPEe2Cia9SaTQ4zA"/>
-            <ownedParameter xmi:id="_UpVAm0LPEe2Cia9SaTQ4zA" type="_UmfH9ULPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpVAm0LPEe2Cia9SaTQ4zA" type="_UmfH9ULPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>return modelAdapter.getImageWrapper(image);&#xD;
 	</body>
@@ -349,13 +360,16 @@
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpVAnELPEe2Cia9SaTQ4zA" name="interactWith" specification="_Un8gg0LPEe2Cia9SaTQ4zA">
             <ownedParameter xmi:id="_UpVAnULPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpVAnkLPEe2Cia9SaTQ4zA" name="disp" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
-            <ownedParameter xmi:id="_UpVAn0LPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpVAn0LPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>return this.getInteractStrategy().interact(this, target, disp);&#xD;
 	</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpVAoELPEe2Cia9SaTQ4zA" name="isTouchingTopEdge" specification="_UewIQULPEe2Cia9SaTQ4zA">
             <ownedParameter xmi:id="_UpVAoULPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
             </ownedParameter>
             <language>java</language>
@@ -364,6 +378,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpVAokLPEe2Cia9SaTQ4zA" name="isTouchingBottomEdge" specification="_UewIQ0LPEe2Cia9SaTQ4zA">
             <ownedParameter xmi:id="_UpVAo0LPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
             </ownedParameter>
             <language>java</language>
@@ -372,6 +387,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpVApELPEe2Cia9SaTQ4zA" name="isTouchingLeftEdge" specification="_UewIRULPEe2Cia9SaTQ4zA">
             <ownedParameter xmi:id="_UpVApULPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
             </ownedParameter>
             <language>java</language>
@@ -380,6 +396,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpVApkLPEe2Cia9SaTQ4zA" name="isTouchingRightEdge" specification="_UewIR0LPEe2Cia9SaTQ4zA">
             <ownedParameter xmi:id="_UpVAp0LPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
             </ownedParameter>
             <language>java</language>
@@ -402,7 +419,7 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_UewIQULPEe2Cia9SaTQ4zA" name="isTouchingTopEdge" visibility="private" method="_UpVAoELPEe2Cia9SaTQ4zA">
-            <ownedComment xmi:id="_UpjqEULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2utIELPEe2Cia9SaTQ4zA">
               <body>Checks if the ball is crossing the top boundary.&#xD;
 	 *&#xD;
 	 * @return &lt;code>true&lt;/code> if the ball is crossing the boundary, &lt;code>false&lt;/code> otherwise</body>
@@ -412,7 +429,7 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_UewIQ0LPEe2Cia9SaTQ4zA" name="isTouchingBottomEdge" visibility="private" method="_UpVAokLPEe2Cia9SaTQ4zA">
-            <ownedComment xmi:id="_UpjqEkLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2utIULPEe2Cia9SaTQ4zA">
               <body>Checks if the ball is crossing the bottom boundary.&#xD;
 	 *&#xD;
 	 * @return &lt;code>true&lt;/code> if the ball is crossing the boundary, &lt;code>false&lt;/code> otherwise</body>
@@ -422,7 +439,7 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_UewIRULPEe2Cia9SaTQ4zA" name="isTouchingLeftEdge" visibility="private" method="_UpVApELPEe2Cia9SaTQ4zA">
-            <ownedComment xmi:id="_UpjqE0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2utIkLPEe2Cia9SaTQ4zA">
               <body>Checks if the ball is crossing the left boundary.&#xD;
 	 *&#xD;
 	 * @return &lt;code>true&lt;/code> if the ball is crossing the boundary, &lt;code>false&lt;/code> otherwise</body>
@@ -432,7 +449,7 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_UewIR0LPEe2Cia9SaTQ4zA" name="isTouchingRightEdge" visibility="private" method="_UpVApkLPEe2Cia9SaTQ4zA">
-            <ownedComment xmi:id="_UpjqFELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2utI0LPEe2Cia9SaTQ4zA">
               <body>Checks if the ball is crossing the right boundary.&#xD;
 	 *&#xD;
 	 * @return &lt;code>true&lt;/code> if the ball is crossing the boundary, &lt;code>false&lt;/code> otherwise</body>
@@ -451,7 +468,7 @@
             <eAnnotations xmi:id="_Un6rWULPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
               <details xmi:id="_Un6rWkLPEe2Cia9SaTQ4zA" key="create"/>
             </eAnnotations>
-            <ownedComment xmi:id="_UpjqEELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGIULPEe2Cia9SaTQ4zA">
               <body>Constructor for an ABall.&#xD;
 	 * &#xD;
 	 * @param id the subclass ID&#xD;
@@ -502,7 +519,7 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_UezyoELPEe2Cia9SaTQ4zA" name="DefaultBall">
-          <ownedComment xmi:id="_UpjqFULPEe2Cia9SaTQ4zA">
+          <ownedComment xmi:id="_f2rp0ULPEe2Cia9SaTQ4zA">
             <body>The default ball object.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -525,7 +542,9 @@
             <ownedParameter xmi:id="_UpVnpULPEe2Cia9SaTQ4zA" name="container" type="_Umd50ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpVnpkLPEe2Cia9SaTQ4zA" name="installAlgo" type="_UfnD4ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpVnp0LPEe2Cia9SaTQ4zA" name="modelAdapter" type="_Uesd4kLPEe2Cia9SaTQ4zA"/>
-            <ownedParameter xmi:id="_UpVnqELPEe2Cia9SaTQ4zA" type="_UezyoELPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpVnqELPEe2Cia9SaTQ4zA" type="_UezyoELPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>super(id, p, r, v, c, container, installAlgo, modelAdapter);&#xD;
 	</body>
@@ -547,7 +566,7 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_Ue1AwELPEe2Cia9SaTQ4zA" name="DiscoBall">
-          <ownedComment xmi:id="_UpjqFkLPEe2Cia9SaTQ4zA">
+          <ownedComment xmi:id="_f2rp0kLPEe2Cia9SaTQ4zA">
             <body>The disco ball object.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -570,7 +589,9 @@
             <ownedParameter xmi:id="_UpVnrkLPEe2Cia9SaTQ4zA" name="container" type="_Umd50ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpVnr0LPEe2Cia9SaTQ4zA" name="installAlgo" type="_UfnD4ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpVnsELPEe2Cia9SaTQ4zA" name="modelAdapter" type="_Uesd4kLPEe2Cia9SaTQ4zA"/>
-            <ownedParameter xmi:id="_UpVnsULPEe2Cia9SaTQ4zA" type="_Ue1AwELPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpVnsULPEe2Cia9SaTQ4zA" type="_Ue1AwELPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>super(id, p, r, v, c, container, installAlgo, modelAdapter);&#xD;
 		ILoggerControl.getSharedLogger().log(LogLevel.INFO, &quot;Let's get this party started!&quot;);&#xD;
@@ -593,7 +614,7 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_Ue1n0ELPEe2Cia9SaTQ4zA" name="ErrorBall">
-          <ownedComment xmi:id="_UpjqF0LPEe2Cia9SaTQ4zA">
+          <ownedComment xmi:id="_f2rp00LPEe2Cia9SaTQ4zA">
             <body>A ball that handles errors.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -616,7 +637,9 @@
             <ownedParameter xmi:id="_UpVnt0LPEe2Cia9SaTQ4zA" name="container" type="_Umd50ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpVnuELPEe2Cia9SaTQ4zA" name="installAlgo" type="_UfnD4ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpVnuULPEe2Cia9SaTQ4zA" name="modelAdapter" type="_Uesd4kLPEe2Cia9SaTQ4zA"/>
-            <ownedParameter xmi:id="_UpVnukLPEe2Cia9SaTQ4zA" type="_Ue1n0ELPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpVnukLPEe2Cia9SaTQ4zA" type="_Ue1n0ELPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>super(id, p, r, v, c, container, new ErrorConfigBallAlgo(), modelAdapter);&#xD;
 	</body>
@@ -638,7 +661,7 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_Ue218ELPEe2Cia9SaTQ4zA" name="IBall">
-          <ownedComment xmi:id="_UpkRIELPEe2Cia9SaTQ4zA">
+          <ownedComment xmi:id="_f2uGEELPEe2Cia9SaTQ4zA">
             <body>The interface for a ball&#xD;
  *&#xD;
 @author Phoebe Scaccia</body>
@@ -653,12 +676,12 @@
           <ownedAttribute xmi:id="_Ue5SMULPEe2Cia9SaTQ4zA" name="logger" type="_Umo480LPEe2Cia9SaTQ4zA" isReadOnly="true" association="_Upzht0LPEe2Cia9SaTQ4zA"/>
           <ownedAttribute xmi:id="_Ue5SMkLPEe2Cia9SaTQ4zA" name="container" visibility="package" type="_Umd50ELPEe2Cia9SaTQ4zA" association="_Upk4NULPEe2Cia9SaTQ4zA"/>
           <ownedOperation xmi:id="_Ue3dAELPEe2Cia9SaTQ4zA" name="move">
-            <ownedComment xmi:id="_UpkRIkLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGEkLPEe2Cia9SaTQ4zA">
               <body>Moves the ball according to its velocity.</body>
             </ownedComment>
           </ownedOperation>
           <ownedOperation xmi:id="_Ue3dAULPEe2Cia9SaTQ4zA" name="bounce">
-            <ownedComment xmi:id="_UpkRI0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGE0LPEe2Cia9SaTQ4zA">
               <body>Determines if a ball should bounce. If it should, set its position and velocity accordingly.&#xD;
 	 *&#xD;
 	 * @return true if the ball bounced, false otherwise.</body>
@@ -668,7 +691,7 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_Ue4EEELPEe2Cia9SaTQ4zA" name="getRadius">
-            <ownedComment xmi:id="_UpkRJ0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGF0LPEe2Cia9SaTQ4zA">
               <body>@return the ABall's radius.</body>
             </ownedComment>
             <ownedParameter xmi:id="_Ue4EEULPEe2Cia9SaTQ4zA" direction="return">
@@ -676,7 +699,7 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_Ue4EEkLPEe2Cia9SaTQ4zA" name="setRadius">
-            <ownedComment xmi:id="_UpkRKELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGGELPEe2Cia9SaTQ4zA">
               <body>@param radius : the ABall's new radius.</body>
             </ownedComment>
             <ownedParameter xmi:id="_Ue4EE0LPEe2Cia9SaTQ4zA" name="radius">
@@ -684,37 +707,37 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_Ue4rIULPEe2Cia9SaTQ4zA" name="getUpdateStrategy">
-            <ownedComment xmi:id="_UpkRLULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGGULPEe2Cia9SaTQ4zA">
               <body>@return the ABall's update strategy.</body>
             </ownedComment>
             <ownedParameter xmi:id="_Umw0wELPEe2Cia9SaTQ4zA" type="_UfiycULPEe2Cia9SaTQ4zA" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:id="_Ue4rI0LPEe2Cia9SaTQ4zA" name="getInteractStrategy">
-            <ownedComment xmi:id="_Upk4M0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGG0LPEe2Cia9SaTQ4zA">
               <body>@return the ABall's strategy.</body>
             </ownedComment>
             <ownedParameter xmi:id="_Umw0w0LPEe2Cia9SaTQ4zA" type="_UfLmEELPEe2Cia9SaTQ4zA" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:id="_Ue5SM0LPEe2Cia9SaTQ4zA" name="getAdapter">
-            <ownedComment xmi:id="_Upk4N0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGHULPEe2Cia9SaTQ4zA">
               <body>@return the ball's adapter to the model</body>
             </ownedComment>
             <ownedParameter xmi:id="_Umxb0ELPEe2Cia9SaTQ4zA" type="_Uesd4kLPEe2Cia9SaTQ4zA" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:id="_Umw0wULPEe2Cia9SaTQ4zA" name="setUpdateStrategy">
-            <ownedComment xmi:id="_Upk4MELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGGkLPEe2Cia9SaTQ4zA">
               <body>@param strategy : the ABall's new update strategy.</body>
             </ownedComment>
             <ownedParameter xmi:id="_Umw0wkLPEe2Cia9SaTQ4zA" name="strategy" type="_UfiycULPEe2Cia9SaTQ4zA"/>
           </ownedOperation>
           <ownedOperation xmi:id="_Umw0xELPEe2Cia9SaTQ4zA" name="setInteractStrategy">
-            <ownedComment xmi:id="_Upk4NELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGHELPEe2Cia9SaTQ4zA">
               <body>@param strategy : the ABall's new strategy.</body>
             </ownedComment>
             <ownedParameter xmi:id="_Umw0xULPEe2Cia9SaTQ4zA" name="strategy" type="_UfLmEELPEe2Cia9SaTQ4zA"/>
           </ownedOperation>
           <ownedOperation xmi:id="_UoAK4ULPEe2Cia9SaTQ4zA" name="update">
-            <ownedComment xmi:id="_UpkRIULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGEULPEe2Cia9SaTQ4zA">
               <body>Updates the ABall's status.&#xD;
 	 * &#xD;
 	 * @param disp the IDispatcher of the ABall.&#xD;
@@ -724,7 +747,7 @@
             <ownedParameter xmi:id="_UoAK40LPEe2Cia9SaTQ4zA" name="cmd" type="_UfzRIELPEe2Cia9SaTQ4zA"/>
           </ownedOperation>
           <ownedOperation xmi:id="_UoAK5ULPEe2Cia9SaTQ4zA" name="updateState">
-            <ownedComment xmi:id="_UpkRJELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGFELPEe2Cia9SaTQ4zA">
               <body>Updates the state of the ball.&#xD;
 	 *&#xD;
 	 * @param dispatcher the dispatcher holding this ball&#xD;
@@ -736,7 +759,7 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_UoAx8ULPEe2Cia9SaTQ4zA" name="paint">
-            <ownedComment xmi:id="_UpkRJULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGFULPEe2Cia9SaTQ4zA">
               <body>Paints the ABall.&#xD;
 	 *&#xD;
 	 * @param g the Graphics object to paint on.</body>
@@ -744,7 +767,7 @@
             <ownedParameter xmi:id="_UoAx8kLPEe2Cia9SaTQ4zA" name="g" type="_Umeg40LPEe2Cia9SaTQ4zA"/>
           </ownedOperation>
           <ownedOperation xmi:id="_UoAx80LPEe2Cia9SaTQ4zA" name="interact">
-            <ownedComment xmi:id="_UpkRJkLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGFkLPEe2Cia9SaTQ4zA">
               <body>Has the ABall interact with other balls.&#xD;
 	 *&#xD;
 	 * @param dispatcher the dispatcher.</body>
@@ -752,7 +775,7 @@
             <ownedParameter xmi:id="_UoAx9ELPEe2Cia9SaTQ4zA" name="dispatcher" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
           </ownedOperation>
           <ownedOperation xmi:id="_UoAx9kLPEe2Cia9SaTQ4zA" name="getIatImage">
-            <ownedComment xmi:id="_Upk4OELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGHkLPEe2Cia9SaTQ4zA">
               <body>Gets an IATImage for the given Image.&#xD;
 	 *&#xD;
 	 * @param image an Image object&#xD;
@@ -762,7 +785,7 @@
             <ownedParameter xmi:id="_UoBZAELPEe2Cia9SaTQ4zA" type="_UmfH9ULPEe2Cia9SaTQ4zA" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:id="_UoBZAULPEe2Cia9SaTQ4zA" name="interactWith">
-            <ownedComment xmi:id="_Upk4OULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2uGH0LPEe2Cia9SaTQ4zA">
               <body>Returns the result of an interaction with the target&#xD;
 	 *&#xD;
 	 * @param target an IBall&#xD;
@@ -775,16 +798,16 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_Ue7HYELPEe2Cia9SaTQ4zA" name="IBallFactory">
-          <ownedComment xmi:id="_Upk4OkLPEe2Cia9SaTQ4zA">
+          <ownedComment xmi:id="_f2rp1ULPEe2Cia9SaTQ4zA">
             <body>A factory interface for balls.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
           </ownedComment>
           <ownedAttribute xmi:id="_Ue7udELPEe2Cia9SaTQ4zA" name="errorBallFactory" isStatic="true" type="_Ue7HYELPEe2Cia9SaTQ4zA" association="_UpzhukLPEe2Cia9SaTQ4zA">
-            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Ue7udULPEe2Cia9SaTQ4zA" value="new IBallFactory() {&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;IModel2BallAdapter modelAdapter) {&#xD;&#xA;&#x9;&#x9;&#x9;return new ErrorBall(p, r, v, c, container, installAlgo, modelAdapter);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public String toString() {&#xD;&#xA;&#x9;&#x9;&#x9;return &quot;Error&quot;;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Ue7udULPEe2Cia9SaTQ4zA" value="new IBallFactory() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;IModel2BallAdapter modelAdapter) {&#xD;&#xA;&#x9;&#x9;&#x9;return new ErrorBall(p, r, v, c, container, installAlgo, modelAdapter);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public String toString() {&#xD;&#xA;&#x9;&#x9;&#x9;return &quot;Error&quot;;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
           </ownedAttribute>
           <ownedAttribute xmi:id="_Ue7ud0LPEe2Cia9SaTQ4zA" name="defaultBallFactory" isStatic="true" type="_Ue7HYELPEe2Cia9SaTQ4zA" association="_Up0IwULPEe2Cia9SaTQ4zA">
-            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Ue8VgELPEe2Cia9SaTQ4zA" value="new IBallFactory() {&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;IModel2BallAdapter modelAdapter) {&#xD;&#xA;&#x9;&#x9;&#x9;return new DefaultBall(p, r, v, c, container, installAlgo, modelAdapter);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public String toString() {&#xD;&#xA;&#x9;&#x9;&#x9;return &quot;Default&quot;;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Ue8VgELPEe2Cia9SaTQ4zA" value="new IBallFactory() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;IModel2BallAdapter modelAdapter) {&#xD;&#xA;&#x9;&#x9;&#x9;return new DefaultBall(p, r, v, c, container, installAlgo, modelAdapter);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public String toString() {&#xD;&#xA;&#x9;&#x9;&#x9;return &quot;Default&quot;;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
           </ownedAttribute>
           <ownedOperation xmi:id="_Ue7HYULPEe2Cia9SaTQ4zA" name="toString">
             <ownedParameter xmi:id="_Ue7ucELPEe2Cia9SaTQ4zA" direction="return">
@@ -792,7 +815,7 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_UoBZBkLPEe2Cia9SaTQ4zA" name="make">
-            <ownedComment xmi:id="_Upk4O0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2rp1kLPEe2Cia9SaTQ4zA">
               <body>Makes a new ball.&#xD;
 	 *&#xD;
 	 * @param p the position.&#xD;
@@ -817,7 +840,7 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_Ue88kELPEe2Cia9SaTQ4zA" name="PredatorBall">
-          <ownedComment xmi:id="_Upk4PELPEe2Cia9SaTQ4zA">
+          <ownedComment xmi:id="_f2rp10LPEe2Cia9SaTQ4zA">
             <body>The predator ball object.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -840,7 +863,9 @@
             <ownedParameter xmi:id="_UpWOtULPEe2Cia9SaTQ4zA" name="container" type="_Umd50ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpWOtkLPEe2Cia9SaTQ4zA" name="installAlgo" type="_UfnD4ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpWOt0LPEe2Cia9SaTQ4zA" name="modelAdapter" type="_Uesd4kLPEe2Cia9SaTQ4zA"/>
-            <ownedParameter xmi:id="_UpWOuELPEe2Cia9SaTQ4zA" type="_Ue88kELPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpWOuELPEe2Cia9SaTQ4zA" type="_Ue88kELPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>super(id, p, r, v, c, container, installAlgo, modelAdapter);&#xD;
 	</body>
@@ -862,7 +887,7 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_Ue9joELPEe2Cia9SaTQ4zA" name="PreyBall">
-          <ownedComment xmi:id="_Upk4PULPEe2Cia9SaTQ4zA">
+          <ownedComment xmi:id="_f2rp2ELPEe2Cia9SaTQ4zA">
             <body>The prey ball object.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -885,7 +910,9 @@
             <ownedParameter xmi:id="_UpWOvkLPEe2Cia9SaTQ4zA" name="container" type="_Umd50ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpWOv0LPEe2Cia9SaTQ4zA" name="installAlgo" type="_UfnD4ELPEe2Cia9SaTQ4zA"/>
             <ownedParameter xmi:id="_UpWOwELPEe2Cia9SaTQ4zA" name="modelAdapter" type="_Uesd4kLPEe2Cia9SaTQ4zA"/>
-            <ownedParameter xmi:id="_UpWOwULPEe2Cia9SaTQ4zA" type="_Ue9joELPEe2Cia9SaTQ4zA" direction="return"/>
+            <ownedParameter xmi:id="_UpWOwULPEe2Cia9SaTQ4zA" type="_Ue9joELPEe2Cia9SaTQ4zA" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>super(id, p, r, v, c, container, installAlgo, modelAdapter);&#xD;
 	</body>
@@ -982,7 +1009,7 @@
       <packagedElement xmi:type="uml:Package" xmi:id="_UdKz6kLPEe2Cia9SaTQ4zA" name="visitors">
         <packagedElement xmi:type="uml:Package" xmi:id="_UdKz60LPEe2Cia9SaTQ4zA" name="algos">
           <packagedElement xmi:type="uml:Class" xmi:id="_UfnD4ELPEe2Cia9SaTQ4zA" name="AConfigBallAlgo" isAbstract="true">
-            <ownedComment xmi:id="_UpnUekLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2tfB0LPEe2Cia9SaTQ4zA">
               <body>Abstract implementation of a ball configuration algorithm.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -1002,9 +1029,11 @@
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Updjd0LPEe2Cia9SaTQ4zA" name="AConfigBallAlgo" specification="_UoZziELPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpdjeELPEe2Cia9SaTQ4zA" name="logger" type="_Umo480LPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpdjeULPEe2Cia9SaTQ4zA" name="algo2ModelAdpt" type="_Uer20ELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpdjekLPEe2Cia9SaTQ4zA" type="_UfnD4ELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpdjekLPEe2Cia9SaTQ4zA" type="_UfnD4ELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
-              <body>this(logger, algo2ModelAdpt , ABallAlgoCmd.MakeNull());&#xD;
+              <body>this(logger, algo2ModelAdpt, ABallAlgoCmd.MakeNull());&#xD;
 	</body>
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Updje0LPEe2Cia9SaTQ4zA" name="AConfigBallAlgo" specification="_UoaalULPEe2Cia9SaTQ4zA">
@@ -1013,19 +1042,23 @@
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
               </ownedParameter>
               <ownedParameter xmi:id="_UpdjfkLPEe2Cia9SaTQ4zA" name="algo2ModelAdpt" type="_Uer20ELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_Updjf0LPEe2Cia9SaTQ4zA" type="_UfnD4ELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_Updjf0LPEe2Cia9SaTQ4zA" type="_UfnD4ELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
-              <body>this(logger, name, algo2ModelAdpt , ABallAlgoCmd.MakeNull());&#xD;
+              <body>this(logger, name, algo2ModelAdpt, ABallAlgoCmd.MakeNull());&#xD;
 	</body>
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpdjgELPEe2Cia9SaTQ4zA" name="AConfigBallAlgo" specification="_UoaanELPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpdjgULPEe2Cia9SaTQ4zA" name="logger" type="_Umo480LPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpdjgkLPEe2Cia9SaTQ4zA" name="algo2ModelAdpt" type="_Uer20ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_Updjg0LPEe2Cia9SaTQ4zA" name="defaultCmd" type="_Ufxb8ULPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpdjhELPEe2Cia9SaTQ4zA" type="_UfnD4ELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpdjhELPEe2Cia9SaTQ4zA" type="_UfnD4ELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(defaultCmd);&#xD;
-		this.algo2ModelAdpt = algo2ModelAdpt ;&#xD;
+		this.algo2ModelAdpt = algo2ModelAdpt;&#xD;
 		this.logger = logger;&#xD;
 	</body>
             </ownedBehavior>
@@ -1036,17 +1069,21 @@
               </ownedParameter>
               <ownedParameter xmi:id="_UpdjiELPEe2Cia9SaTQ4zA" name="algo2ModelAdpt" type="_Uer20ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpdjiULPEe2Cia9SaTQ4zA" name="defaultCmd" type="_Ufxb8ULPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpdjikLPEe2Cia9SaTQ4zA" type="_UfnD4ELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpdjikLPEe2Cia9SaTQ4zA" type="_UfnD4ELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(name, defaultCmd);&#xD;
-		this.algo2ModelAdpt = algo2ModelAdpt ;&#xD;
+		this.algo2ModelAdpt = algo2ModelAdpt;&#xD;
 		this.logger = logger;&#xD;
 	</body>
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Updji0LPEe2Cia9SaTQ4zA" name="getAlgo2ModelAdpt" specification="_Ufnq8ELPEe2Cia9SaTQ4zA">
-              <ownedParameter xmi:id="_UpdjjELPEe2Cia9SaTQ4zA" type="_Uer20ELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpdjjELPEe2Cia9SaTQ4zA" type="_Uer20ELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
-              <body>return algo2ModelAdpt ;&#xD;
+              <body>return algo2ModelAdpt;&#xD;
 	</body>
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpdjjULPEe2Cia9SaTQ4zA" name="installUpdateStrategy" specification="_UnbjIkLPEe2Cia9SaTQ4zA">
@@ -1082,14 +1119,14 @@
 	</body>
             </ownedBehavior>
             <ownedOperation xmi:id="_Ufnq8ELPEe2Cia9SaTQ4zA" name="getAlgo2ModelAdpt" visibility="protected" method="_Updji0LPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_UpnUf0LPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfDELPEe2Cia9SaTQ4zA">
                 <body>Accessor for the adapter to the model&#xD;
 	 * @return The adapter to the model</body>
               </ownedComment>
               <ownedParameter xmi:id="_UnbjIULPEe2Cia9SaTQ4zA" type="_Uer20ELPEe2Cia9SaTQ4zA" direction="return"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UnbjIkLPEe2Cia9SaTQ4zA" name="installUpdateStrategy" visibility="protected" method="_UpdjjULPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_UpnUgELPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfDULPEe2Cia9SaTQ4zA">
                 <body>Convenience method to install an update strategy into the given host ball.&#xD;
 	 * @param host  The host ball to install the given update strategy into&#xD;
 	 * @param newStrat The update strategy to install into the host ball</body>
@@ -1098,7 +1135,7 @@
               <ownedParameter xmi:id="_UnbjJELPEe2Cia9SaTQ4zA" name="newStrat" type="_UfiycULPEe2Cia9SaTQ4zA"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UncKMELPEe2Cia9SaTQ4zA" name="installPaintStrategy" visibility="protected" method="_UpeKgELPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_UpnUgULPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfDkLPEe2Cia9SaTQ4zA">
                 <body>Convenience method to install a paint strategy into the given host ball.&#xD;
 	 * @param host  The host ball to install the given paint strategy into&#xD;
 	 * @param newStrat The paint strategy to install into the host ball</body>
@@ -1107,7 +1144,7 @@
               <ownedParameter xmi:id="_UncKMkLPEe2Cia9SaTQ4zA" name="newStrat" type="_UfUwAELPEe2Cia9SaTQ4zA"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UncKM0LPEe2Cia9SaTQ4zA" name="installCriteriaStrategy" visibility="protected" method="_UpeKg0LPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_Upn7gELPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfD0LPEe2Cia9SaTQ4zA">
                 <body>Convenience method to install a paint strategy into the given host ball.&#xD;
 	 * @param host  The host ball to install the given paint strategy into&#xD;
 	 * @param newStrat The paint strategy to install into the host ball</body>
@@ -1116,7 +1153,7 @@
               <ownedParameter xmi:id="_UncKNULPEe2Cia9SaTQ4zA" name="newStrat" type="_UfAm8ULPEe2Cia9SaTQ4zA"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UncKNkLPEe2Cia9SaTQ4zA" name="installInteractStrategy" visibility="protected" method="_UpeKhkLPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_Upn7gULPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfEELPEe2Cia9SaTQ4zA">
                 <body>Convenience method to install an interact strategy into the given host ball.&#xD;
 	 * @param host  The host ball to install the given interact strategy into&#xD;
 	 * @param newStrat The interact strategy to install into the host ball</body>
@@ -1128,7 +1165,7 @@
               <eAnnotations xmi:id="_UoaakkLPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_Uoaak0LPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_UpnUe0LPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfCELPEe2Cia9SaTQ4zA">
                 <body>Constructs a configuration algorithm with a no-op default case and the given adapter to the model.&#xD;
 	 * Use this constructor when the default case command needs to reference instance fields and methods of &#xD;
 	 * the configuration algorithm.   In that scenario, setDefaultCmd() must be explicitly called to &#xD;
@@ -1144,7 +1181,7 @@
               <eAnnotations xmi:id="_UoaamULPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_UoaamkLPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_UpnUfELPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfCULPEe2Cia9SaTQ4zA">
                 <body>Constructs a configuration algorithm with a no-op default case and the given adapter to the model.&#xD;
 	 * Use this constructor when the default case command needs to reference instance fields and methods of &#xD;
 	 * the configuration algorithm.   In that scenario, setDefaultCmd() must be explicitly called to &#xD;
@@ -1164,7 +1201,7 @@
               <eAnnotations xmi:id="_UoaaoELPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_UoaaoULPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_UpnUfULPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfCkLPEe2Cia9SaTQ4zA">
                 <body>Constructs a configuration algorithm with the given default case and the given adapter to the model.&#xD;
 	 * @param logger The logger to use&#xD;
 	 * @param algo2ModelAdpt adapter to the model.&#xD;
@@ -1179,7 +1216,7 @@
               <eAnnotations xmi:id="_UobBpkLPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_UobBp0LPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_UpnUfkLPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfC0LPEe2Cia9SaTQ4zA">
                 <body>Constructs a configuration algorithm with the given default case and the given adapter to the model.&#xD;
 	 * @param logger The logger to use&#xD;
 	 * @param name A friendly name for the toString() method to return.&#xD;
@@ -1196,7 +1233,7 @@
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfpgIELPEe2Cia9SaTQ4zA" name="BallAlgo">
-            <ownedComment xmi:id="_Upn7gkLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2tfAULPEe2Cia9SaTQ4zA">
               <body>A concrete ball algorithm.&#xD;
 &#xD;
 @author Phoebe Scaccia&#xD;
@@ -1216,7 +1253,9 @@
             <interfaceRealization xmi:id="_Und_YULPEe2Cia9SaTQ4zA" client="_UfpgIELPEe2Cia9SaTQ4zA" supplier="_UfwN1ULPEe2Cia9SaTQ4zA" contract="_UfwN1ULPEe2Cia9SaTQ4zA"/>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpeKiULPEe2Cia9SaTQ4zA" name="BallAlgo" specification="_Und_Y0LPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpeKikLPEe2Cia9SaTQ4zA" name="defaultCmd" type="_Ufxb8ULPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpeKi0LPEe2Cia9SaTQ4zA" type="_UfpgIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpeKi0LPEe2Cia9SaTQ4zA" type="_UfpgIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(defaultCmd);&#xD;
 	</body>
@@ -1226,7 +1265,9 @@
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
               </ownedParameter>
               <ownedParameter xmi:id="_UpeKjkLPEe2Cia9SaTQ4zA" name="defaultCmd" type="_Ufxb8ULPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpeKj0LPEe2Cia9SaTQ4zA" type="_UfpgIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpeKj0LPEe2Cia9SaTQ4zA" type="_UfpgIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(defaultCmd);&#xD;
 		this.name = name;&#xD;
@@ -1234,6 +1275,7 @@
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpeKkELPEe2Cia9SaTQ4zA" name="toString" specification="_UfqHMULPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpeKkULPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
               </ownedParameter>
               <language>java</language>
@@ -1264,7 +1306,7 @@
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfquQkLPEe2Cia9SaTQ4zA" name="CheckSameTypeBallAlgo">
-            <ownedComment xmi:id="_Upn7g0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2tfAkLPEe2Cia9SaTQ4zA">
               <body>Checks if two balls are the same type.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -1278,7 +1320,9 @@
               <defaultValue xmi:type="uml:LiteralString" xmi:id="_UpD610LPEe2Cia9SaTQ4zA" value="new CheckSameTypeBallAlgo()"/>
             </ownedAttribute>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpeKkkLPEe2Cia9SaTQ4zA" name="CheckSameTypeBallAlgo" specification="_UfrVUELPEe2Cia9SaTQ4zA">
-              <ownedParameter xmi:id="_UpeKk0LPEe2Cia9SaTQ4zA" type="_UfquQkLPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpeKk0LPEe2Cia9SaTQ4zA" type="_UfquQkLPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>// Only a default case is needed here because the main purpose here is to get the current ID value of the host&#xD;
 		// and to create an second visitor algorithm based on that ID value.&#xD;
@@ -1290,10 +1334,10 @@
 &#xD;
 			@Override&#xD;
 			public Boolean apply(IBallHostID hostID, IBall host, IBall... otherBalls) {&#xD;
-         &#xD;
+&#xD;
 				// Delegate to the other ball to see if its type matches the host.&#xD;
 				// Return whatever the result of the delegation is.&#xD;
-				return otherBalls[0].execute(new BallAlgo&lt;Boolean, Void> (new ABallAlgoCmd&lt;>() {&#xD;
+				return otherBalls[0].execute(new BallAlgo&lt;Boolean, Void>(new ABallAlgoCmd&lt;>() {&#xD;
 &#xD;
 					/**&#xD;
 					 * For serialization.&#xD;
@@ -1306,7 +1350,7 @@
 						return false;&#xD;
 					}&#xD;
 				}) {&#xD;
-                 &#xD;
+&#xD;
 					/**&#xD;
 					 * For serialization.&#xD;
 					 */&#xD;
@@ -1343,7 +1387,7 @@
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfrVVELPEe2Cia9SaTQ4zA" name="CompositeConfigBallAlgo">
-            <ownedComment xmi:id="_Upn7hELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2tfA0LPEe2Cia9SaTQ4zA">
               <body>A composite of multiple config ball algos.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -1357,7 +1401,9 @@
               <ownedParameter xmi:id="_UpeKlULPEe2Cia9SaTQ4zA" name="algos" type="_UfnD4ELPEe2Cia9SaTQ4zA">
                 <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UpeKlkLPEe2Cia9SaTQ4zA" value="*"/>
               </ownedParameter>
-              <ownedParameter xmi:id="_UpeKl0LPEe2Cia9SaTQ4zA" type="_UfrVVELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpeKl0LPEe2Cia9SaTQ4zA" type="_UfrVVELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(ILoggerControl.getSharedLogger(), IBallAlgo2ModelAdapter.NULL);&#xD;
 		this.setDefaultCmd(new ABallAlgoCmd&lt;Void, Void>() {&#xD;
@@ -1382,7 +1428,9 @@
               <ownedParameter xmi:id="_UpeKmkLPEe2Cia9SaTQ4zA" name="algos" type="_UfnD4ELPEe2Cia9SaTQ4zA">
                 <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UpeKm0LPEe2Cia9SaTQ4zA" value="*"/>
               </ownedParameter>
-              <ownedParameter xmi:id="_UpeKnELPEe2Cia9SaTQ4zA" type="_UfrVVELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpeKnELPEe2Cia9SaTQ4zA" type="_UfrVVELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(ILoggerControl.getSharedLogger(), classname, IBallAlgo2ModelAdapter.NULL);&#xD;
 		this.setDefaultCmd(new ABallAlgoCmd&lt;Void, Void>() {&#xD;
@@ -1423,7 +1471,7 @@
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_Ufr8YELPEe2Cia9SaTQ4zA" name="ConfigColorBallAlgo">
-            <ownedComment xmi:id="_Upn7hULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2tfBELPEe2Cia9SaTQ4zA">
               <body>Configures and installs the Color update strategy.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -1443,7 +1491,9 @@
               </ownedParameter>
               <ownedParameter xmi:id="_UpexkkLPEe2Cia9SaTQ4zA" name="logger" type="_Umo480LPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_Upexk0LPEe2Cia9SaTQ4zA" name="algo2ModelAdpt" type="_Uer20ELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpexlELPEe2Cia9SaTQ4zA" type="_Ufr8YELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpexlELPEe2Cia9SaTQ4zA" type="_Ufr8YELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(logger, name, algo2ModelAdpt);&#xD;
 		this.setDefaultCmd(new ABallAlgoCmd&lt;Void, Void>() {&#xD;
@@ -1458,16 +1508,16 @@
 				return null;&#xD;
 			}&#xD;
 		});&#xD;
-		&#xD;
-		algo2ModelAdpt.addConfigComponent(&quot;Same Type Interaction&quot;, ()->{&#xD;
+&#xD;
+		algo2ModelAdpt.addConfigComponent(&quot;Same Type Interaction&quot;, () -> {&#xD;
 			// Panel is instantiated INSIDE of the factory to ensure that is created on the GUI thread!&#xD;
-			ValuesPanel pnlValues =  new ValuesPanel(&quot;Toggle the color strategy on/off.&quot;, logger);&#xD;
+			ValuesPanel pnlValues = new ValuesPanel(&quot;Toggle the color strategy on/off.&quot;, logger);&#xD;
 			pnlValues.addBooleanInput(&quot;Enable color strategy&quot;, &quot;Enable/disable&quot;, true, (newVal) -> {&#xD;
 				isEnabled = newVal; // No validation being done here.&#xD;
-				return isEnabled;  // Return the current value&#xD;
+				return isEnabled; // Return the current value&#xD;
 			});&#xD;
-			&#xD;
-			return pnlValues;  // Return the control panel to be displayed&#xD;
+&#xD;
+			return pnlValues; // Return the control panel to be displayed&#xD;
 		});&#xD;
 	</body>
             </ownedBehavior>
@@ -1475,7 +1525,7 @@
               <eAnnotations xmi:id="_UobotkLPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_Uobot0LPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_Upn7hkLPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfBULPEe2Cia9SaTQ4zA">
                 <body>Constructor for a new ConfigColorBallAlgo.&#xD;
 	 * &#xD;
 	 * @param name the name of the algo&#xD;
@@ -1577,7 +1627,7 @@
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UftKgULPEe2Cia9SaTQ4zA" name="ConfigPaintBallAlgo">
-            <ownedComment xmi:id="_Upn7iULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2tfBkLPEe2Cia9SaTQ4zA">
               <body>COnfigures the paint strategy.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -1592,7 +1642,9 @@
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
               </ownedParameter>
               <ownedParameter xmi:id="_Upexn0LPEe2Cia9SaTQ4zA" name="newStrat" type="_UfUwAELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpexoELPEe2Cia9SaTQ4zA" type="_UftKgULPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpexoELPEe2Cia9SaTQ4zA" type="_UftKgULPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(ILoggerControl.getSharedLogger(), classname, IBallAlgo2ModelAdapter.NULL);&#xD;
 		this.setDefaultCmd(new ABallAlgoCmd&lt;Void, Void>() {&#xD;
@@ -1620,7 +1672,7 @@
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UftxkELPEe2Cia9SaTQ4zA" name="ConfigPhysicsBallAlgo">
-            <ownedComment xmi:id="_Upn7ikLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2tfAELPEe2Cia9SaTQ4zA">
               <body>Configures default balls into planets with gravity.&#xD;
 Configures everything else into a bouncing ball.&#xD;
 &#xD;
@@ -1637,10 +1689,12 @@ Configures everything else into a bouncing ball.&#xD;
               </ownedParameter>
               <ownedParameter xmi:id="_Upexo0LPEe2Cia9SaTQ4zA" name="logger" type="_Umo480LPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpexpELPEe2Cia9SaTQ4zA" name="algo2ModelAdpt" type="_Uer20ELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpexpULPEe2Cia9SaTQ4zA" type="_UftxkELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpexpULPEe2Cia9SaTQ4zA" type="_UftxkELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(logger, name, algo2ModelAdpt);&#xD;
-		&#xD;
+&#xD;
 		setDefaultCmd(new ABallAlgoCmd&lt;Void, Void>() {&#xD;
 			/**&#xD;
 			 * For serialization.&#xD;
@@ -1655,7 +1709,7 @@ Configures everything else into a bouncing ball.&#xD;
 				return null;&#xD;
 			}&#xD;
 		});&#xD;
-		&#xD;
+&#xD;
 		setCmd(DefaultBall.id, new ABallAlgoCmd&lt;Void, Void>() {&#xD;
 			/**&#xD;
 			 * For serialization.&#xD;
@@ -1684,7 +1738,7 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfuYoELPEe2Cia9SaTQ4zA" name="ConfigSameTypeBallAlgo">
-            <ownedComment xmi:id="_Upn7i0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2tfEULPEe2Cia9SaTQ4zA">
               <body>Configures and installs the SameType criteria strategy.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -1704,12 +1758,14 @@ Configures everything else into a bouncing ball.&#xD;
               </ownedParameter>
               <ownedParameter xmi:id="_UpexqELPEe2Cia9SaTQ4zA" name="logger" type="_Umo480LPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpexqULPEe2Cia9SaTQ4zA" name="algo2ModelAdpt" type="_Uer20ELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpexqkLPEe2Cia9SaTQ4zA" type="_UfuYoELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpexqkLPEe2Cia9SaTQ4zA" type="_UfuYoELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(logger, name, algo2ModelAdpt);&#xD;
-		&#xD;
+&#xD;
 		this.setDefaultCmd(new ABallAlgoCmd&lt;>() {&#xD;
-			&#xD;
+&#xD;
 			/**&#xD;
 			 * For serialization.&#xD;
 			 */&#xD;
@@ -1718,24 +1774,26 @@ Configures everything else into a bouncing ball.&#xD;
 			@Override&#xD;
 			public Void apply(IBallHostID index, IBall host, Void... params) {&#xD;
 				// Inherited AConfigBallAlgo.installInteractStrategy() creates the composite with the existing strategy.           &#xD;
-				installCriteriaStrategy(host, new SameTypeStrategy(()->criteriaType));&#xD;
+				installCriteriaStrategy(host, new SameTypeStrategy(() -> criteriaType));&#xD;
 				return null;&#xD;
-			}});&#xD;
-		&#xD;
-		algo2ModelAdpt.addConfigComponent(&quot;Same Type Interaction&quot;, ()->{&#xD;
-			// Panel is instantiated INSIDE of the factory to ensure that is created on the GUI thread!&#xD;
-			ValuesPanel pnlValues =  new ValuesPanel(&quot;Input the criteria strategy.&quot;, logger);&#xD;
-			pnlValues.addTextInput(&quot;Criteria&quot;, &quot;Collision&quot;, (newVal)->{&#xD;
-				criteriaType = newVal; // No validation being done here.&#xD;
-				return criteriaType;  // Return the current value&#xD;
-			});&#xD;
-			return pnlValues;  // Return the control panel to be displayed&#xD;
+			}&#xD;
 		});&#xD;
-		&#xD;
+&#xD;
+		algo2ModelAdpt.addConfigComponent(&quot;Same Type Interaction&quot;, () -> {&#xD;
+			// Panel is instantiated INSIDE of the factory to ensure that is created on the GUI thread!&#xD;
+			ValuesPanel pnlValues = new ValuesPanel(&quot;Input the criteria strategy.&quot;, logger);&#xD;
+			pnlValues.addTextInput(&quot;Criteria&quot;, &quot;Collision&quot;, (newVal) -> {&#xD;
+				criteriaType = newVal; // No validation being done here.&#xD;
+				return criteriaType; // Return the current value&#xD;
+			});&#xD;
+			return pnlValues; // Return the control panel to be displayed&#xD;
+		});&#xD;
+&#xD;
 	</body>
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Upexq0LPEe2Cia9SaTQ4zA" name="toString" specification="_Ufu_sELPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpexrELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
               </ownedParameter>
               <language>java</language>
@@ -1751,7 +1809,7 @@ Configures everything else into a bouncing ball.&#xD;
               <eAnnotations xmi:id="_UocPy0LPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_UocPzELPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_Upn7jELPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2tfEkLPEe2Cia9SaTQ4zA">
                 <body>Constructor for a new ConfigSameTypeBallAlgo.&#xD;
 	 * &#xD;
 	 * @param name the name returned by &lt;code>toString()&lt;/code>&#xD;
@@ -1810,7 +1868,7 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfwN0ELPEe2Cia9SaTQ4zA" name="ErrorConfigBallAlgo">
-            <ownedComment xmi:id="_Upn7jkLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2rp1ELPEe2Cia9SaTQ4zA">
               <body>A config algo to handle errors.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -1821,7 +1879,9 @@ Configures everything else into a bouncing ball.&#xD;
               <defaultValue xmi:type="uml:LiteralString" xmi:id="_UpFwAULPEe2Cia9SaTQ4zA" value="-5622241858391572861L"/>
             </ownedAttribute>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpfYpELPEe2Cia9SaTQ4zA" name="ErrorConfigBallAlgo" specification="_UfwN0ULPEe2Cia9SaTQ4zA">
-              <ownedParameter xmi:id="_UpfYpULPEe2Cia9SaTQ4zA" type="_UfwN0ELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpfYpULPEe2Cia9SaTQ4zA" type="_UfwN0ELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(ILoggerControl.getSharedLogger(), IBallAlgo2ModelAdapter.NULL);&#xD;
 		setDefaultCmd(new ABallAlgoCmd&lt;Void, Void>() {&#xD;
@@ -1835,7 +1895,7 @@ Configures everything else into a bouncing ball.&#xD;
 				installUpdateStrategy(host, new ErrorUpdateStrategy());&#xD;
 				return null;&#xD;
 			}&#xD;
-			&#xD;
+&#xD;
 		});&#xD;
 	</body>
             </ownedBehavior>
@@ -1847,7 +1907,7 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Interface" xmi:id="_UfwN1ULPEe2Cia9SaTQ4zA" name="IBallAlgo">
-            <ownedComment xmi:id="_Upn7j0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2rp0ELPEe2Cia9SaTQ4zA">
               <body>An algorithm to process a host ball.&#xD;
 &#xD;
 @author Phoebe Scaccia&#xD;
@@ -1858,7 +1918,7 @@ Configures everything else into a bouncing ball.&#xD;
             <generalization xmi:id="_Uoc20ELPEe2Cia9SaTQ4zA" general="_Unje8ULPEe2Cia9SaTQ4zA"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Interface" xmi:id="_Ufw04ULPEe2Cia9SaTQ4zA" name="IConfigBallAlgo">
-            <ownedComment xmi:id="_aVWIMELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2utJELPEe2Cia9SaTQ4zA">
               <body>Interface for ball configuration algorithms.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -1883,7 +1943,7 @@ Configures everything else into a bouncing ball.&#xD;
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_UdMpEELPEe2Cia9SaTQ4zA" name="cmds">
           <packagedElement xmi:type="uml:Class" xmi:id="_Ufxb8ULPEe2Cia9SaTQ4zA" name="ABallAlgoCmd" isAbstract="true">
-            <ownedComment xmi:id="_Upn7kULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2utJULPEe2Cia9SaTQ4zA">
               <body>An abstract command.&#xD;
 &#xD;
 @author Phoebe Scaccia&#xD;
@@ -1897,7 +1957,9 @@ Configures everything else into a bouncing ball.&#xD;
               <defaultValue xmi:type="uml:LiteralString" xmi:id="_UpFwA0LPEe2Cia9SaTQ4zA" value="-4448150298704708249L"/>
             </ownedAttribute>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpfYqkLPEe2Cia9SaTQ4zA" name="MakeNull" specification="_Ufxb80LPEe2Cia9SaTQ4zA">
-              <ownedParameter xmi:id="_UpfYq0LPEe2Cia9SaTQ4zA" type="_Ufxb8ULPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpfYq0LPEe2Cia9SaTQ4zA" type="_Ufxb8ULPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>return new ABallAlgoCmd&lt;>() {&#xD;
 			/**&#xD;
@@ -1910,7 +1972,7 @@ Configures everything else into a bouncing ball.&#xD;
 				ILoggerControl.getSharedLogger().log(LogLevel.DEBUG, &quot;ABallAlgoCmd.NULL invoked.  Returned null.&quot;);&#xD;
 				return null;&#xD;
 			}&#xD;
-			&#xD;
+&#xD;
 		};&#xD;
 	</body>
             </ownedBehavior>
@@ -1918,7 +1980,9 @@ Configures everything else into a bouncing ball.&#xD;
               <ownedParameter xmi:id="_UpfYrULPEe2Cia9SaTQ4zA" name="errMsg">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
               </ownedParameter>
-              <ownedParameter xmi:id="_UpfYrkLPEe2Cia9SaTQ4zA" type="_Ufxb8ULPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpfYrkLPEe2Cia9SaTQ4zA" type="_Ufxb8ULPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>return new ABallAlgoCmd&lt;>() {&#xD;
 			/**&#xD;
@@ -1928,7 +1992,8 @@ Configures everything else into a bouncing ball.&#xD;
 &#xD;
 			@Override&#xD;
 			public TReturn apply(IBallHostID index, IBall host, @SuppressWarnings(&quot;unchecked&quot;) TParam... params) {&#xD;
-				ILoggerControl.getSharedLogger().log(LogLevel.ERROR, &quot;ABallAlgoCmd.ERROR invoked.  Returned null. Error msg: &quot;+errMsg);&#xD;
+				ILoggerControl.getSharedLogger().log(LogLevel.ERROR,&#xD;
+						&quot;ABallAlgoCmd.ERROR invoked.  Returned null. Error msg: &quot; + errMsg);&#xD;
 				return null;&#xD;
 			}&#xD;
 		};&#xD;
@@ -2005,7 +2070,7 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_Ue-xwELPEe2Cia9SaTQ4zA" name="ColorMatch">
-            <ownedComment xmi:id="_Upk4P0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2rp2ULPEe2Cia9SaTQ4zA">
               <body>A strategy where the criteria is similar colors.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -2021,20 +2086,22 @@ Configures everything else into a bouncing ball.&#xD;
               <ownedParameter xmi:id="_UpWOy0LPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpWOzELPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpWOzULPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
               </ownedParameter>
               <language>java</language>
               <body>if (context != target) {&#xD;
 			Color contextColor = context.getColor();&#xD;
 			Color targetColor = target.getColor();&#xD;
-			double colorDist = Math.abs(contextColor.getRed() - targetColor.getRed()) + &#xD;
-					Math.abs(contextColor.getGreen() - targetColor.getGreen()) + Math.abs(contextColor.getBlue() - targetColor.getBlue());&#xD;
+			double colorDist = Math.abs(contextColor.getRed() - targetColor.getRed())&#xD;
+					+ Math.abs(contextColor.getGreen() - targetColor.getGreen())&#xD;
+					+ Math.abs(contextColor.getBlue() - targetColor.getBlue());&#xD;
 			// Calculate the distance between the balls&#xD;
 			double dist = context.getLocation().distance(target.getLocation());&#xD;
 			// Calculate the minimum proximity distance&#xD;
 			double minProximityDistance = (context.getRadius() + target.getRadius()) * 2;&#xD;
-			&#xD;
-			if((colorDist &lt; 150) &amp; (dist &lt;= minProximityDistance)) {&#xD;
+&#xD;
+			if ((colorDist &lt; 150) &amp; (dist &lt;= minProximityDistance)) {&#xD;
 				return true;&#xD;
 			}&#xD;
 		}&#xD;
@@ -2053,7 +2120,7 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_Ue_Y0ELPEe2Cia9SaTQ4zA" name="CompositeCriteriaStrategy">
-            <ownedComment xmi:id="_Upk4QELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2rp2kLPEe2Cia9SaTQ4zA">
               <body>A strategy composed of two criteria strategies.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -2064,7 +2131,9 @@ Configures everything else into a bouncing ball.&#xD;
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpWOzkLPEe2Cia9SaTQ4zA" name="CompositeCriteriaStrategy" specification="_Um1tQULPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpWOz0LPEe2Cia9SaTQ4zA" name="strat1" type="_UfAm8ULPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpWO0ELPEe2Cia9SaTQ4zA" name="strat2" type="_UfAm8ULPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpWO0ULPEe2Cia9SaTQ4zA" type="_Ue_Y0ELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpWO0ULPEe2Cia9SaTQ4zA" type="_Ue_Y0ELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>this.strat1 = strat1;&#xD;
 		this.strat2 = strat2;&#xD;
@@ -2081,6 +2150,7 @@ Configures everything else into a bouncing ball.&#xD;
               <ownedParameter xmi:id="_UpW1w0LPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpW1xELPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpW1xULPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
               </ownedParameter>
               <language>java</language>
@@ -2091,7 +2161,7 @@ Configures everything else into a bouncing ball.&#xD;
               <eAnnotations xmi:id="_Um1tRELPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_Um1tRULPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_UplfQELPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2rp20LPEe2Cia9SaTQ4zA">
                 <body>Constructor for a new CompositeCriteriaStrategy.&#xD;
 	 * &#xD;
 	 * @param strat1 an ICriteriaStrategy&#xD;
@@ -2147,7 +2217,7 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfAm8ELPEe2Cia9SaTQ4zA" name="EverywhereStrategy">
-            <ownedComment xmi:id="_UplfQkLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2rp3ELPEe2Cia9SaTQ4zA">
               <body>A strategy for the ball to interact with everything, everywhere.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -2163,11 +2233,12 @@ Configures everything else into a bouncing ball.&#xD;
               <ownedParameter xmi:id="_UpW1z0LPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpW10ELPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpW10ULPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
               </ownedParameter>
               <language>java</language>
-              <body>if (context != target &amp;&amp; !(target.getUpdateStrategy() instanceof ErrorUpdateStrategy) &amp;&amp; &#xD;
-				!(context.getUpdateStrategy() instanceof ErrorUpdateStrategy)) {&#xD;
+              <body>if (context != target &amp;&amp; !(target.getUpdateStrategy() instanceof ErrorUpdateStrategy)&#xD;
+				&amp;&amp; !(context.getUpdateStrategy() instanceof ErrorUpdateStrategy)) {&#xD;
 			return true;&#xD;
 		} else {&#xD;
 			return false;&#xD;
@@ -2186,7 +2257,7 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Interface" xmi:id="_UfAm8ULPEe2Cia9SaTQ4zA" name="ICriteriaStrategy">
-            <ownedComment xmi:id="_UplfQ0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2rp3ULPEe2Cia9SaTQ4zA">
               <body>An interface for criteria strategies.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -2247,7 +2318,7 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfB1EELPEe2Cia9SaTQ4zA" name="SameTypeStrategy">
-            <ownedComment xmi:id="_UplfRULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2sQ4ELPEe2Cia9SaTQ4zA">
               <body>A strategy where the criteria is configurable for the same type of ball.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -2258,7 +2329,9 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedAttribute>
             <interfaceRealization xmi:id="_Um6lwkLPEe2Cia9SaTQ4zA" client="_UfB1EELPEe2Cia9SaTQ4zA" supplier="_UfAm8ULPEe2Cia9SaTQ4zA" contract="_UfAm8ULPEe2Cia9SaTQ4zA"/>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpW12ELPEe2Cia9SaTQ4zA" name="SameTypeStrategy" specification="_UfB1EULPEe2Cia9SaTQ4zA">
-              <ownedParameter xmi:id="_UpW12ULPEe2Cia9SaTQ4zA" type="_UfB1EELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpW12ULPEe2Cia9SaTQ4zA" type="_UfB1EELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super();&#xD;
 		this.criteriaName = () -> &quot;Collision&quot;;&#xD;
@@ -2266,7 +2339,9 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpW12kLPEe2Cia9SaTQ4zA" name="SameTypeStrategy" specification="_UoDOMELPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpW120LPEe2Cia9SaTQ4zA" name="criteriaName" type="_UmfH8ULPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpW13ELPEe2Cia9SaTQ4zA" type="_UfB1EELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpW13ELPEe2Cia9SaTQ4zA" type="_UfB1EELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super();&#xD;
 		this.criteriaName = criteriaName;&#xD;
@@ -2282,16 +2357,20 @@ Configures everything else into a bouncing ball.&#xD;
               <ownedParameter xmi:id="_UpW14ELPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpW14ULPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpW14kLPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
               </ownedParameter>
               <language>java</language>
-              <body>ICriteriaStrategy providedCriteriaStrategy = criteriaStrategyLoader.loadInstance(this.fixCriteriaName(criteriaName.get()));&#xD;
-		return providedCriteriaStrategy.satisfied(context, target) &amp;&amp; context.execute(CheckSameTypeBallAlgo.Singleton, target);&#xD;
+              <body>ICriteriaStrategy providedCriteriaStrategy = criteriaStrategyLoader&#xD;
+				.loadInstance(this.fixCriteriaName(criteriaName.get()));&#xD;
+		return providedCriteriaStrategy.satisfied(context, target)&#xD;
+				&amp;&amp; context.execute(CheckSameTypeBallAlgo.Singleton, target);&#xD;
 	</body>
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpW140LPEe2Cia9SaTQ4zA" name="fixCriteriaName" specification="_UoDONkLPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpW15ELPEe2Cia9SaTQ4zA" name="classname" type="_Un2Z40LPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpW15ULPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
               </ownedParameter>
               <language>java</language>
@@ -2302,7 +2381,7 @@ Configures everything else into a bouncing ball.&#xD;
               <eAnnotations xmi:id="_UfB1EkLPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_UfB1E0LPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_UplfRkLPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2sQ4ULPEe2Cia9SaTQ4zA">
                 <body>Constructor for a new SameTypeStrategy.</body>
               </ownedComment>
               <ownedParameter xmi:id="_UfB1FELPEe2Cia9SaTQ4zA" type="_UfB1EELPEe2Cia9SaTQ4zA" direction="return"/>
@@ -2321,7 +2400,7 @@ Configures everything else into a bouncing ball.&#xD;
               <eAnnotations xmi:id="_UoDOMkLPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_UoDOM0LPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_UplfR0LPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2sQ4kLPEe2Cia9SaTQ4zA">
                 <body>Constructor for a new SameTypeStrategy.&#xD;
 	 * &#xD;
 	 * @param criteriaName a Supplier for the type of interaction criteria</body>
@@ -2330,7 +2409,7 @@ Configures everything else into a bouncing ball.&#xD;
               <ownedParameter xmi:id="_UoDONELPEe2Cia9SaTQ4zA" type="_UfB1EELPEe2Cia9SaTQ4zA" direction="return"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UoDONkLPEe2Cia9SaTQ4zA" name="fixCriteriaName" visibility="private" method="_UpW140LPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_UplfSELPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2sQ40LPEe2Cia9SaTQ4zA">
                 <body>A helper function that adds the criteria package name as a prefix to a class name.&#xD;
 	 *&#xD;
 	 * @param classname : the abbreviated form of an update strategy.&#xD;
@@ -2357,7 +2436,7 @@ Configures everything else into a bouncing ball.&#xD;
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_UdMCAkLPEe2Cia9SaTQ4zA" name="interact">
           <packagedElement xmi:type="uml:Class" xmi:id="_UfDDMELPEe2Cia9SaTQ4zA" name="AInteractStrategy" isAbstract="true">
-            <ownedComment xmi:id="_UplfSULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2sQ5ELPEe2Cia9SaTQ4zA">
               <body>An abstract implmenting IInteractStrategy.&#xD;
 @author Annita Chang&#xD;
  *</body>
@@ -2367,7 +2446,9 @@ Configures everything else into a bouncing ball.&#xD;
               <ownedParameter xmi:id="_UpXc0ULPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpXc0kLPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpXc00LPEe2Cia9SaTQ4zA" name="dispatcher" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpXc1ELPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpXc1ELPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>return null;&#xD;
 	</body>
@@ -2383,7 +2464,7 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfDqQELPEe2Cia9SaTQ4zA" name="CompositeInteractStrategy">
-            <ownedComment xmi:id="_UplfSkLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2sQ5ULPEe2Cia9SaTQ4zA">
               <body>An interact strategy that combines two interact strategies.&#xD;
 &#xD;
 @author Michael Cuenca&#xD;
@@ -2395,7 +2476,9 @@ Configures everything else into a bouncing ball.&#xD;
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpXc1ULPEe2Cia9SaTQ4zA" name="CompositeInteractStrategy" specification="_Um9CAULPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpXc1kLPEe2Cia9SaTQ4zA" name="strat1" type="_UfLmEELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpXc10LPEe2Cia9SaTQ4zA" name="strat2" type="_UfLmEELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpXc2ELPEe2Cia9SaTQ4zA" type="_UfDqQELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpXc2ELPEe2Cia9SaTQ4zA" type="_UfDqQELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>this.interactStrat1 = strat1;&#xD;
 		this.interactStrat2 = strat2;&#xD;
@@ -2412,13 +2495,15 @@ Configures everything else into a bouncing ball.&#xD;
               <ownedParameter xmi:id="_UpXc3ELPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpXc3ULPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpXc3kLPEe2Cia9SaTQ4zA" name="disp" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpXc30LPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpXc30LPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>IBallCmd interactStrat1Cmd = interactStrat1.interact(context, target, disp);&#xD;
 		IBallCmd interactStrat2Cmd = interactStrat2.interact(context, target, disp);&#xD;
-		&#xD;
+&#xD;
 		return new IBallCmd() {&#xD;
-			&#xD;
+&#xD;
 			@Override&#xD;
 			public void apply(IBall context, IDispatcher&lt;IBallCmd> disp) {&#xD;
 				if (interactStrat1Cmd != null) {&#xD;
@@ -2450,7 +2535,7 @@ Configures everything else into a bouncing ball.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfE4YELPEe2Cia9SaTQ4zA" name="ElasticStrategy">
-            <ownedComment xmi:id="_UplfS0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2sQ5kLPEe2Cia9SaTQ4zA">
               <body>@author michaelcuenca&#xD;
 @author Phoebe Scaccia &#xD;
 &#xD;
@@ -2471,7 +2556,9 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UpXc40LPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpXc5ELPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpXc5ULPEe2Cia9SaTQ4zA" name="dispatcher" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpXc5kLPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpXc5kLPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>double dist = context.getLocation().distance(target.getLocation());&#xD;
 		// Calculate the minimum non-colliding distance (= max colliding distance)&#xD;
@@ -2493,7 +2580,7 @@ Concrete class for the elastic strategy.</body>
 		nudgeLocation.y += nudgeVector.y;&#xD;
 		// Get the new velocity of the ball from the impulse&#xD;
 		Point2D.Double newVelocity = updateVelocity(context, contextMass, impulseVector);&#xD;
-		&#xD;
+&#xD;
 		return new IBallCmd() {&#xD;
 			@Override&#xD;
 			public void apply(IBall contextBall, IDispatcher&lt;IBallCmd> disp) {&#xD;
@@ -2511,6 +2598,7 @@ Concrete class for the elastic strategy.</body>
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
               </ownedParameter>
               <ownedParameter xmi:id="_UpXc6kLPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
               </ownedParameter>
               <language>java</language>
@@ -2528,12 +2616,14 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UpXc7kLPEe2Cia9SaTQ4zA" name="distance">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
               </ownedParameter>
-              <ownedParameter xmi:id="_UpXc70LPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpXc70LPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>// Calculate the normalized vector, from source to target&#xD;
 		double nx = ((double) (lTarget.x - lSource.x)) / distance;&#xD;
-		double ny = ((double) (lTarget.y - lSource.y)) / distance;	&#xD;
-		&#xD;
+		double ny = ((double) (lTarget.y - lSource.y)) / distance;&#xD;
+&#xD;
 		return new Point2D.Double(nx, ny);&#xD;
 	</body>
             </ownedBehavior>
@@ -2544,19 +2634,20 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UpXc9ELPEe2Cia9SaTQ4zA" name="reducedMass">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
               </ownedParameter>
-              <ownedParameter xmi:id="_UpXc9ULPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpXc9ULPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>// Get the coordinates of the unit vector from source to target&#xD;
 		double nx = normalVec.getX(); //((double) (lTarget.x - lSource.x)) / distance;&#xD;
-		double ny = normalVec.getY();  //((double) (lTarget.y - lSource.y)) / distance;&#xD;
+		double ny = normalVec.getY(); //((double) (lTarget.y - lSource.y)) / distance;&#xD;
 &#xD;
 		// delta velocity (speed, actually) in normal direction (perpendicular to the plane of interaction, &#xD;
 		// i.e. in the direction from the source location to the target location&#xD;
-		double dvn = (vTarget.x - vSource.x) * nx + (vTarget.y - vSource.y)* ny;&#xD;
+		double dvn = (vTarget.x - vSource.x) * nx + (vTarget.y - vSource.y) * ny;&#xD;
 &#xD;
 		// Impulse is the change in speed times twice the reduced mass in the normal direction&#xD;
-		return new Point2D.Double(2.0 * reducedMass * dvn * nx, 2.0&#xD;
-				* reducedMass * dvn * ny);&#xD;
+		return new Point2D.Double(2.0 * reducedMass * dvn * nx, 2.0 * reducedMass * dvn * ny);&#xD;
 &#xD;
 	</body>
             </ownedBehavior>
@@ -2568,11 +2659,13 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UpXc-ULPEe2Cia9SaTQ4zA" name="distance">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
               </ownedParameter>
-              <ownedParameter xmi:id="_UpXc-kLPEe2Cia9SaTQ4zA" type="_UmgWEELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpXc-kLPEe2Cia9SaTQ4zA" type="_UmgWEELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>// The minimum allowed separation(sum of the ball radii) minus the actual separation(distance between ball centers). Should be a&#xD;
 		// positive value.  This is the amount of overlap of the balls as measured along the line between their centers.&#xD;
-		double deltaR =  minSeparation - distance;&#xD;
+		double deltaR = minSeparation - distance;&#xD;
 		// Calc the amount to move the source ball beyond collision range of the target ball, along&#xD;
 		// the normal direction.&#xD;
 		return new Point((int) Math.ceil(-normalVec.getX() * deltaR * NudgeFactor),&#xD;
@@ -2586,7 +2679,9 @@ Concrete class for the elastic strategy.</body>
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
               </ownedParameter>
               <ownedParameter xmi:id="_UpXc_kLPEe2Cia9SaTQ4zA" name="impulseVec" type="_UmpgAkLPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpXc_0LPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpXc_0LPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>Point2D.Double newVelocity = aBall.getVelocity();&#xD;
 		newVelocity.x += (impulseVec.getX() / mass);&#xD;
@@ -2683,7 +2778,7 @@ Concrete class for the elastic strategy.</body>
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfH7sELPEe2Cia9SaTQ4zA" name="ExplosionStrategy">
-            <ownedComment xmi:id="_UplfTULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2sQ50LPEe2Cia9SaTQ4zA">
               <body>A strategy where the ball explodes the ball it is interacting with.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -2699,35 +2794,40 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UpYD6kLPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYD60LPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYD7ELPEe2Cia9SaTQ4zA" name="dispatcher" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpYD7ULPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpYD7ULPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>return new IBallCmd() {&#xD;
-			&#xD;
+&#xD;
 			@Override&#xD;
 			public void apply(IBall context, IDispatcher&lt;IBallCmd> disp) {&#xD;
 				target.getLogger().log(LogLevel.INFO, &quot;BOOM!&quot;);&#xD;
 				dispatcher.removeObserver((ABall) target);&#xD;
-				&#xD;
-				Point location = new Point((int) Math.round(target.getLocation().x), (int) Math.round(target.getLocation().y));&#xD;
+&#xD;
+				Point location = new Point((int) Math.round(target.getLocation().x),&#xD;
+						(int) Math.round(target.getLocation().y));&#xD;
 				int explodedRadius = target.getRadius() / 2;&#xD;
-				&#xD;
+&#xD;
 				// If the balls aren't too tiny&#xD;
-				&#xD;
+&#xD;
 				if (explodedRadius > 2) {&#xD;
-					&#xD;
+&#xD;
 					// Generate a proportional number of popping balls.&#xD;
-					&#xD;
+&#xD;
 					for (int i = 0; i &lt; target.getRadius() / 3; i++) {&#xD;
 &#xD;
 						// Get a random velocity up to two times greater than &lt;code>context&lt;/code>'s in the x and y directions.&#xD;
 &#xD;
 						Point newVelocity = Randomizer.Singleton&#xD;
-								.randomVel(new Rectangle((int) Math.round(target.getVelocity().x * 2), (int) Math.round(target.getVelocity().y * 2)));&#xD;
+								.randomVel(new Rectangle((int) Math.round(target.getVelocity().x * 2),&#xD;
+										(int) Math.round(target.getVelocity().y * 2)));&#xD;
 &#xD;
 						dispatcher.addObserver(new DefaultBall(new Point(location), explodedRadius, newVelocity,&#xD;
-								target.getColor(), target.getContainer(), new CompositeConfigBallAlgo(&#xD;
-										new ConfigUpdateBallAlgo(null, new PoppingStrategy()), &#xD;
-										new ConfigPaintBallAlgo(null, target.getPaintStrategy())), target.getAdapter()));&#xD;
+								target.getColor(), target.getContainer(),&#xD;
+								new CompositeConfigBallAlgo(new ConfigUpdateBallAlgo(null, new PoppingStrategy()),&#xD;
+										new ConfigPaintBallAlgo(null, target.getPaintStrategy())),&#xD;
+								target.getAdapter()));&#xD;
 					}&#xD;
 				}&#xD;
 			}&#xD;
@@ -2745,7 +2845,7 @@ Concrete class for the elastic strategy.</body>
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfIiwELPEe2Cia9SaTQ4zA" name="GravitationStrategy">
-            <ownedComment xmi:id="_UplfTkLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2sQ6ELPEe2Cia9SaTQ4zA">
               <body>A strategy that pulls a ball towards the current ball.&#xD;
 &#xD;
 @author Phoebe Scaccia</body>
@@ -2765,7 +2865,9 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UpYD8ULPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYD8kLPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYD80LPEe2Cia9SaTQ4zA" name="dispatcher" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpYD9ELPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpYD9ELPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>double contextMass = Math.PI * (context.getRadius() * context.getRadius());&#xD;
 		double dist = context.getLocation().distance(target.getLocation());&#xD;
@@ -2775,18 +2877,18 @@ Concrete class for the elastic strategy.</body>
 			public void apply(IBall contextBall, IDispatcher&lt;IBallCmd> disp) {&#xD;
 &#xD;
 				// Combine balls that collide (as gravity tends to do).&#xD;
-				&#xD;
+&#xD;
 				if (dist &lt; contextBall.getRadius() + target.getRadius()) {&#xD;
-					&#xD;
+&#xD;
 					// Calculate the necessary combinations.&#xD;
-					&#xD;
+&#xD;
 					double targetMass = Math.PI * (target.getRadius() * target.getRadius());&#xD;
 					int combinedRadius = (int) Math.round(Math.sqrt((contextMass + targetMass) / Math.PI));&#xD;
 					Point2D.Double combinedVelocity = calcCombinedVelocity(contextBall, target);&#xD;
 					Color combinedColor = calcCombinedColor(contextBall, target);&#xD;
-					&#xD;
+&#xD;
 					// Check which ball needs to be removed.&#xD;
-					&#xD;
+&#xD;
 					if (contextBall.getRadius() > target.getRadius()) {&#xD;
 						disp.removeObserver((ABall) target);&#xD;
 						contextBall.setRadius(combinedRadius);&#xD;
@@ -2799,20 +2901,20 @@ Concrete class for the elastic strategy.</body>
 						target.setColor(combinedColor);&#xD;
 					}&#xD;
 				} else {&#xD;
-					&#xD;
+&#xD;
 					// Get the direction of the force&#xD;
-					&#xD;
+&#xD;
 					Point2D.Double unitVector = calcUnitVec(target.getLocation(), context.getLocation(), dist);&#xD;
-					&#xD;
+&#xD;
 					// Get the target's change in velocity.&#xD;
-					&#xD;
+&#xD;
 					Point2D.Double dV = calcdV(contextMass, unitVector, dist);&#xD;
 					Point2D.Double newVelocity = target.getVelocity();&#xD;
 					newVelocity.x += dV.x;&#xD;
 					newVelocity.y += dV.y;&#xD;
-					&#xD;
+&#xD;
 					// Apply the acceleration.&#xD;
-					&#xD;
+&#xD;
 					target.setVelocity(newVelocity);&#xD;
 				}&#xD;
 			}&#xD;
@@ -2825,12 +2927,14 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UpYD-ELPEe2Cia9SaTQ4zA" name="distance">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
               </ownedParameter>
-              <ownedParameter xmi:id="_UpYD-ULPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpYD-ULPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>// Calculate the normalized vector, from source to target&#xD;
 		double nx = (lTarget.x - lSource.x) / distance;&#xD;
-		double ny = (lTarget.y - lSource.y) / distance;	&#xD;
-		&#xD;
+		double ny = (lTarget.y - lSource.y) / distance;&#xD;
+&#xD;
 		return new Point2D.Double(nx, ny);&#xD;
 	</body>
             </ownedBehavior>
@@ -2842,7 +2946,9 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UpYD_ULPEe2Cia9SaTQ4zA" name="distance">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
               </ownedParameter>
-              <ownedParameter xmi:id="_UpYD_kLPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpYD_kLPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>double acceleration = (this.gravitationalConstant * mass) / Math.pow(distance, 2);&#xD;
 		Point2D.Double dV = new Point2D.Double(unitVector.x, unitVector.y);&#xD;
@@ -2854,29 +2960,42 @@ Concrete class for the elastic strategy.</body>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpYD_0LPEe2Cia9SaTQ4zA" name="calcCombinedVelocity" specification="_UnChmELPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpYEAELPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYEAULPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpYEAkLPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpYEAkLPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>double contextMass = Math.PI * (context.getRadius() * context.getRadius());&#xD;
 		double targetMass = Math.PI * (target.getRadius() * target.getRadius());&#xD;
-		return new Point2D.Double((contextMass * context.getVelocity().x + targetMass * target.getVelocity().x) / (contextMass + targetMass), (contextMass * context.getVelocity().y + targetMass * target.getVelocity().y) / (contextMass + targetMass));&#xD;
+		return new Point2D.Double(&#xD;
+				(contextMass * context.getVelocity().x + targetMass * target.getVelocity().x)&#xD;
+						/ (contextMass + targetMass),&#xD;
+				(contextMass * context.getVelocity().y + targetMass * target.getVelocity().y)&#xD;
+						/ (contextMass + targetMass));&#xD;
 	</body>
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpYEA0LPEe2Cia9SaTQ4zA" name="calcCombinedColor" specification="_UnChnELPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpYEBELPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYEBULPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpYEBkLPEe2Cia9SaTQ4zA" type="_UmfvAULPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpYEBkLPEe2Cia9SaTQ4zA" type="_UmfvAULPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>double contextMass = Math.PI * (context.getRadius() * context.getRadius());&#xD;
 		double targetMass = Math.PI * (target.getRadius() * target.getRadius());&#xD;
 		Color contextColor = context.getColor();&#xD;
 		Color targetColor = target.getColor();&#xD;
-		&#xD;
+&#xD;
 		// Calculate the weighted colors.&#xD;
-		&#xD;
-		int red = (int) Math.round((contextMass * contextColor.getRed() + targetMass * targetColor.getRed()) / (contextMass + targetMass));&#xD;
-		int green = (int) Math.round((contextMass * contextColor.getGreen() + targetMass * targetColor.getGreen()) / (contextMass + targetMass));&#xD;
-		int blue = (int) Math.round((contextMass * contextColor.getBlue() + targetMass * targetColor.getBlue()) / (contextMass + targetMass));&#xD;
-		int alpha = Math.min((int) Math.round(2 * (contextMass * contextColor.getAlpha() + targetMass * targetColor.getAlpha()) / (contextMass + targetMass)), 255);&#xD;
+&#xD;
+		int red = (int) Math.round(&#xD;
+				(contextMass * contextColor.getRed() + targetMass * targetColor.getRed()) / (contextMass + targetMass));&#xD;
+		int green = (int) Math.round((contextMass * contextColor.getGreen() + targetMass * targetColor.getGreen())&#xD;
+				/ (contextMass + targetMass));&#xD;
+		int blue = (int) Math.round((contextMass * contextColor.getBlue() + targetMass * targetColor.getBlue())&#xD;
+				/ (contextMass + targetMass));&#xD;
+		int alpha = Math&#xD;
+				.min((int) Math.round(2 * (contextMass * contextColor.getAlpha() + targetMass * targetColor.getAlpha())&#xD;
+						/ (contextMass + targetMass)), 255);&#xD;
 		return new Color(red, green, blue, alpha);&#xD;
 	</body>
             </ownedBehavior>
@@ -2884,7 +3003,7 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UnB6gkLPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UnB6hkLPEe2Cia9SaTQ4zA" name="calcUnitVec" visibility="private" method="_UpYD9ULPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_UplfT0LPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2sQ6ULPEe2Cia9SaTQ4zA">
                 <body>Calculate the unit vector (normalized vector) from the location of the source ball to the location of the target ball.&#xD;
 	 * &#xD;
 	 * @param lSource Location of the source ball&#xD;
@@ -2900,7 +3019,7 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UnChkkLPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UnChk0LPEe2Cia9SaTQ4zA" name="calcdV" visibility="private" method="_UpYD-kLPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_UplfUELPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2sQ6kLPEe2Cia9SaTQ4zA">
                 <body>Calculates the change in velocity as a result of the acceleration due to gravity.&#xD;
 	 *&#xD;
 	 * @param mass the mass of the gravitational source&#xD;
@@ -2918,7 +3037,7 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UnChl0LPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UnChmELPEe2Cia9SaTQ4zA" name="calcCombinedVelocity" visibility="private" method="_UpYD_0LPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_UplfUULPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2sQ60LPEe2Cia9SaTQ4zA">
                 <body>Calculates the combined velocity of two balls.&#xD;
 	 *&#xD;
 	 * @param context an IBall&#xD;
@@ -2930,7 +3049,7 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UnChm0LPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UnChnELPEe2Cia9SaTQ4zA" name="calcCombinedColor" visibility="private" method="_UpYEA0LPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_UplfUkLPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2sQ7ELPEe2Cia9SaTQ4zA">
                 <body>Calculates the combined colors of the balls.&#xD;
 	 *&#xD;
 	 * @param context an IBall&#xD;
@@ -2949,7 +3068,7 @@ Concrete class for the elastic strategy.</body>
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfK_AELPEe2Cia9SaTQ4zA" name="HuntPredatorStrategy">
-            <ownedComment xmi:id="_UplfU0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2sQ7ULPEe2Cia9SaTQ4zA">
               <body>An type-dependent interaction strategy that the target ball gains mass when it is of type Predator.&#xD;
 @author Annita Chang&#xD;
  *</body>
@@ -2959,20 +3078,22 @@ Concrete class for the elastic strategy.</body>
               <ownedParameter xmi:id="_UpYECELPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYECULPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYECkLPEe2Cia9SaTQ4zA" name="disp" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpYEC0LPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpYEC0LPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>target.execute(new BallAlgo&lt;Void, Void>(new ABallAlgoCmd&lt;>() {&#xD;
 			/**&#xD;
 			 * For serialization.&#xD;
 			 */&#xD;
 			private static final long serialVersionUID = 8205255234000414526L;&#xD;
-			&#xD;
+&#xD;
 			@Override&#xD;
 			public Void apply(IBallHostID index, IBall host, Void... params) {&#xD;
 				// no-op by default, i.e. non-PreyBalls will not have any interaction due to this strategy.&#xD;
 				return null;&#xD;
 			}&#xD;
-				&#xD;
+&#xD;
 		}) {&#xD;
 			/**&#xD;
 			 * For serialization.&#xD;
@@ -3000,7 +3121,7 @@ Concrete class for the elastic strategy.</body>
 						}&#xD;
 						return null;&#xD;
 					}&#xD;
-					&#xD;
+&#xD;
 				});&#xD;
 			}&#xD;
 		});&#xD;
@@ -3021,7 +3142,7 @@ Concrete class for the elastic strategy.</body>
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Interface" xmi:id="_UfLmEELPEe2Cia9SaTQ4zA" name="IInteractStrategy">
-            <ownedComment xmi:id="_UplfVELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2sQ7kLPEe2Cia9SaTQ4zA">
               <body>@author michaelcuenca&#xD;
 @author Phoebe Scaccia&#xD;
 &#xD;
@@ -3029,7 +3150,7 @@ Interface for ball interactions&#xD;
 @param &lt;IBallCmd> An IBallCmd</body>
             </ownedComment>
             <ownedAttribute xmi:id="_UfMNIULPEe2Cia9SaTQ4zA" name="NULL_STRATEGY" isLeaf="true" isStatic="true" type="_UfLmEELPEe2Cia9SaTQ4zA" isReadOnly="true" association="_Up0IxELPEe2Cia9SaTQ4zA">
-              <defaultValue xmi:type="uml:LiteralString" xmi:id="_UfMNI0LPEe2Cia9SaTQ4zA" value="new IInteractStrategy&lt;model.visitors.cmds.IBallCmd>() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;/**&#xD;&#xA;&#x9;&#x9; * Null init method&#xD;&#xA;&#x9;&#x9; */&#xD;&#xA;&#x9;&#x9;public void init(IBall context) {}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public model.visitors.cmds.IBallCmd interact(IBall context, IBall target, IDispatcher&lt;model.visitors.cmds.IBallCmd> dispatcher) {&#xD;&#xA;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;}"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_UfMNI0LPEe2Cia9SaTQ4zA" value="new IInteractStrategy&lt;model.visitors.cmds.IBallCmd>() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;/**&#xD;&#xA;&#x9;&#x9; * Null init method&#xD;&#xA;&#x9;&#x9; */&#xD;&#xA;&#x9;&#x9;public void init(IBall context) {&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public model.visitors.cmds.IBallCmd interact(IBall context, IBall target,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;IDispatcher&lt;model.visitors.cmds.IBallCmd> dispatcher) {&#xD;&#xA;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;}"/>
             </ownedAttribute>
             <ownedOperation xmi:id="_UnDvsELPEe2Cia9SaTQ4zA" name="init">
               <ownedParameter xmi:id="_UnDvsULPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
@@ -3042,7 +3163,7 @@ Interface for ball interactions&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfM0MELPEe2Cia9SaTQ4zA" name="KillPreyStrategy">
-            <ownedComment xmi:id="_UplfVULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2sQ70LPEe2Cia9SaTQ4zA">
               <body>An type-dependent interaction strategy that &quot;kills&quot; the TARGET ball when the target is a PreyBall.&#xD;
 This strategy should be installed on the &quot;hunter&quot; (context) ball.   It does not matter what &#xD;
 type of ball the &quot;hunter&quot; is!&#xD;
@@ -3054,38 +3175,41 @@ type of ball the &quot;hunter&quot; is!&#xD;
               <ownedParameter xmi:id="_UpYq8ULPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYq8kLPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYq80LPEe2Cia9SaTQ4zA" name="disp" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpYq9ELPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpYq9ELPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>target.execute(new BallAlgo&lt;Void, Void>(new ABallAlgoCmd&lt;>() {&#xD;
-				// Add generated serialVersionUID&#xD;
-				private static final long serialVersionUID = -8207136148708694148L;&#xD;
-				&#xD;
-				@Override&#xD;
-				public Void apply(IBallHostID index, IBall host, Void... params) {&#xD;
-					// no-op by default, i.e. non-PreyBalls will not have any interaction due to this strategy.&#xD;
-					return null;&#xD;
-				}&#xD;
-				&#xD;
-			}) {&#xD;
+			// Add generated serialVersionUID&#xD;
+			private static final long serialVersionUID = -8207136148708694148L;&#xD;
 &#xD;
-				// Add generated serialVersionUID&#xD;
-				private static final long serialVersionUID = 1L;&#xD;
+			@Override&#xD;
+			public Void apply(IBallHostID index, IBall host, Void... params) {&#xD;
+				// no-op by default, i.e. non-PreyBalls will not have any interaction due to this strategy.&#xD;
+				return null;&#xD;
+			}&#xD;
 &#xD;
-				// Add additional commands in the &quot;initializer block&quot; of the ball algo's anonymous inner class&#xD;
-				{&#xD;
-					// Add different behavior for PreyBalls&#xD;
-					setCmd(PreyBall.id, new ABallAlgoCmd&lt;Void, Void>() {&#xD;
-						// Add generated serialVersionUID&#xD;
-						private static final long serialVersionUID = -2000633596351150890L;&#xD;
-						@Override&#xD;
-						public Void apply(IBallHostID index, IBall host, Void... params) {&#xD;
-							disp.removeObserver(target); // &quot;Kill&quot; them!&#xD;
-							ILoggerControl.getSharedLogger().log(LogLevel.INFO, &quot;Prey ball killed!&quot;);&#xD;
-							return null;&#xD;
-						}&#xD;
-					});&#xD;
-				&#xD;
-				}&#xD;
+		}) {&#xD;
+&#xD;
+			// Add generated serialVersionUID&#xD;
+			private static final long serialVersionUID = 1L;&#xD;
+&#xD;
+			// Add additional commands in the &quot;initializer block&quot; of the ball algo's anonymous inner class&#xD;
+			{&#xD;
+				// Add different behavior for PreyBalls&#xD;
+				setCmd(PreyBall.id, new ABallAlgoCmd&lt;Void, Void>() {&#xD;
+					// Add generated serialVersionUID&#xD;
+					private static final long serialVersionUID = -2000633596351150890L;&#xD;
+&#xD;
+					@Override&#xD;
+					public Void apply(IBallHostID index, IBall host, Void... params) {&#xD;
+						disp.removeObserver(target); // &quot;Kill&quot; them!&#xD;
+						ILoggerControl.getSharedLogger().log(LogLevel.INFO, &quot;Prey ball killed!&quot;);&#xD;
+						return null;&#xD;
+					}&#xD;
+				});&#xD;
+&#xD;
+			}&#xD;
 		});&#xD;
 		return null;&#xD;
 	</body>
@@ -3104,7 +3228,7 @@ type of ball the &quot;hunter&quot; is!&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfNbRULPEe2Cia9SaTQ4zA" name="RandomizerStrategy">
-            <ownedComment xmi:id="_UplfVkLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s38ELPEe2Cia9SaTQ4zA">
               <body>@author michaelcuenca&#xD;
  Strategy that causes balls to randomly change velocity, color, and size when they collide</body>
             </ownedComment>
@@ -3122,7 +3246,9 @@ type of ball the &quot;hunter&quot; is!&#xD;
               <ownedParameter xmi:id="_UpYq-ELPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYq-ULPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYq-kLPEe2Cia9SaTQ4zA" name="dispatcher" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpYq-0LPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpYq-0LPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>return new IBallCmd() {&#xD;
 			@Override&#xD;
@@ -3140,7 +3266,7 @@ type of ball the &quot;hunter&quot; is!&#xD;
 					}&#xD;
 				});&#xD;
 			}&#xD;
-		};		&#xD;
+		};&#xD;
 	</body>
             </ownedBehavior>
             <ownedOperation xmi:id="_UnEWwkLPEe2Cia9SaTQ4zA" name="init" method="_UpYq9ULPEe2Cia9SaTQ4zA">
@@ -3154,7 +3280,7 @@ type of ball the &quot;hunter&quot; is!&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfOpYELPEe2Cia9SaTQ4zA" name="TeleportStrategy">
-            <ownedComment xmi:id="_UpmGUELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s38ULPEe2Cia9SaTQ4zA">
               <body>A strategy that teleports away a ball that satisfies the criteria.&#xD;
 &#xD;
 @author michaelcuenca&#xD;
@@ -3174,7 +3300,9 @@ type of ball the &quot;hunter&quot; is!&#xD;
               <ownedParameter xmi:id="_UpYq_0LPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYrAELPEe2Cia9SaTQ4zA" name="target" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <ownedParameter xmi:id="_UpYrAULPEe2Cia9SaTQ4zA" name="dispatcher" type="_Umg9JELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpYrAkLPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpYrAkLPEe2Cia9SaTQ4zA" type="_UfzRIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>return new IBallCmd() {&#xD;
 			@Override&#xD;
@@ -3182,8 +3310,8 @@ type of ball the &quot;hunter&quot; is!&#xD;
 				target.update(dispatcher, new IBallCmd() {&#xD;
 					@Override&#xD;
 					public void apply(IBall context, IDispatcher&lt;IBallCmd> disp) {&#xD;
-//						Point newLocation = r.randomLoc(target.getContainer().getSize());&#xD;
-//						target.setLocation(new Point2D.Double(newLocation.x, newLocation.y));&#xD;
+						//						Point newLocation = r.randomLoc(target.getContainer().getSize());&#xD;
+						//						target.setLocation(new Point2D.Double(newLocation.x, newLocation.y));&#xD;
 						Point newVel = r.randomVel(new Rectangle(10, 10));&#xD;
 						Point2D.Double newVelocity = new Point2D.Double(newVel.x, newVel.y);&#xD;
 						target.setVelocity(newVelocity);&#xD;
@@ -3191,12 +3319,11 @@ type of ball the &quot;hunter&quot; is!&#xD;
 						target.setColor(newColor);&#xD;
 						int newRadius = r.randomInt(5, 20);&#xD;
 						target.setRadius(newRadius);&#xD;
-								&#xD;
-								&#xD;
+&#xD;
 					}&#xD;
 				});&#xD;
 			}&#xD;
-		};		&#xD;
+		};&#xD;
 	</body>
             </ownedBehavior>
             <ownedOperation xmi:id="_UnE90kLPEe2Cia9SaTQ4zA" name="init" method="_UpYq_ELPEe2Cia9SaTQ4zA">
@@ -4314,7 +4441,7 @@ type of ball the &quot;hunter&quot; is!&#xD;
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_UdMCBELPEe2Cia9SaTQ4zA" name="update">
           <packagedElement xmi:type="uml:Class" xmi:id="_UffvIELPEe2Cia9SaTQ4zA" name="ColorStrategy">
-            <ownedComment xmi:id="_Upmta0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s38kLPEe2Cia9SaTQ4zA">
               <body>Flashes different shades of colors every 15 frame counts, based on ball type: orange for prey, purple for predator, and green for scavenger.&#xD;
 Can be disabled.&#xD;
 &#xD;
@@ -4327,7 +4454,9 @@ Can be disabled.&#xD;
             <ownedAttribute xmi:id="_UpA3g0LPEe2Cia9SaTQ4zA" name="isEnabled" visibility="private" type="_UmfH8ULPEe2Cia9SaTQ4zA" association="_Up9StELPEe2Cia9SaTQ4zA"/>
             <interfaceRealization xmi:id="_UnRyIkLPEe2Cia9SaTQ4zA" client="_UffvIELPEe2Cia9SaTQ4zA" supplier="_UfiycULPEe2Cia9SaTQ4zA" contract="_UfiycULPEe2Cia9SaTQ4zA"/>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpbHTkLPEe2Cia9SaTQ4zA" name="ColorStrategy" specification="_UffvIULPEe2Cia9SaTQ4zA">
-              <ownedParameter xmi:id="_UpbHT0LPEe2Cia9SaTQ4zA" type="_UffvIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpbHT0LPEe2Cia9SaTQ4zA" type="_UffvIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super();&#xD;
 		this.isEnabled = () -> true;&#xD;
@@ -4335,7 +4464,9 @@ Can be disabled.&#xD;
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpbHUELPEe2Cia9SaTQ4zA" name="ColorStrategy" specification="_UoSewULPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpbHUULPEe2Cia9SaTQ4zA" name="isEnabled" type="_UmfH8ULPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpbHUkLPEe2Cia9SaTQ4zA" type="_UffvIELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpbHUkLPEe2Cia9SaTQ4zA" type="_UffvIELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super();&#xD;
 		this.isEnabled = isEnabled;&#xD;
@@ -4363,7 +4494,7 @@ Can be disabled.&#xD;
 				// no-op by default&#xD;
 				return null;&#xD;
 			}&#xD;
-			&#xD;
+&#xD;
 		}) {&#xD;
 &#xD;
 			/**&#xD;
@@ -4383,14 +4514,14 @@ Can be disabled.&#xD;
 					@Override&#xD;
 					public Void apply(IBallHostID index, IBall host, Void... params) {&#xD;
 						if (isEnabled.get()) {&#xD;
-							context.setColor(new Color(255, rand.nextInt(100)+100, rand.nextInt(100)));&#xD;
+							context.setColor(new Color(255, rand.nextInt(100) + 100, rand.nextInt(100)));&#xD;
 						}&#xD;
 						return null;&#xD;
 					}&#xD;
 				});&#xD;
-			&#xD;
+&#xD;
 			}&#xD;
-			&#xD;
+&#xD;
 			{&#xD;
 				// Add different behavior for PredatorBalls&#xD;
 &#xD;
@@ -4401,7 +4532,7 @@ Can be disabled.&#xD;
 					@Override&#xD;
 					public Void apply(IBallHostID index, IBall host, Void... params) {&#xD;
 						if (isEnabled.get()) {&#xD;
-							context.setColor(new Color(rand.nextInt(100)+100, rand.nextInt(100), 255));&#xD;
+							context.setColor(new Color(rand.nextInt(100) + 100, rand.nextInt(100), 255));&#xD;
 						}&#xD;
 						return null;&#xD;
 					}&#xD;
@@ -4416,20 +4547,20 @@ Can be disabled.&#xD;
 						if (isEnabled.get()) {&#xD;
 							context.setColor(Randomizer.Singleton.randomColor());&#xD;
 						}&#xD;
-						return null;		&#xD;
+						return null;&#xD;
 					}&#xD;
 				});&#xD;
-				&#xD;
+&#xD;
 				// etc.&#xD;
 			}&#xD;
-	});&#xD;
+		});&#xD;
 	</body>
             </ownedBehavior>
             <ownedOperation xmi:id="_UffvIULPEe2Cia9SaTQ4zA" name="ColorStrategy" method="_UpbHTkLPEe2Cia9SaTQ4zA">
               <eAnnotations xmi:id="_UffvIkLPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_UffvI0LPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_UpmtbELPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2s380LPEe2Cia9SaTQ4zA">
                 <body>Constructor for a new ColorStrategy.</body>
               </ownedComment>
               <ownedParameter xmi:id="_UffvJELPEe2Cia9SaTQ4zA" type="_UffvIELPEe2Cia9SaTQ4zA" direction="return"/>
@@ -4441,7 +4572,7 @@ Can be disabled.&#xD;
               <eAnnotations xmi:id="_UoSew0LPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_UoSexELPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_UpmtbULPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2s39ELPEe2Cia9SaTQ4zA">
                 <body>Constructor for a new ColorStrategy that can be disabled.&#xD;
 	 * &#xD;
 	 * @param isEnabled a Supplier for a Boolean</body>
@@ -4519,7 +4650,7 @@ Can be disabled.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfhkUELPEe2Cia9SaTQ4zA" name="ErrorUpdateStrategy">
-            <ownedComment xmi:id="_UpmtcELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s39ULPEe2Cia9SaTQ4zA">
               <body>A strategy for dealing with errors.&#xD;
  *&#xD;
 @author Phoebe Scaccia</body>
@@ -4537,27 +4668,27 @@ Can be disabled.&#xD;
               <ownedParameter xmi:id="_UpbuUULPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
               <language>java</language>
               <body>context.setRadius(0);&#xD;
-		&#xD;
+&#xD;
 		context.setCriteriaStrategy(new ICriteriaStrategy() {&#xD;
-			&#xD;
+&#xD;
 			@Override&#xD;
 			public boolean satisfied(IBall context, IBall target) {&#xD;
 				return false;&#xD;
 			}&#xD;
-			&#xD;
+&#xD;
 			@Override&#xD;
 			public void init(IBall context) {&#xD;
 				return;&#xD;
 			}&#xD;
 		});&#xD;
-		&#xD;
+&#xD;
 		context.setPaintStrategy(new IPaintStrategy() {&#xD;
-			&#xD;
+&#xD;
 			@Override&#xD;
 			public void paint(Graphics g, IBall context) {&#xD;
 				return;&#xD;
 			}&#xD;
-			&#xD;
+&#xD;
 			@Override&#xD;
 			public void init(IBall context) {&#xD;
 				return;&#xD;
@@ -4598,7 +4729,7 @@ Can be disabled.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfiLYELPEe2Cia9SaTQ4zA" name="FadingStrategy">
-            <ownedComment xmi:id="_UpmtcULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s39kLPEe2Cia9SaTQ4zA">
               <body>A strategy for a ball that fades a little every time it bounces.&#xD;
  *&#xD;
 @author Phoebe Scaccia</body>
@@ -4656,7 +4787,7 @@ Can be disabled.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfiycELPEe2Cia9SaTQ4zA" name="GravityStrategy">
-            <ownedComment xmi:id="_UpnUcELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s390LPEe2Cia9SaTQ4zA">
               <body>A strategy that simulates the acceleration of gravity on the ball.&#xD;
  *&#xD;
 @author Phoebe Scaccia</body>
@@ -4693,7 +4824,7 @@ Can be disabled.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Interface" xmi:id="_UfiycULPEe2Cia9SaTQ4zA" name="IUpdateStrategy">
-            <ownedComment xmi:id="_UpnUcULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s3-ELPEe2Cia9SaTQ4zA">
               <body>An interface for the possible ABall strategies.&#xD;
  *&#xD;
 @author Tim Louie&#xD;
@@ -4711,7 +4842,7 @@ Can be disabled.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfjZgELPEe2Cia9SaTQ4zA" name="PartyStrategy">
-            <ownedComment xmi:id="_UpnUckLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s3-ULPEe2Cia9SaTQ4zA">
               <body>A strategy that bounces a random number of times before partying.&#xD;
  *&#xD;
 @author Phoebe Scaccia</body>
@@ -4746,20 +4877,22 @@ Can be disabled.&#xD;
 			if (this.bounces &lt; 0) {&#xD;
 				context.getLogger().log(LogLevel.INFO, &quot;Time to party!&quot;);&#xD;
 				dispatcher.removeObserver((ABall) context);&#xD;
-				Point location = new Point((int) Math.round(context.getLocation().x), (int) Math.round(context.getLocation().y));&#xD;
+				Point location = new Point((int) Math.round(context.getLocation().x),&#xD;
+						(int) Math.round(context.getLocation().y));&#xD;
 				// Generate a proportional number of popping balls.&#xD;
 				for (int i = 0; i &lt; context.getRadius() / 3; i++) {&#xD;
 &#xD;
 					// Get a random velocity up to two times greater than &lt;code>context&lt;/code>'s in the x and y directions.&#xD;
 &#xD;
-					Point newVelocity = r&#xD;
-							.randomVel(new Rectangle((int) Math.round(context.getVelocity().x * 2), (int) Math.round(context.getVelocity().y * 2)));&#xD;
+					Point newVelocity = r.randomVel(new Rectangle((int) Math.round(context.getVelocity().x * 2),&#xD;
+							(int) Math.round(context.getVelocity().y * 2)));&#xD;
 &#xD;
-					dispatcher.addObserver(new DefaultBall(new Point(location), context.getRadius() / 2, newVelocity,&#xD;
-							this.originalColor, context.getContainer(), new CompositeConfigBallAlgo(&#xD;
-									new ConfigUpdateBallAlgo(null, new PoppingStrategy()), &#xD;
-									new ConfigPaintBallAlgo(null, context.getPaintStrategy())), &#xD;
-							context.getAdapter()));&#xD;
+					dispatcher&#xD;
+							.addObserver(new DefaultBall(new Point(location), context.getRadius() / 2, newVelocity,&#xD;
+									this.originalColor, context.getContainer(),&#xD;
+									new CompositeConfigBallAlgo(new ConfigUpdateBallAlgo(null, new PoppingStrategy()),&#xD;
+											new ConfigPaintBallAlgo(null, context.getPaintStrategy())),&#xD;
+									context.getAdapter()));&#xD;
 				}&#xD;
 			}&#xD;
 		} else if (this.bounces == 0) {&#xD;
@@ -4781,7 +4914,7 @@ Can be disabled.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfkAkELPEe2Cia9SaTQ4zA" name="PoppingStrategy">
-            <ownedComment xmi:id="_UpnUc0LPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s3-kLPEe2Cia9SaTQ4zA">
               <body>A strategy that pops the ball after a given number of bounces.&#xD;
  *&#xD;
 @author Phoebe Scaccia</body>
@@ -4825,7 +4958,7 @@ Can be disabled.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UfknoELPEe2Cia9SaTQ4zA" name="SpawnStrategy">
-            <ownedComment xmi:id="_UpnUdELPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s3-0LPEe2Cia9SaTQ4zA">
               <body>A strategy that spawns a popping ball with the same strategy on each bounce.&#xD;
  *&#xD;
 @author Phoebe Scaccia</body>
@@ -4848,13 +4981,18 @@ Can be disabled.&#xD;
 &#xD;
 			// Spawn a new ball.&#xD;
 &#xD;
-			Point newVelocity = Randomizer.Singleton&#xD;
-					.randomVel(new Rectangle((int) Math.round(context.getVelocity().x * 2), (int) Math.round(context.getVelocity().y * 2)));&#xD;
+			Point newVelocity = Randomizer.Singleton.randomVel(new Rectangle(&#xD;
+					(int) Math.round(context.getVelocity().x * 2), (int) Math.round(context.getVelocity().y * 2)));&#xD;
 &#xD;
-			dispatcher.addObserver(new DefaultBall(new Point((int) Math.round(context.getLocation().x), (int) Math.round(context.getLocation().y)), context.getRadius() / 2, newVelocity,&#xD;
-					context.getColor(), context.getContainer(), new CompositeConfigBallAlgo(&#xD;
-							new ConfigUpdateBallAlgo(null, new PoppingStrategy()), &#xD;
-							new ConfigPaintBallAlgo(null, context.getPaintStrategy())), context.getAdapter()));&#xD;
+			dispatcher&#xD;
+					.addObserver(&#xD;
+							new DefaultBall(&#xD;
+									new Point((int) Math.round(context.getLocation().x),&#xD;
+											(int) Math.round(context.getLocation().y)),&#xD;
+									context.getRadius() / 2, newVelocity, context.getColor(), context.getContainer(),&#xD;
+									new CompositeConfigBallAlgo(new ConfigUpdateBallAlgo(null, new PoppingStrategy()),&#xD;
+											new ConfigPaintBallAlgo(null, context.getPaintStrategy())),&#xD;
+									context.getAdapter()));&#xD;
 &#xD;
 			context.getLogger().log(LogLevel.INFO, &quot;Another one!&quot;);&#xD;
 		}&#xD;
@@ -4872,7 +5010,7 @@ Can be disabled.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_UflOsELPEe2Cia9SaTQ4zA" name="StraightStrategy">
-            <ownedComment xmi:id="_UpnUdULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s3_ELPEe2Cia9SaTQ4zA">
               <body>A strategy where the ball moves and bounces according to Newtonian motion.&#xD;
  *&#xD;
 @author Phoebe Scaccia</body>
@@ -4906,7 +5044,7 @@ Can be disabled.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_Ufl1wELPEe2Cia9SaTQ4zA" name="SwitcherStrategy">
-            <ownedComment xmi:id="_UpnUdkLPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s3_ULPEe2Cia9SaTQ4zA">
               <body>A strategy for a ball that switches strategies.&#xD;
  *&#xD;
 @author Phoebe Scaccia</body>
@@ -4914,7 +5052,9 @@ Can be disabled.&#xD;
             <ownedAttribute xmi:id="_UpDTwELPEe2Cia9SaTQ4zA" name="currStrategy" visibility="private" type="_UfiycULPEe2Cia9SaTQ4zA" association="_Up95ykLPEe2Cia9SaTQ4zA"/>
             <interfaceRealization xmi:id="_UnZG4kLPEe2Cia9SaTQ4zA" client="_Ufl1wELPEe2Cia9SaTQ4zA" supplier="_UfiycULPEe2Cia9SaTQ4zA" contract="_UfiycULPEe2Cia9SaTQ4zA"/>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Upc8bELPEe2Cia9SaTQ4zA" name="SwitcherStrategy" specification="_Ufl1wULPEe2Cia9SaTQ4zA">
-              <ownedParameter xmi:id="_Upc8bULPEe2Cia9SaTQ4zA" type="_Ufl1wELPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_Upc8bULPEe2Cia9SaTQ4zA" type="_Ufl1wELPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>this.currStrategy = new StraightStrategy();&#xD;
 	</body>
@@ -4945,7 +5085,7 @@ Can be disabled.&#xD;
               <eAnnotations xmi:id="_Ufl1wkLPEe2Cia9SaTQ4zA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                 <details xmi:id="_Ufl1w0LPEe2Cia9SaTQ4zA" key="create"/>
               </eAnnotations>
-              <ownedComment xmi:id="_UpnUd0LPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2s3_kLPEe2Cia9SaTQ4zA">
                 <body>Constructor for a new SwitcherStrategy.</body>
               </ownedComment>
               <ownedParameter xmi:id="_Ufl1xELPEe2Cia9SaTQ4zA" type="_Ufl1wELPEe2Cia9SaTQ4zA" direction="return"/>
@@ -4954,7 +5094,7 @@ Can be disabled.&#xD;
               <ownedParameter xmi:id="_UnZG5ELPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
             </ownedOperation>
             <ownedOperation xmi:id="_UnZt8kLPEe2Cia9SaTQ4zA" name="setStrategy" method="_Upc8dELPEe2Cia9SaTQ4zA">
-              <ownedComment xmi:id="_UpnUeELPEe2Cia9SaTQ4zA">
+              <ownedComment xmi:id="_f2s3_0LPEe2Cia9SaTQ4zA">
                 <body>Updates the strategy to be &lt;code>newStrategy&lt;/code>.&#xD;
 	 *&#xD;
 	 * @param newStrategy a strategy</body>
@@ -4970,7 +5110,7 @@ Can be disabled.&#xD;
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_Ufmc0ELPEe2Cia9SaTQ4zA" name="TeleportingStrategy">
-            <ownedComment xmi:id="_UpnUeULPEe2Cia9SaTQ4zA">
+            <ownedComment xmi:id="_f2s4AELPEe2Cia9SaTQ4zA">
               <body>A strategy in which the ball teleports to a random point when it hits a wall.&#xD;
  *&#xD;
 @author Phoebe Scaccia</body>
@@ -4996,7 +5136,9 @@ Can be disabled.&#xD;
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UpdjdELPEe2Cia9SaTQ4zA" name="generateValidLocation" specification="_Una8EELPEe2Cia9SaTQ4zA">
               <ownedParameter xmi:id="_UpdjdULPEe2Cia9SaTQ4zA" name="context" type="_Ue218ELPEe2Cia9SaTQ4zA"/>
-              <ownedParameter xmi:id="_UpdjdkLPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return"/>
+              <ownedParameter xmi:id="_UpdjdkLPEe2Cia9SaTQ4zA" type="_UmpgAkLPEe2Cia9SaTQ4zA" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>Dimension dimension = context.getContainer().getSize();&#xD;
 		int radius = context.getRadius();&#xD;
@@ -7718,6 +7860,7 @@ Can be disabled.&#xD;
   <UMLLabProfile:LegacyStyledElement xmi:id="_UpOS4kLPEe2Cia9SaTQ4zA" base_Element="_UpOS4ELPEe2Cia9SaTQ4zA"/>
   <uml:OpaqueBehavior xmi:id="_UpTycELPEe2Cia9SaTQ4zA" name="getRadius" specification="_Uoxm8kLPEe2Cia9SaTQ4zA">
     <ownedParameter xmi:id="_UpTycULPEe2Cia9SaTQ4zA" direction="return">
+      <name xsi:nil="true"/>
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedParameter>
     <language>java</language>
@@ -7733,7 +7876,9 @@ Can be disabled.&#xD;
 	</body>
   </uml:OpaqueBehavior>
   <uml:OpaqueBehavior xmi:id="_UpTydELPEe2Cia9SaTQ4zA" name="getColor" specification="_Uoy1EELPEe2Cia9SaTQ4zA">
-    <ownedParameter xmi:id="_UpTydULPEe2Cia9SaTQ4zA" type="_UmfvAULPEe2Cia9SaTQ4zA" direction="return"/>
+    <ownedParameter xmi:id="_UpTydULPEe2Cia9SaTQ4zA" type="_UmfvAULPEe2Cia9SaTQ4zA" direction="return">
+      <name xsi:nil="true"/>
+    </ownedParameter>
     <language>java</language>
     <body>return new Color(this.color.getRed(), this.color.getGreen(), this.color.getBlue(), this.color.getAlpha());&#xD;
 	</body>
@@ -7745,7 +7890,9 @@ Can be disabled.&#xD;
 	</body>
   </uml:OpaqueBehavior>
   <uml:OpaqueBehavior xmi:id="_UpTyeELPEe2Cia9SaTQ4zA" name="getContainer" specification="_UozcIELPEe2Cia9SaTQ4zA">
-    <ownedParameter xmi:id="_UpTyeULPEe2Cia9SaTQ4zA" type="_Umd50ELPEe2Cia9SaTQ4zA" direction="return"/>
+    <ownedParameter xmi:id="_UpTyeULPEe2Cia9SaTQ4zA" type="_Umd50ELPEe2Cia9SaTQ4zA" direction="return">
+      <name xsi:nil="true"/>
+    </ownedParameter>
     <language>java</language>
     <body>return container;&#xD;
 	</body>
@@ -7757,7 +7904,9 @@ Can be disabled.&#xD;
 	</body>
   </uml:OpaqueBehavior>
   <uml:OpaqueBehavior xmi:id="_UpTyfELPEe2Cia9SaTQ4zA" name="getPaintStrategy" specification="_Uo0DMkLPEe2Cia9SaTQ4zA">
-    <ownedParameter xmi:id="_UpTyfULPEe2Cia9SaTQ4zA" type="_UfUwAELPEe2Cia9SaTQ4zA" direction="return"/>
+    <ownedParameter xmi:id="_UpTyfULPEe2Cia9SaTQ4zA" type="_UfUwAELPEe2Cia9SaTQ4zA" direction="return">
+      <name xsi:nil="true"/>
+    </ownedParameter>
     <language>java</language>
     <body>return paintStrategy;&#xD;
 	</body>
@@ -7770,7 +7919,9 @@ Can be disabled.&#xD;
 	</body>
   </uml:OpaqueBehavior>
   <uml:OpaqueBehavior xmi:id="_UpTygELPEe2Cia9SaTQ4zA" name="getUpdateStrategy" specification="_Uo0qRELPEe2Cia9SaTQ4zA">
-    <ownedParameter xmi:id="_UpTygULPEe2Cia9SaTQ4zA" type="_UfiycULPEe2Cia9SaTQ4zA" direction="return"/>
+    <ownedParameter xmi:id="_UpTygULPEe2Cia9SaTQ4zA" type="_UfiycULPEe2Cia9SaTQ4zA" direction="return">
+      <name xsi:nil="true"/>
+    </ownedParameter>
     <language>java</language>
     <body>return this.updateStrategy;&#xD;
 	</body>
@@ -7783,7 +7934,9 @@ Can be disabled.&#xD;
 	</body>
   </uml:OpaqueBehavior>
   <uml:OpaqueBehavior xmi:id="_UpTyhELPEe2Cia9SaTQ4zA" name="getCriteriaStrategy" specification="_Uo1RVULPEe2Cia9SaTQ4zA">
-    <ownedParameter xmi:id="_UpTyhULPEe2Cia9SaTQ4zA" type="_UfAm8ULPEe2Cia9SaTQ4zA" direction="return"/>
+    <ownedParameter xmi:id="_UpTyhULPEe2Cia9SaTQ4zA" type="_UfAm8ULPEe2Cia9SaTQ4zA" direction="return">
+      <name xsi:nil="true"/>
+    </ownedParameter>
     <language>java</language>
     <body>return this.criteriaStrategy;&#xD;
 	</body>
@@ -7796,7 +7949,9 @@ Can be disabled.&#xD;
 	</body>
   </uml:OpaqueBehavior>
   <uml:OpaqueBehavior xmi:id="_UpTyiELPEe2Cia9SaTQ4zA" name="getInteractStrategy" specification="_Uo14ZkLPEe2Cia9SaTQ4zA">
-    <ownedParameter xmi:id="_UpTyiULPEe2Cia9SaTQ4zA" type="_UfLmEELPEe2Cia9SaTQ4zA" direction="return"/>
+    <ownedParameter xmi:id="_UpTyiULPEe2Cia9SaTQ4zA" type="_UfLmEELPEe2Cia9SaTQ4zA" direction="return">
+      <name xsi:nil="true"/>
+    </ownedParameter>
     <language>java</language>
     <body>return this.interactStrategy;&#xD;
 	</body>
@@ -7809,7 +7964,9 @@ Can be disabled.&#xD;
 	</body>
   </uml:OpaqueBehavior>
   <uml:OpaqueBehavior xmi:id="_UpUZgULPEe2Cia9SaTQ4zA" name="getLogger" specification="_Uo3GgkLPEe2Cia9SaTQ4zA">
-    <ownedParameter xmi:id="_UpUZgkLPEe2Cia9SaTQ4zA" type="_Umo480LPEe2Cia9SaTQ4zA" direction="return"/>
+    <ownedParameter xmi:id="_UpUZgkLPEe2Cia9SaTQ4zA" type="_Umo480LPEe2Cia9SaTQ4zA" direction="return">
+      <name xsi:nil="true"/>
+    </ownedParameter>
     <language>java</language>
     <body>return logger;&#xD;
 	</body>
@@ -7820,7 +7977,7 @@ Can be disabled.&#xD;
     </ownedParameter>
     <language>java</language>
     <body>return new AConfigBallAlgo(ILoggerControl.getSharedLogger(), IBallAlgo2ModelAdapter.NULL) {&#xD;
-		&#xD;
+&#xD;
 			/**&#xD;
 			 * For serialization.&#xD;
 			 */&#xD;
@@ -7830,9 +7987,9 @@ Can be disabled.&#xD;
 			public String toString() {&#xD;
 				return &quot;IConfigBallAlgo.NULL&quot;;&#xD;
 			}&#xD;
-		&#xD;
+&#xD;
 		};&#xD;
-		&#xD;
+&#xD;
 	</body>
   </uml:OpaqueBehavior>
   <uml:OpaqueBehavior xmi:id="_UpfYqELPEe2Cia9SaTQ4zA" name="MakeDefaultERROR" specification="_Ufw05ELPEe2Cia9SaTQ4zA">
@@ -7846,16 +8003,16 @@ Can be disabled.&#xD;
 			 * For serialization.&#xD;
 			 */&#xD;
 			private static final long serialVersionUID = -9126885024661987013L;&#xD;
-	&#xD;
+&#xD;
 			{&#xD;
 				setDefaultCmd(ABallAlgoCmd.MakeError(null));&#xD;
 			}&#xD;
-			&#xD;
+&#xD;
 			@Override&#xD;
 			public String toString() {&#xD;
 				return &quot;IConfigBallAlgo.ERROR&quot;;&#xD;
 			}&#xD;
-		}; &#xD;
+		};&#xD;
 	</body>
   </uml:OpaqueBehavior>
   <uml:OpaqueBehavior xmi:id="_Upf_uELPEe2Cia9SaTQ4zA" name="MAKE_NULL" specification="_Uf70AELPEe2Cia9SaTQ4zA">
