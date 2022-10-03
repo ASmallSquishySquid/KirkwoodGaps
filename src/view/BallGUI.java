@@ -2,7 +2,6 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
@@ -289,6 +288,7 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 					TDropListItem2 type = modelCtrlAdpt.addBallType(txtBallType.getText());
 					if (type != null) {
 						boxBallType.addItem(type);
+						boxBallType.setSelectedIndex(boxBallType.getItemCount() - 1);
 					}
 				}
 			}
