@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
+  <uml:Model xmi:id="_r8VssELSEe2LVt5BSJkKww" name="criteria">
+    <eAnnotations xmi:id="_sEdG4ELSEe2LVt5BSJkKww" source="http://ns.yatta.de/umllab">
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_sEdG4ULSEe2LVt5BSJkKww" source="codegen">
+        <details xmi:id="_sEdG4kLSEe2LVt5BSJkKww" key="codegenDirectory" value="/f22-hw06-comp310-f22-hw06-03/src"/>
+        <details xmi:id="_sMC8oELSEe2LVt5BSJkKww" key="AssociatedSourceCode" value="/f22-hw06-comp310-f22-hw06-03/src/model/strategies/criteria/CollisionStrategy.java;1433672196/1;/f22-hw06-comp310-f22-hw06-03/src/model/strategies/criteria/ColorMatch.java;3182381522/1;/f22-hw06-comp310-f22-hw06-03/src/model/strategies/criteria/CompositeCriteriaStrategy.java;2050003213/1;/f22-hw06-comp310-f22-hw06-03/src/model/strategies/criteria/ErrorCriteriaStrategy.java;2878135076/1;/f22-hw06-comp310-f22-hw06-03/src/model/strategies/criteria/EverywhereStrategy.java;3692568703/1;/f22-hw06-comp310-f22-hw06-03/src/model/strategies/criteria/ICriteriaStrategy.java;3794355930/1;/f22-hw06-comp310-f22-hw06-03/src/model/strategies/criteria/ProximityStrategy.java;3434233141/1;/f22-hw06-comp310-f22-hw06-03/src/model/strategies/criteria/SameTypeStrategy.java;3921101880/1;"/>
+      </contents>
+    </eAnnotations>
+    <elementImport xmi:id="_sJzg8ELSEe2LVt5BSJkKww">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_sJzg8ULSEe2LVt5BSJkKww">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_sJzg8kLSEe2LVt5BSJkKww">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_sJzg80LSEe2LVt5BSJkKww">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_sJzg9ELSEe2LVt5BSJkKww">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_sJ0IAELSEe2LVt5BSJkKww">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_sJ0IAULSEe2LVt5BSJkKww">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_sJ0IAkLSEe2LVt5BSJkKww">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_sJ0IA0LSEe2LVt5BSJkKww">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_sJk3cELSEe2LVt5BSJkKww" name="model">
+      <packagedElement xmi:type="uml:Package" xmi:id="_sJk3cULSEe2LVt5BSJkKww" name="strategies">
+        <packagedElement xmi:type="uml:Package" xmi:id="_sJmsoELSEe2LVt5BSJkKww" name="criteria">
+          <packagedElement xmi:type="uml:Class" xmi:id="_sJy54ELSEe2LVt5BSJkKww" name="CollisionStrategy">
+            <ownedComment xmi:id="_sLC3EELSEe2LVt5BSJkKww">
+              <body>A strategy where the criteria is collision.
+
+@author Phoebe Scaccia</body>
+            </ownedComment>
+            <interfaceRealization xmi:id="_sKpOcULSEe2LVt5BSJkKww" client="_sJy54ELSEe2LVt5BSJkKww" supplier="_sJ5nkELSEe2LVt5BSJkKww" contract="_sJ5nkELSEe2LVt5BSJkKww"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sK_zwELSEe2LVt5BSJkKww" name="init" specification="_sKxKQELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK_zwULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <language>java</language>
+              <body>return;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLAa0ELSEe2LVt5BSJkKww" name="satisfied" specification="_sKxxVELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLAa0ULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLAa0kLSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLAa00LSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>if (context != target) {
+			// Calculate the distance between the balls
+			double dist = context.getLocation().distance(target.getLocation());
+			// Calculate the minimum non-colliding distance (= max colliding distance)
+			double minNonCollideDist = context.getRadius() + target.getRadius();
+			// Check if interaction criteria is met (Check if they overlap):
+			if (dist &lt;= minNonCollideDist) {
+				return true;
+			}
+		}
+		return false;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_sKxKQELSEe2LVt5BSJkKww" name="init" method="_sK_zwELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sKxxUELSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sKxxVELSEe2LVt5BSJkKww" name="satisfied" method="_sLAa0ELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sKxxVULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sKyYYELSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sKyYYULSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_sJ0vEELSEe2LVt5BSJkKww" name="ColorMatch">
+            <ownedComment xmi:id="_sLC3EULSEe2LVt5BSJkKww">
+              <body>A strategy where the criteria is similar colors.
+
+@author Phoebe Scaccia</body>
+            </ownedComment>
+            <interfaceRealization xmi:id="_sKqckULSEe2LVt5BSJkKww" client="_sJ0vEELSEe2LVt5BSJkKww" supplier="_sJ5nkELSEe2LVt5BSJkKww" contract="_sJ5nkELSEe2LVt5BSJkKww"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLAa1ELSEe2LVt5BSJkKww" name="init" specification="_sKy_cELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLAa1ULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <language>java</language>
+              <body>return;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLAa1kLSEe2LVt5BSJkKww" name="satisfied" specification="_sKzmgELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLAa10LSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLAa2ELSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLAa2ULSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>if (context != target) {
+			Color contextColor = context.getColor();
+			Color targetColor = target.getColor();
+			double colorDist = Math.abs(contextColor.getRed() - targetColor.getRed())
+					+ Math.abs(contextColor.getGreen() - targetColor.getGreen())
+					+ Math.abs(contextColor.getBlue() - targetColor.getBlue());
+			// Calculate the distance between the balls
+			double dist = context.getLocation().distance(target.getLocation());
+			// Calculate the minimum proximity distance
+			double minProximityDistance = (context.getRadius() + target.getRadius()) * 2;
+
+			if ((colorDist &lt; 150) &amp; (dist &lt;= minProximityDistance)) {
+				return true;
+			}
+		}
+		return false;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_sKy_cELSEe2LVt5BSJkKww" name="init" method="_sLAa1ELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sKy_cULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sKzmgELSEe2LVt5BSJkKww" name="satisfied" method="_sLAa1kLSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sKzmgULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sKzmgkLSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sKzmg0LSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_sJ19MELSEe2LVt5BSJkKww" name="CompositeCriteriaStrategy">
+            <ownedComment xmi:id="_sLC3EkLSEe2LVt5BSJkKww">
+              <body>A strategy composed of two criteria strategies.
+
+@author Phoebe Scaccia</body>
+            </ownedComment>
+            <ownedAttribute xmi:id="_sK9XgELSEe2LVt5BSJkKww" name="strat1" visibility="private" type="_sJ5nkELSEe2LVt5BSJkKww" association="_sLEsQELSEe2LVt5BSJkKww"/>
+            <ownedAttribute xmi:id="_sK9-kULSEe2LVt5BSJkKww" name="strat2" visibility="private" type="_sJ5nkELSEe2LVt5BSJkKww" association="_sLFTUULSEe2LVt5BSJkKww"/>
+            <interfaceRealization xmi:id="_sKrDoELSEe2LVt5BSJkKww" client="_sJ19MELSEe2LVt5BSJkKww" supplier="_sJ5nkELSEe2LVt5BSJkKww" contract="_sJ5nkELSEe2LVt5BSJkKww"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLBB4ELSEe2LVt5BSJkKww" name="CompositeCriteriaStrategy" specification="_sKrDoULSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLBB4ULSEe2LVt5BSJkKww" name="strat1" type="_sJ5nkELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLBB4kLSEe2LVt5BSJkKww" name="strat2" type="_sJ5nkELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLBB40LSEe2LVt5BSJkKww" type="_sJ19MELSEe2LVt5BSJkKww" direction="return"/>
+              <language>java</language>
+              <body>this.strat1 = strat1;
+		this.strat2 = strat2;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLBB5ELSEe2LVt5BSJkKww" name="init" specification="_sK0NkELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLBB5ULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <language>java</language>
+              <body>this.strat1.init(context);
+		this.strat2.init(context);
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLBB5kLSEe2LVt5BSJkKww" name="satisfied" specification="_sK00oELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLBB50LSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLBB6ELSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLBB6ULSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>return this.strat1.satisfied(context, target) || this.strat2.satisfied(context, target);
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_sKrDoULSEe2LVt5BSJkKww" name="CompositeCriteriaStrategy" method="_sLBB4ELSEe2LVt5BSJkKww">
+              <eAnnotations xmi:id="_sKrDpELSEe2LVt5BSJkKww" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_sKrDpULSEe2LVt5BSJkKww" key="create"/>
+              </eAnnotations>
+              <ownedComment xmi:id="_sLC3E0LSEe2LVt5BSJkKww">
+                <body>Constructor for a new CompositeCriteriaStrategy.
+	 * 
+	 * @param strat1 an ICriteriaStrategy
+	 * @param strat2 an ICriteriaStrategy</body>
+              </ownedComment>
+              <ownedParameter xmi:id="_sKrDokLSEe2LVt5BSJkKww" name="strat1" type="_sJ5nkELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sKrDo0LSEe2LVt5BSJkKww" name="strat2" type="_sJ5nkELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sKrDpkLSEe2LVt5BSJkKww" type="_sJ19MELSEe2LVt5BSJkKww" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sK0NkELSEe2LVt5BSJkKww" name="init" method="_sLBB5ELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK0NkULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sK00oELSEe2LVt5BSJkKww" name="satisfied" method="_sLBB5kLSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK00oULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK00okLSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK00o0LSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_sJ3LUELSEe2LVt5BSJkKww" name="ErrorCriteriaStrategy">
+            <ownedComment xmi:id="_sLDeIELSEe2LVt5BSJkKww">
+              <body>A strategy to handle errors.
+
+@author Phoebe Scaccia</body>
+            </ownedComment>
+            <interfaceRealization xmi:id="_sKsRwULSEe2LVt5BSJkKww" client="_sJ3LUELSEe2LVt5BSJkKww" supplier="_sJ5nkELSEe2LVt5BSJkKww" contract="_sJ5nkELSEe2LVt5BSJkKww"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLBo8ELSEe2LVt5BSJkKww" name="init" specification="_sK1bsELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLBo8ULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <language>java</language>
+              <body>context.setUpdateStrategy(new ErrorUpdateStrategy());
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLBo8kLSEe2LVt5BSJkKww" name="satisfied" specification="_sK2CwELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLBo80LSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLBo9ELSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLBo9ULSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>return false;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_sK1bsELSEe2LVt5BSJkKww" name="init" method="_sLBo8ELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK1bsULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sK2CwELSEe2LVt5BSJkKww" name="satisfied" method="_sLBo8kLSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK2CwULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK2CwkLSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK2Cw0LSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_sJ4ZcELSEe2LVt5BSJkKww" name="EverywhereStrategy">
+            <ownedComment xmi:id="_sLDeIULSEe2LVt5BSJkKww">
+              <body>A strategy for the ball to interact with everything, everywhere.
+
+@author Phoebe Scaccia</body>
+            </ownedComment>
+            <interfaceRealization xmi:id="_sKs40ELSEe2LVt5BSJkKww" client="_sJ4ZcELSEe2LVt5BSJkKww" supplier="_sJ5nkELSEe2LVt5BSJkKww" contract="_sJ5nkELSEe2LVt5BSJkKww"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLBo9kLSEe2LVt5BSJkKww" name="init" specification="_sK2Cx0LSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLBo90LSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <language>java</language>
+              <body>return;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLBo-ELSEe2LVt5BSJkKww" name="satisfied" specification="_sK2p00LSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLBo-ULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLBo-kLSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLBo-0LSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>if (context != target &amp;&amp; !(target.getUpdateStrategy() instanceof ErrorUpdateStrategy)
+				&amp;&amp; !(context.getUpdateStrategy() instanceof ErrorUpdateStrategy)) {
+			return true;
+		} else {
+			return false;
+		}
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_sK2Cx0LSEe2LVt5BSJkKww" name="init" method="_sLBo9kLSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK2CyELSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sK2p00LSEe2LVt5BSJkKww" name="satisfied" method="_sLBo-ELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK2p1ELSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK2p1ULSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK2p1kLSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_sJ5nkELSEe2LVt5BSJkKww" name="ICriteriaStrategy">
+            <ownedComment xmi:id="_sLDeIkLSEe2LVt5BSJkKww">
+              <body>An interface for criteria strategies.
+
+@author Phoebe Scaccia</body>
+            </ownedComment>
+            <ownedOperation xmi:id="_sK3Q4kLSEe2LVt5BSJkKww" name="init">
+              <ownedParameter xmi:id="_sK3Q40LSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sK338ELSEe2LVt5BSJkKww" name="satisfied">
+              <ownedParameter xmi:id="_sK338ULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK338kLSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK3380LSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_sJ6OoELSEe2LVt5BSJkKww" name="ProximityStrategy">
+            <ownedComment xmi:id="_sLDeI0LSEe2LVt5BSJkKww">
+              <body>A strategy for an AOE criteria.
+
+@author Phoebe Scaccia</body>
+            </ownedComment>
+            <interfaceRealization xmi:id="_sKtf4ELSEe2LVt5BSJkKww" client="_sJ6OoELSEe2LVt5BSJkKww" supplier="_sJ5nkELSEe2LVt5BSJkKww" contract="_sJ5nkELSEe2LVt5BSJkKww"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLBo_ELSEe2LVt5BSJkKww" name="init" specification="_sK4fAELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLBo_ULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <language>java</language>
+              <body>return;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLCQAELSEe2LVt5BSJkKww" name="satisfied" specification="_sK5GE0LSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLCQAULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLCQAkLSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLCQA0LSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>if (context != target) {
+			// Calculate the distance between the balls
+			double dist = context.getLocation().distance(target.getLocation());
+			// Calculate the minimum proximity distance
+			double minProximityDistance = (context.getRadius() + target.getRadius()) * 2;
+			// Check if interaction criteria is met
+			if (dist &lt;= minProximityDistance) {
+				return true;
+			}
+		}
+		return false;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_sK4fAELSEe2LVt5BSJkKww" name="init" method="_sLBo_ELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK4fAULSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sK5GE0LSEe2LVt5BSJkKww" name="satisfied" method="_sLCQAELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK5GFELSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK5GFULSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK5tIELSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_sJ61sELSEe2LVt5BSJkKww" name="SameTypeStrategy">
+            <ownedComment xmi:id="_sLDeJELSEe2LVt5BSJkKww">
+              <body>A strategy where the criteria is configurable for the same type of ball.
+
+@author Phoebe Scaccia</body>
+            </ownedComment>
+            <ownedAttribute xmi:id="_sK-loELSEe2LVt5BSJkKww" name="criteriaName" visibility="private" type="_sKuG8ELSEe2LVt5BSJkKww" association="_sLFTVELSEe2LVt5BSJkKww"/>
+            <ownedAttribute xmi:id="_sK_MsELSEe2LVt5BSJkKww" name="criteriaStrategyLoader" visibility="private" type="_sKuuA0LSEe2LVt5BSJkKww" association="_sLF6YULSEe2LVt5BSJkKww">
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_sK_MskLSEe2LVt5BSJkKww" value="new ObjectLoader&lt;ICriteriaStrategy>(&#xA;&#x9;&#x9;&#x9;(attempt, args) -> new ErrorCriteriaStrategy())"/>
+            </ownedAttribute>
+            <interfaceRealization xmi:id="_sKvVEkLSEe2LVt5BSJkKww" client="_sJ61sELSEe2LVt5BSJkKww" supplier="_sJ5nkELSEe2LVt5BSJkKww" contract="_sJ5nkELSEe2LVt5BSJkKww"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLCQBELSEe2LVt5BSJkKww" name="SameTypeStrategy" specification="_sJ7cwELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLCQBULSEe2LVt5BSJkKww" type="_sJ61sELSEe2LVt5BSJkKww" direction="return"/>
+              <language>java</language>
+              <body>super();
+		this.criteriaName = () -> &quot;Collision&quot;;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLCQBkLSEe2LVt5BSJkKww" name="SameTypeStrategy" specification="_sK6UMELSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLCQB0LSEe2LVt5BSJkKww" name="criteriaName" type="_sKuG8ELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLCQCELSEe2LVt5BSJkKww" type="_sJ61sELSEe2LVt5BSJkKww" direction="return"/>
+              <language>java</language>
+              <body>super();
+		this.criteriaName = criteriaName;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLCQCULSEe2LVt5BSJkKww" name="init" specification="_sK67QULSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLCQCkLSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <language>java</language>
+              <body>return;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLCQC0LSEe2LVt5BSJkKww" name="satisfied" specification="_sK7iUkLSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLCQDELSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLCQDULSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLCQDkLSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>ICriteriaStrategy providedCriteriaStrategy = criteriaStrategyLoader
+				.loadInstance(this.fixCriteriaName(criteriaName.get()));
+		return providedCriteriaStrategy.satisfied(context, target)
+				&amp;&amp; context.execute(CheckSameTypeBallAlgo.Singleton, target);
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sLCQD0LSEe2LVt5BSJkKww" name="fixCriteriaName" specification="_sK8wcULSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sLCQEELSEe2LVt5BSJkKww" name="classname" type="_sK8JY0LSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sLCQEULSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>return &quot;model.strategies.criteria.&quot; + classname + &quot;Strategy&quot;;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_sJ7cwELSEe2LVt5BSJkKww" name="SameTypeStrategy" method="_sLCQBELSEe2LVt5BSJkKww">
+              <eAnnotations xmi:id="_sJ7cwULSEe2LVt5BSJkKww" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_sJ7cwkLSEe2LVt5BSJkKww" key="create"/>
+              </eAnnotations>
+              <ownedComment xmi:id="_sLDeJULSEe2LVt5BSJkKww">
+                <body>Constructor for a new SameTypeStrategy.</body>
+              </ownedComment>
+              <ownedParameter xmi:id="_sJ7cw0LSEe2LVt5BSJkKww" type="_sJ61sELSEe2LVt5BSJkKww" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sK6UMELSEe2LVt5BSJkKww" name="SameTypeStrategy" method="_sLCQBkLSEe2LVt5BSJkKww">
+              <eAnnotations xmi:id="_sK6UMkLSEe2LVt5BSJkKww" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_sK6UM0LSEe2LVt5BSJkKww" key="create"/>
+              </eAnnotations>
+              <ownedComment xmi:id="_sLDeJkLSEe2LVt5BSJkKww">
+                <body>Constructor for a new SameTypeStrategy.
+	 * 
+	 * @param criteriaName a Supplier for the type of interaction criteria</body>
+              </ownedComment>
+              <ownedParameter xmi:id="_sK6UMULSEe2LVt5BSJkKww" name="criteriaName" type="_sKuG8ELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK6UNELSEe2LVt5BSJkKww" type="_sJ61sELSEe2LVt5BSJkKww" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sK67QULSEe2LVt5BSJkKww" name="init" method="_sLCQCULSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK67QkLSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sK7iUkLSEe2LVt5BSJkKww" name="satisfied" method="_sLCQC0LSEe2LVt5BSJkKww">
+              <ownedParameter xmi:id="_sK7iU0LSEe2LVt5BSJkKww" name="context" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK7iVELSEe2LVt5BSJkKww" name="target" type="_sKonYELSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK7iVULSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_sK8wcULSEe2LVt5BSJkKww" name="fixCriteriaName" visibility="private" method="_sLCQD0LSEe2LVt5BSJkKww">
+              <ownedComment xmi:id="_sLDeJ0LSEe2LVt5BSJkKww">
+                <body>A helper function that adds the criteria package name as a prefix to a class name.
+	 *
+	 * @param classname : the abbreviated form of an update strategy.
+	 * @return the fully-qualified name of the update strategy.</body>
+              </ownedComment>
+              <ownedParameter xmi:id="_sK8wckLSEe2LVt5BSJkKww" name="classname" type="_sK8JY0LSEe2LVt5BSJkKww"/>
+              <ownedParameter xmi:id="_sK8wc0LSEe2LVt5BSJkKww" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_sLEsQELSEe2LVt5BSJkKww" name="" memberEnd="_sLEsQULSEe2LVt5BSJkKww _sK9XgELSEe2LVt5BSJkKww">
+            <ownedEnd xmi:id="_sLEsQULSEe2LVt5BSJkKww" name="" type="_sJ19MELSEe2LVt5BSJkKww" association="_sLEsQELSEe2LVt5BSJkKww"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_sLFTUULSEe2LVt5BSJkKww" name="" memberEnd="_sLFTUkLSEe2LVt5BSJkKww _sK9-kULSEe2LVt5BSJkKww">
+            <ownedEnd xmi:id="_sLFTUkLSEe2LVt5BSJkKww" name="" type="_sJ19MELSEe2LVt5BSJkKww" association="_sLFTUULSEe2LVt5BSJkKww"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_sLFTVELSEe2LVt5BSJkKww" name="" memberEnd="_sLFTVULSEe2LVt5BSJkKww _sK-loELSEe2LVt5BSJkKww">
+            <ownedEnd xmi:id="_sLFTVULSEe2LVt5BSJkKww" name="" type="_sJ61sELSEe2LVt5BSJkKww" association="_sLFTVELSEe2LVt5BSJkKww"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_sLF6YULSEe2LVt5BSJkKww" name="" memberEnd="_sLF6YkLSEe2LVt5BSJkKww _sK_MsELSEe2LVt5BSJkKww">
+            <ownedEnd xmi:id="_sLF6YkLSEe2LVt5BSJkKww" name="" type="_sJ61sELSEe2LVt5BSJkKww" association="_sLF6YULSEe2LVt5BSJkKww"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_sJpI4ELSEe2LVt5BSJkKww" name="update">
+          <packagedElement xmi:type="uml:Class" xmi:id="_sKrqsELSEe2LVt5BSJkKww" name="ErrorUpdateStrategy"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_sJlegELSEe2LVt5BSJkKww" name="balls">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_sKonYELSEe2LVt5BSJkKww" name="IBall"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_sJsMMkLSEe2LVt5BSJkKww" name="visitors">
+        <packagedElement xmi:type="uml:Package" xmi:id="_sJszQELSEe2LVt5BSJkKww" name="algos">
+          <packagedElement xmi:type="uml:Class" xmi:id="_sKuuAULSEe2LVt5BSJkKww" name="CheckSameTypeBallAlgo"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_sJnTsELSEe2LVt5BSJkKww" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_sJnTsULSEe2LVt5BSJkKww" name="awt">
+        <packagedElement xmi:type="uml:Class" xmi:id="_sKp1gELSEe2LVt5BSJkKww" name="Color"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_sJsMMELSEe2LVt5BSJkKww" name="util">
+        <packagedElement xmi:type="uml:Package" xmi:id="_sJsMMULSEe2LVt5BSJkKww" name="function">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_sKuG8ELSEe2LVt5BSJkKww" name="Supplier"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_sK8JYkLSEe2LVt5BSJkKww" name="lang">
+        <packagedElement xmi:type="uml:Class" xmi:id="_sK8JY0LSEe2LVt5BSJkKww" name="Object"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_sJszQULSEe2LVt5BSJkKww" name="provided">
+      <packagedElement xmi:type="uml:Package" xmi:id="_sJszQkLSEe2LVt5BSJkKww" name="utils">
+        <packagedElement xmi:type="uml:Package" xmi:id="_sJszQ0LSEe2LVt5BSJkKww" name="loader">
+          <packagedElement xmi:type="uml:Package" xmi:id="_sJszRELSEe2LVt5BSJkKww" name="impl">
+            <packagedElement xmi:type="uml:Class" xmi:id="_sKvVEELSEe2LVt5BSJkKww" name="ObjectLoader"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_sKuuA0LSEe2LVt5BSJkKww" name="IObjectLoader"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_sEdt8ELSEe2LVt5BSJkKww">
+      <eAnnotations xmi:id="_sEdt8ULSEe2LVt5BSJkKww" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLLabProfile:TargetLanguage xmi:id="_sEeVAELSEe2LVt5BSJkKww" base_Package="_r8VssELSEe2LVt5BSJkKww">
+    <languageName>java</languageName>
+  </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:Reference xmi:id="_sKpOcELSEe2LVt5BSJkKww" base_Element="_sKonYELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Reference xmi:id="_sKqckELSEe2LVt5BSJkKww" base_Element="_sKp1gELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Reference xmi:id="_sKsRwELSEe2LVt5BSJkKww" base_Element="_sKrqsELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Reference xmi:id="_sKuuAELSEe2LVt5BSJkKww" base_Element="_sKuG8ELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Reference xmi:id="_sKuuAkLSEe2LVt5BSJkKww" base_Element="_sKuuAULSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Reference xmi:id="_sKuuBELSEe2LVt5BSJkKww" base_Element="_sKuuA0LSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Reference xmi:id="_sKvVEULSEe2LVt5BSJkKww" base_Element="_sKvVEELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sKxxUULSEe2LVt5BSJkKww" base_Element="_sKxKQELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sKxxUkLSEe2LVt5BSJkKww" base_Element="_sKxKQELSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sKxxU0LSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sKyYYkLSEe2LVt5BSJkKww" base_Element="_sKxxVELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sKyYY0LSEe2LVt5BSJkKww" base_Element="_sKxxVELSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sKyYZELSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sKy_ckLSEe2LVt5BSJkKww" base_Element="_sKy_cELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sKy_c0LSEe2LVt5BSJkKww" base_Element="_sKy_cELSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sKy_dELSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sKzmhELSEe2LVt5BSJkKww" base_Element="_sKzmgELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sKzmhULSEe2LVt5BSJkKww" base_Element="_sKzmgELSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sKzmhkLSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK0NkkLSEe2LVt5BSJkKww" base_Element="_sK0NkELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sK0Nk0LSEe2LVt5BSJkKww" base_Element="_sK0NkELSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sK0NlELSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK00pELSEe2LVt5BSJkKww" base_Element="_sK00oELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sK00pULSEe2LVt5BSJkKww" base_Element="_sK00oELSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sK00pkLSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK1bskLSEe2LVt5BSJkKww" base_Element="_sK1bsELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sK1bs0LSEe2LVt5BSJkKww" base_Element="_sK1bsELSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sK1btELSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK2CxELSEe2LVt5BSJkKww" base_Element="_sK2CwELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sK2CxULSEe2LVt5BSJkKww" base_Element="_sK2CwELSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sK2CxkLSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK2p0ELSEe2LVt5BSJkKww" base_Element="_sK2Cx0LSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sK2p0ULSEe2LVt5BSJkKww" base_Element="_sK2Cx0LSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sK2p0kLSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK2p10LSEe2LVt5BSJkKww" base_Element="_sK2p00LSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sK3Q4ELSEe2LVt5BSJkKww" base_Element="_sK2p00LSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sK3Q4ULSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK5GEELSEe2LVt5BSJkKww" base_Element="_sK4fAELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sK5GEULSEe2LVt5BSJkKww" base_Element="_sK4fAELSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sK5GEkLSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK5tIULSEe2LVt5BSJkKww" base_Element="_sK5GE0LSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sK5tIkLSEe2LVt5BSJkKww" base_Element="_sK5GE0LSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sK5tI0LSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_sK67QELSEe2LVt5BSJkKww" genericsValue="String" base_Element="_sK6UMULSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK67Q0LSEe2LVt5BSJkKww" base_Element="_sK67QULSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sK7iUELSEe2LVt5BSJkKww" base_Element="_sK67QULSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sK7iUULSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK7iVkLSEe2LVt5BSJkKww" base_Element="_sK7iUkLSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Annotations xmi:id="_sK8JYELSEe2LVt5BSJkKww" base_Element="_sK7iUkLSEe2LVt5BSJkKww">
+    <annotations xmi:id="_sK8JYULSEe2LVt5BSJkKww" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_sK8wcELSEe2LVt5BSJkKww" base_Element="_sK8JY0LSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK9-kELSEe2LVt5BSJkKww" base_Element="_sK9XgELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK9-kkLSEe2LVt5BSJkKww" base_Element="_sK9-kULSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Generics xmi:id="_sK-loULSEe2LVt5BSJkKww" genericsValue="String" base_Element="_sK-loELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK-lokLSEe2LVt5BSJkKww" base_Element="_sK-loELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Generics xmi:id="_sK_MsULSEe2LVt5BSJkKww" genericsValue="ICriteriaStrategy" base_Element="_sK_MsELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_sK_Ms0LSEe2LVt5BSJkKww" base_Element="_sK_MsELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Reference xmi:id="_sLFTUELSEe2LVt5BSJkKww" base_Element="_sLEsQELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Reference xmi:id="_sLFTU0LSEe2LVt5BSJkKww" base_Element="_sLFTUULSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Reference xmi:id="_sLF6YELSEe2LVt5BSJkKww" base_Element="_sLFTVELSEe2LVt5BSJkKww"/>
+  <UMLLabProfile:Reference xmi:id="_sLF6Y0LSEe2LVt5BSJkKww" base_Element="_sLF6YULSEe2LVt5BSJkKww"/>
+</xmi:XMI>
