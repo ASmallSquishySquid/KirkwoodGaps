@@ -33,8 +33,8 @@ The default ball that is loaded in when a ball type is not provided. Try it out 
 A ball that represents a predator. Try it out with the HuntPredator interact strategy and Collision criteria strategy!
 #### Prey ball
 A ball that represents prey. Try it out in a field of other balls with the KillPrey interact strategy and Collision criteria strategy!
-#### Scavenger ball
-A ball that represents a scavenger. Try it out with the color update strategy.
+#### Party ball
+A ball that is ready to party. Try it out with the color update strategy!
 
 ### Type dependent behaviors:
 There are five different type-dependent behaviors, as described below.
@@ -43,8 +43,15 @@ This interaction strategy causes PredatorBalls to steal mass when it interacts w
 #### Kill Prey Interact Strategy:
 This interaction strategy causes the ball to kill all prey that it interacts with.
 #### Color Update Strategy:
-This update strategy flashes the color of prey balls orange, predators purple, scavengers green, and leaves everything else the same. It can be toggled on or off.
+This update strategy flashes the color of prey balls orange, predators purple, party balls every color, and leaves everything else the same.
+#### Color Update Config Algo:
+Does the same thing as Color Update Strategy, plus it can be toggled on or off.
 #### Physics Config Algo:
 This config algo sets up DefaultBalls to be planets with a gravitation pull, and everything else to be elastically bouncing balls.
+#### Same Type Criteria Strategy:
+This criteria has the ball interact a ball that it is touching that is also of the same type.
 #### Same Type Config Algo:
 This config algo takes in a provided criteria strategy (provided in the pop-up dialog box), and gives the ball a criteria strategy combining the provided one with the additional check that the other ball is of the same type.
+
+### Unexpected but correct behavior:
+Because we are now returning ABallConfigAlgos when loading in new strategies, strategies with fields now all share the same values in those fields. This is because we are creating the strategies when we first load them in, and their field values are now shared between all the balls with the same strategy instance. This is unexpected but makes sense, as we want all balls with the same configuration algorithms to share the same instance so that the control panels can update them all. The balls sharing all the other strategies is a side effective of this implementation.
