@@ -6,6 +6,8 @@
 1.  Phoebe Scaccia pys1 
 2.  Annita Chang wc45
 
+Submission date: October 2nd, 2022 Sunday.
+
 *Visitor Exercises*: Student-written visitor and accumulator code should be placed in the `model.visitors` package of the associated demo. The supplied model code is already configured to search these packages when dynamically loading visitors and accumulators. <br />
 1a. 2 visitors that have distinctly different outputs for each host: src/visitorDemonExercises/basicVisitorDemo/model/visitors/BasicVisitor1 and BasicVisitor2 give different string outputs based on hosts. <br />
 1b. 2 visitors that show both host-dependent and input parameter-dependent behavior: <br />
