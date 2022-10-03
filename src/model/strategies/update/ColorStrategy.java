@@ -7,12 +7,13 @@ import java.util.function.Supplier;
 import model.balls.IBall;
 import model.balls.PredatorBall;
 import model.balls.PreyBall;
-import model.balls.ScavengerBall;
+import model.balls.PartyBall;
 import model.visitors.algos.BallAlgo;
 import model.visitors.cmds.ABallAlgoCmd;
 import model.visitors.cmds.IBallCmd;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.utils.dispatcher.IDispatcher;
+import provided.utils.valueGenerator.impl.Randomizer;
 
 /**
  * Flashes different shades of colors every 15 frame counts, based on ball type: orange for prey, purple for predator, and green for scavenger.
@@ -111,16 +112,17 @@ public class ColorStrategy implements IUpdateStrategy {
 					}
 				});
 				// Add different behavior for ScavengerBalls
-				setCmd(ScavengerBall.id, new ABallAlgoCmd<Void, Void>() {
+				setCmd(PartyBall.id, new ABallAlgoCmd<Void, Void>() {
 
 					private static final long serialVersionUID = 6992176773986147329L;
 
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
 						if (isEnabled.get()) {
-							context.setColor(new Color(rand.nextInt(100)+100, 255, rand.nextInt(100)));
+							context.setColor(Randomizer.Singleton.randomColor());
 						}
-						return null;					}
+						return null;		
+					}
 				});
 				
 				// etc.
