@@ -54,7 +54,7 @@ Does the same thing as Color Update Strategy, plus it can be toggled on or off.
 #### Physics Config Algo:
 This config algo sets up DefaultBalls to be planets with a gravitation pull, and everything else to be elastically bouncing balls.
 #### Same Type Criteria Strategy:
-This criteria has the ball interact a ball that it is touching that is also of the same type.
+This criteria has the ball interact with a ball that it is touching that is also of the same type.
 #### Same Type Config Algo:
 This config algo takes in a provided criteria strategy (provided in the pop-up dialog box), and gives the ball a criteria strategy combining the provided one with the additional check that the other ball is of the same type.
 
