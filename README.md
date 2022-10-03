@@ -42,7 +42,7 @@ A ball that represents prey. Try it out in a field of other balls with the KillP
 A ball that is ready to party. Try it out with the color update strategy!
 
 ### Type dependent behaviors:
-There are five different type-dependent behaviors, as described below.
+There are seven different type-dependent behaviors, as described below.
 #### Hunt Predator Interact Strategy:
 This interaction strategy causes PredatorBalls to steal mass when it interacts with something. Mass increases by 5% and stops increasing when its radius reaches 75. The balls it stole mass from will disappear when its radius hits 0.
 #### Kill Prey Interact Strategy:
