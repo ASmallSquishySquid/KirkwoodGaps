@@ -2,6 +2,7 @@ package model.strategies.update;
 
 import java.awt.Color;
 import java.util.Random;
+import java.util.function.Supplier;
 
 import model.balls.IBall;
 import model.balls.PredatorBall;
@@ -15,22 +16,43 @@ import provided.utils.dispatcher.IDispatcher;
 
 /**
  * Flashes different shades of colors every 15 frame counts, based on ball type: orange for prey, purple for predator, and green for scavenger.
+ * Can be disabled.
+ * 
  * @author Annita Chang
- *
+ * @author Phoebe Scaccia
  */
 public class ColorStrategy implements IUpdateStrategy {
-	/**
-	 * An integer keeping track of the frame update counts.
-	 */
-	int count = 0;
 	/**
 	 * A Random object used to generate random color.
 	 */
 	Random rand = new Random();
 	
+	/**
+	 * The accessor for whether this strategy is enabled or not.
+	 */
+	private Supplier<Boolean> isEnabled;
+	
+	/**
+	 * Constructor for a new ColorStrategy.
+	 */
+	public ColorStrategy() {
+		super();
+		this.isEnabled = () -> true;
+	}
+	
+	/**
+	 * Constructor for a new ColorStrategy that can be disabled.
+	 * 
+	 * @param isEnabled a Supplier for a Boolean
+	 */
+	public ColorStrategy(Supplier<Boolean> isEnabled) {
+		super();
+		this.isEnabled = isEnabled;
+	}
+	
 	@Override
 	public void init(IBall context) {
-
+		return;
 	}
 	
 	@Override
@@ -48,25 +70,25 @@ public class ColorStrategy implements IUpdateStrategy {
 			
 		}) {
 
+			/**
+			 * For serialization.
+			 */
 			private static final long serialVersionUID = -4188164342674429676L;
-
-			// Add generated serialVersionUID
 
 			// Add additional commands in the "initializer block" of the ball algo's anonymous inner class
 			{
 				// Add different behavior for PreyBalls
 				setCmd(PreyBall.id, new ABallAlgoCmd<Void, Void>() {
+					/**
+					 * For serialization.
+					 */
 					private static final long serialVersionUID = -5382338068484350811L;
 
-					// Add generated serialVersionUID
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
-						count += 1;
-						if (count == 15) {
+						if (isEnabled.get()) {
 							context.setColor(new Color(255, rand.nextInt(100)+100, rand.nextInt(100)));
-							count = 0;
-						} 
-						//ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Prey balls to red.");
+						}
 						return null;
 					}
 				});
@@ -82,12 +104,9 @@ public class ColorStrategy implements IUpdateStrategy {
 
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
-						count += 1;
-						if (count == 15) {
+						if (isEnabled.get()) {
 							context.setColor(new Color(rand.nextInt(100)+100, rand.nextInt(100), 255));
-							count = 0;
-						} 
-						//ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Predator balls to blue.");
+						}
 						return null;
 					}
 				});
@@ -98,12 +117,9 @@ public class ColorStrategy implements IUpdateStrategy {
 
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
-						count += 1;
-						if (count == 15) {
+						if (isEnabled.get()) {
 							context.setColor(new Color(rand.nextInt(100)+100, 255, rand.nextInt(100)));
-							count = 0;
-						} 
-						//ILoggerControl.getSharedLogger().log(LogLevel.INFO, "Changed Scavenger balls to green.");
+						}
 						return null;					}
 				});
 				
