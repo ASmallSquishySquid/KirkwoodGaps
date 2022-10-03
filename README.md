@@ -7,6 +7,8 @@
 2.  Annita Chang wc45
 
 *Visitor Exercises*: Student-written visitor and accumulator code should be placed in the `model.visitors` package of the associated demo. The supplied model code is already configured to search these packages when dynamically loading visitors and accumulators.
+1a. 2 visitors that have distinctly different outputs for each host: src/visitorDemonExercises/basicVisitorDemo/model/visitors/BasicVisitor1 and BasicVisitor2 give different string outputs based on hosts.
+1b. 2 visitors that show both host-dependent and input parameter-dependent behavior: src/visitorDemonExercises/basicVisitorDemo/model/visitors/TxtFieldVisitor1 and TxtFieldVisitor2 gives different string outputs based both on the input parameter and hosts types. Enter verbs for TxtFieldVisitor1 and class names at rice for TxtFieldVisitor2.
 
 *Simple Extended Visitors Demo*: A demo of a simple extended visitor system is included in the `provided.simpleExtVisitorsDemo` package.  See the README in that package for instructions.  There are no required exercises associated with this demo.  It is  _highly_  recommended that one thoroughly understand how this demo works  _before_  proceeding to the extended visitor portions of this assignment!    
 
