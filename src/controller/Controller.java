@@ -55,7 +55,7 @@ public class Controller {
 
 			@Override
 			public void addConfigComponent(String label, Supplier<JComponent> compFac) {
-				view.addComponent(label, compFac.get());
+				view.addComponent(label, compFac);//				
 			}
 
 		}, new IViewUpdateAdapter() {

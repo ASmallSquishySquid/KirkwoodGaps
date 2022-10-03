@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.function.Supplier;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -20,6 +21,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import provided.utils.view.TabbedFrame;
 
 /**
  * The GUI hosting BallWorld.
@@ -213,11 +216,15 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 */
 	private final JLabel lblConfigAlgo = new JLabel("Configuration Algorithm");
 	/**
-	/**
-	 * TODO remove
 	 */
-	private final JButton btnTest = new JButton("New button");
+//	/**
+//	 * TODO remove
+//	 */
+//	private final JButton btnTest = new JButton("New button");
 
+	
+	private TabbedFrame configFrame = new TabbedFrame("Config Frame");
+	
 	/**
 	 * Create the GUI.
 	 * @param modelCtrlAdpt : the initialized control adapter.
@@ -233,7 +240,6 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 * Initializes the GUI.
 	 */
 	private void initGUI() {
-
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 500);
 		
@@ -247,14 +253,14 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		contentPane.add(canvasPnl, BorderLayout.CENTER);
 		
 		// TODO remove
-		canvasPnl.add(btnTest);
-		btnTest.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String name = JOptionPane.showInputDialog(canvasPnl,
-                        "Insert String", null);
-            }
-        });
+//		canvasPnl.add(btnTest);
+//		btnTest.addActionListener(new java.awt.event.ActionListener() {
+//            @Override
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                String name = JOptionPane.showInputDialog(canvasPnl,
+//                        "Insert String", null);
+//            }
+//        });
 		
 		controlPnl.setBackground(Color.LIGHT_GRAY);
 		controlPnl.setToolTipText("The panel with the controls.");
@@ -561,10 +567,10 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 * Adds a component to the GUI.
 	 * 
 	 * @param label the String label
-	 * @param component a Component
+	 * @param fac a Component factory
 	 */
-	public void addComponent(String label, JComponent component) {
-		component.setToolTipText(label);
-		this.contentPane.add(component);
+	public void addComponent(String label, Supplier<JComponent> fac) {
+		this.configFrame.start();
+		this.configFrame.addComponentFac(label, fac);
 	}
 }

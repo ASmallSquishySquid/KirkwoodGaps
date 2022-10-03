@@ -62,7 +62,7 @@ public class ColorStrategy implements IUpdateStrategy {
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
 						count += 1;
-						if (count == 15) {
+						if (count == 10) {
 							context.setColor(new Color(255, rand.nextInt(100)+100, rand.nextInt(100)));
 							count = 0;
 						} 
@@ -83,7 +83,7 @@ public class ColorStrategy implements IUpdateStrategy {
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
 						count += 1;
-						if (count == 15) {
+						if (count == 10) {
 							context.setColor(new Color(rand.nextInt(100)+100, rand.nextInt(100), 255));
 							count = 0;
 						} 
@@ -99,7 +99,7 @@ public class ColorStrategy implements IUpdateStrategy {
 					@Override
 					public Void apply(IBallHostID index, IBall host, Void... params) {
 						count += 1;
-						if (count == 15) {
+						if (count == 10) {
 							context.setColor(new Color(rand.nextInt(100)+100, 255, rand.nextInt(100)));
 							count = 0;
 						} 
