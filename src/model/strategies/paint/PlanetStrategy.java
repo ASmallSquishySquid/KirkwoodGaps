@@ -12,8 +12,7 @@ public class PlanetStrategy extends ImagePaintStrategy {
 	/**
 	 * An array of the paths to the possible planet images.
 	 */
-	private static final String[] planets = { "images/Earth.png", "images/Jupiter.png", "images/Mars.png",
-			"images/Venus.png" };
+	private static final String[] planets = {"images/Jupiter.png", "images/Mars.png", "images/Saturn.png"};
 
 	/**
 	 * Constructor for a new PlanetStrategy.
