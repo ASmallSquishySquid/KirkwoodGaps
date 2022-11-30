@@ -15,7 +15,6 @@ import model.adapters.IBallAlgo2ModelAdapter;
 import model.adapters.IModel2BallAdapter;
 import model.adapters.IViewControlAdapter;
 import model.adapters.IViewUpdateAdapter;
-import model.balls.DefaultBall;
 import model.balls.ErrorBall;
 import model.balls.IBall;
 import model.balls.IBallFactory;
@@ -23,12 +22,10 @@ import model.strategies.criteria.ErrorCriteriaStrategy;
 import model.strategies.criteria.ICriteriaStrategy;
 import model.strategies.interact.ErrorInteractStrategy;
 import model.strategies.interact.IInteractStrategy;
-import model.strategies.paint.BallStrategy;
 import model.strategies.paint.ErrorPaintStrategy;
 import model.strategies.paint.IPaintStrategy;
 import model.strategies.update.ErrorUpdateStrategy;
 import model.strategies.update.IUpdateStrategy;
-import model.strategies.update.StraightStrategy;
 import model.visitors.algos.AConfigBallAlgo;
 import model.visitors.algos.CompositeConfigBallAlgo;
 import model.visitors.algos.ConfigCriteriaBallAlgo;
@@ -36,9 +33,7 @@ import model.visitors.algos.ConfigInteractBallAlgo;
 import model.visitors.algos.ConfigPaintBallAlgo;
 import model.visitors.algos.ConfigUpdateBallAlgo;
 import model.visitors.algos.ErrorConfigBallAlgo;
-import model.visitors.cmds.ABallAlgoCmd;
 import model.visitors.cmds.IBallCmd;
-import provided.ballworld.extVisitors.IBallHostID;
 import provided.logger.ILoggerControl;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.dispatcher.IObserver;
@@ -70,166 +65,7 @@ public class BallModel {
 	 * The time, in milliseconds, that the GUI updates.
 	 */
 	private int timeSlice = 20;
-	/**
-	 * A strategy that clears the current strategy.
-	 */
-	private AConfigBallAlgo clearStrategy = new AConfigBallAlgo(ILoggerControl.getSharedLogger(),
-			IBallAlgo2ModelAdapter.NULL, new ABallAlgoCmd<Void, Void>() {
-				/**
-				 * For serialization.
-				 */
-				private static final long serialVersionUID = -2452545543095265330L;
-
-				@Override
-				public Void apply(IBallHostID index, IBall context, Void... params) {
-					context.setPaintStrategy(new IPaintStrategy() {
-
-						@Override
-						public void paint(Graphics g, IBall context) {
-							return;
-						}
-
-						@Override
-						public void init(IBall context) {
-							return;
-						}
-					});
-
-					context.setUpdateStrategy(new StraightStrategy());
-
-					context.setCriteriaStrategy(new ICriteriaStrategy() {
-
-						@Override
-						public boolean satisfied(IBall context, IBall target) {
-							return false;
-						}
-
-						@Override
-						public void init(IBall context) {
-							return;
-						}
-					});
-
-					context.setInteractStrategy(new IInteractStrategy<IBallCmd>() {
-
-						@Override
-						public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> dispatcher) {
-							return null;
-						}
-
-						@Override
-						public void init(IBall context) {
-							return;
-						}
-					});
-
-					return null;
-				}
-			}) {
-
-		/**
-		 * For serialization.
-		 */
-		private static final long serialVersionUID = 1L;
-
-	};
-	/**
-	 * The dummy switcher ball that hold all the strategies.
-	 */
-	private DefaultBall switcherBall = new DefaultBall(new Point(), 0, new Point(), null, null, new AConfigBallAlgo(
-			ILoggerControl.getSharedLogger(), IBallAlgo2ModelAdapter.NULL, new ABallAlgoCmd<Void, Void>() {
-				/**
-				 * For serialization.
-				 */
-				private static final long serialVersionUID = -8185269178029656500L;
-
-				@Override
-				public Void apply(IBallHostID index, IBall context, Void... params) {
-					context.execute(clearStrategy);
-					context.setPaintStrategy(new BallStrategy());
-					return null;
-				}
-			}) {
-		/**
-		 * For serialization.
-		 */
-		private static final long serialVersionUID = -1340622403010369255L;
-	}, new IModel2BallAdapter() {
-		@Override
-		public IATImage getImageWrapper(Image image) {
-			return viewCtrlAdpt.getIATImage(image);
-		}
-	});
-	/**
-	 * The one switcher update strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
-	 */
-	private IUpdateStrategy switcherUpdateStrategy = new IUpdateStrategy() {
-
-		@Override
-		public void init(IBall context) {
-			switcherBall.getUpdateStrategy().init(context);
-		}
-
-		@Override
-		public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher, boolean didBounce) {
-			// delegate to the strategy in the dummy ball
-			switcherBall.getUpdateStrategy().updateState(context, dispatcher, didBounce);
-		}
-	};
-	/**
-	 * The one switcher paint strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
-	 */
-	private IPaintStrategy switcherPaintStrategy = new IPaintStrategy() {
-
-		@Override
-		public void paint(Graphics g, IBall host) {
-			// Delegate to the strategy in the dummy ball
-			switcherBall.getPaintStrategy().paint(g, host);
-		}
-
-		@Override
-		public void init(IBall context) {
-			switcherBall.getPaintStrategy().init(context);
-		}
-	};
-	/**
-	 * The one switcher paint strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
-	 */
-	private ICriteriaStrategy switcherCriteriaStrategy = new ICriteriaStrategy() {
-
-		@Override
-		public boolean satisfied(IBall context, IBall target) {
-			return switcherBall.getCriteriaStrategy().satisfied(context, target);
-		}
-
-		@Override
-		public void init(IBall context) {
-			switcherBall.getCriteriaStrategy().init(context);
-		}
-	};
-	/**
-	 * The one switcher interact strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
-	 */
-	private IInteractStrategy<IBallCmd> switcherInteractStrategy = new IInteractStrategy<IBallCmd>() {
-
-		@Override
-		public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> dispatcher) {
-			return switcherBall.getInteractStrategy().interact(context, target, dispatcher);
-		}
-
-		@Override
-		public void init(IBall context) {
-			switcherBall.getInteractStrategy().init(context);
-		}
-	};
-	/**
-	 * The algorithm to build a new switcher ball.
-	 */
-	private AConfigBallAlgo switcherInstallAlgo = new CompositeConfigBallAlgo(
-			new ConfigUpdateBallAlgo(null, switcherUpdateStrategy),
-			new ConfigPaintBallAlgo(null, switcherPaintStrategy),
-			new ConfigInteractBallAlgo(null, switcherInteractStrategy),
-			new ConfigCriteriaBallAlgo(null, switcherCriteriaStrategy));
+	
 	/**
 	 * The IObjectLoader object which loads in paint strategies.
 	 */
@@ -338,18 +174,6 @@ public class BallModel {
 					}
 				});
 		ballDispatcher.addObserver(ball);
-	}
-
-	/**
-	 * Loads a new switcher ball.
-	 * 
-	 * @param ballFactory a ball factory
-	 */
-	public void loadSwitcherBall(IBallFactory ballFactory) {
-		if (ballFactory == null) {
-			ballFactory = IBallFactory.defaultBallFactory;
-		}
-		loadBall(ballFactory, switcherInstallAlgo);
 	}
 
 	/**
@@ -490,23 +314,6 @@ public class BallModel {
 		} else {
 			return new CompositeConfigBallAlgo(ballAlgo1.toString() + "-" + ballAlgo2.toString(), ballAlgo1, ballAlgo2);
 		}
-	}
-
-	/**
-	 * @return the switcherInstallAlgo
-	 */
-	public AConfigBallAlgo getSwitcherInstallAlgo() {
-		return switcherInstallAlgo;
-	}
-
-	/**
-	 * Switch the strategies of all the switcher balls.
-	 *
-	 * @param newAlgo a new set of strategies to use
-	 */
-	public void switchStrategy(AConfigBallAlgo newAlgo) {
-		this.switcherBall.execute(clearStrategy);
-		this.switcherBall.execute(newAlgo);
 	}
 
 	/**
