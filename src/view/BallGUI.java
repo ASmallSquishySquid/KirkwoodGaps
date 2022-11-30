@@ -66,10 +66,6 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 */
 	private final JButton btnClear = new JButton("Clear All");
 	/**
-	 * The button to make a Switcher Ball appear.
-	 */
-	private final JButton btnMakeSwitcher = new JButton("Make Switcher");
-	/**
 	 * Determines the type of the Ball created from pressing btnMakeBall, and the strategy of the Switcher Balls when btnSwitcher is pressed.
 	 */
 	private final JComboBox<TDropListItem1> boxType1 = new JComboBox<TDropListItem1>();
@@ -77,10 +73,6 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 * When btnCombine is pressed, combine boxType1 and boxType2 to make a new strategy.
 	 */
 	private final JComboBox<TDropListItem1> boxType2 = new JComboBox<TDropListItem1>();
-	/**
-	 * Switches the Switcher Balls' strategy to boxType1.
-	 */
-	private final JButton btnSwitcher = new JButton("Switch!");
 	/**
 	 * Combines boxType1 and boxType2 into a new strategy.
 	 */
@@ -106,14 +98,6 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 */
 	private IModelUpdateAdapter modelUpdtAdpt = IModelUpdateAdapter.NULL_OBJECT;
 	/**
-	 * A label that displays the current strategy for the switcher balls.
-	 */
-	private final JLabel lblSwitcherStrat = new JLabel("Default");
-	/**
-	 * A label that introduces the current strategy.
-	 */
-	private final JLabel lblSwitcherInfo = new JLabel("Current switcher strategy:");
-	/**
 	 * The panel containing the basic information.
 	 */
 	private final JPanel panelUpdateStrat = new JPanel();
@@ -121,10 +105,6 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 	 * The panel containing the dropdown selectors.
 	 */
 	private final JPanel panelDropdowns = new JPanel();
-	/**
-	 * The panel containing the switcher controls.
-	 */
-	private final JPanel panelSwitcher = new JPanel();
 	/**
 	 * The panel containing the paint strategy controls.
 	 */
@@ -480,30 +460,6 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		});
 		btnCombine.setToolTipText("Combines the strategies in boxType1 and boxType2.");
 		panelDropdowns.add(btnCombine);
-
-		panelSwitcher.setToolTipText("The switcher controls");
-		panelSwitcher.setBackground(Color.LIGHT_GRAY);
-		panelSwitcher.setLayout(new GridLayout(4, 0, 0, 5));
-
-		lblSwitcherInfo.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblSwitcherInfo.setToolTipText("Current switcher strategy::");
-		lblSwitcherInfo.setHorizontalAlignment(SwingConstants.CENTER);
-		panelSwitcher.add(lblSwitcherInfo);
-
-		lblSwitcherStrat.setVerticalAlignment(SwingConstants.TOP);
-		lblSwitcherStrat.setToolTipText("The current switcher strategy");
-		lblSwitcherStrat.setHorizontalAlignment(SwingConstants.CENTER);
-		panelSwitcher.add(lblSwitcherStrat);
-
-		btnMakeSwitcher.setBackground(Color.CYAN);
-		btnMakeSwitcher.setToolTipText("Makes a Switcher ABall.");
-		panelSwitcher.add(btnMakeSwitcher);
-
-		btnSwitcher.setBackground(Color.CYAN);
-		btnSwitcher.setToolTipText("Makes all Switcher Balls change strategy to whatever is in boxType1.");
-		panelSwitcher.add(btnSwitcher);
-
-		controlPnl.add(panelSwitcher);
 
 		btnClear.setBackground(Color.RED);
 		btnClear.addActionListener(new ActionListener() {
