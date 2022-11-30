@@ -304,25 +304,7 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	}
 
 	public boolean bounce() {
-		if (this.isTouchingLeftEdge()) { // Bounce off left wall
-			this.pos.setLocation(2 * this.radius - this.pos.getX(), this.pos.getY());
-			this.vel.x *= -1;
-			return true;
-		} else if (this.isTouchingRightEdge()) { // Bounce off right wall
-			this.pos.setLocation(2 * (getContainer().getWidth() - this.radius) - this.pos.getX(), this.pos.getY());
-			this.vel.x *= -1;
-			return true;
-		} else if (this.isTouchingTopEdge()) { // Bounce off top wall
-			this.pos.setLocation(this.pos.getX(), 2 * this.radius - this.pos.getY());
-			this.vel.y *= -1;
-			return true;
-		} else if (this.isTouchingBottomEdge()) { // Bounce off bottom wall
-			this.pos.setLocation(this.pos.getX(), 2 * (getContainer().getHeight() - this.radius) - this.pos.getY());
-			this.vel.y *= -1;
-			return true;
-		} else {
-			return false;
-		}
+		return false;
 	}
 
 	public void updateState(IDispatcher<IBallCmd> dispatcher, boolean didBounce) {

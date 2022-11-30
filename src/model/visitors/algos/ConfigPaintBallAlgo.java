@@ -8,7 +8,7 @@ import provided.ballworld.extVisitors.IBallHostID;
 import provided.logger.ILoggerControl;
 
 /**
- * COnfigures the paint strategy.
+ * Configures the paint strategy.
  * 
  * @author Phoebe Scaccia
  */

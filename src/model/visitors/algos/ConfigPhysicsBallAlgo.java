@@ -1,15 +1,10 @@
 package model.visitors.algos;
 
 import model.adapters.IBallAlgo2ModelAdapter;
-import model.balls.DefaultBall;
 import model.balls.IBall;
-import model.strategies.criteria.CollisionStrategy;
 import model.strategies.criteria.EverywhereStrategy;
-import model.strategies.interact.ElasticStrategy;
 import model.strategies.interact.GravitationStrategy;
-import model.strategies.paint.BallStrategy;
 import model.strategies.paint.PlanetStrategy;
-import model.strategies.update.GravityStrategy;
 import model.visitors.cmds.ABallAlgoCmd;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.logger.ILogger;
@@ -38,21 +33,6 @@ public class ConfigPhysicsBallAlgo extends AConfigBallAlgo {
 		super(logger, name, algo2ModelAdpt);
 
 		setDefaultCmd(new ABallAlgoCmd<Void, Void>() {
-			/**
-			 * For serialization.
-			 */
-			private static final long serialVersionUID = -3088873918774070128L;
-
-			public Void apply(IBallHostID index, IBall context, Void... params) {
-				installPaintStrategy(context, new BallStrategy());
-				installUpdateStrategy(context, new GravityStrategy());
-				installCriteriaStrategy(context, new CollisionStrategy());
-				installInteractStrategy(context, new ElasticStrategy());
-				return null;
-			}
-		});
-
-		setCmd(DefaultBall.id, new ABallAlgoCmd<Void, Void>() {
 			/**
 			 * For serialization.
 			 */

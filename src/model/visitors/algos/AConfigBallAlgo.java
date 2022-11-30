@@ -7,7 +7,6 @@ import model.strategies.criteria.ICriteriaStrategy;
 import model.strategies.interact.CompositeInteractStrategy;
 import model.strategies.interact.IInteractStrategy;
 import model.strategies.paint.IPaintStrategy;
-import model.strategies.update.CompositeUpdateStrategy;
 import model.strategies.update.IUpdateStrategy;
 import model.visitors.cmds.ABallAlgoCmd;
 import model.visitors.cmds.IBallCmd;
@@ -102,7 +101,7 @@ public abstract class AConfigBallAlgo extends BallAlgo<Void, Void> implements IC
 	 */
 	protected void installUpdateStrategy(IBall host, IUpdateStrategy newStrat) {
 		// Make composite with existing strategy
-		host.setUpdateStrategy(new CompositeUpdateStrategy(host.getUpdateStrategy(), newStrat));
+		host.setUpdateStrategy(newStrat);
 	}
 
 	/**
