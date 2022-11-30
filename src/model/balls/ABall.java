@@ -356,40 +356,4 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 		return this.getInteractStrategy().interact(this, target, disp);
 	}
 
-	/**
-	 * Checks if the ball is crossing the top boundary.
-	 *
-	 * @return <code>true</code> if the ball is crossing the boundary, <code>false</code> otherwise
-	 */
-	private boolean isTouchingTopEdge() {
-		return this.pos.y - this.getRadius() <= 0;
-	}
-
-	/**
-	 * Checks if the ball is crossing the bottom boundary.
-	 *
-	 * @return <code>true</code> if the ball is crossing the boundary, <code>false</code> otherwise
-	 */
-	private boolean isTouchingBottomEdge() {
-		return this.pos.y + this.getRadius() >= this.getContainer().getHeight();
-	}
-
-	/**
-	 * Checks if the ball is crossing the left boundary.
-	 *
-	 * @return <code>true</code> if the ball is crossing the boundary, <code>false</code> otherwise
-	 */
-	private boolean isTouchingLeftEdge() {
-		return this.pos.x - this.getRadius() <= 0;
-	}
-
-	/**
-	 * Checks if the ball is crossing the right boundary.
-	 *
-	 * @return <code>true</code> if the ball is crossing the boundary, <code>false</code> otherwise
-	 */
-	private boolean isTouchingRightEdge() {
-		return this.pos.x + this.getRadius() >= this.getContainer().getWidth();
-	}
-
 }
