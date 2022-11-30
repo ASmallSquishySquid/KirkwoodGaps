@@ -86,13 +86,6 @@ public interface IModelControlAdapter<TDropListItem1, TDropListItem2> {
 	public TDropListItem2 addBallType(String typename);
 
 	/**
-	 * Adds a switcher ball to the screen.
-	 * 
-	 * @param selectedItem the selected ball type
-	 */
-	public void makeSwitcherBall(TDropListItem2 selectedItem);
-
-	/**
 	 * Tells the model to clear the balls.
 	 */
 	public void clearBalls();
@@ -113,12 +106,6 @@ public interface IModelControlAdapter<TDropListItem1, TDropListItem2> {
 	public TDropListItem1 combineStrategies(TDropListItem1 selectedItem1, TDropListItem1 selectedItem2);
 
 	/**
-	 * Makes all Switcher Balls switch their strategies to selectedItem.
-	 * @param selectedItem : an object from the top drop list.
-	 */
-	public void switchStrategy(TDropListItem1 selectedItem);
-
-	/**
 	 * Default null object for the adapter.
 	 * @param <TDropListItem1> the type of options in the algo lists
 	 * @param <TDropListItem2> the type of options in the ball type list
@@ -132,10 +119,6 @@ public interface IModelControlAdapter<TDropListItem1, TDropListItem2> {
 			}
 
 			@Override
-			public void makeSwitcherBall(TDropListItem2 selectedItem) {
-			}
-
-			@Override
 			public void clearBalls() {
 			}
 
@@ -146,10 +129,6 @@ public interface IModelControlAdapter<TDropListItem1, TDropListItem2> {
 			@Override
 			public TDropListItem1 combineStrategies(TDropListItem1 selectedItem1, TDropListItem1 selectedItem2) {
 				return null;
-			}
-
-			@Override
-			public void switchStrategy(TDropListItem1 selectedItem) {
 			}
 
 			@Override

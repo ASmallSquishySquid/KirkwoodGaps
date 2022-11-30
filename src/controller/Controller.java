@@ -101,11 +101,6 @@ public class Controller {
 					}
 
 					@Override
-					public void makeSwitcherBall(IBallFactory selectedItem) {
-						model.loadSwitcherBall(selectedItem);
-					}
-
-					@Override
 					public void clearBalls() {
 						model.clearBalls();
 					}
@@ -119,11 +114,6 @@ public class Controller {
 					public AConfigBallAlgo combineStrategies(AConfigBallAlgo selectedItem1,
 							AConfigBallAlgo selectedItem2) {
 						return model.combineStrategyAlgos(selectedItem1, selectedItem2);
-					}
-
-					@Override
-					public void switchStrategy(AConfigBallAlgo selectedItem) {
-						model.switchStrategy(selectedItem);
 					}
 
 					@Override

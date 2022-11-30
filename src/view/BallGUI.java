@@ -496,23 +496,10 @@ public class BallGUI<TDropListItem1, TDropListItem2> extends JFrame {
 		panelSwitcher.add(lblSwitcherStrat);
 
 		btnMakeSwitcher.setBackground(Color.CYAN);
-		btnMakeSwitcher.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				modelCtrlAdpt.makeSwitcherBall(boxBallType.getItemAt(boxBallType.getSelectedIndex()));
-			}
-		});
 		btnMakeSwitcher.setToolTipText("Makes a Switcher ABall.");
 		panelSwitcher.add(btnMakeSwitcher);
 
 		btnSwitcher.setBackground(Color.CYAN);
-		btnSwitcher.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				modelCtrlAdpt.switchStrategy(boxType1.getItemAt(boxType1.getSelectedIndex()));
-				lblSwitcherStrat.setText(boxType1.getItemAt(boxType1.getSelectedIndex()).toString());
-			}
-		});
 		btnSwitcher.setToolTipText("Makes all Switcher Balls change strategy to whatever is in boxType1.");
 		panelSwitcher.add(btnSwitcher);
 
