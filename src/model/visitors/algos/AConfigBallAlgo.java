@@ -2,9 +2,7 @@ package model.visitors.algos;
 
 import model.adapters.IBallAlgo2ModelAdapter;
 import model.balls.IBall;
-import model.strategies.criteria.CompositeCriteriaStrategy;
 import model.strategies.criteria.ICriteriaStrategy;
-import model.strategies.interact.CompositeInteractStrategy;
 import model.strategies.interact.IInteractStrategy;
 import model.strategies.paint.IPaintStrategy;
 import model.strategies.update.IUpdateStrategy;
@@ -121,7 +119,7 @@ public abstract class AConfigBallAlgo extends BallAlgo<Void, Void> implements IC
 	 */
 	protected void installCriteriaStrategy(IBall host, ICriteriaStrategy newStrat) {
 		// Make composite with existing strategy
-		host.setCriteriaStrategy(new CompositeCriteriaStrategy(host.getCriteriaStrategy(), newStrat));
+		host.setCriteriaStrategy(newStrat);
 	}
 
 	/**
@@ -131,6 +129,6 @@ public abstract class AConfigBallAlgo extends BallAlgo<Void, Void> implements IC
 	 */
 	protected void installInteractStrategy(IBall host, IInteractStrategy<IBallCmd> newStrat) {
 		// Make composite with existing strategy
-		host.setInteractStrategy(new CompositeInteractStrategy(host.getInteractStrategy(), newStrat));
+		host.setInteractStrategy(newStrat);
 	}
 }

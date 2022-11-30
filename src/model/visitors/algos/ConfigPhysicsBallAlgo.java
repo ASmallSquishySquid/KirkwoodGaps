@@ -4,7 +4,7 @@ import model.adapters.IBallAlgo2ModelAdapter;
 import model.balls.IBall;
 import model.strategies.criteria.EverywhereStrategy;
 import model.strategies.interact.GravitationStrategy;
-import model.strategies.paint.PlanetStrategy;
+import model.strategies.paint.MarsStrategy;
 import model.visitors.cmds.ABallAlgoCmd;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.logger.ILogger;
@@ -40,7 +40,7 @@ public class ConfigPhysicsBallAlgo extends AConfigBallAlgo {
 
 			public Void apply(IBallHostID index, IBall context, Void... params) {
 				installCriteriaStrategy(context, new EverywhereStrategy());
-				installPaintStrategy(context, new PlanetStrategy());
+				installPaintStrategy(context, new MarsStrategy());
 				installInteractStrategy(context, new GravitationStrategy());
 				return null;
 			}
