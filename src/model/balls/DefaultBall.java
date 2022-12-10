@@ -34,7 +34,7 @@ public class DefaultBall extends ABall {
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
 	public DefaultBall(Point p, int r, Point v, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
-		super(id, p, r, v, container, installAlgo, modelAdapter);
+		super(id, p, r, 0, v, container, installAlgo, modelAdapter);
 	}
 
 }

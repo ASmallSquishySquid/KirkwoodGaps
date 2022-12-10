@@ -31,22 +31,32 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * For serialization.
 	 */
 	private static final long serialVersionUID = -5595019792800389696L;
+	
 	/**
 	 * The ABall's position.
 	 */
 	private Point2D.Double pos;
+	
 	/**
 	 * The ABall's radius.
 	 */
 	private int radius;
+	
+	/**
+	 * The mass of the object.
+	 */
+	private double mass;
+	
 	/**
 	 * The ABall's velocity.
 	 */
 	private Point2D.Double vel;
+	
 	/**
 	 * The Component the ABall is in.
 	 */
 	private Component container;
+	
 	/**
 	 * The ABall's paint strategy.
 	 */
@@ -109,6 +119,7 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * The logger to be used by all the strategies.
 	 */
 	private ILogger logger = ILoggerControl.getSharedLogger();
+	
 	/**
 	 * The adapter to the model.
 	 */
@@ -120,12 +131,13 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * @param id the subclass ID
 	 * @param p the ABall's position.
 	 * @param r the ABall's radius.
+	 * @param mass the mass of this ball
 	 * @param v the ABall's velocity.
 	 * @param container the ABall's container.
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	protected ABall(IBallHostID id, Point p, int r, Point v, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+	protected ABall(IBallHostID id, Point p, int r, double mass, Point v, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
 		super(id);
 		this.pos = new Point2D.Double(p.x, p.y);
 		this.radius = r;
@@ -325,6 +337,16 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	@Override
 	public IBallCmd interactWith(IBall target, IDispatcher<IBallCmd> disp) {
 		return this.getInteractStrategy().interact(this, target, disp);
+	}
+
+	@Override
+	public double getMass() {
+		return mass;
+	}
+
+	@Override
+	public void setMass(double mass) {
+		this.mass = mass;
 	}
 
 }

@@ -27,7 +27,7 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 	@Override
 	public IBallCmd interact(IBall context, IBall target, IDispatcher<IBallCmd> dispatcher) {
 		// Model the ball's "mass" as desired, e.g. proportional to ball's area
-		double contextMass = Math.PI * (context.getRadius() * context.getRadius());
+		double contextMass = context.getMass();
 		double dist = context.getLocation().distance(target.getLocation());
 
 		return new IBallCmd() {
@@ -40,7 +40,7 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 
 					// Calculate the necessary combinations.
 
-					double targetMass = Math.PI * (target.getRadius() * target.getRadius());
+					double targetMass = target.getMass();
 					int combinedRadius = (int) Math.round(Math.sqrt((contextMass + targetMass) / Math.PI));
 					Point2D.Double combinedVelocity = calcCombinedVelocity(contextBall, target);
 

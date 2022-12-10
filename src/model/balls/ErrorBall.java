@@ -37,7 +37,7 @@ public class ErrorBall extends ABall {
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
 	public ErrorBall(Point p, int r, Point v, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
-		super(id, p, r, v, container, new ErrorConfigBallAlgo(), modelAdapter);
+		super(id, p, r, 0, v, container, new ErrorConfigBallAlgo(), modelAdapter);
 	}
 
 }
