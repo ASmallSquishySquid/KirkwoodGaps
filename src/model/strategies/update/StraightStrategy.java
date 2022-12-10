@@ -20,7 +20,7 @@ public class StraightStrategy implements IUpdateStrategy {
 	 * Does nothing.
 	 */
 	@Override
-	public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher, boolean didBounce) {
+	public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher) {
 		return;
 	}
 

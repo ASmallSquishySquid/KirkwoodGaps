@@ -303,12 +303,8 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 		this.pos.y += this.vel.y;
 	}
 
-	public boolean bounce() {
-		return false;
-	}
-
-	public void updateState(IDispatcher<IBallCmd> dispatcher, boolean didBounce) {
-		this.updateStrategy.updateState(this, dispatcher, didBounce);
+	public void updateState(IDispatcher<IBallCmd> dispatcher) {
+		this.updateStrategy.updateState(this, dispatcher);
 	}
 
 	public void paint(Graphics g) {

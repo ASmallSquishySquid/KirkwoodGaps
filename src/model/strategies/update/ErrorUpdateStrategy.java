@@ -62,7 +62,7 @@ public class ErrorUpdateStrategy implements IUpdateStrategy {
 	}
 
 	@Override
-	public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher, boolean didBounce) {
+	public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher) {
 		if (updates == 0) {
 			context.getLogger().log(LogLevel.INFO, "THAT IS NOT A BALL!");
 			java.awt.Toolkit.getDefaultToolkit().beep();

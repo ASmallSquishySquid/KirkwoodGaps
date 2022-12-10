@@ -39,19 +39,11 @@ public interface IBall extends IObserver<IBallCmd>, IBallHost<IBall> {
 	public void move();
 
 	/**
-	 * Determines if a ball should bounce. If it should, set its position and velocity accordingly.
-	 *
-	 * @return true if the ball bounced, false otherwise.
-	 */
-	public boolean bounce();
-
-	/**
 	 * Updates the state of the ball.
 	 *
 	 * @param dispatcher the dispatcher holding this ball
-	 * @param didBounce whether the ball just bounced or not
 	 */
-	public void updateState(IDispatcher<IBallCmd> dispatcher, boolean didBounce);
+	public void updateState(IDispatcher<IBallCmd> dispatcher);
 
 	/**
 	 * Paints the ABall.

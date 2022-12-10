@@ -24,8 +24,7 @@ public interface IUpdateStrategy {
 	 *
 	 * @param context a ABall object
 	 * @param dispatcher a Dispatcher object containing the ball <code>context</code>
-	 * @param didBounce whether the <code>context</code> just bounced
 	 */
-	public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher, boolean didBounce);
+	public void updateState(IBall context, IDispatcher<IBallCmd> dispatcher);
 
 }

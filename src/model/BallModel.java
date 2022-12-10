@@ -187,8 +187,7 @@ public class BallModel {
 			public void apply(IBall context, IDispatcher<IBallCmd> disp) {
 				context.move();
 				context.interact(disp);
-				boolean didBounce = context.bounce();
-				context.updateState(disp, didBounce);
+				context.updateState(disp);
 				context.paint(g);
 			}
 
