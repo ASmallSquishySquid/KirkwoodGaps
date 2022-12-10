@@ -34,6 +34,13 @@ public abstract class AConfigBallAlgo extends BallAlgo<Void, Void> implements IC
 	protected ILogger logger = ILoggerControl.getSharedLogger();
 
 	/**
+	 * Constructs a basic configuration algorithm.
+	 */
+	public AConfigBallAlgo() {
+		super(ABallAlgoCmd.MakeNull());
+	}
+	
+	/**
 	 * Constructs a configuration algorithm with a no-op default case and the given adapter to the model.
 	 * Use this constructor when the default case command needs to reference instance fields and methods of 
 	 * the configuration algorithm.   In that scenario, setDefaultCmd() must be explicitly called to 

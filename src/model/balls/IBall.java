@@ -71,12 +71,12 @@ public interface IBall extends IObserver<IBallCmd>, IBallHost<IBall> {
 	/**
 	 * @return the ABall's radius.
 	 */
-	int getRadius();
+	double getRadius();
 
 	/**
 	 * @param radius : the ABall's new radius.
 	 */
-	void setRadius(int radius);
+	void setRadius(double radius);
 	
 	/**
 	 * @return the mass

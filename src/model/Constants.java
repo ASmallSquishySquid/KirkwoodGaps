@@ -28,7 +28,7 @@ public class Constants {
 	/**
 	 * The position of the sun in the GUI.
 	 */
-	public static Point2D.Double sunPosition = new Point2D.Double();
+	public static Point2D.Double sunPosition = new Point2D.Double(100, 100);
 	
 	/**
 	 * Calculates the starting position.
@@ -38,7 +38,7 @@ public class Constants {
 	 * @return the starting velocity as a Point2D.Double
 	 */
 	public static Point2D.Double calculateStartingPosition(double distance, double angle) {
-		Point2D.Double position = new Point2D.Double(distance, 0);
+		Point2D.Double position = new Point2D.Double(distance / kmToPixels, 0);
 		
 		VectorUtil.Singleton.rotate(position, angle);
 		

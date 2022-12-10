@@ -40,7 +40,7 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	/**
 	 * The ABall's radius.
 	 */
-	private int radius;
+	private double radius;
 	
 	/**
 	 * The mass of the object.
@@ -137,11 +137,11 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	protected ABall(IBallHostID id, double distance, double angle, int radius, double mass, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+	protected ABall(IBallHostID id, double distance, double angle, double radius, double mass, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
 		super(id);
 		this.pos = Constants.calculateStartingPosition(distance, angle);
 		this.vel = Constants.calculateVelocity(distance, angle);
-		this.radius = radius;
+		this.radius = radius / Constants.kmToPixels;
 		this.mass = mass;
 		this.container = container;
 		this.modelAdapter = modelAdapter;
@@ -173,7 +173,7 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * @return the ABall's radius.
 	 */
 	@Override
-	public int getRadius() {
+	public double getRadius() {
 		return this.radius;
 	}
 
@@ -181,7 +181,7 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * @param radius : the ABall's new radius.
 	 */
 	@Override
-	public void setRadius(int radius) {
+	public void setRadius(double radius) {
 		this.radius = radius;
 	}
 

@@ -28,7 +28,7 @@ public class BallStrategy implements IPaintStrategy {
 	 */
 	@Override
 	public void paint(Graphics g, IBall context) {
-		int radius = context.getRadius();
+		int radius = (int) context.getRadius();
 		Point2D location = context.getLocation();
 
 		g.fillOval((int) (location.getX() - radius), (int) (location.getY() - radius), 2 * radius, 2 * radius);

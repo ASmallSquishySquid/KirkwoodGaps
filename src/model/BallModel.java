@@ -15,6 +15,7 @@ import model.adapters.IViewUpdateAdapter;
 import model.balls.ErrorBall;
 import model.balls.IBall;
 import model.balls.IBallFactory;
+import model.balls.SunBall;
 import model.strategies.criteria.ErrorCriteriaStrategy;
 import model.strategies.criteria.ICriteriaStrategy;
 import model.strategies.interact.ErrorInteractStrategy;
@@ -131,21 +132,14 @@ public class BallModel {
 	 * @param ballAlgo an algorithm to configure the ball
 	 */
 	public void loadBall(IBallFactory ballFactory, AConfigBallAlgo ballAlgo) {
-		if (ballAlgo == null) {
-			ballAlgo = new ConfigUpdateBallAlgo(null, new ErrorUpdateStrategy());
-		}
-
-		if (ballFactory == null) {
-			ballFactory = IBallFactory.defaultBallFactory;
-		}
-
-		IObserver<IBallCmd> ball = ballFactory.make(0, 0, 0, 0, viewCtrlAdpt.getCanvas(),
-				ballAlgo, new IModel2BallAdapter() {
-					@Override
-					public IATImage getImageWrapper(Image image) {
-						return viewCtrlAdpt.getIATImage(image);
-					}
-				});
+		
+		IObserver<IBallCmd> ball = new SunBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
+			@Override
+			public IATImage getImageWrapper(Image image) {
+				return viewCtrlAdpt.getIATImage(image);
+			}
+		});
+		
 		ballDispatcher.addObserver(ball);
 	}
 
