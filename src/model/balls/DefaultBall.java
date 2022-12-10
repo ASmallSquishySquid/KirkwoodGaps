@@ -1,8 +1,6 @@
 package model.balls;
 
 import java.awt.Component;
-import java.awt.Point;
-
 import model.adapters.IModel2BallAdapter;
 import model.visitors.algos.AConfigBallAlgo;
 import provided.ballworld.extVisitors.IBallHostID;
@@ -26,15 +24,16 @@ public class DefaultBall extends ABall {
 	/**
 	 * Constructor for a new DefaultBall.
 	 * 
-	 * @param p the ABall's position.
-	 * @param r the ABall's radius.
-	 * @param v the ABall's velocity.
+	 * @param distance the ABall's position.
+	 * @param angle the starting angle around the sun in radians
+	 * @param radius the ABall's radius.
+	 * @param mass the mass of this ball
 	 * @param container the ABall's container.
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	public DefaultBall(Point p, int r, Point v, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
-		super(id, p, r, 0, v, container, installAlgo, modelAdapter);
+	public DefaultBall(double distance, double angle, int radius, double mass, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+		super(id, distance, angle, radius, mass, container, installAlgo, modelAdapter);
 	}
 
 }

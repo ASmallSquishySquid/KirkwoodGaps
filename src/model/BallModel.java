@@ -1,11 +1,8 @@
 package model;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
-import java.awt.Rectangle;
 import java.util.function.Supplier;
 
 import javax.swing.JComponent;
@@ -41,26 +38,11 @@ import provided.utils.dispatcher.impl.SequentialDispatcher;
 import provided.utils.displayModel.IATImage;
 import provided.utils.loader.IObjectLoader;
 import provided.utils.loader.impl.ObjectLoader;
-import provided.utils.valueGenerator.IRandomizer;
-import provided.utils.valueGenerator.impl.Randomizer;
 
 /**
  * The BallModel class.
  */
 public class BallModel {
-
-	/**
-	 * The maximum radius of a ABall allowed.
-	 */
-	private int maxRadius = 30;
-	/**
-	 * THe minimum radius of a ABall allowed.
-	 */
-	private int minRadius = 5;
-	/**
-	 * The maximum speed allowed for a ABall.
-	 */
-	private int maxSpeed = 10;
 	/**
 	 * The time, in milliseconds, that the GUI updates.
 	 */
@@ -99,7 +81,7 @@ public class BallModel {
 	 * The IObjectLoader object which loads in ball types.
 	 */
 	private IObjectLoader<IBall> ballTypeLoader = new ObjectLoader<IBall>(
-			(attempt, args) -> new ErrorBall(new Point(0, 0), 0, new Point(0, 0), null, null, null));
+			(attempt, args) -> new ErrorBall(0, 0, 0, 0, null, null));
 
 	/**
 	 * The IDispatcher whose IObservers are ABall objects.
@@ -157,16 +139,7 @@ public class BallModel {
 			ballFactory = IBallFactory.defaultBallFactory;
 		}
 
-		// Generate a new ball with random parameters.
-
-		IRandomizer r = Randomizer.Singleton;
-
-		Point position = r.randomLoc(viewCtrlAdpt.getCanvas().getSize());
-		int radius = r.randomInt(minRadius, maxRadius);
-		Point velocity = r.randomVel(new Rectangle(maxSpeed, maxSpeed));
-		Color color = r.randomColor();
-
-		IObserver<IBallCmd> ball = ballFactory.make(position, radius, velocity, color, viewCtrlAdpt.getCanvas(),
+		IObserver<IBallCmd> ball = ballFactory.make(0, 0, 0, 0, viewCtrlAdpt.getCanvas(),
 				ballAlgo, new IModel2BallAdapter() {
 					@Override
 					public IATImage getImageWrapper(Image image) {
@@ -282,11 +255,11 @@ public class BallModel {
 	 */
 	public IBallFactory makeBallFactory(final String classname) {
 		return new IBallFactory() {
-
+			
 			@Override
-			public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
-					IModel2BallAdapter modelAdapter) {
-				return loadBallType(fixBallTypeName(classname), p, r, v, c, container, installAlgo, modelAdapter);
+			public IBall make(double distance, double angle, int radius, double mass, Component container,
+					AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+				return loadBallType(fixBallTypeName(classname), distance, angle, radius, mass, container, installAlgo, modelAdapter);
 			}
 
 			@Override

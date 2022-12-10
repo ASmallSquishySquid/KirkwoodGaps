@@ -1,10 +1,7 @@
 package model.balls;
 
 import java.awt.Component;
-import java.awt.Point;
-
 import model.adapters.IModel2BallAdapter;
-import model.visitors.algos.AConfigBallAlgo;
 import model.visitors.algos.ErrorConfigBallAlgo;
 import provided.ballworld.extVisitors.IBallHostID;
 import provided.ballworld.extVisitors.impl.BallHostIDFactory;
@@ -29,15 +26,15 @@ public class ErrorBall extends ABall {
 	/**
 	 * Constructor for a new ErrorBall.
 	 * 
-	 * @param p the position.
-	 * @param r the radius.
-	 * @param v the velocity.
-	 * @param container the container.
-	 * @param installAlgo the algo to complete the installation of strategies and any other desired operations
+	 * @param distance the ABall's position.
+	 * @param angle the starting angle around the sun in radians
+	 * @param radius the ABall's radius.
+	 * @param mass the mass of this ball
+	 * @param container the ABall's container.
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	public ErrorBall(Point p, int r, Point v, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
-		super(id, p, r, 0, v, container, new ErrorConfigBallAlgo(), modelAdapter);
+	public ErrorBall(double distance, double angle, int radius, double mass, Component container, IModel2BallAdapter modelAdapter) {
+		super(id, distance, angle, radius, mass, container, new ErrorConfigBallAlgo(), modelAdapter);
 	}
 
 }

@@ -3,9 +3,9 @@ package model.balls;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
 import java.awt.geom.Point2D;
 
+import model.Constants;
 import model.adapters.IModel2BallAdapter;
 import model.strategies.criteria.ICriteriaStrategy;
 import model.strategies.interact.IInteractStrategy;
@@ -129,20 +129,21 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * Constructor for an ABall.
 	 * 
 	 * @param id the subclass ID
-	 * @param p the ABall's position.
-	 * @param r the ABall's radius.
+	 * @param distance the ABall's position.
+	 * @param angle the starting angle around the sun in radians
+	 * @param radius the ABall's radius.
 	 * @param mass the mass of this ball
-	 * @param v the ABall's velocity.
 	 * @param container the ABall's container.
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	protected ABall(IBallHostID id, Point p, int r, double mass, Point v, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+	protected ABall(IBallHostID id, double distance, double angle, int radius, double mass, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
 		super(id);
-		this.pos = new Point2D.Double(p.x, p.y);
-		this.radius = r;
-		this.vel = new Point2D.Double(v.x, v.y);
-		this.setContainer(container);
+		this.pos = Constants.calculateStartingPosition(distance, angle);
+		this.vel = Constants.calculateVelocity(distance, angle);
+		this.radius = radius;
+		this.mass = mass;
+		this.container = container;
 		this.modelAdapter = modelAdapter;
 		this.execute(installAlgo);
 	}

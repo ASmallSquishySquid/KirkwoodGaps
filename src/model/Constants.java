@@ -31,6 +31,25 @@ public class Constants {
 	public static Point2D.Double sunPosition = new Point2D.Double();
 	
 	/**
+	 * Calculates the starting position.
+	 *
+	 * @param distance the distance from the sun in km
+	 * @param angle the angle around the sun in radians
+	 * @return the starting velocity as a Point2D.Double
+	 */
+	public static Point2D.Double calculateStartingPosition(double distance, double angle) {
+		Point2D.Double position = new Point2D.Double(distance, 0);
+		
+		VectorUtil.Singleton.rotate(position, angle);
+		
+		position.x += Constants.sunPosition.x;
+		position.y += Constants.sunPosition.y;
+		
+		return position;
+		
+	}
+	
+	/**
 	 * Calculates the starting velocity.
 	 *
 	 * @param distance the distance from the sun in km

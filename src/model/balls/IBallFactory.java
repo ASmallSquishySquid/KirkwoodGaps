@@ -1,9 +1,6 @@
 package model.balls;
 
-import java.awt.Color;
 import java.awt.Component;
-import java.awt.Point;
-
 import model.adapters.IModel2BallAdapter;
 import model.visitors.algos.AConfigBallAlgo;
 
@@ -16,17 +13,17 @@ public interface IBallFactory {
 	/**
 	 * Makes a new ball.
 	 *
-	 * @param p the position.
-	 * @param r the radius.
-	 * @param v the velocity.
-	 * @param c the color.
-	 * @param container the container.
+	 * @param distance the ABall's position.
+	 * @param angle the starting angle around the sun in radians
+	 * @param radius the ABall's radius.
+	 * @param mass the mass of this ball
+	 * @param container the ABall's container.
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 * @return an IBall
 	 */
-	public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
-			IModel2BallAdapter modelAdapter);
+	public IBall make(double distance, double angle, int radius, double mass, Component container, 
+			AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter);
 
 	@Override
 	public String toString();
@@ -37,9 +34,8 @@ public interface IBallFactory {
 	public static IBallFactory errorBallFactory = new IBallFactory() {
 
 		@Override
-		public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
-				IModel2BallAdapter modelAdapter) {
-			return new ErrorBall(p, r, v, container, installAlgo, modelAdapter);
+		public IBall make(double distance, double angle, int radius, double mass, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+			return new ErrorBall(distance, angle, radius, mass, container, modelAdapter);
 		}
 
 		@Override
@@ -54,9 +50,8 @@ public interface IBallFactory {
 	public static IBallFactory defaultBallFactory = new IBallFactory() {
 
 		@Override
-		public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
-				IModel2BallAdapter modelAdapter) {
-			return new DefaultBall(p, r, v, container, installAlgo, modelAdapter);
+		public IBall make(double distance, double angle, int radius, double mass, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+			return new DefaultBall(distance, angle, radius, mass, container, installAlgo, modelAdapter);
 		}
 
 		@Override
