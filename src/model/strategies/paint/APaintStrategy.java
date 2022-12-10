@@ -37,7 +37,6 @@ public abstract class APaintStrategy implements IPaintStrategy {
 		this.at.setToTranslation(context.getLocation().x, context.getLocation().y);
 		this.at.scale(scale, scale);
 		this.at.rotate(context.getVelocity().x, context.getVelocity().y);
-		g.setColor(context.getColor());
 		this.paintCfg(g, context);
 		this.paintTransform(g, context, this.at);
 	}

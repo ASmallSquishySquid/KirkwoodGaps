@@ -1,6 +1,5 @@
 package model.balls;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -25,7 +24,6 @@ import provided.utils.displayModel.IATImage;
 /**
  * Class for a ABall object.
  *
- * @author Tim Louie
  * @author Phoebe Scaccia
  */
 public abstract class ABall extends ABallHost<IBall> implements IBall {
@@ -45,10 +43,6 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * The ABall's velocity.
 	 */
 	private Point2D.Double vel;
-	/**
-	 * The ABall's color.
-	 */
-	private Color color;
 	/**
 	 * The Component the ABall is in.
 	 */
@@ -127,18 +121,15 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	 * @param p the ABall's position.
 	 * @param r the ABall's radius.
 	 * @param v the ABall's velocity.
-	 * @param c the ABall's color.
 	 * @param container the ABall's container.
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	protected ABall(IBallHostID id, Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
-			IModel2BallAdapter modelAdapter) {
+	protected ABall(IBallHostID id, Point p, int r, Point v, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
 		super(id);
 		this.pos = new Point2D.Double(p.x, p.y);
 		this.radius = r;
 		this.vel = new Point2D.Double(v.x, v.y);
-		this.color = c;
 		this.setContainer(container);
 		this.modelAdapter = modelAdapter;
 		this.execute(installAlgo);
@@ -195,22 +186,6 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 	@Override
 	public void setVelocity(Point2D.Double velocity) {
 		this.vel = velocity;
-	}
-
-	/**
-	 * @return the ABall's color.
-	 */
-	@Override
-	public Color getColor() {
-		return new Color(this.color.getRed(), this.color.getGreen(), this.color.getBlue(), this.color.getAlpha());
-	}
-
-	/**
-	 * @param color : the ABall's new color.
-	 */
-	@Override
-	public void setColor(Color color) {
-		this.color = color;
 	}
 
 	/**

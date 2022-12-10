@@ -1,6 +1,5 @@
 package model.strategies.interact;
 
-import java.awt.Color;
 import java.awt.geom.Point2D;
 
 import model.balls.ABall;
@@ -44,7 +43,6 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 					double targetMass = Math.PI * (target.getRadius() * target.getRadius());
 					int combinedRadius = (int) Math.round(Math.sqrt((contextMass + targetMass) / Math.PI));
 					Point2D.Double combinedVelocity = calcCombinedVelocity(contextBall, target);
-					Color combinedColor = calcCombinedColor(contextBall, target);
 
 					// Check which ball needs to be removed.
 
@@ -52,12 +50,10 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 						disp.removeObserver((ABall) target);
 						contextBall.setRadius(combinedRadius);
 						contextBall.setVelocity(combinedVelocity);
-						contextBall.setColor(combinedColor);
 					} else {
 						disp.removeObserver((ABall) contextBall);
 						target.setRadius(combinedRadius);
 						target.setVelocity(combinedVelocity);
-						target.setColor(combinedColor);
 					}
 				} else {
 
@@ -127,33 +123,6 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 						/ (contextMass + targetMass),
 				(contextMass * context.getVelocity().y + targetMass * target.getVelocity().y)
 						/ (contextMass + targetMass));
-	}
-
-	/**
-	 * Calculates the combined colors of the balls.
-	 *
-	 * @param context an IBall
-	 * @param target an IBall
-	 * @return a color that is the weighted average of the two colors
-	 */
-	private Color calcCombinedColor(IBall context, IBall target) {
-		double contextMass = Math.PI * (context.getRadius() * context.getRadius());
-		double targetMass = Math.PI * (target.getRadius() * target.getRadius());
-		Color contextColor = context.getColor();
-		Color targetColor = target.getColor();
-
-		// Calculate the weighted colors.
-
-		int red = (int) Math.round(
-				(contextMass * contextColor.getRed() + targetMass * targetColor.getRed()) / (contextMass + targetMass));
-		int green = (int) Math.round((contextMass * contextColor.getGreen() + targetMass * targetColor.getGreen())
-				/ (contextMass + targetMass));
-		int blue = (int) Math.round((contextMass * contextColor.getBlue() + targetMass * targetColor.getBlue())
-				/ (contextMass + targetMass));
-		int alpha = Math
-				.min((int) Math.round(2 * (contextMass * contextColor.getAlpha() + targetMass * targetColor.getAlpha())
-						/ (contextMass + targetMass)), 255);
-		return new Color(red, green, blue, alpha);
 	}
 
 }

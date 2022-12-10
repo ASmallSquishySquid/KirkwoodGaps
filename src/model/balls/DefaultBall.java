@@ -1,6 +1,5 @@
 package model.balls;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Point;
 
@@ -30,14 +29,12 @@ public class DefaultBall extends ABall {
 	 * @param p the ABall's position.
 	 * @param r the ABall's radius.
 	 * @param v the ABall's velocity.
-	 * @param c the ABall's color.
 	 * @param container the ABall's container.
 	 * @param installAlgo The algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	public DefaultBall(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
-			IModel2BallAdapter modelAdapter) {
-		super(id, p, r, v, c, container, installAlgo, modelAdapter);
+	public DefaultBall(Point p, int r, Point v, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+		super(id, p, r, v, container, installAlgo, modelAdapter);
 	}
 
 }

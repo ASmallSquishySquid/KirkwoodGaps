@@ -1,6 +1,5 @@
 package model.balls;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Point;
 
@@ -33,14 +32,12 @@ public class ErrorBall extends ABall {
 	 * @param p the position.
 	 * @param r the radius.
 	 * @param v the velocity.
-	 * @param c the color.
 	 * @param container the container.
 	 * @param installAlgo the algo to complete the installation of strategies and any other desired operations
 	 * @param modelAdapter The adapter to the model this ball is used in
 	 */
-	public ErrorBall(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
-			IModel2BallAdapter modelAdapter) {
-		super(id, p, r, v, c, container, new ErrorConfigBallAlgo(), modelAdapter);
+	public ErrorBall(Point p, int r, Point v, Component container, AConfigBallAlgo installAlgo, IModel2BallAdapter modelAdapter) {
+		super(id, p, r, v, container, new ErrorConfigBallAlgo(), modelAdapter);
 	}
 
 }

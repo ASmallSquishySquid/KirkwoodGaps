@@ -39,7 +39,7 @@ public interface IBallFactory {
 		@Override
 		public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
 				IModel2BallAdapter modelAdapter) {
-			return new ErrorBall(p, r, v, c, container, installAlgo, modelAdapter);
+			return new ErrorBall(p, r, v, container, installAlgo, modelAdapter);
 		}
 
 		@Override
@@ -56,7 +56,7 @@ public interface IBallFactory {
 		@Override
 		public IBall make(Point p, int r, Point v, Color c, Component container, AConfigBallAlgo installAlgo,
 				IModel2BallAdapter modelAdapter) {
-			return new DefaultBall(p, r, v, c, container, installAlgo, modelAdapter);
+			return new DefaultBall(p, r, v, container, installAlgo, modelAdapter);
 		}
 
 		@Override

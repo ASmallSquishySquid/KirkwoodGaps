@@ -31,7 +31,6 @@ public class BallStrategy implements IPaintStrategy {
 		int radius = context.getRadius();
 		Point2D location = context.getLocation();
 
-		g.setColor(context.getColor());
 		g.fillOval((int) (location.getX() - radius), (int) (location.getY() - radius), 2 * radius, 2 * radius);
 	}
 

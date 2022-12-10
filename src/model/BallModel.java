@@ -99,7 +99,7 @@ public class BallModel {
 	 * The IObjectLoader object which loads in ball types.
 	 */
 	private IObjectLoader<IBall> ballTypeLoader = new ObjectLoader<IBall>(
-			(attempt, args) -> new ErrorBall(new Point(0, 0), 0, new Point(0, 0), null, null, null, null));
+			(attempt, args) -> new ErrorBall(new Point(0, 0), 0, new Point(0, 0), null, null, null));
 
 	/**
 	 * The IDispatcher whose IObservers are ABall objects.

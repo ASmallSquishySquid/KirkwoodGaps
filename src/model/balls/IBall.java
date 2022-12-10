@@ -1,6 +1,5 @@
 package model.balls;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -88,16 +87,6 @@ public interface IBall extends IObserver<IBallCmd>, IBallHost<IBall> {
 	 * @param velocity : the ABall's new velocity.
 	 */
 	void setVelocity(Point2D.Double velocity);
-
-	/**
-	 * @return the ABall's color.
-	 */
-	Color getColor();
-
-	/**
-	 * @param color : the ABall's new color.
-	 */
-	void setColor(Color color);
 
 	/**
 	 * @return the ABall's paint strategy.
