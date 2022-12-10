@@ -28,7 +28,7 @@ public class Constants {
 	/**
 	 * The position of the sun in the GUI.
 	 */
-	public static Point2D.Double sunPosition = new Point2D.Double(100, 100);
+	public static Point2D.Double sunPosition = new Point2D.Double(763, 331);
 	
 	/**
 	 * Calculates the starting position.
