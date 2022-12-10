@@ -1,8 +1,6 @@
 package model.strategies.paint;
 
 import java.awt.Graphics;
-import java.awt.geom.AffineTransform;
-
 import model.balls.IBall;
 
 /**
@@ -20,17 +18,6 @@ public class UprightImagePaintStrategy extends ImagePaintStrategy {
 	 */
 	public UprightImagePaintStrategy(String fileName, double fillFactor) {
 		super(fileName, fillFactor);
-	}
-
-	/**
-	 * Constructor for a new UprightImagePaintStrategy.
-	 *
-	 * @param at an AffineTransform object
-	 * @param fileName the relative path to the image
-	 * @param fillFactor the percentage of the average of the width and height of the image that defines a unit radius for the image
-	 */
-	public UprightImagePaintStrategy(AffineTransform at, String fileName, double fillFactor) {
-		super(at, fileName, fillFactor);
 	}
 
 	@Override

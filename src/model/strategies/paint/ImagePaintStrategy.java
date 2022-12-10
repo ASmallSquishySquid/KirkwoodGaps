@@ -53,18 +53,6 @@ public class ImagePaintStrategy extends APaintStrategy {
 		this.loadedImage = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource(fileName));
 	}
 
-	/**
-	 * Constructor for a new ImagePaintStrategy.
-	 * 
-	 * @param at an AffineTransform object
-	 * @param fileName the relative path to the image
-	 * @param fillFactor the percentage of the average of the width and height of the image that defines a unit radius for the image
-	 */
-	public ImagePaintStrategy(AffineTransform at, String fileName, double fillFactor) {
-		this(fileName, fillFactor);
-		this.at = at;
-	}
-
 	public void init(IBall context) {
 		this.image = context.getIatImage(this.loadedImage);
 
