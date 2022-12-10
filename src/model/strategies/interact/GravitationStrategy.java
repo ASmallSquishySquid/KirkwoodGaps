@@ -41,19 +41,19 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 					// Calculate the necessary combinations.
 
 					double targetMass = target.getMass();
-					int combinedRadius = (int) Math.round(Math.sqrt((contextMass + targetMass) / Math.PI));
+					
 					Point2D.Double combinedVelocity = calcCombinedVelocity(contextBall, target);
 
 					// Check which ball needs to be removed.
 
 					if (contextBall.getRadius() > target.getRadius()) {
 						disp.removeObserver((ABall) target);
-						contextBall.setRadius(combinedRadius);
 						contextBall.setVelocity(combinedVelocity);
+						context.setMass(contextMass + targetMass);
 					} else {
 						disp.removeObserver((ABall) contextBall);
-						target.setRadius(combinedRadius);
 						target.setVelocity(combinedVelocity);
+						target.setMass(contextMass + targetMass);
 					}
 				} else {
 
