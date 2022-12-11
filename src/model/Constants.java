@@ -18,7 +18,12 @@ public class Constants {
 	/**
 	 * Conversion value for km to pixels for GUI display.
 	 */
-	public static double kmToPixels = 1e4;
+	public static double kmToPixels = 1e6;
+	
+	/**
+	 * The scaling for the radii.
+	 */
+	public static double radiusScale = 1e3;
 	
 	/**
 	 * The gravitational constant.
@@ -42,8 +47,8 @@ public class Constants {
 		
 		VectorUtil.Singleton.rotate(position, angle);
 		
-		position.x += Constants.sunPosition.x;
-		position.y += Constants.sunPosition.y;
+		position.x += sunPosition.x;
+		position.y += sunPosition.y;
 		
 		return position;
 		
@@ -57,14 +62,22 @@ public class Constants {
 	 * @return the starting velocity as a Point2D.Double
 	 */
 	public static Point2D.Double calculateVelocity(double distance, double angle) {
+		double underSquare = gravitationalConstant * (sunMass / 1e17) / (distance / kmToPixels);
 		
-		double underSquare = Constants.gravitationalConstant * Constants.sunMass / distance;
-		
-		Point2D.Double velocity = new Point2D.Double(Math.sqrt(underSquare), 0);
+		Point2D.Double velocity = new Point2D.Double(0, -1 * Math.sqrt(underSquare));
 		
 		VectorUtil.Singleton.rotate(velocity, angle);
 		
 		return velocity;
-		
+	}
+	
+	/**
+	 * Scales the radius.
+	 *
+	 * @param radius the object's actual radius
+	 * @return the scaled radius
+	 */
+	public static double calculateRadius(double radius) {
+		return Math.max(10 * Math.log10(radius / radiusScale), 1);
 	}
 }

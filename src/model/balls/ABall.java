@@ -141,7 +141,7 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 		super(id);
 		this.pos = Constants.calculateStartingPosition(distance, angle);
 		this.vel = Constants.calculateVelocity(distance, angle);
-		this.radius = radius / Constants.kmToPixels;
+		this.radius = Constants.calculateRadius(radius);
 		this.mass = mass;
 		this.container = container;
 		this.modelAdapter = modelAdapter;
@@ -306,7 +306,7 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 			@Override
 			public void apply(IBall other, IDispatcher<IBallCmd> disp) {
 				IBallCmd contextPostInteractCmd = null;
-				IBallCmd otherPostInteractCmd = null;
+//				IBallCmd otherPostInteractCmd = null;
 
 				if (context.getCriteriaStrategy().satisfied(context, other)) {
 					// Have the balls interact based on their interact strategies
@@ -314,18 +314,18 @@ public abstract class ABall extends ABallHost<IBall> implements IBall {
 					contextPostInteractCmd = context.interactWith(other, disp);
 				}
 
-				if (other.getCriteriaStrategy().satisfied(other, context)) {
-					// Have the balls interact based on their interact strategies
-					otherPostInteractCmd = other.interactWith(context, disp);
-				}
+//				if (other.getCriteriaStrategy().satisfied(other, context)) {
+//					// Have the balls interact based on their interact strategies
+//					otherPostInteractCmd = other.interactWith(context, disp);
+//				}
 
 				// Apply the interactions
 				if (contextPostInteractCmd != null) {
 					context.update(dispatcher, contextPostInteractCmd);
 				}
-				if (otherPostInteractCmd != null) {
-					other.update(dispatcher, otherPostInteractCmd);
-				}
+//				if (otherPostInteractCmd != null) {
+//					other.update(dispatcher, otherPostInteractCmd);
+//				}
 			}
 		});
 	}

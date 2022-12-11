@@ -15,6 +15,7 @@ import model.adapters.IViewUpdateAdapter;
 import model.balls.ErrorBall;
 import model.balls.IBall;
 import model.balls.IBallFactory;
+import model.balls.MarsBall;
 import model.balls.SunBall;
 import model.strategies.criteria.ErrorCriteriaStrategy;
 import model.strategies.criteria.ICriteriaStrategy;
@@ -133,7 +134,7 @@ public class BallModel {
 	 */
 	public void loadBall(IBallFactory ballFactory, AConfigBallAlgo ballAlgo) {
 		
-		IObserver<IBallCmd> ball = new SunBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
+		IObserver<IBallCmd> ball = new MarsBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
 			@Override
 			public IATImage getImageWrapper(Image image) {
 				return viewCtrlAdpt.getIATImage(image);
@@ -141,6 +142,15 @@ public class BallModel {
 		});
 		
 		ballDispatcher.addObserver(ball);
+		
+		IObserver<IBallCmd> ball2 = new SunBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
+			@Override
+			public IATImage getImageWrapper(Image image) {
+				return viewCtrlAdpt.getIATImage(image);
+			}
+		});
+		
+		ballDispatcher.addObserver(ball2);
 	}
 
 	/**

@@ -2,6 +2,7 @@ package model.strategies.interact;
 
 import java.awt.geom.Point2D;
 
+import model.Constants;
 import model.balls.ABall;
 import model.balls.IBall;
 import model.visitors.cmds.IBallCmd;
@@ -17,7 +18,7 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 	/**
 	 * The gravitational constant G.
 	 */
-	private double gravitationalConstant = 4;
+	private double gravitationalConstant = Constants.gravitationalConstant / 1e17;
 
 	@Override
 	public void init(IBall context) {
