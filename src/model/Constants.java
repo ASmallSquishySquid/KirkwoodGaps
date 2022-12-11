@@ -18,7 +18,7 @@ public class Constants {
 	/**
 	 * Conversion value for km to pixels for GUI display.
 	 */
-	public static double kmToPixels = 1e6;
+	public static double kmToPixels = 3e6;
 	
 	/**
 	 * The scaling for the radii.

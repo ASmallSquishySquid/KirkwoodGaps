@@ -15,6 +15,7 @@ import model.adapters.IViewUpdateAdapter;
 import model.balls.ErrorBall;
 import model.balls.IBall;
 import model.balls.IBallFactory;
+import model.balls.JupiterBall;
 import model.balls.MarsBall;
 import model.balls.SunBall;
 import model.strategies.criteria.ErrorCriteriaStrategy;
@@ -134,23 +135,32 @@ public class BallModel {
 	 */
 	public void loadBall(IBallFactory ballFactory, AConfigBallAlgo ballAlgo) {
 		
-		IObserver<IBallCmd> ball = new MarsBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
+		IObserver<IBallCmd> mars = new MarsBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
 			@Override
 			public IATImage getImageWrapper(Image image) {
 				return viewCtrlAdpt.getIATImage(image);
 			}
 		});
 		
-		ballDispatcher.addObserver(ball);
+		ballDispatcher.addObserver(mars);
 		
-		IObserver<IBallCmd> ball2 = new SunBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
+		IObserver<IBallCmd> sun = new SunBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
 			@Override
 			public IATImage getImageWrapper(Image image) {
 				return viewCtrlAdpt.getIATImage(image);
 			}
 		});
 		
-		ballDispatcher.addObserver(ball2);
+		ballDispatcher.addObserver(sun);
+		
+		IObserver<IBallCmd> jupiter = new JupiterBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
+			@Override
+			public IATImage getImageWrapper(Image image) {
+				return viewCtrlAdpt.getIATImage(image);
+			}
+		});
+		
+		ballDispatcher.addObserver(jupiter);
 	}
 
 	/**

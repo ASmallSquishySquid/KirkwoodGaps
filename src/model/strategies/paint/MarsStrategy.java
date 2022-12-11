@@ -6,7 +6,7 @@ package model.strategies.paint;
  * @author Phoebe Scaccia
  *
  */
-public class MarsStrategy extends UprightImagePaintStrategy {
+public class MarsStrategy extends ImagePaintStrategy {
 	/**
 	 * Constructor for a new MarsStrategy.
 	 */

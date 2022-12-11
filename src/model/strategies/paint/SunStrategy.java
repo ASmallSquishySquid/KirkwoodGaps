@@ -5,7 +5,7 @@ package model.strategies.paint;
  * 
  * @author Phoebe Scaccia
  */
-public class SunStrategy extends UprightImagePaintStrategy {
+public class SunStrategy extends ImagePaintStrategy {
 
 	/**
 	 * Constructor for a new SunStrategy.
