@@ -12,6 +12,7 @@ import model.adapters.IBallAlgo2ModelAdapter;
 import model.adapters.IModel2BallAdapter;
 import model.adapters.IViewControlAdapter;
 import model.adapters.IViewUpdateAdapter;
+import model.balls.AsteroidBall;
 import model.balls.ErrorBall;
 import model.balls.IBall;
 import model.balls.IBallFactory;
@@ -161,6 +162,17 @@ public class BallModel {
 		});
 		
 		ballDispatcher.addObserver(jupiter);
+		
+		for (int i = 0; i < 2000; i++) {
+			IObserver<IBallCmd> asteroid = new AsteroidBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
+				@Override
+				public IATImage getImageWrapper(Image image) {
+					return viewCtrlAdpt.getIATImage(image);
+				}
+			});
+			
+			ballDispatcher.addObserver(asteroid);
+		}
 	}
 
 	/**
