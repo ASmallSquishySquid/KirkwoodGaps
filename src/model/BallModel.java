@@ -47,7 +47,7 @@ public class BallModel {
 	/**
 	 * The timer managing the update time.
 	 */
-	private Timer timer = new Timer(10000, (e) -> viewUpdtAdpt.update());
+	private Timer timer = new Timer(200, (e) -> viewUpdtAdpt.update());
 	/**
 	 * The timer managing the update time.
 	 */
@@ -115,7 +115,7 @@ public class BallModel {
 		
 		ballDispatcher.addObserver(jupiter);
 		
-		for (int i = 0; i < 500; i++) {
+		for (int i = 0; i < 3000; i++) {
 			IObserver<IBallCmd> asteroid = new AsteroidBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
 				@Override
 				public IATImage getImageWrapper(Image image) {
