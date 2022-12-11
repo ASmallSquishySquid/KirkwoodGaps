@@ -1,5 +1,6 @@
 package model.strategies.paint;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.geom.Point2D;
 
@@ -30,7 +31,7 @@ public class BallStrategy implements IPaintStrategy {
 	public void paint(Graphics g, IBall context) {
 		int radius = (int) context.getRadius();
 		Point2D location = context.getLocation();
-
+		g.setColor(Color.WHITE);
 		g.fillOval((int) (location.getX() - radius), (int) (location.getY() - radius), 2 * radius, 2 * radius);
 	}
 

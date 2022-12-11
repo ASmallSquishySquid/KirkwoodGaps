@@ -24,7 +24,7 @@ public class Constants {
 	/**
 	 * The position of the sun in the GUI.
 	 */
-	public static Point2D.Double sunPosition = new Point2D.Double(763, 331);
+	public static Point2D.Double sunPosition = new Point2D.Double(722.5, 395.5);
 	
 	/**
 	 * Conversion value for km to pixels for GUI display.
