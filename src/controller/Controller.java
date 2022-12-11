@@ -4,6 +4,9 @@ import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
+
+import javax.swing.SwingUtilities;
+
 import model.BallModel;
 import model.adapters.IViewControlAdapter;
 import model.adapters.IViewUpdateAdapter;
@@ -49,7 +52,7 @@ public class Controller {
 
 			@Override
 			public void update() {
-				view.update();
+				SwingUtilities.invokeLater(() -> view.update());
 			}
 
 		});
@@ -59,18 +62,26 @@ public class Controller {
 
 					@Override
 					public void clearBalls() {
-						model.clearBalls();
+						new Thread() {
+							public void run() {
+								model.clearBalls();
+							}
+						}.start();
 					}
 
 					@Override
 					public void makeBalls() {
-						model.loadBalls();
+						new Thread() {
+							public void run() {
+								model.loadBalls();
+							}
+						}.start();
 					}
 				}, new IModelUpdateAdapter() {
 
 					@Override
 					public void update(Graphics g) {
-						model.update(g);
+						model.paint(g);
 					}
 				});
 	}

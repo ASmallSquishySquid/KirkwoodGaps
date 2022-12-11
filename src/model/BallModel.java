@@ -2,6 +2,12 @@ package model;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
 import javax.swing.Timer;
 
 import model.adapters.IModel2BallAdapter;
@@ -23,10 +29,9 @@ import provided.utils.displayModel.IATImage;
  */
 public class BallModel {
 	/**
-	 * The time, in milliseconds, that the GUI updates.
+	 * The number of screenshots taken.
 	 */
-	private int timeSlice = 20;
-
+	private int captures = 0;
 	/**
 	 * The IDispatcher whose IObservers are ABall objects.
 	 */
@@ -42,7 +47,17 @@ public class BallModel {
 	/**
 	 * The timer managing the update time.
 	 */
-	private Timer timer = new Timer(timeSlice, (e) -> viewUpdtAdpt.update());
+	private Timer timer = new Timer(10000, (e) -> viewUpdtAdpt.update());
+	/**
+	 * The timer managing the update time.
+	 */
+	private Timer timer2 = new Timer(900000, (e) -> {
+		new Thread() {
+			public void run() {
+				screenshot();
+			}
+		}.start();
+	});
 
 	/**
 	 * Constructor for the BallModel.
@@ -59,6 +74,7 @@ public class BallModel {
 	 */
 	public void start() {
 		this.timer.start();
+		this.timer2.start();
 	}
 
 	/**
@@ -99,7 +115,7 @@ public class BallModel {
 		
 		ballDispatcher.addObserver(jupiter);
 		
-		for (int i = 0; i < 2000; i++) {
+		for (int i = 0; i < 500; i++) {
 			IObserver<IBallCmd> asteroid = new AsteroidBall(viewCtrlAdpt.getCanvas(), new IModel2BallAdapter() {
 				@Override
 				public IATImage getImageWrapper(Image image) {
@@ -109,13 +125,16 @@ public class BallModel {
 			
 			ballDispatcher.addObserver(asteroid);
 		}
+		
+		while (true) {
+			update();
+		}
 	}
 
 	/**
 	 * Updates all that ABalls that are observers.
-	 * @param g the Graphics object for the view.
 	 */
-	public void update(Graphics g) {
+	public void update() {
 		ballDispatcher.updateAll(new IBallCmd() {
 
 			@Override
@@ -123,9 +142,37 @@ public class BallModel {
 				context.move();
 				context.interact(disp);
 				context.updateState(disp);
+			}
+
+		});
+	}
+	
+	/**
+	 * Paints the system to the view.
+	 *
+	 * @param g the graphics object provided by the view.
+	 */
+	public void paint(Graphics g) {
+		ballDispatcher.updateAll(new IBallCmd() {
+
+			@Override
+			public void apply(IBall context, IDispatcher<IBallCmd> disp) {
 				context.paint(g);
 			}
 
 		});
+	}
+	
+	/**
+	 * Takes a screenshot of the progress.
+	 */
+	public void screenshot() {
+		try {
+			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+			BufferedImage capture = new Robot().createScreenCapture(screenRect);
+			ImageIO.write(capture, "bmp", new File("C:\\Users\\2scac\\Desktop\\Kirkwood Progress\\" + captures++ + ".bmp"));
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 	}
 }

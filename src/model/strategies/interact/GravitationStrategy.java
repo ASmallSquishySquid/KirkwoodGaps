@@ -3,7 +3,6 @@ package model.strategies.interact;
 import java.awt.geom.Point2D;
 
 import model.Constants;
-import model.balls.ABall;
 import model.balls.IBall;
 import model.visitors.cmds.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
@@ -34,45 +33,21 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 		return new IBallCmd() {
 			@Override
 			public void apply(IBall contextBall, IDispatcher<IBallCmd> disp) {
-
-				// Combine balls that collide (as gravity tends to do).
-
-				if (dist < contextBall.getRadius() + target.getRadius()) {
-
-					// Calculate the necessary combinations.
-
-					double targetMass = target.getMass();
-					
-					Point2D.Double combinedVelocity = calcCombinedVelocity(contextBall, target);
-
-					// Check which ball needs to be removed.
-
-					if (contextBall.getRadius() > target.getRadius()) {
-						disp.removeObserver((ABall) target);
-						contextBall.setVelocity(combinedVelocity);
-						context.setMass(contextMass + targetMass);
-					} else {
-						disp.removeObserver((ABall) contextBall);
-						target.setVelocity(combinedVelocity);
-						target.setMass(contextMass + targetMass);
-					}
-				} else {
-
-					// Get the direction of the force
-
-					Point2D.Double unitVector = calcUnitVec(target.getLocation(), context.getLocation(), dist);
-
-					// Get the target's change in velocity.
-
-					Point2D.Double dV = calcdV(contextMass, unitVector, dist);
-					Point2D.Double newVelocity = target.getVelocity();
-					newVelocity.x += dV.x;
-					newVelocity.y += dV.y;
-
-					// Apply the acceleration.
-
-					target.setVelocity(newVelocity);
-				}
+	
+				// Get the direction of the force
+	
+				Point2D.Double unitVector = calcUnitVec(target.getLocation(), context.getLocation(), dist);
+	
+				// Get the target's change in velocity.
+	
+				Point2D.Double dV = calcdV(contextMass, unitVector, dist);
+				Point2D.Double newVelocity = target.getVelocity();
+				newVelocity.x += dV.x;
+				newVelocity.y += dV.y;
+	
+				// Apply the acceleration.
+	
+				target.setVelocity(newVelocity);
 			}
 		};
 	}
@@ -107,23 +82,6 @@ public class GravitationStrategy implements IInteractStrategy<IBallCmd> {
 		dV.x *= acceleration;
 		dV.y *= acceleration;
 		return dV;
-	}
-
-	/**
-	 * Calculates the combined velocity of two balls.
-	 *
-	 * @param context an IBall
-	 * @param target an IBall
-	 * @return a Point2D.Double representation of the velocities
-	 */
-	private Point2D.Double calcCombinedVelocity(IBall context, IBall target) {
-		double contextMass = Math.PI * (context.getRadius() * context.getRadius());
-		double targetMass = Math.PI * (target.getRadius() * target.getRadius());
-		return new Point2D.Double(
-				(contextMass * context.getVelocity().x + targetMass * target.getVelocity().x)
-						/ (contextMass + targetMass),
-				(contextMass * context.getVelocity().y + targetMass * target.getVelocity().y)
-						/ (contextMass + targetMass));
 	}
 
 }
