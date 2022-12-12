@@ -18,7 +18,8 @@
 			<div class="row">
 				<div class="column">
 					<a href="https://github.com/ASmallSquishySquid/astr350final" target="_blank">
-						<img class="portfolio-pin" src="https://github-readme-stats.vercel.app/api/pin/?username=ASmallSquishySquid&repo=astr350final" />
+						<img class="portfolio-pin" 
+						src="https://github-readme-stats.vercel.app/api/pin/?username=ASmallSquishySquid&repo=astr350final" />
 					</a>
 				</div>
 			</div>
@@ -32,25 +33,48 @@
 			<h2 id="tracking">Tracking</h2>
 
 			<h2 id="results">Results</h2>
-			<div class="row">
-				<div class="column">
-					<h3 id="run1">Run 1</h3>
-					<img src="src/Animation.gif"></img>
-				</div>
-				<div class="column">
-					<h3 id="run2">Run 2</h3>
-					<img src="src/Animation-2.gif"></img>
-				</div>
-				<div class="column">
-					<h3 id="run3">Run 3</h3>
-					<img src="src/Animation-3.gif"></img>
-				</div>
-			</div>
+
+			<h3 id="run1">Run 1</h3>
+			<figure>
+				<img src="src/Animation.gif" />
+				<figcaption>Run to 270,000 years.</figcaption>
+			</figure>
+			<p>
+				This was my initial run. I ran my code overnight, but it only got to 270,000 years due to an inefficiency in my 
+				code that I didn't catch at first. The yellow overlay shows where the gaps are expected to form. However, I did
+				use enough asteroids nor did I run the model for long enough to see the gaps form.
+			</p>
+
+			<h3 id="run2">Run 2</h3>
+			<figure>
+				<img src="src/Animation-2.gif" />
+				<figcaption>Run to 1,810,000 years.</figcaption>
+			</figure>
+			<p>
+				For my second run, I fixed the inefficiency in my code and added coloring to the asteroids. The color is tied to
+				initial starting position, as discussed in the <a href="tracking">Tracking</a> section above. This model ran for
+				approximately five hours.
+			</p>
+			
+			<h3 id="run3">Run 3</h3>
+			<figure>
+				<img src="src/Animation-3.gif" />
+				<figcaption>Run to 3,540,000 years.</figcaption>
+			</figure>
+			<p>
+				The model ran overnight for approximately ten hours. This is the same model as the previous run, just run for
+				longer. This allowed the gaps that were starting to form in run two to become more apparent.
+			</p>
 
 			<h2 id="presentation">Presentation</h2>
-			<div class="google-slides-container">
-				<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRoKIx9cWRA3jZfDSXP8LzS7jddML3oDBixDDQqcPcBMHKk-hkt-QgCJIA4BBOVvR6SNGq9-1W_oACz/embed?start=true&loop=true&delayms=5000" frameborder="0" width="1440" height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-			</div>
+			<figure>
+				<div class="google-slides-container">
+					<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRoKIx9cWRA3jZfDSXP8LzS7jddML3oDBixDDQqcPcBMHKk-
+					hkt-QgCJIA4BBOVvR6SNGq9-1W_oACz/embed?start=true&loop=true&delayms=5000" frameborder="0" width="1440" 
+					height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" />
+				</div>
+				<figcaption>These slides contain all of the above information in handy, presentation-ready format.</figcaption>
+			</figure>
 		</div>
 	</body>
 </html>
