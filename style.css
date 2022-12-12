@@ -16,6 +16,12 @@ body {
 	font-family: "Noto Sans", sans-serif;
 	font-size: 16px;
 }
+
 h1, h2, h3 {
 	font-family: "Oswald", serif;
 }
+
+img {
+	width: 100%;
+	height: auto;
+  }
