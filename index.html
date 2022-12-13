@@ -69,23 +69,66 @@
 				</figure>
 			</div>
 
-			<h2 id="challenges">Challenges</h2>
-			<div>
-
-			</div>
-
 			<h2 id="setup">Setup</h2>
 			<div>
+				<p>
+					This project was built in Java using the Rice University COMP 310 
+					<a href="https://www.clear.rice.edu/comp310/s17/assignments/hw05/index.html">Ballworld project</a> as its base.
+					I chose to use this because Ballworld provides an easy GUI for displaying the model's progress as well as a
+					existing functionality for complex particle interactions. Of course, the project needed to be heavily modified
+					to scale to large scale systems such as our solar system. The different components (Mars, Jupiter, etc.),
+					could not be individually displayed to scale, as they would be smaller than a pixel in the scale of the
+					solar system. However, their orbital distance from the Sun and relative speeds are to scale. Each Jupiter
+					orbit corresponds to a little more than six Mars orbits, just as in our real solar system.
+				</p>
+			</div>
 
+			<h2 id="challenges">Challenges</h2>
+			<div>
+				<p>
+					Simulating an n-body problem's progress over millions of years is computationally expensive. With 3003 
+					particles in the system, simplifications and optimizations must be made in order to achieve any results
+					within a reasonable amount of time.
+				</p>
+				<p>
+					The most costly calculation in this model is displaying the results to the GUI. Reducing the frequency of
+					GUI updates significantly increases computation speed for the actual model. However, the GUI must update
+					at a rate at which the human eye can still track how long it takes for Jupiter to make one orbit in order
+					to calculate the amount of time that has passed during the modeling process. With the final model, the GUI
+					was updated every tenth of a second because Jupiter's orbital period was approximately one eighth of a
+					second.
+				</p>
+				<p>
+					In order to simplify the 3003-body problem to a 3-body problem, the asteroids were treated as massless
+					objects. This means that they can still be pulled around by the Sun, Mars, and Jupiter, but they will not
+					interact amongst themselves. This reduces the time complexity from O(n<sup>2</sup>) to O(n) where n is the 
+					number of particles in the system. This means that there are much fewer computations that need to be done
+					and the model can progress much more quickly with more particles.
+				</p>
 			</div>
 
 			<h2 id="tracking">Tracking</h2>
 			<div>
-
+				<p>
+					In order to keep track of the progression of the model, I take a screenshot every fifteen minutes. These
+					screenshots were used to make the progression gifs seen in the <a href="results">Results</a> section below.
+				</p>
+				<p>
+					Additionally, the asteroids are colored differently depending on their initial starting position. Asteroids
+					that started within 3.47e8 km of the Sun are white. Asteroids that started farther than 4.22e8 km from the
+					Sun are magenta. The rest of the asteroids are cyan. These values were chosen because those are the
+					approximate locations of the Kirkwood Gaps. The coloration of the asteroids makes it easy to track any
+					migration as well as approximate the location of where gaps are expected to be formed.
+				</p>
 			</div>
 
 			<h2 id="results">Results</h2>
 			<div>
+				<p>
+					The innermost gap was the most apparent gap that formed. The two outer gaps were a little less obvious.
+					This may be due to the simplification of the model. The third run had the most obvious outer gaps, which
+					makes sense given that it modeled the longest amount of time (3.5 million years).
+				</p>
 				<h3 id="run1">Run 1</h3>
 				<div>
 					<figure>
