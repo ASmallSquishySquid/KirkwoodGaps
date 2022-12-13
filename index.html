@@ -11,131 +11,133 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
 	</head>
 	<body>
-		<h1 id="simulating-kirkwood-gaps">Simulating Kirkwood Gaps</h1>
+		<div class="content">
+			<h1 id="simulating-kirkwood-gaps">Simulating Kirkwood Gaps</h1>
 
-		<h2 id="_phoebe-scaccia_"><em>Phoebe Scaccia</em></h2>
-		<div class="row">
-			<div class="column">
-				<a href="https://github.com/ASmallSquishySquid/astr350final" target="_blank">
-					<img class="portfolio-pin" 
-					src="https://github-readme-stats.vercel.app/api/pin/?username=ASmallSquishySquid&repo=astr350final" />
-				</a>
-			</div>
-		</div>
-
-		<h2 id="overview">Overview</h2>
-		<div>
-			<p>
-				The Kirkwood Gaps form due to orbital resonances of asteroids in the asteroid belt with the orbit of Jupiter.
-				They occur at 3:1, 5:2, 7:3, and 2:1 orbital period ratios with Jupiter. At these ratios, Jupiter pulls on the
-				asteroids such that their orbits change and they no longer have orbital periods in resonance with Jupiter.
-			</p>
-			<figure>
-				<p>
-					<a href="https://commons.wikimedia.org/wiki/File:Kirkwood-20060509.png#/media/File:Kirkwood-20060509.png">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Kirkwood-20060509.png" alt="Kirkwood-20060509.png">
+			<h2 id="_phoebe-scaccia_"><em>Phoebe Scaccia</em></h2>
+			<div class="row">
+				<div class="column">
+					<a href="https://github.com/ASmallSquishySquid/astr350final" target="_blank">
+						<img class="portfolio-pin" 
+						src="https://github-readme-stats.vercel.app/api/pin/?username=ASmallSquishySquid&repo=astr350final" />
 					</a>
-					<br>
-					By <a href="https://en.wikipedia.org/wiki/User:Mdf" class="extiw" title="wikipedia:User:Mdf">Mdf</a> at 
-					<a href="https://en.wikipedia.org/wiki/" class="extiw" title="wikipedia:">English Wikipedia</a> 
-					- Transferred from 
-					<span class="plainlinks">
-						<a class="external text" href="https://en.wikipedia.org">en.wikipedia</a>
-					</span>
-					 to Commons by <a href="//commons.wikimedia.org/wiki/User:Quadell" title="User:Quadell">Quadell</a> using 
-					 <a href="https://iw.toolforge.org/commonshelper/" class="extiw" title="toollabs:commonshelper/">
-						CommonsHelper
-					</a>., Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=7109312">Link</a>
-				</p>
-			</figure>
-		</div>
-		
-		<h2 id="goal">Goal</h2>
-		<div>
-			<p>
-				The goal of this project is to simulate the formation of the Kirkwood Gaps. Along the way, I will also explore
-				the limitations in modelling complex n-body systems. Here is an example of the results that we should see:
-			</p>
-			<figure>
-				<div class="google-slides-container">
-					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/LF1jx3z5Qnc" 
-					title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-					encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
-				<figcaption>
-					A simulation comparing eccentricity to distance from the sun as time goes by.
-				</figcaption>
-			</figure>
-		</div>
-
-		<h2 id="challenges">Challenges</h2>
-		<div>
-
-		</div>
-
-		<h2 id="setup">Setup</h2>
-		<div>
-
-		</div>
-
-		<h2 id="tracking">Tracking</h2>
-		<div>
-
-		</div>
-
-		<h2 id="results">Results</h2>
-		<div>
-			<h3 id="run1">Run 1</h3>
-			<div>
-				<figure>
-					<img src="src/Animation.gif" />
-					<figcaption>Run to 270,000 years.</figcaption>
-				</figure>
-				<p>
-					This was my initial run. I ran my code overnight, but it only got to 270,000 years due to an inefficiency in my 
-					code that I didn't catch at first. The yellow overlay shows where the gaps are expected to form. However, I did
-					use enough asteroids nor did I run the model for long enough to see the gaps form.
-				</p>
 			</div>
 
-			<h3 id="run2">Run 2</h3>
+			<h2 id="overview">Overview</h2>
 			<div>
-				<figure>
-					<img src="src/Animation-2.gif" />
-					<figcaption>Run to 1,810,000 years.</figcaption>
-				</figure>
 				<p>
-					For my second run, I fixed the inefficiency in my code and added coloring to the asteroids. The color is tied to
-					initial starting position, as discussed in the <a href="tracking">Tracking</a> section above. This model ran for
-					approximately five hours.
+					The Kirkwood Gaps form due to orbital resonances of asteroids in the asteroid belt with the orbit of Jupiter.
+					They occur at 3:1, 5:2, 7:3, and 2:1 orbital period ratios with Jupiter. At these ratios, Jupiter pulls on the
+					asteroids such that their orbits change and they no longer have orbital periods in resonance with Jupiter.
 				</p>
+				<figure>
+					<p>
+						<a href="https://commons.wikimedia.org/wiki/File:Kirkwood-20060509.png#/media/File:Kirkwood-20060509.png">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Kirkwood-20060509.png" alt="Kirkwood-20060509.png">
+						</a>
+						<br>
+						By <a href="https://en.wikipedia.org/wiki/User:Mdf" class="extiw" title="wikipedia:User:Mdf">Mdf</a> at 
+						<a href="https://en.wikipedia.org/wiki/" class="extiw" title="wikipedia:">English Wikipedia</a> 
+						- Transferred from 
+						<span class="plainlinks">
+							<a class="external text" href="https://en.wikipedia.org">en.wikipedia</a>
+						</span>
+						to Commons by <a href="//commons.wikimedia.org/wiki/User:Quadell" title="User:Quadell">Quadell</a> using 
+						<a href="https://iw.toolforge.org/commonshelper/" class="extiw" title="toollabs:commonshelper/">
+							CommonsHelper
+						</a>., Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=7109312">Link</a>
+					</p>
+				</figure>
 			</div>
 			
-			<h3 id="run3">Run 3</h3>
+			<h2 id="goal">Goal</h2>
+			<div>
+				<p>
+					The goal of this project is to simulate the formation of the Kirkwood Gaps. Along the way, I will also explore
+					the limitations in modelling complex n-body systems. Here is an example of the results that we should see:
+				</p>
+				<figure>
+					<div class="google-slides-container">
+						<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/LF1jx3z5Qnc" 
+						title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+						encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<figcaption>
+						A simulation comparing eccentricity to distance from the sun as time goes by.
+					</figcaption>
+				</figure>
+			</div>
+
+			<h2 id="challenges">Challenges</h2>
+			<div>
+
+			</div>
+
+			<h2 id="setup">Setup</h2>
+			<div>
+
+			</div>
+
+			<h2 id="tracking">Tracking</h2>
+			<div>
+
+			</div>
+
+			<h2 id="results">Results</h2>
+			<div>
+				<h3 id="run1">Run 1</h3>
+				<div>
+					<figure>
+						<img src="src/Animation.gif" />
+						<figcaption>Run to 270,000 years.</figcaption>
+					</figure>
+					<p>
+						This was my initial run. I ran my code overnight, but it only got to 270,000 years due to an inefficiency in my 
+						code that I didn't catch at first. The yellow overlay shows where the gaps are expected to form. However, I did
+						use enough asteroids nor did I run the model for long enough to see the gaps form.
+					</p>
+				</div>
+
+				<h3 id="run2">Run 2</h3>
+				<div>
+					<figure>
+						<img src="src/Animation-2.gif" />
+						<figcaption>Run to 1,810,000 years.</figcaption>
+					</figure>
+					<p>
+						For my second run, I fixed the inefficiency in my code and added coloring to the asteroids. The color is tied to
+						initial starting position, as discussed in the <a href="tracking">Tracking</a> section above. This model ran for
+						approximately five hours.
+					</p>
+				</div>
+				
+				<h3 id="run3">Run 3</h3>
+				<div>
+					<figure>
+						<img src="src/Animation-3.gif" />
+						<figcaption>Run to 3,540,000 years.</figcaption>
+					</figure>
+					<p>
+						The model ran overnight for approximately ten hours. This is the same model as the previous run, just run for
+						longer. This allowed the gaps that were starting to form in run two to become more apparent.
+					</p>
+				</div>
+			</div>
+
+			<h2 id="presentation">Presentation</h2>
 			<div>
 				<figure>
-					<img src="src/Animation-3.gif" />
-					<figcaption>Run to 3,540,000 years.</figcaption>
+					<div class="google-slides-container">
+						<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRoKIx9cWRA3jZfDSXP8LzS7jddML3oDBixDDQqcPcBMHKk-
+						hkt-QgCJIA4BBOVvR6SNGq9-1W_oACz/embed?start=true&loop=true&delayms=5000" frameborder="0" width="1440" 
+						height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+					</div>
+					<figcaption>
+						These slides contain all of the above information in handy, presentation-ready format.
+					</figcaption>
 				</figure>
-				<p>
-					The model ran overnight for approximately ten hours. This is the same model as the previous run, just run for
-					longer. This allowed the gaps that were starting to form in run two to become more apparent.
-				</p>
 			</div>
-		</div>
-
-		<h2 id="presentation">Presentation</h2>
-		<div>
-			<figure>
-				<div class="google-slides-container">
-					<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRoKIx9cWRA3jZfDSXP8LzS7jddML3oDBixDDQqcPcBMHKk-
-					hkt-QgCJIA4BBOVvR6SNGq9-1W_oACz/embed?start=true&loop=true&delayms=5000" frameborder="0" width="1440" 
-					height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-				</div>
-				<figcaption>
-					These slides contain all of the above information in handy, presentation-ready format.
-				</figcaption>
-			</figure>
 		</div>
 	</body>
 </html>
