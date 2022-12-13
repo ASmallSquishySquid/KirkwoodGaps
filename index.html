@@ -86,7 +86,7 @@
 			<h2 id="challenges">Challenges</h2>
 			<div>
 				<p>
-					Simulating an n-body problem's progress over millions of years is computationally expensive. With 3003 
+					Simulating an n-body problem's progress over millions of years is computationally expensive. With 3,003 
 					particles in the system, simplifications and optimizations must be made in order to achieve any results
 					within a reasonable amount of time.
 				</p>
@@ -99,7 +99,7 @@
 					second.
 				</p>
 				<p>
-					In order to simplify the 3003-body problem to a 3-body problem, the asteroids were treated as massless
+					In order to simplify the 3,003-body problem to a 3-body problem, the asteroids were treated as massless
 					objects. This means that they can still be pulled around by the Sun, Mars, and Jupiter, but they will not
 					interact amongst themselves. This reduces the time complexity from O(n<sup>2</sup>) to O(n) where n is the 
 					number of particles in the system. This means that there are much fewer computations that need to be done
@@ -131,40 +131,40 @@
 				</p>
 				<h3 id="run1">Run 1</h3>
 				<div>
-					<figure>
-						<img src="src/Animation.gif" />
-						<figcaption>Run to 270,000 years.</figcaption>
-					</figure>
 					<p>
 						This was my initial run. I ran my code overnight, but it only got to 270,000 years due to an inefficiency in my 
 						code that I didn't catch at first. The yellow overlay shows where the gaps are expected to form. However, I did
 						use enough asteroids nor did I run the model for long enough to see the gaps form.
 					</p>
+					<figure>
+						<img src="src/Animation.gif" />
+						<figcaption>Run to 270,000 years.</figcaption>
+					</figure>
 				</div>
 
 				<h3 id="run2">Run 2</h3>
 				<div>
-					<figure>
-						<img src="src/Animation-2.gif" />
-						<figcaption>Run to 1,810,000 years.</figcaption>
-					</figure>
 					<p>
 						For my second run, I fixed the inefficiency in my code and added coloring to the asteroids. The color is tied to
 						initial starting position, as discussed in the <a href="tracking">Tracking</a> section above. This model ran for
 						approximately five hours.
 					</p>
+					<figure>
+						<img src="src/Animation-2.gif" />
+						<figcaption>Run to 1,810,000 years.</figcaption>
+					</figure>
 				</div>
 				
 				<h3 id="run3">Run 3</h3>
 				<div>
-					<figure>
-						<img src="src/Animation-3.gif" />
-						<figcaption>Run to 3,540,000 years.</figcaption>
-					</figure>
 					<p>
 						The model ran overnight for approximately ten hours. This is the same model as the previous run, just run for
 						longer. This allowed the gaps that were starting to form in run two to become more apparent.
 					</p>
+					<figure>
+						<img src="src/Animation-3.gif" />
+						<figcaption>Run to 3,540,000 years.</figcaption>
+					</figure>
 				</div>
 			</div>
 
