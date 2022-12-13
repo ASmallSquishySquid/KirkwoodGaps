@@ -3,4 +3,4 @@
 
 Final project for ASTR 350 at Rice University.
 
-For a full overview, click [here](https://asmallsquishysquid.github.io/astr350final/).
+For a full overview, click [here](https://asmallsquishysquid.github.io/KirkwoodGaps/).
